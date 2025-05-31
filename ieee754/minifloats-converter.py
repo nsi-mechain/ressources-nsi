@@ -10,7 +10,8 @@ def flottant_vers_minifloat(val):
     if math.isinf(val):
         return f"{int(val < 0)} 1111 000"
     if val == 0:
-        return "0 0000 000"
+        signe = 1 if math.copysign(1.0, val) < 0 else 0
+        return f"{signe} 0000 000"
 
     signe = 0 if val > 0 else 1
     val = abs(val)
@@ -48,7 +49,7 @@ def minifloat_vers_flottant(binaire):
         else:
             return float('nan')
     if exposant == 0 and mantisse == 0:
-        return 0.0
+        return -0.0 if signe else 0.0
 
     e = exposant - BIAS
     frac = 1 + mantisse / 8.0
@@ -64,13 +65,12 @@ def est_approximation(valeur, binaire):
         if math.isinf(valeur) and math.isinf(reconverti):
             return False
         if valeur == 0 and reconverti == 0:
-            return False
+            return math.copysign(1.0, valeur) != math.copysign(1.0, reconverti)
         return not math.isclose(valeur, reconverti, rel_tol=0.0, abs_tol=0.0)
     except Exception:
         return True
 
 
-# Interface graphique
 fenetre = tk.Tk()
 fenetre.title("Encodeur/Décodeur MiniFloat (1,4,3)")
 
@@ -122,11 +122,12 @@ def decoder():
         afficher_etat(f"Erreur : {e}", fg="red", bg="#ffe6e6")
 
 
-tk.Button(fenetre, text="Encoder → Binaire", command=encoder).grid(row=2, column=0, padx=10, pady=10, sticky="e")
-tk.Button(fenetre, text="Décoder → Flottant", command=decoder).grid(row=2, column=1, padx=5, pady=10, sticky="w")
+tk.Button(fenetre, text="Encoder → Binaire", command=encoder).grid(row=2, column=0, padx=10, pady=10, sticky='e')
+tk.Button(fenetre, text="Décoder → Flottant", command=decoder).grid(row=2, column=1, padx=5, pady=10, sticky='w')
 
 entree_flottant.insert(0, "1.0")
 entree_binaire.insert(0, flottant_vers_minifloat(1.0))
 afficher_etat("Exemple chargé : 1.0 → 0 0111 000", fg="darkgreen", bg="#e6ffcc")
 
 fenetre.mainloop()
+
