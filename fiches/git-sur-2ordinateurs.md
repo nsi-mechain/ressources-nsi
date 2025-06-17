@@ -29,7 +29,7 @@ git pull
 Enregistrez vos modifications localement :
 
 ```bash
-git add .
+git add --all
 git commit -m "Votre message de commit"
 ```
 
