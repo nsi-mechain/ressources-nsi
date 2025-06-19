@@ -51,7 +51,7 @@ SQLite est une bibliothèque légère pour manipuler des bases de données facil
 
 - `TEXT` : chaîne de caractères (ex : "Alice")
 
-- `BLOB` : données binaires (rarement utilisé en NSI)
+- `BLOB` : données binaires
 
 - `NULL` : absence de valeur
 
