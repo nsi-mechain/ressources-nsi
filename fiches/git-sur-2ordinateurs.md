@@ -1,4 +1,4 @@
-![Static Badge](https://img.shields.io/badge/Notice-green?logo=git&logoColor=red&label=Git)
+![Static Badge](https://img.shields.io/badge/Notice-green?logo=github&logoColor=white&label=GitHub)
 
 # Utiliser GitHub sur deux postes de travail (ou plus)
 
