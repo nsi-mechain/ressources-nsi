@@ -1,4 +1,6 @@
-# 🐍 Fiche Mémo PIP
+![Static Badge](https://img.shields.io/badge/Conseils-green?logo=python&logoColor=yellow&label=pip)
+
+# Mémo PIP
 
 ## Installation / Mise à jour
 
