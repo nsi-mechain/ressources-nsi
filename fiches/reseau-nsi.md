@@ -2,7 +2,7 @@
 
 # Réseau WiFi Salle 247 – NSI
 
-## 🌐 Informations générales
+## Informations générales
 
 - **Réseau** : `192.168.247.0/27`
 - **Masque** : `255.255.255.224`
@@ -11,7 +11,7 @@
 - **Plage d'adresses utilisables** : `192.168.247.1` à `192.168.247.30`
 - **Nombre d'adresses utilisables** : 30
 
-## 🗂️ Répartition des adresses
+## Répartition des adresses
 
 | Adresse IP          | Attribué à                |
 | ------------------- | ------------------------- |
