@@ -1,3 +1,5 @@
+![Static Badge](https://img.shields.io/badge/Information-green?logo=reactrouter&logoColor=yellow&label=r%C3%A9seau)
+
 # Réseau WiFi Salle 247 – NSI
 
 ## 🌐 Informations générales
