@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-32b94a6aeef17b10be28a252de78d279c1d924bde27d886d'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQLite: Help</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="help rpage-help cpage-help">
+<header>
+  <div class="title"><h1>SQLite</h1>Help</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='https://sqlite.org/' class=''>Home</a>
+<a href='timeline.html' class=''>Timeline</a>
+<a href='https://sqlite.org/forum/forum' class='desktoponly'>Forum</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="content"><span id="debugMsg"></span>
+<a name='commands'></a>
+<h1>Available commands:</h1>
+<div class="columns" style="column-width: 28ex;">
+<ul>
+<li><a href="help%3Fcmd=3-way-merge.html">3-way-merge</a>
+</li>
+<li><a href="help%3Fcmd=add.html"><b>add</b></a>
+</li>
+<li><a href="help%3Fcmd=addremove.html"><b>addremove</b></a>
+</li>
+<li><a href="help%3Fcmd=alerts.html">alerts</a>
+</li>
+<li><a href="help%3Fcmd=all.html"><b>all</b></a>
+</li>
+<li><a href="help%3Fcmd=amend.html"><b>amend</b></a>
+</li>
+<li><a href="help%3Fcmd=annotate.html"><b>annotate</b></a>
+</li>
+<li><a href="help%3Fcmd=artifact.html">artifact</a>
+</li>
+<li><a href="help%3Fcmd=attachment.html">attachment</a>
+</li>
+<li><a href="help%3Fcmd=backoffice.html">backoffice</a>
+</li>
+<li><a href="help%3Fcmd=backup.html">backup</a>
+</li>
+<li><a href="help%3Fcmd=bisect.html"><b>bisect</b></a>
+</li>
+<li><a href="help%3Fcmd=blame.html"><b>blame</b></a>
+</li>
+<li><a href="help%3Fcmd=branch.html"><b>branch</b></a>
+</li>
+<li><a href="help%3Fcmd=bundle.html">bundle</a>
+</li>
+<li><a href="help%3Fcmd=cache.html">cache</a>
+</li>
+<li><a href="help%3Fcmd=cat.html"><b>cat</b></a>
+</li>
+<li><a href="help%3Fcmd=cgi.html">cgi</a>
+</li>
+<li><a href="help%3Fcmd=changes.html"><b>changes</b></a>
+</li>
+<li><a href="help%3Fcmd=chat.html"><b>chat</b></a>
+</li>
+<li><a href="help%3Fcmd=checkout.html">checkout</a>
+(<a href="help%3Fcmd=co.html">co</a>)</li>
+<li><a href="help%3Fcmd=cherrypick.html"><b>cherrypick</b></a>
+(<a href="help%3Fcmd=cherry-pick.html">cherry-pick</a>)</li>
+<li><a href="help%3Fcmd=clean.html"><b>clean</b></a>
+</li>
+<li><a href="help%3Fcmd=clone.html"><b>clone</b></a>
+</li>
+<li><a href="help%3Fcmd=close.html">close</a>
+</li>
+<li><a href="help%3Fcmd=commit.html"><b>commit</b></a>
+(<a href="help%3Fcmd=ci.html">ci</a>)</li>
+<li><a href="help%3Fcmd=configuration.html">configuration</a>
+</li>
+<li><a href="help%3Fcmd=dbstat.html"><b>dbstat</b></a>
+</li>
+<li><a href="help%3Fcmd=deconstruct.html">deconstruct</a>
+</li>
+<li><a href="help%3Fcmd=delete.html"><b>delete</b></a>
+</li>
+<li><a href="help%3Fcmd=descendants.html">descendants</a>
+</li>
+<li><a href="help%3Fcmd=describe.html"><b>describe</b></a>
+</li>
+<li><a href="help%3Fcmd=detach.html">detach</a>
+</li>
+<li><a href="help%3Fcmd=diff.html"><b>diff</b></a>
+</li>
+<li><a href="help%3Fcmd=export.html">export</a>
+</li>
+<li><a href="help%3Fcmd=extras.html"><b>extras</b></a>
+</li>
+<li><a href="help%3Fcmd=fdiff.html"><b>fdiff</b></a>
+</li>
+<li><a href="help%3Fcmd=finfo.html"><b>finfo</b></a>
+</li>
+<li><a href="help%3Fcmd=forget.html">forget</a>
+</li>
+<li><a href="help%3Fcmd=fts-config.html">fts-config</a>
+</li>
+<li><a href="help%3Fcmd=fusefs.html">fusefs</a>
+</li>
+<li><a href="help%3Fcmd=gdiff.html"><b>gdiff</b></a>
+</li>
+<li><a href="help%3Fcmd=git.html">git</a>
+</li>
+<li><a href="help%3Fcmd=grep.html"><b>grep</b></a>
+</li>
+<li><a href="help%3Fcmd=hash-policy.html">hash-policy</a>
+</li>
+<li><a href="help%3Fcmd=help.html"><b>help</b></a>
+</li>
+<li><a href="help%3Fcmd=hook.html">hook</a>
+</li>
+<li><a href="help%3Fcmd=http.html">http</a>
+</li>
+<li><a href="help%3Fcmd=import.html">import</a>
+</li>
+<li><a href="help%3Fcmd=info.html"><b>info</b></a>
+</li>
+<li><a href="help%3Fcmd=init.html"><b>init</b></a>
+(<a href="help%3Fcmd=new.html">new</a>)</li>
+<li><a href="help%3Fcmd=interwiki.html">interwiki</a>
+</li>
+<li><a href="help%3Fcmd=leaves.html">leaves</a>
+</li>
+<li><a href="help%3Fcmd=login-group.html">login-group</a>
+</li>
+<li><a href="help%3Fcmd=ls.html"><b>ls</b></a>
+</li>
+<li><a href="help%3Fcmd=md5sum.html">md5sum</a>
+</li>
+<li><a href="help%3Fcmd=merge.html"><b>merge</b></a>
+(<a href="help%3Fcmd=cherry-pick.html">cherry-pick</a>)</li>
+<li><a href="help%3Fcmd=merge-base.html"><b>merge-base</b></a>
+</li>
+<li><a href="help%3Fcmd=merge-info.html"><b>merge-info</b></a>
+</li>
+<li><a href="help%3Fcmd=mv.html"><b>mv</b></a>
+</li>
+<li><a href="help%3Fcmd=open.html"><b>open</b></a>
+</li>
+<li><a href="help%3Fcmd=patch.html"><b>patch</b></a>
+</li>
+<li><a href="help%3Fcmd=pikchr.html">pikchr</a>
+</li>
+<li><a href="help%3Fcmd=praise.html">praise</a>
+</li>
+<li><a href="help%3Fcmd=publish.html">publish</a>
+</li>
+<li><a href="help%3Fcmd=pull.html"><b>pull</b></a>
+</li>
+<li><a href="help%3Fcmd=purge.html">purge</a>
+</li>
+<li><a href="help%3Fcmd=push.html"><b>push</b></a>
+</li>
+<li><a href="help%3Fcmd=rebuild.html"><b>rebuild</b></a>
+</li>
+<li><a href="help%3Fcmd=reconstruct.html">reconstruct</a>
+</li>
+<li><a href="help%3Fcmd=redo.html">redo</a>
+</li>
+<li><a href="help%3Fcmd=remote.html"><b>remote</b></a>
+</li>
+<li><a href="help%3Fcmd=remote-url.html">remote-url</a>
+</li>
+<li><a href="help%3Fcmd=rename.html">rename</a>
+</li>
+<li><a href="help%3Fcmd=repack.html"><b>repack</b></a>
+</li>
+<li><a href="help%3Fcmd=reparent.html">reparent</a>
+</li>
+<li><a href="help%3Fcmd=revert.html"><b>revert</b></a>
+</li>
+<li><a href="help%3Fcmd=rm.html"><b>rm</b></a>
+</li>
+<li><a href="help%3Fcmd=rss.html">rss</a>
+</li>
+<li><a href="help%3Fcmd=scrub.html">scrub</a>
+</li>
+<li><a href="help%3Fcmd=search.html">search</a>
+</li>
+<li><a href="help%3Fcmd=server.html">server</a>
+</li>
+<li><a href="help%3Fcmd=settings.html"><b>settings</b></a>
+</li>
+<li><a href="help%3Fcmd=sha1sum.html">sha1sum</a>
+</li>
+<li><a href="help%3Fcmd=sha3sum.html">sha3sum</a>
+</li>
+<li><a href="help%3Fcmd=shell.html">shell</a>
+</li>
+<li><a href="help%3Fcmd=sql.html"><b>sql</b></a>
+</li>
+<li><a href="help%3Fcmd=sqlar.html">sqlar</a>
+</li>
+<li><a href="help%3Fcmd=sqlite3.html">sqlite3</a>
+</li>
+<li><a href="help%3Fcmd=ssl-config.html"><b>ssl-config</b></a>
+</li>
+<li><a href="help%3Fcmd=stash.html"><b>stash</b></a>
+</li>
+<li><a href="help%3Fcmd=status.html"><b>status</b></a>
+</li>
+<li><a href="help%3Fcmd=sync.html"><b>sync</b></a>
+</li>
+<li><a href="help%3Fcmd=tag.html"><b>tag</b></a>
+</li>
+<li><a href="help%3Fcmd=tarball.html">tarball</a>
+</li>
+<li><a href="help%3Fcmd=ticket.html">ticket</a>
+</li>
+<li><a href="help%3Fcmd=timeline.html"><b>timeline</b></a>
+</li>
+<li><a href="help%3Fcmd=tls-config.html">tls-config</a>
+</li>
+<li><a href="help%3Fcmd=touch.html">touch</a>
+</li>
+<li><a href="help%3Fcmd=tree.html"><b>tree</b></a>
+</li>
+<li><a href="help%3Fcmd=ui.html"><b>ui</b></a>
+</li>
+<li><a href="help%3Fcmd=undo.html"><b>undo</b></a>
+</li>
+<li><a href="help%3Fcmd=unpublished.html">unpublished</a>
+</li>
+<li><a href="help%3Fcmd=unset.html">unset</a>
+</li>
+<li><a href="help%3Fcmd=unversioned.html"><b>unversioned</b></a>
+(<a href="help%3Fcmd=uv.html">uv</a>)</li>
+<li><a href="help%3Fcmd=update.html"><b>update</b></a>
+</li>
+<li><a href="help%3Fcmd=user.html">user</a>
+</li>
+<li><a href="help%3Fcmd=version.html"><b>version</b></a>
+</li>
+<li><a href="help%3Fcmd=whatis.html">whatis</a>
+</li>
+<li><a href="help%3Fcmd=which.html">which</a>
+</li>
+<li><a href="help%3Fcmd=wiki.html">wiki</a>
+</li>
+<li><a href="help%3Fcmd=xdiff.html"><b>xdiff</b></a>
+</li>
+<li><a href="help%3Fcmd=zip.html">zip</a>
+</li>
+</ul></div>
+<a name='webpages'></a>
+<h1>Available web UI pages:</h1>
+<div class="columns" style="column-width: 28ex;">
+<ul>
+<li><a href="help%3Fcmd=%252F.well-known.html">.well-known</a></li>
+<li><a href="help%3Fcmd=%252Faccess_log.html">access_log</a></li>
+<li><a href="help%3Fcmd=%252Fadmin_log.html">admin_log</a></li>
+<li><a href="help%3Fcmd=%252Fadmin_sql.html">admin_sql</a></li>
+<li><a href="help%3Fcmd=%252Fadmin_th1.html">admin_th1</a></li>
+<li><a href="help%3Fcmd=%252Fainfo.html">ainfo</a></li>
+<li><a href="help%3Fcmd=%252Falerts.html">alerts</a></li>
+<li><a href="help%3Fcmd=%252Fambiguous.html">ambiguous</a></li>
+<li><a href="help%3Fcmd=%252Fannotate.html">annotate</a></li>
+<li><a href="help%3Fcmd=%252Fannounce.html">announce</a></li>
+<li><a href="help%3Fcmd=%252Fartifact.html">artifact</a></li>
+<li><a href="help%3Fcmd=%252Fartifact_stats.html">artifact_stats</a></li>
+<li><a href="help%3Fcmd=%252Fattachadd.html">attachadd</a></li>
+<li><a href="help%3Fcmd=%252Fattachdownload.html">attachdownload</a></li>
+<li><a href="help%3Fcmd=%252Fattachimage.html">attachimage</a></li>
+<li><a href="help%3Fcmd=%252Fattachlist.html">attachlist</a></li>
+<li><a href="help%3Fcmd=%252Fattachview.html">attachview</a></li>
+<li><a href="help%3Fcmd=%252Fbackground.html">background</a></li>
+<li><a href="help%3Fcmd=%252Fbigbloblist.html">bigbloblist</a></li>
+<li><a href="help%3Fcmd=%252Fblame.html">blame</a></li>
+<li><a href="help%3Fcmd=%252Fbloblist.html">bloblist</a></li>
+<li><a href="help%3Fcmd=%252Fbrlist.html">brlist</a></li>
+<li><a href="help%3Fcmd=%252Fbrtimeline.html">brtimeline</a></li>
+<li><a href="help%3Fcmd=%252Fbuiltin.html">builtin</a></li>
+<li><a href="help%3Fcmd=%252Fcacheget.html">cacheget</a></li>
+<li><a href="help%3Fcmd=%252Fcachestat.html">cachestat</a></li>
+<li><a href="help%3Fcmd=%252Fcaptcha-audio.html">captcha-audio</a></li>
+<li><a href="help%3Fcmd=%252Fchat.html">chat</a></li>
+<li><a href="help%3Fcmd=%252Fci.html">ci</a></li>
+<li><a href="help%3Fcmd=%252Fci_edit.html">ci_edit</a></li>
+<li><a href="help%3Fcmd=%252Fci_tags.html">ci_tags</a></li>
+<li><a href="help%3Fcmd=%252Fckout.html">ckout</a></li>
+<li><a href="help%3Fcmd=%252Fclusterlist.html">clusterlist</a></li>
+<li><a href="help%3Fcmd=%252Fcontact_admin.html">contact_admin</a></li>
+<li><a href="help%3Fcmd=%252Fcookies.html">cookies</a></li>
+<li><a href="help%3Fcmd=%252Fdebug_tktedit.html">debug_tktedit</a></li>
+<li><a href="help%3Fcmd=%252Fdebug_tktnew.html">debug_tktnew</a></li>
+<li><a href="help%3Fcmd=%252Fdeltachain.html">deltachain</a></li>
+<li><a href="help%3Fcmd=%252Fdir.html">dir</a></li>
+<li><a href="help%3Fcmd=%252Fdoc.html">doc</a></li>
+<li><a href="help%3Fcmd=%252Fdocdir.html">docdir</a></li>
+<li><a href="help%3Fcmd=%252Fdocfile.html">docfile</a></li>
+<li><a href="help%3Fcmd=%252Fdocsrch.html">docsrch</a></li>
+<li><a href="help%3Fcmd=%252Fdownload.html">download</a></li>
+<li><a href="help%3Fcmd=%252Ferrorlog.html">errorlog</a></li>
+<li><a href="help%3Fcmd=%252Fevent.html">event</a></li>
+<li><a href="help%3Fcmd=%252Feventedit.html">eventedit</a></li>
+<li><a href="help%3Fcmd=%252Fext.html">ext</a></li>
+<li><a href="help%3Fcmd=%252Fextfilelist.html">extfilelist</a></li>
+<li><a href="help%3Fcmd=%252Ffavicon.ico.html">favicon.ico</a></li>
+<li><a href="help%3Fcmd=%252Ffdiff.html">fdiff</a></li>
+<li><a href="help%3Fcmd=%252Ffdscookie.html">fdscookie</a></li>
+<li><a href="help%3Fcmd=%252Ffile.html">file</a></li>
+<li><a href="help%3Fcmd=%252Ffileage.html">fileage</a></li>
+<li><a href="help%3Fcmd=%252Ffileedit.html">fileedit</a></li>
+<li><a href="help%3Fcmd=%252Ffinfo.html">finfo</a></li>
+<li><a href="help%3Fcmd=%252Fforum.html">forum</a></li>
+<li><a href="help%3Fcmd=%252Fforume1.html">forume1</a></li>
+<li><a href="help%3Fcmd=%252Fforume2.html">forume2</a></li>
+<li><a href="help%3Fcmd=%252Fforumedit.html">forumedit</a></li>
+<li><a href="help%3Fcmd=%252Fforummain.html">forummain</a></li>
+<li><a href="help%3Fcmd=%252Fforumnew.html">forumnew</a></li>
+<li><a href="help%3Fcmd=%252Fforumpost.html">forumpost</a></li>
+<li><a href="help%3Fcmd=%252Fforumthread.html">forumthread</a></li>
+<li><a href="help%3Fcmd=%252Fforumthreadhashlist.html">forumthreadhashlist</a></li>
+<li><a href="help%3Fcmd=%252Fhash-collisions.html">hash-collisions</a></li>
+<li><a href="help%3Fcmd=%252Fhash-color-test.html">hash-color-test</a></li>
+<li><a href="help%3Fcmd=%252Fhelp.html">help</a></li>
+<li><a href="help%3Fcmd=%252Fhexdump.html">hexdump</a></li>
+<li><a href="help%3Fcmd=%252Fhome.html">home</a></li>
+<li><a href="help%3Fcmd=%252Fhoneypot.html">honeypot</a></li>
+<li><a href="help%3Fcmd=%252Findex.html">index</a></li>
+<li><a href="help%3Fcmd=%252Finfo.html">info</a></li>
+<li><a href="help%3Fcmd=%252Fintermap.html">intermap</a></li>
+<li><a href="help%3Fcmd=%252Fityaar.html">ityaar</a></li>
+<li><a href="help%3Fcmd=%252Fjuvlist.html">juvlist</a></li>
+<li><a href="help%3Fcmd=%252Fleaves.html">leaves</a></li>
+<li><a href="help%3Fcmd=%252Flogin.html">login</a></li>
+<li><a href="help%3Fcmd=%252Flogo.html">logo</a></li>
+<li><a href="help%3Fcmd=%252Flogout.html">logout</a></li>
+<li><a href="help%3Fcmd=%252Fmarkup_help.html">markup_help</a></li>
+<li><a href="help%3Fcmd=%252Fmd_rules.html">md_rules</a></li>
+<li><a href="help%3Fcmd=%252Fmimetype_list.html">mimetype_list</a></li>
+<li><a href="help%3Fcmd=%252Fmlink.html">mlink</a></li>
+<li><a href="help%3Fcmd=%252Fmodreq.html">modreq</a></li>
+<li><a href="help%3Fcmd=%252Fmy.html">my</a></li>
+<li><a href="help%3Fcmd=%252Fnot_found.html">not_found</a></li>
+<li><a href="help%3Fcmd=%252Foneclickunsub.html">oneclickunsub</a></li>
+<li><a href="help%3Fcmd=%252Fphantoms.html">phantoms</a></li>
+<li><a href="help%3Fcmd=%252Fpikchrshow.html">pikchrshow</a></li>
+<li><a href="help%3Fcmd=%252Fpraise.html">praise</a></li>
+<li><a href="help%3Fcmd=%252Fraw.html">raw</a></li>
+<li><a href="help%3Fcmd=%252Frcvfrom.html">rcvfrom</a></li>
+<li><a href="help%3Fcmd=%252Frcvfromlist.html">rcvfromlist</a></li>
+<li><a href="help%3Fcmd=%252Fregister.html">register</a></li>
+<li><a href="help%3Fcmd=%252Frenew.html">renew</a></li>
+<li><a href="help%3Fcmd=%252Frepo-tabsize.html">repo-tabsize</a></li>
+<li><a href="help%3Fcmd=%252Frepo_schema.html">repo_schema</a></li>
+<li><a href="help%3Fcmd=%252Frepo_stat1.html">repo_stat1</a></li>
+<li><a href="help%3Fcmd=%252Freportlist.html">reportlist</a></li>
+<li><a href="help%3Fcmd=%252Freports.html">reports</a></li>
+<li><a href="help%3Fcmd=%252Freqpwreset.html">reqpwreset</a></li>
+<li><a href="help%3Fcmd=%252Fresetpw.html">resetpw</a></li>
+<li><a href="help%3Fcmd=%252Frobots.txt.html">robots.txt</a></li>
+<li><a href="help%3Fcmd=%252Frptedit.html">rptedit</a></li>
+<li><a href="help%3Fcmd=%252Frptnew.html">rptnew</a></li>
+<li><a href="help%3Fcmd=%252Frptsql.html">rptsql</a></li>
+<li><a href="help%3Fcmd=%252Frptview.html">rptview</a></li>
+<li><a href="help%3Fcmd=%252Fscript.js.html">script.js</a></li>
+<li><a href="help%3Fcmd=%252Fsearch.html">search</a></li>
+<li><a href="help%3Fcmd=%252Fsecaudit0.html">secaudit0</a></li>
+<li><a href="help%3Fcmd=%252Fsecureraw.html">secureraw</a></li>
+<li><a href="help%3Fcmd=%252Fsetup.html">setup</a></li>
+<li><a href="help%3Fcmd=%252Fsetup-logmenu.html">setup-logmenu</a></li>
+<li><a href="help%3Fcmd=%252Fsetup_access.html">setup_access</a></li>
+<li><a href="help%3Fcmd=%252Fsetup_adunit.html">setup_adunit</a></li>
+<li><a href="help%3Fcmd=%252Fsetup_chat.html">setup_chat</a></li>
+<li><a href="help%3Fcmd=%252Fsetup_config.html">setup_config</a></li>
+<li><a href="help%3Fcmd=%252Fsetup_forum.html">setup_forum</a></li>
+<li><a href="help%3Fcmd=%252Fsetup_login_group.html">setup_login_group</a></li>
+<li><a href="help%3Fcmd=%252Fsetup_logo.html">setup_logo</a></li>
+<li><a href="help%3Fcmd=%252Fsetup_modreq.html">setup_modreq</a></li>
+<li><a href="help%3Fcmd=%252Fsetup_notification.html">setup_notification</a></li>
+<li><a href="help%3Fcmd=%252Fsetup_robot.html">setup_robot</a></li>
+<li><a href="help%3Fcmd=%252Fsetup_settings.html">setup_settings</a></li>
+<li><a href="help%3Fcmd=%252Fsetup_skin.html">setup_skin</a></li>
+<li><a href="help%3Fcmd=%252Fsetup_skin_admin.html">setup_skin_admin</a></li>
+<li><a href="help%3Fcmd=%252Fsetup_skinedit.html">setup_skinedit</a></li>
+<li><a href="help%3Fcmd=%252Fsetup_timeline.html">setup_timeline</a></li>
+<li><a href="help%3Fcmd=%252Fsetup_ucap_list.html">setup_ucap_list</a></li>
+<li><a href="help%3Fcmd=%252Fsetup_uedit.html">setup_uedit</a></li>
+<li><a href="help%3Fcmd=%252Fsetup_uinfo.html">setup_uinfo</a></li>
+<li><a href="help%3Fcmd=%252Fsetup_ulist.html">setup_ulist</a></li>
+<li><a href="help%3Fcmd=%252Fsetup_ulist_notes.html">setup_ulist_notes</a></li>
+<li><a href="help%3Fcmd=%252Fsetup_wiki.html">setup_wiki</a></li>
+<li><a href="help%3Fcmd=%252Fshun.html">shun</a></li>
+<li><a href="help%3Fcmd=%252Fsitemap.html">sitemap</a></li>
+<li><a href="help%3Fcmd=%252Fsitemap-test.html">sitemap-test</a></li>
+<li><a href="help%3Fcmd=%252Fsitemap-timeline.html">sitemap-timeline</a></li>
+<li><a href="help%3Fcmd=%252Fskins.html">skins</a></li>
+<li><a href="help%3Fcmd=%252Fsqlar.html">sqlar</a></li>
+<li><a href="help%3Fcmd=%252Fsrchsetup.html">srchsetup</a></li>
+<li><a href="help%3Fcmd=%252Fstat.html">stat</a></li>
+<li><a href="help%3Fcmd=%252Fstyle.css.html">style.css</a></li>
+<li><a href="help%3Fcmd=%252Fsubscribe.html">subscribe</a></li>
+<li><a href="help%3Fcmd=%252Fsubscribers.html">subscribers</a></li>
+<li><a href="help%3Fcmd=%252Ftaglist.html">taglist</a></li>
+<li><a href="help%3Fcmd=%252Ftagtimeline.html">tagtimeline</a></li>
+<li><a href="help%3Fcmd=%252Ftakeitprivate.html">takeitprivate</a></li>
+<li><a href="help%3Fcmd=%252Ftarball.html">tarball</a></li>
+<li><a href="help%3Fcmd=%252Ftechnote.html">technote</a></li>
+<li><a href="help%3Fcmd=%252Ftechnoteedit.html">technoteedit</a></li>
+<li><a href="help%3Fcmd=%252Ftest-all-help.html">test-all-help</a></li>
+<li><a href="help%3Fcmd=%252Ftest-backlink-timeline.html">test-backlink-timeline</a></li>
+<li><a href="help%3Fcmd=%252Ftest-backlinks.html">test-backlinks</a></li>
+<li><a href="help%3Fcmd=%252Ftest-bgcolor.html">test-bgcolor</a></li>
+<li><a href="help%3Fcmd=%252Ftest-builtin-files.html">test-builtin-files</a></li>
+<li><a href="help%3Fcmd=%252Ftest-captcha.html">test-captcha</a></li>
+<li><a href="help%3Fcmd=%252Ftest-captcha-audio.html">test-captcha-audio</a></li>
+<li><a href="help%3Fcmd=%252Ftest-env.html">test-env</a></li>
+<li><a href="help%3Fcmd=%252Ftest-ftsdocs.html">test-ftsdocs</a></li>
+<li><a href="help%3Fcmd=%252Ftest-overload.html">test-overload</a></li>
+<li><a href="help%3Fcmd=%252Ftest-pid.html">test-pid</a></li>
+<li><a href="help%3Fcmd=%252Ftest-piechart.html">test-piechart</a></li>
+<li><a href="help%3Fcmd=%252Ftest-rename-list.html">test-rename-list</a></li>
+<li><a href="help%3Fcmd=%252Ftest-title.html">test-title</a></li>
+<li><a href="help%3Fcmd=%252Ftest-warning.html">test-warning</a></li>
+<li><a href="help%3Fcmd=%252Ftest_env.html">test_env</a></li>
+<li><a href="help%3Fcmd=%252Fthisdayinhistory.html">thisdayinhistory</a></li>
+<li><a href="help%3Fcmd=%252Fticket.html">ticket</a></li>
+<li><a href="help%3Fcmd=%252Ftimeline.html">timeline</a></li>
+<li><a href="help%3Fcmd=%252Ftimeline.rss.html">timeline.rss</a></li>
+<li><a href="help%3Fcmd=%252Ftimewarps.html">timewarps</a></li>
+<li><a href="help%3Fcmd=%252Ftinfo.html">tinfo</a></li>
+<li><a href="help%3Fcmd=%252Ftktedit.html">tktedit</a></li>
+<li><a href="help%3Fcmd=%252Ftkthistory.html">tkthistory</a></li>
+<li><a href="help%3Fcmd=%252Ftktnew.html">tktnew</a></li>
+<li><a href="help%3Fcmd=%252Ftktsetup.html">tktsetup</a></li>
+<li><a href="help%3Fcmd=%252Ftktsetup_change.html">tktsetup_change</a></li>
+<li><a href="help%3Fcmd=%252Ftktsetup_com.html">tktsetup_com</a></li>
+<li><a href="help%3Fcmd=%252Ftktsetup_editpage.html">tktsetup_editpage</a></li>
+<li><a href="help%3Fcmd=%252Ftktsetup_keytplt.html">tktsetup_keytplt</a></li>
+<li><a href="help%3Fcmd=%252Ftktsetup_newpage.html">tktsetup_newpage</a></li>
+<li><a href="help%3Fcmd=%252Ftktsetup_reportlist.html">tktsetup_reportlist</a></li>
+<li><a href="help%3Fcmd=%252Ftktsetup_rpttplt.html">tktsetup_rpttplt</a></li>
+<li><a href="help%3Fcmd=%252Ftktsetup_tab.html">tktsetup_tab</a></li>
+<li><a href="help%3Fcmd=%252Ftktsetup_timeline.html">tktsetup_timeline</a></li>
+<li><a href="help%3Fcmd=%252Ftktsetup_viewpage.html">tktsetup_viewpage</a></li>
+<li><a href="help%3Fcmd=%252Ftktsrch.html">tktsrch</a></li>
+<li><a href="help%3Fcmd=%252Ftkttimeline.html">tkttimeline</a></li>
+<li><a href="help%3Fcmd=%252Ftktview.html">tktview</a></li>
+<li><a href="help%3Fcmd=%252Ftree.html">tree</a></li>
+<li><a href="help%3Fcmd=%252Funsubscribe.html">unsubscribe</a></li>
+<li><a href="help%3Fcmd=%252Furllist.html">urllist</a></li>
+<li><a href="help%3Fcmd=%252Fuser_log.html">user_log</a></li>
+<li><a href="help%3Fcmd=%252Fuv.html">uv</a></li>
+<li><a href="help%3Fcmd=%252Fuvlist.html">uvlist</a></li>
+<li><a href="help%3Fcmd=%252Fvdiff.html">vdiff</a></li>
+<li><a href="help%3Fcmd=%252Fversion.html">version</a></li>
+<li><a href="help%3Fcmd=%252Fvinfo.html">vinfo</a></li>
+<li><a href="help%3Fcmd=%252Fvpatch.html">vpatch</a></li>
+<li><a href="help%3Fcmd=%252Fwaliassetup.html">waliassetup</a></li>
+<li><a href="help%3Fcmd=%252Fwcontent.html">wcontent</a></li>
+<li><a href="help%3Fcmd=%252Fwdiff.html">wdiff</a></li>
+<li><a href="help%3Fcmd=%252Fwfind.html">wfind</a></li>
+<li><a href="help%3Fcmd=%252Fwhatis.html">whatis</a></li>
+<li><a href="help%3Fcmd=%252Fwhistory.html">whistory</a></li>
+<li><a href="help%3Fcmd=%252Fwiki.html">wiki</a></li>
+<li><a href="help%3Fcmd=%252Fwiki_rules.html">wiki_rules</a></li>
+<li><a href="help%3Fcmd=%252Fwikiappend.html">wikiappend</a></li>
+<li><a href="help%3Fcmd=%252Fwikiedit.html">wikiedit</a></li>
+<li><a href="help%3Fcmd=%252Fwikihelp.html">wikihelp</a></li>
+<li><a href="help%3Fcmd=%252Fwikinew.html">wikinew</a></li>
+<li><a href="help%3Fcmd=%252Fwikisrch.html">wikisrch</a></li>
+<li><a href="help%3Fcmd=%252Fwinfo.html">winfo</a></li>
+<li><a href="help%3Fcmd=%252Fxfer.html">xfer</a></li>
+<li><a href="help%3Fcmd=%252Fxfersetup.html">xfersetup</a></li>
+<li><a href="help%3Fcmd=%252Fxfersetup_com.html">xfersetup_com</a></li>
+<li><a href="help%3Fcmd=%252Fxfersetup_commit.html">xfersetup_commit</a></li>
+<li><a href="help%3Fcmd=%252Fxfersetup_push.html">xfersetup_push</a></li>
+<li><a href="help%3Fcmd=%252Fxfersetup_ticket.html">xfersetup_ticket</a></li>
+<li><a href="help%3Fcmd=%252Fzip.html">zip</a></li>
+</ul></div>
+<a name='unsupported'></a>
+<h1>Unsupported commands:</h1>
+<div class="columns" style="column-width: 28ex;">
+<ul>
+<li><a href="help%3Fcmd=test-add-alerts.html">test-add-alerts</a></li>
+<li><a href="help%3Fcmd=test-agg-cksum.html">test-agg-cksum</a></li>
+<li><a href="help%3Fcmd=test-alert.html">test-alert</a></li>
+<li><a href="help%3Fcmd=test-all-help.html">test-all-help</a></li>
+<li><a href="help%3Fcmd=test-ambiguous.html">test-ambiguous</a></li>
+<li><a href="help%3Fcmd=test-ancestor-path.html">test-ancestor-path</a></li>
+<li><a href="help%3Fcmd=test-approx-match.html">test-approx-match</a></li>
+<li><a href="help%3Fcmd=test-artifact-to-json.html">test-artifact-to-json</a></li>
+<li><a href="help%3Fcmd=test-backlinks.html">test-backlinks</a></li>
+<li><a href="help%3Fcmd=test-backoffice-lease.html">test-backoffice-lease</a></li>
+<li><a href="help%3Fcmd=test-builtin-get.html">test-builtin-get</a></li>
+<li><a href="help%3Fcmd=test-builtin-list.html">test-builtin-list</a></li>
+<li><a href="help%3Fcmd=test-canonical-name.html">test-canonical-name</a></li>
+<li><a href="help%3Fcmd=test-captcha.html">test-captcha</a></li>
+<li><a href="help%3Fcmd=test-case-filename.html">test-case-filename</a></li>
+<li><a href="help%3Fcmd=test-chat-formatter.html">test-chat-formatter</a></li>
+<li><a href="help%3Fcmd=test-ci-mini.html">test-ci-mini</a></li>
+<li><a href="help%3Fcmd=test-clusters.html">test-clusters</a></li>
+<li><a href="help%3Fcmd=test-command-stats.html">test-command-stats</a></li>
+<li><a href="help%3Fcmd=test-comment-format.html">test-comment-format</a></li>
+<li><a href="help%3Fcmd=test-commit-warning.html">test-commit-warning</a></li>
+<li><a href="help%3Fcmd=test-compress.html">test-compress</a></li>
+<li><a href="help%3Fcmd=test-compress-2.html">test-compress-2</a></li>
+<li><a href="help%3Fcmd=test-contains-selector.html">test-contains-selector</a></li>
+<li><a href="help%3Fcmd=test-content-deltify.html">test-content-deltify</a></li>
+<li><a href="help%3Fcmd=test-content-erase.html">test-content-erase</a></li>
+<li><a href="help%3Fcmd=test-content-put.html">test-content-put</a></li>
+<li><a href="help%3Fcmd=test-content-rawget.html">test-content-rawget</a></li>
+<li><a href="help%3Fcmd=test-content-undelta.html">test-content-undelta</a></li>
+<li><a href="help%3Fcmd=test-convert-stext.html">test-convert-stext</a></li>
+<li><a href="help%3Fcmd=test-create-clusters.html">test-create-clusters</a></li>
+<li><a href="help%3Fcmd=test-crosslink.html">test-crosslink</a></li>
+<li><a href="help%3Fcmd=test-cycle-compress.html">test-cycle-compress</a></li>
+<li><a href="help%3Fcmd=test-database-names.html">test-database-names</a></li>
+<li><a href="help%3Fcmd=test-date.html">test-date</a></li>
+<li><a href="help%3Fcmd=test-date-format.html">test-date-format</a></li>
+<li><a href="help%3Fcmd=test-db-exec-error.html">test-db-exec-error</a></li>
+<li><a href="help%3Fcmd=test-db-prepare.html">test-db-prepare</a></li>
+<li><a href="help%3Fcmd=test-decode64.html">test-decode64</a></li>
+<li><a href="help%3Fcmd=test-delta.html">test-delta</a></li>
+<li><a href="help%3Fcmd=test-delta-analyze.html">test-delta-analyze</a></li>
+<li><a href="help%3Fcmd=test-delta-apply.html">test-delta-apply</a></li>
+<li><a href="help%3Fcmd=test-delta-create.html">test-delta-create</a></li>
+<li><a href="help%3Fcmd=test-describe-artifacts.html">test-describe-artifacts</a></li>
+<li><a href="help%3Fcmd=test-diff.html">test-diff</a></li>
+<li><a href="help%3Fcmd=test-dir-size.html">test-dir-size</a></li>
+<li><a href="help%3Fcmd=test-echo.html">test-echo</a></li>
+<li><a href="help%3Fcmd=test-email-used.html">test-email-used</a></li>
+<li><a href="help%3Fcmd=test-encode64.html">test-encode64</a></li>
+<li><a href="help%3Fcmd=test-endpoint.html">test-endpoint</a></li>
+<li><a href="help%3Fcmd=test-escaped-arg.html">test-escaped-arg</a></li>
+<li><a href="help%3Fcmd=test-etag.html">test-etag</a></li>
+<li><a href="help%3Fcmd=test-file-copy.html">test-file-copy</a></li>
+<li><a href="help%3Fcmd=test-file-environment.html">test-file-environment</a></li>
+<li><a href="help%3Fcmd=test-fileage.html">test-fileage</a></li>
+<li><a href="help%3Fcmd=test-filezip.html">test-filezip</a></li>
+<li><a href="help%3Fcmd=test-find-mx.html">test-find-mx</a></li>
+<li><a href="help%3Fcmd=test-fingerprint.html">test-fingerprint</a></li>
+<li><a href="help%3Fcmd=test-forumthread.html">test-forumthread</a></li>
+<li><a href="help%3Fcmd=test-fossil-system.html">test-fossil-system</a></li>
+<li><a href="help%3Fcmd=test-fuzz.html">test-fuzz</a></li>
+<li><a href="help%3Fcmd=test-glob.html">test-glob</a></li>
+<li><a href="help%3Fcmd=test-grep.html">test-grep</a></li>
+<li><a href="help%3Fcmd=test-gzip.html">test-gzip</a></li>
+<li><a href="help%3Fcmd=test-hash-color.html">test-hash-color</a></li>
+<li><a href="help%3Fcmd=test-hash-passwords.html">test-hash-passwords</a></li>
+<li><a href="help%3Fcmd=test-html-tidy.html">test-html-tidy</a></li>
+<li><a href="help%3Fcmd=test-html-to-text.html">test-html-to-text</a></li>
+<li><a href="help%3Fcmd=test-html-tokenize.html">test-html-tokenize</a></li>
+<li><a href="help%3Fcmd=test-http.html">test-http</a></li>
+<li><a href="help%3Fcmd=test-httpmsg.html">test-httpmsg</a></li>
+<li><a href="help%3Fcmd=test-integrity.html">test-integrity</a></li>
+<li><a href="help%3Fcmd=test-is-repo.html">test-is-repo</a></li>
+<li><a href="help%3Fcmd=test-is-reserved-name.html">test-is-reserved-name</a></li>
+<li><a href="help%3Fcmd=test-ishuman.html">test-ishuman</a></li>
+<li><a href="help%3Fcmd=test-isspace.html">test-isspace</a></li>
+<li><a href="help%3Fcmd=test-js-once.html">test-js-once</a></li>
+<li><a href="help%3Fcmd=test-leaf-ambiguity.html">test-leaf-ambiguity</a></li>
+<li><a href="help%3Fcmd=test-line-diff.html">test-line-diff</a></li>
+<li><a href="help%3Fcmd=test-line-match.html">test-line-match</a></li>
+<li><a href="help%3Fcmd=test-line-numbers.html">test-line-numbers</a></li>
+<li><a href="help%3Fcmd=test-list-attachments.html">test-list-attachments</a></li>
+<li><a href="help%3Fcmd=test-list-page.html">test-list-page</a></li>
+<li><a href="help%3Fcmd=test-list-webpage.html">test-list-webpage</a></li>
+<li><a href="help%3Fcmd=test-loadavg.html">test-loadavg</a></li>
+<li><a href="help%3Fcmd=test-looks-like-attack.html">test-looks-like-attack</a></li>
+<li><a href="help%3Fcmd=test-looks-like-utf.html">test-looks-like-utf</a></li>
+<li><a href="help%3Fcmd=test-mailbox-hashname.html">test-mailbox-hashname</a></li>
+<li><a href="help%3Fcmd=test-manifest-setting.html">test-manifest-setting</a></li>
+<li><a href="help%3Fcmd=test-markdown-render.html">test-markdown-render</a></li>
+<li><a href="help%3Fcmd=test-match.html">test-match</a></li>
+<li><a href="help%3Fcmd=test-mimetype.html">test-mimetype</a></li>
+<li><a href="help%3Fcmd=test-missing.html">test-missing</a></li>
+<li><a href="help%3Fcmd=test-move-repository.html">test-move-repository</a></li>
+<li><a href="help%3Fcmd=test-name-changes.html">test-name-changes</a></li>
+<li><a href="help%3Fcmd=test-name-to-id.html">test-name-to-id</a></li>
+<li><a href="help%3Fcmd=test-obscure.html">test-obscure</a></li>
+<li><a href="help%3Fcmd=test-orphans.html">test-orphans</a></li>
+<li><a href="help%3Fcmd=test-parse-all-blobs.html">test-parse-all-blobs</a></li>
+<li><a href="help%3Fcmd=test-parse-manifest.html">test-parse-manifest</a></li>
+<li><a href="help%3Fcmd=test-phantoms.html">test-phantoms</a></li>
+<li><a href="help%3Fcmd=test-pqueue.html">test-pqueue</a></li>
+<li><a href="help%3Fcmd=test-process-id.html">test-process-id</a></li>
+<li><a href="help%3Fcmd=test-prompt-password.html">test-prompt-password</a></li>
+<li><a href="help%3Fcmd=test-prompt-user.html">test-prompt-user</a></li>
+<li><a href="help%3Fcmd=test-random-password.html">test-random-password</a></li>
+<li><a href="help%3Fcmd=test-relative-name.html">test-relative-name</a></li>
+<li><a href="help%3Fcmd=test-relink-wiki.html">test-relink-wiki</a></li>
+<li><a href="help%3Fcmd=test-reserved-names.html">test-reserved-names</a></li>
+<li><a href="help%3Fcmd=test-resetpw-url.html">test-resetpw-url</a></li>
+<li><a href="help%3Fcmd=test-safe-html.html">test-safe-html</a></li>
+<li><a href="help%3Fcmd=test-sanitize-name.html">test-sanitize-name</a></li>
+<li><a href="help%3Fcmd=test-search-stext.html">test-search-stext</a></li>
+<li><a href="help%3Fcmd=test-set-mtime.html">test-set-mtime</a></li>
+<li><a href="help%3Fcmd=test-shortest-path.html">test-shortest-path</a></li>
+<li><a href="help%3Fcmd=test-show-vfile.html">test-show-vfile</a></li>
+<li><a href="help%3Fcmd=test-simplify-name.html">test-simplify-name</a></li>
+<li><a href="help%3Fcmd=test-smtp-probe.html">test-smtp-probe</a></li>
+<li><a href="help%3Fcmd=test-smtp-send.html">test-smtp-send</a></li>
+<li><a href="help%3Fcmd=test-smtp-senddata.html">test-smtp-senddata</a></li>
+<li><a href="help%3Fcmd=test-ssh-needs-path.html">test-ssh-needs-path</a></li>
+<li><a href="help%3Fcmd=test-strip-comment-lines.html">test-strip-comment-lines</a></li>
+<li><a href="help%3Fcmd=test-subtree.html">test-subtree</a></li>
+<li><a href="help%3Fcmd=test-symlink-list.html">test-symlink-list</a></li>
+<li><a href="help%3Fcmd=test-tag.html">test-tag</a></li>
+<li><a href="help%3Fcmd=test-tarball.html">test-tarball</a></li>
+<li><a href="help%3Fcmd=test-tempname.html">test-tempname</a></li>
+<li><a href="help%3Fcmd=test-terminal-size.html">test-terminal-size</a></li>
+<li><a href="help%3Fcmd=test-th-eval.html">test-th-eval</a></li>
+<li><a href="help%3Fcmd=test-th-render.html">test-th-render</a></li>
+<li><a href="help%3Fcmd=test-th-source.html">test-th-source</a></li>
+<li><a href="help%3Fcmd=test-ticket-rebuild.html">test-ticket-rebuild</a></li>
+<li><a href="help%3Fcmd=test-timespan.html">test-timespan</a></li>
+<li><a href="help%3Fcmd=test-timewarp-list.html">test-timewarp-list</a></li>
+<li><a href="help%3Fcmd=test-topological-sort.html">test-topological-sort</a></li>
+<li><a href="help%3Fcmd=test-tree-name.html">test-tree-name</a></li>
+<li><a href="help%3Fcmd=test-unclustered.html">test-unclustered</a></li>
+<li><a href="help%3Fcmd=test-uncompress.html">test-uncompress</a></li>
+<li><a href="help%3Fcmd=test-unsent.html">test-unsent</a></li>
+<li><a href="help%3Fcmd=test-url-basename.html">test-url-basename</a></li>
+<li><a href="help%3Fcmd=test-urlparser.html">test-urlparser</a></li>
+<li><a href="help%3Fcmd=test-user-caps-changed.html">test-user-caps-changed</a></li>
+<li><a href="help%3Fcmd=test-usernames.html">test-usernames</a></li>
+<li><a href="help%3Fcmd=test-valid-for-windows.html">test-valid-for-windows</a></li>
+<li><a href="help%3Fcmd=test-var-get.html">test-var-get</a></li>
+<li><a href="help%3Fcmd=test-var-list.html">test-var-list</a></li>
+<li><a href="help%3Fcmd=test-var-set.html">test-var-set</a></li>
+<li><a href="help%3Fcmd=test-verify-all.html">test-verify-all</a></li>
+<li><a href="help%3Fcmd=test-whatis-all.html">test-whatis-all</a></li>
+<li><a href="help%3Fcmd=test-which.html">test-which</a></li>
+<li><a href="help%3Fcmd=test-wiki-render.html">test-wiki-render</a></li>
+<li><a href="help%3Fcmd=test-without-rowid.html">test-without-rowid</a></li>
+<li><a href="help%3Fcmd=test-xfer.html">test-xfer</a></li>
+</ul></div>
+<a name='settings'></a>
+<h1>Settings:</h1>
+<div class="columns" style="column-width: 28ex;">
+<ul>
+<li><a href="help%3Fcmd=access-log.html">access-log</a></li>
+<li><a href="help%3Fcmd=admin-log.html">admin-log</a></li>
+<li><a href="help%3Fcmd=allow-symlinks.html">allow-symlinks</a></li>
+<li><a href="help%3Fcmd=auto-captcha.html">auto-captcha</a></li>
+<li><a href="help%3Fcmd=auto-hyperlink.html">auto-hyperlink</a></li>
+<li><a href="help%3Fcmd=auto-hyperlink-delay.html">auto-hyperlink-delay</a></li>
+<li><a href="help%3Fcmd=auto-hyperlink-mouseover.html">auto-hyperlink-mouseover</a></li>
+<li><a href="help%3Fcmd=auto-shun.html">auto-shun</a></li>
+<li><a href="help%3Fcmd=autosync.html">autosync</a></li>
+<li><a href="help%3Fcmd=autosync-tries.html">autosync-tries</a></li>
+<li><a href="help%3Fcmd=backoffice-disable.html">backoffice-disable</a></li>
+<li><a href="help%3Fcmd=backoffice-logfile.html">backoffice-logfile</a></li>
+<li><a href="help%3Fcmd=backoffice-nodelay.html">backoffice-nodelay</a></li>
+<li><a href="help%3Fcmd=binary-glob.html">binary-glob</a></li>
+<li><a href="help%3Fcmd=case-sensitive.html">case-sensitive</a></li>
+<li><a href="help%3Fcmd=chat-alert-sound.html">chat-alert-sound</a></li>
+<li><a href="help%3Fcmd=chat-initial-history.html">chat-initial-history</a></li>
+<li><a href="help%3Fcmd=chat-inline-images.html">chat-inline-images</a></li>
+<li><a href="help%3Fcmd=chat-keep-count.html">chat-keep-count</a></li>
+<li><a href="help%3Fcmd=chat-keep-days.html">chat-keep-days</a></li>
+<li><a href="help%3Fcmd=chat-poll-timeout.html">chat-poll-timeout</a></li>
+<li><a href="help%3Fcmd=chat-timeline-user.html">chat-timeline-user</a></li>
+<li><a href="help%3Fcmd=clean-glob.html">clean-glob</a></li>
+<li><a href="help%3Fcmd=clearsign.html">clearsign</a></li>
+<li><a href="help%3Fcmd=comment-format.html">comment-format</a></li>
+<li><a href="help%3Fcmd=crlf-glob.html">crlf-glob</a></li>
+<li><a href="help%3Fcmd=crnl-glob.html">crnl-glob</a></li>
+<li><a href="help%3Fcmd=default-csp.html">default-csp</a></li>
+<li><a href="help%3Fcmd=default-perms.html">default-perms</a></li>
+<li><a href="help%3Fcmd=default-skin.html">default-skin</a></li>
+<li><a href="help%3Fcmd=diff-binary.html">diff-binary</a></li>
+<li><a href="help%3Fcmd=diff-command.html">diff-command</a></li>
+<li><a href="help%3Fcmd=dont-commit.html">dont-commit</a></li>
+<li><a href="help%3Fcmd=dont-push.html">dont-push</a></li>
+<li><a href="help%3Fcmd=dotfiles.html">dotfiles</a></li>
+<li><a href="help%3Fcmd=editor.html">editor</a></li>
+<li><a href="help%3Fcmd=email-admin.html">email-admin</a></li>
+<li><a href="help%3Fcmd=email-listid.html">email-listid</a></li>
+<li><a href="help%3Fcmd=email-renew-interval.html">email-renew-interval</a></li>
+<li><a href="help%3Fcmd=email-self.html">email-self</a></li>
+<li><a href="help%3Fcmd=email-send-command.html">email-send-command</a></li>
+<li><a href="help%3Fcmd=email-send-db.html">email-send-db</a></li>
+<li><a href="help%3Fcmd=email-send-dir.html">email-send-dir</a></li>
+<li><a href="help%3Fcmd=email-send-method.html">email-send-method</a></li>
+<li><a href="help%3Fcmd=email-send-relayhost.html">email-send-relayhost</a></li>
+<li><a href="help%3Fcmd=email-subname.html">email-subname</a></li>
+<li><a href="help%3Fcmd=email-url.html">email-url</a></li>
+<li><a href="help%3Fcmd=empty-dirs.html">empty-dirs</a></li>
+<li><a href="help%3Fcmd=encoding-glob.html">encoding-glob</a></li>
+<li><a href="help%3Fcmd=exec-rel-paths.html">exec-rel-paths</a></li>
+<li><a href="help%3Fcmd=fileedit-glob.html">fileedit-glob</a></li>
+<li><a href="help%3Fcmd=forbid-delta-manifests.html">forbid-delta-manifests</a></li>
+<li><a href="help%3Fcmd=forum-close-policy.html">forum-close-policy</a></li>
+<li><a href="help%3Fcmd=forum-title.html">forum-title</a></li>
+<li><a href="help%3Fcmd=gdiff-command.html">gdiff-command</a></li>
+<li><a href="help%3Fcmd=gmerge-command.html">gmerge-command</a></li>
+<li><a href="help%3Fcmd=hash-digits.html">hash-digits</a></li>
+<li><a href="help%3Fcmd=hooks.html">hooks</a></li>
+<li><a href="help%3Fcmd=http-port.html">http-port</a></li>
+<li><a href="help%3Fcmd=https-login.html">https-login</a></li>
+<li><a href="help%3Fcmd=ignore-glob.html">ignore-glob</a></li>
+<li><a href="help%3Fcmd=keep-glob.html">keep-glob</a></li>
+<li><a href="help%3Fcmd=large-file-size.html">large-file-size</a></li>
+<li><a href="help%3Fcmd=localauth.html">localauth</a></li>
+<li><a href="help%3Fcmd=lock-timeout.html">lock-timeout</a></li>
+<li><a href="help%3Fcmd=main-branch.html">main-branch</a></li>
+<li><a href="help%3Fcmd=mainmenu.html">mainmenu</a></li>
+<li><a href="help%3Fcmd=manifest.html">manifest</a></li>
+<li><a href="help%3Fcmd=max-cache-entry.html">max-cache-entry</a></li>
+<li><a href="help%3Fcmd=max-loadavg.html">max-loadavg</a></li>
+<li><a href="help%3Fcmd=max-upload.html">max-upload</a></li>
+<li><a href="help%3Fcmd=mimetypes.html">mimetypes</a></li>
+<li><a href="help%3Fcmd=mtime-changes.html">mtime-changes</a></li>
+<li><a href="help%3Fcmd=mv-rm-files.html">mv-rm-files</a></li>
+<li><a href="help%3Fcmd=pgp-command.html">pgp-command</a></li>
+<li><a href="help%3Fcmd=preferred-diff-type.html">preferred-diff-type</a></li>
+<li><a href="help%3Fcmd=proxy.html">proxy</a></li>
+<li><a href="help%3Fcmd=raw-bgcolor.html">raw-bgcolor</a></li>
+<li><a href="help%3Fcmd=redirect-to-https.html">redirect-to-https</a></li>
+<li><a href="help%3Fcmd=relative-paths.html">relative-paths</a></li>
+<li><a href="help%3Fcmd=repo-cksum.html">repo-cksum</a></li>
+<li><a href="help%3Fcmd=repolist-skin.html">repolist-skin</a></li>
+<li><a href="help%3Fcmd=robot-restrict.html">robot-restrict</a></li>
+<li><a href="help%3Fcmd=robots-txt.html">robots-txt</a></li>
+<li><a href="help%3Fcmd=safe-html.html">safe-html</a></li>
+<li><a href="help%3Fcmd=self-pw-reset.html">self-pw-reset</a></li>
+<li><a href="help%3Fcmd=self-register.html">self-register</a></li>
+<li><a href="help%3Fcmd=sitemap-extra.html">sitemap-extra</a></li>
+<li><a href="help%3Fcmd=ssh-command.html">ssh-command</a></li>
+<li><a href="help%3Fcmd=ssl-ca-location.html">ssl-ca-location</a></li>
+<li><a href="help%3Fcmd=ssl-identity.html">ssl-identity</a></li>
+<li><a href="help%3Fcmd=tclsh.html">tclsh</a></li>
+<li><a href="help%3Fcmd=th1-setup.html">th1-setup</a></li>
+<li><a href="help%3Fcmd=th1-uri-regexp.html">th1-uri-regexp</a></li>
+<li><a href="help%3Fcmd=ticket-default-report.html">ticket-default-report</a></li>
+<li><a href="help%3Fcmd=timeline-hard-newlines.html">timeline-hard-newlines</a></li>
+<li><a href="help%3Fcmd=timeline-plaintext.html">timeline-plaintext</a></li>
+<li><a href="help%3Fcmd=timeline-truncate-at-blank.html">timeline-truncate-at-blank</a></li>
+<li><a href="help%3Fcmd=timeline-tslink-info.html">timeline-tslink-info</a></li>
+<li><a href="help%3Fcmd=timeline-utc.html">timeline-utc</a></li>
+<li><a href="help%3Fcmd=user-color-map.html">user-color-map</a></li>
+<li><a href="help%3Fcmd=uv-sync.html">uv-sync</a></li>
+<li><a href="help%3Fcmd=verify-comments.html">verify-comments</a></li>
+<li><a href="help%3Fcmd=vuln-report.html">vuln-report</a></li>
+<li><a href="help%3Fcmd=web-browser.html">web-browser</a></li>
+</ul></div>
+</div>
+<footer>
+This page was generated in about
+0.005s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="32b94a6aeef17b10be28a252de78d279c1d924bde27d886d">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='32b94a6aeef17b10be28a252de78d279c1d924bde27d886d'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+</script>
+</body>
+</html>

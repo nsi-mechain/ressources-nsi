@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-06bd967a2ea85d7266d04ccab099f5533fa6cd22dd996fcb'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentation Source Text: Help: revert</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="tkt rpage-help cpage-help">
+<header>
+  <div class="title"><h1>Documentation Source Text</h1>Help: revert</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='home.html' class=''>Home</a>
+<a href='timeline.html' class=''>Timeline</a>
+<a href='brlist.html' class='wideonly'>Branches</a>
+<a href='taglist.html' class='wideonly'>Tags</a>
+<a href='ticket.html' class='wideonly'>Tickets</a>
+<a href='wiki.html' class='wideonly'>Wiki</a>
+<a href='login.html' class='wideonly'>Login</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="submenu">
+<a class="label sml-topic-list" href="help.html">Topic-List</a>
+</div>
+<div class="content"><span id="debugMsg"></span>
+<h1>The "revert" command:</h1>
+<div class="helpPage">
+Usage: <tt>fossil</tt> <tt>revert</tt> <i>?OPTIONS?</i> <i>?FILE</i> ...?<br>
+
+<p> Revert to the current repository version of FILE, or to
+the baseline VERSION specified with -r flag.
+
+<p> If FILE was part of a rename operation, both the original file
+and the renamed file are reverted.
+
+<p> Using a directory name for any of the FILE arguments is the same
+as using every subdirectory and file beneath that directory.
+
+<p> Revert all files if no file name is provided.
+
+<p> If a file is reverted accidentally, it can be restored using
+the "fossil undo" command.
+
+<p> Options:
+<blockquote><dl>
+<dt> <tt>--noundo</tt>               </dt><dd>Do not record changes in the undo/redo log.</dt>
+</dd><dt> <tt>-r|--revision</tt> <i>VERSION</i>  </dt><dd>Revert given FILE(s) back to given</dt>
+VERSION
+
+</dd></dl></blockquote><p> See also: <a href='help%3Fcmd=redo.html'>redo</a>, <a href='help%3Fcmd=undo.html'>undo</a>, <a href='help%3Fcmd=checkout.html'>checkout</a>, <a href='help%3Fcmd=update.html'>update</a>
+</div>
+</div>
+<footer>
+This page was generated in about
+0.005s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="06bd967a2ea85d7266d04ccab099f5533fa6cd22dd996fcb">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='06bd967a2ea85d7266d04ccab099f5533fa6cd22dd996fcb'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+</script>
+</body>
+</html>

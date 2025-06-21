@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-2bdccb00b849ce4b64a44dc196b5e1edc81500284c55fb21'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentation Source Text: Help: chat</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="tkt rpage-help cpage-help">
+<header>
+  <div class="title"><h1>Documentation Source Text</h1>Help: chat</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='home.html' class=''>Home</a>
+<a href='timeline.html' class=''>Timeline</a>
+<a href='brlist.html' class='wideonly'>Branches</a>
+<a href='taglist.html' class='wideonly'>Tags</a>
+<a href='ticket.html' class='wideonly'>Tickets</a>
+<a href='wiki.html' class='wideonly'>Wiki</a>
+<a href='login.html' class='wideonly'>Login</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="submenu">
+<a class="label sml-topic-list" href="help.html">Topic-List</a>
+</div>
+<div class="content"><span id="debugMsg"></span>
+<h1>The "chat" command:</h1>
+<div class="helpPage">
+Usage: <tt>fossil</tt> <tt>chat</tt> <i>[SUBCOMMAND]</i> <tt>[--remote</tt> <i>URL]</i> <i>[ARGS...]</i><br>
+
+<p> This command performs actions associated with the /chat instance
+on the default remote Fossil repository (the Fossil repository whose
+URL shows when you run the "fossil remote" command) or to the URL
+specified by the --remote option.  If there is no default remote
+Fossil repository and the --remote option is omitted, then this
+command fails with an error.
+
+<p> Subcommands:
+
+<blockquote><dl>
+<dt> <tt>fossil</tt> <tt>chat</tt></dt>
+
+<p><dd>When there is no SUBCOMMAND (when this command is simply "fossil chat")
+the response is to bring up a web-browser window to the chatroom
+on the default system web-browser.  You can accomplish the same by
+typing the appropriate URL into the web-browser yourself.  This
+command is merely a convenience for command-line oriented people.
+
+</dd><p> <dt> <tt>fossil</tt> <tt>chat</tt> <tt>pull</tt></dt>
+
+<p><dd>Copy chat content from the server down into the local clone,
+as a backup or archive.  Setup privilege is required on the server.
+
+<blockquote><dl>
+<dt> <tt>--all</tt>                </dt><dd>Download all chat content. Normally only</dt>
+previously undownloaded content is retrieved.
+</dd><dt> <tt>--debug</tt>              </dt><dd>Additional debugging output</dt>
+</dd><dt> <tt>--out</tt> <i>DATABASE</i>       </dt><dd>Store CHAT table in separate database file</dt>
+DATABASE rather than adding to local clone
+</dd><dt> <tt>--unsafe</tt>             </dt><dd>Allow the use of unencrypted http://</dt>
+
+</dd></dl></blockquote></dd><p> <dt> <tt>fossil</tt> <tt>chat</tt> <tt>send</tt> <i>[ARGUMENTS]</i></dt>
+
+<p><dd>This command sends a new message to the chatroom.  The message
+to be sent is determined by arguments as follows:
+
+<blockquote><dl>
+<dt> <tt>-f|--file</tt> <i>FILENAME</i>   </dt><dd>File to attach to the message</dt>
+</dd><dt> <tt>--as</tt> <i>FILENAME2</i>       </dt><dd>Causes --file FILENAME to be sent with</dt>
+the attachment name FILENAME2
+</dd><dt> <tt>-m|--message</tt> <i>TEXT</i>    </dt><dd>Text of the chat message</dt>
+</dd><dt> <tt>--remote</tt> <i>URL</i>         </dt><dd>Send to this remote URL</dt>
+</dd><dt> <tt>--unsafe</tt>             </dt><dd>Allow the use of unencrypted http://</dt>
+
+</dd></dl></blockquote></dd><p> <dt> <tt>fossil</tt> <tt>chat</tt> <tt>url</tt></dt>
+
+<p><dd>Show the default URL used to access the chat server.
+
+</dd></dl></blockquote><p> Additional subcommands may be added in the future.
+</div>
+</div>
+<footer>
+This page was generated in about
+0.004s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="2bdccb00b849ce4b64a44dc196b5e1edc81500284c55fb21">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='2bdccb00b849ce4b64a44dc196b5e1edc81500284c55fb21'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+</script>
+</body>
+</html>

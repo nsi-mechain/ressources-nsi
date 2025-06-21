@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-5a53a8dc318a82709aba7e899f3eedfd761c684a41cef852'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentation Source Text: Help: server</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="tkt rpage-help cpage-help">
+<header>
+  <div class="title"><h1>Documentation Source Text</h1>Help: server</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='home.html' class=''>Home</a>
+<a href='timeline.html' class=''>Timeline</a>
+<a href='brlist.html' class='wideonly'>Branches</a>
+<a href='taglist.html' class='wideonly'>Tags</a>
+<a href='ticket.html' class='wideonly'>Tickets</a>
+<a href='wiki.html' class='wideonly'>Wiki</a>
+<a href='login.html' class='wideonly'>Login</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="submenu">
+<a class="label sml-topic-list" href="help.html">Topic-List</a>
+</div>
+<div class="content"><span id="debugMsg"></span>
+<h1>The "server" command:</h1>
+<div class="helpPage">
+Usage: <tt>fossil</tt> <tt>server</tt> <i>?OPTIONS?</i> <i>?REPOSITORY?</i><br>
+   or: <tt>fossil</tt> <tt>ui</tt> <i>?OPTIONS?</i> <i>?REPOSITORY?</i><br>
+
+<p> Open a socket and begin listening and responding to HTTP requests on
+TCP port 8080, or on any other TCP port defined by the -P or
+--port option.  The optional REPOSITORY argument is the name of the
+Fossil repository to be served.  The REPOSITORY argument may be omitted
+if the working directory is within an open check-out, in which case the
+repository associated with that check-out is used.
+
+<p> The "ui" command automatically starts a web browser after initializing
+the web server.  The "ui" command also binds to 127.0.0.1 and so will
+only process HTTP traffic from the local machine.
+
+<p> If REPOSITORY is a directory name which is the root of a
+check-out, then use the repository associated with that check-out.
+This only works for the "fossil ui" command, not the "fossil server"
+command.
+
+<p> If REPOSITORY begins with a "HOST:" or "USER@HOST:" prefix, then
+the command is run on the remote host specified and the results are
+tunneled back to the local machine via SSH.  This feature only works for
+the "fossil ui" command, not the "fossil server" command.  The name of the
+fossil executable on the remote host is specified by the --fossilcmd
+option, or if there is no --fossilcmd, it first tries "fossil" and if it
+is not found in the default $PATH set by SSH on the remote, it then adds
+"$HOME/bin:/usr/local/bin:/opt/homebrew/bin" to the PATH and tries again to
+run "fossil".
+
+<p> REPOSITORY may also be a directory (aka folder) that contains one or
+more repositories with names ending in ".fossil".  In this case, a
+prefix of the URL pathname is used to search the directory for an
+appropriate repository.  To thwart mischief, the pathname in the URL must
+contain only alphanumerics, "_", "/", "-", and ".", and no "-" may
+occur after "/", and every "." must be surrounded on both sides by
+alphanumerics.  Any pathname that does not satisfy these constraints
+results in a 404 error.  Files in REPOSITORY that match the comma-separated
+list of glob patterns given by --files and that have known suffixes
+such as ".txt" or ".html" or ".jpeg" and do not match the pattern
+"*.fossil*" will be served as static content.  With the "ui" command,
+the REPOSITORY can only be a directory if the --notfound option is
+also present.
+
+<p> For the special case REPOSITORY name of "/", the global configuration
+database is consulted for a list of all known repositories.  The --repolist
+option is implied by this special case.  The "fossil ui /" command is
+equivalent to "fossil all ui".  To see all repositories owned by "user"
+on machine "remote" via ssh, run "fossil ui user@remote:/".
+
+<p> By default, the "ui" command provides full administrative access without
+having to log in.  This can be disabled by turning off the "localauth"
+setting.  Automatic login for the "server" command is available if the
+--localauth option is present and the "localauth" setting is off and the
+connection is from localhost.  The "ui" command also enables --repolist
+by default.
+
+<p> Options:
+<blockquote><dl>
+<dt> <tt>--acme</tt>            </dt><dd>Deliver files from the ".well-known" subdirectory</dt>
+</dd><dt> <tt>--baseurl</tt> <i>URL</i>     </dt><dd>Use URL as the base (useful for reverse proxies)</dt>
+</dd><dt> <tt>--cert</tt> <i>FILE</i>       </dt><dd>Use TLS (HTTPS) encryption with the certificate (the</dt>
+fullchain.pem) taken from FILE.
+</dd><dt> <tt>--chroot</tt> <i>DIR</i>      </dt><dd>Use directory for chroot instead of repository path</dt>
+</dd><dt> <tt>--ckout-alias</tt> <i>NAME</i></dt><dd>Treat URIs of the form /doc/NAME/... as if they were</dt>
+/doc/ckout/...
+</dd><dt> <tt>--create</tt>          </dt><dd>Create a new REPOSITORY if it does not already exist</dt>
+</dd><dt> <tt>--errorlog</tt> <i>FILE</i>   </dt><dd>Append HTTP error messages to FILE</dt>
+</dd><dt> <tt>--extpage</tt> <i>FILE</i>    </dt><dd>Shortcut for "--extroot DIR --page ext/TAIL" where</dt>
+DIR is the directory holding FILE and TAIL is the
+filename at the end of FILE.  Only works for "ui".
+</dd><dt> <tt>--extroot</tt> <i>DIR</i>     </dt><dd>Document root for the /ext extension mechanism</dt>
+</dd><dt> <tt>--files</tt> <i>GLOBLIST</i>  </dt><dd>Comma-separated list of glob patterns for static files</dt>
+</dd><dt> <tt>--fossilcmd</tt> <i>PATH</i>  </dt><dd>The pathname of the "fossil" executable on the remote</dt>
+system when REPOSITORY is remote.
+</dd><dt> <tt>--from</tt> <i>PATH</i>       </dt><dd>Use PATH as the diff baseline for the /ckout page</dt>
+</dd><dt> <tt>--localauth</tt>       </dt><dd>Enable automatic login for requests from localhost</dt>
+</dd><dt> <tt>--localhost</tt>       </dt><dd>Listen on 127.0.0.1 only (always true for "ui")</dt>
+</dd><dt> <tt>--https</tt>           </dt><dd>Indicates that the input is coming through a reverse</dt>
+proxy that has already translated HTTPS into HTTP.
+</dd><dt> <tt>--jsmode</tt> <i>MODE</i>     </dt><dd>Determine how JavaScript is delivered with pages.</dt>
+Mode can be one of:
+<blockquote><dl>
+<dt> <tt>inline</tt>     </dt><dd>All JavaScript is inserted inline at</dt>
+the end of the HTML file.
+</dd><dt> <tt>separate</tt>   </dt><dd>Separate HTTP requests are made for</dt>
+each JavaScript file.
+</dd><dt> <tt>bundled</tt>    </dt><dd>One single separate HTTP fetches all</dt>
+JavaScript concatenated together.
+</dd></dl></blockquote>Depending on the needs of any given page, inline
+and bundled modes might result in a single
+amalgamated script or several, but both approaches
+result in fewer HTTP requests than the separate mode.
+</dd><dt> <tt>--mainmenu</tt> <i>FILE</i>   </dt><dd>Override the mainmenu config setting with the contents</dt>
+of the given file
+</dd><dt> <tt>--max-latency</tt> <i>N</i>   </dt><dd>Do not let any single HTTP request run for more than N</dt>
+seconds (only works on unix)
+</dd><dt> <tt>-B|--nobrowser</tt>    </dt><dd>Do not automatically launch a web-browser for the</dt>
+"fossil ui" command
+</dd><dt> <tt>--nocompress</tt>      </dt><dd>Do not compress HTTP replies</dt>
+</dd><dt> <tt>--nojail</tt>          </dt><dd>Drop root privileges but do not enter the chroot jail</dt>
+</dd><dt> <tt>--nossl</tt>           </dt><dd>Do not force redirects to SSL even if the repository</dt>
+setting "redirect-to-https" requests it.  This is set
+by default for the "ui" command.
+</dd><dt> <tt>--notfound</tt> <i>URL</i>    </dt><dd>Redirect to URL if a page is not found.</dt>
+</dd><dt> <tt>-p|--page</tt> <i>PAGE</i>    </dt><dd>Start "ui" on PAGE.  ex: --page "timeline?y=ci"</dt>
+</dd><dt> <tt>--pkey</tt> <i>FILE</i>       </dt><dd>Read the private key used for TLS from FILE</dt>
+</dd><dt> <tt>-P|--port</tt> <i>[IP:]PORT</i></dt><dd>Listen on the given IP (optional) and port</dt>
+</dd><dt> <tt>--repolist</tt>        </dt><dd>If REPOSITORY is dir, URL "/" lists repos</dt>
+</dd><dt> <tt>--scgi</tt>            </dt><dd>Accept SCGI rather than HTTP</dt>
+</dd><dt> <tt>--skin</tt> <i>LABEL</i>      </dt><dd>Use override skin LABEL, or the site's default skin if</dt>
+LABEL is an empty string.
+</dd><dt> <tt>--socket-mode</tt> <i>MODE</i></dt><dd>File permissions to set for the unix socket created</dt>
+by the --socket-name option.
+</dd><dt> <tt>--socket-name</tt> <i>NAME</i></dt><dd>Use a unix-domain socket called NAME instead of a</dt>
+TCP/IP socket.
+</dd><dt> <tt>--socket-owner</tt> <i>USR</i></dt><dd>Try to set the owner of the unix socket to USR.</dt>
+USR can be of the form USER:GROUP to set both
+user and group.
+</dd><dt> <tt>--th-trace</tt>        </dt><dd>Trace TH1 execution (for debugging purposes)</dt>
+</dd><dt> <tt>--usepidkey</tt>       </dt><dd>Use saved encryption key from parent process.  This is</dt>
+only necessary when using SEE on Windows or Linux.
+
+</dd></dl></blockquote><p> See also: <a href='help%3Fcmd=cgi.html'>cgi</a>, <a href='help%3Fcmd=http.html'>http</a>, <a href='help%3Fcmd=winsrv.html'>winsrv</a> [Windows only]
+</div>
+</div>
+<footer>
+This page was generated in about
+0.006s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="5a53a8dc318a82709aba7e899f3eedfd761c684a41cef852">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='5a53a8dc318a82709aba7e899f3eedfd761c684a41cef852'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+</script>
+</body>
+</html>

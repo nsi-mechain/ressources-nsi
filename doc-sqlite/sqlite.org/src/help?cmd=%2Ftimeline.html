@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-61013b921211b15d4b460b684b72d689dcef20c1644a8301'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQLite: Help: /timeline</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="tkt rpage-help cpage-help">
+<header>
+  <div class="title"><h1>SQLite</h1>Help: /timeline</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='https://sqlite.org/' class=''>Home</a>
+<a href='timeline.html' class=''>Timeline</a>
+<a href='https://sqlite.org/forum/forum' class='desktoponly'>Forum</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="submenu">
+<a class="label sml-topic-list" href="help.html">Topic-List</a>
+</div>
+<div class="content"><span id="debugMsg"></span>
+<h1>The "/timeline" page:</h1>
+<div class="helpPage">
+Query parameters:
+
+<blockquote><dl>
+<dt> <tt>a</tt>=<i>TIMEORTAG</i>   </dt><dd>Show events after TIMEORTAG.</dt>
+</dd><dt> <tt>b</tt>=<i>TIMEORTAG</i>   </dt><dd>Show events before TIMEORTAG.</dt>
+</dd><dt> <tt>c</tt>=<i>TIMEORTAG</i>   </dt><dd>Show events that happen "circa" TIMEORTAG</dt>
+</dd><dt> <tt>cf</tt>=<i>FILEHASH</i>   </dt><dd>Show events around the time of the first use of</dt>
+the file with FILEHASH.
+</dd><dt> <tt>m</tt>=<i>TIMEORTAG</i>   </dt><dd>Highlight the event at TIMEORTAG, or the closest available</dt>
+event if TIMEORTAG is not part of the timeline.  If
+the t= or r= is used, the m event is added to the timeline
+if it isn't there already.
+</dd><dt> <tt>x</tt>=<i>LIST</i>        </dt><dd>Show check-ins in the comma- or space-separated LIST</dt>
+in addition to check-ins specified by other parameters.
+</dd><dt> <tt>sel1</tt>=<i>TIMEORTAG</i></dt><dd>Highlight the check-in at TIMEORTAG if it is part of</dt>
+the timeline.  Similar to m= except TIMEORTAG must
+match a check-in that is already in the timeline.
+</dd><dt> <tt>sel2</tt>=<i>TIMEORTAG</i></dt><dd>Like sel1= but use the secondary highlight.</dt>
+</dd><dt> <tt>n</tt>=<i>COUNT</i>       </dt><dd>Maximum number of events. "all" for no limit</dt>
+</dd><dt> <tt>n1</tt>=<i>COUNT</i>      </dt><dd>Same as "n" but doesn't set the display-preference cookie</dt>
+Use "n1=COUNT" for a one-time display change
+</dd><dt> <tt>p</tt>=<i>CHECKIN</i>     </dt><dd>Parents and ancestors of CHECKIN</dt>
+<blockquote><dl>
+<dt> <tt>bt</tt>=<i>PRIOR</i> </dt><dd>... going back to PRIOR</dt>
+</dd><dt> <tt>p2</tt>=<i>CKIN2</i> </dt><dd>... use CKIN2 if CHECKIN is not found</dt>
+</dd></dl></blockquote></dd><dt> <tt>d</tt>=<i>CHECKIN</i>     </dt><dd>Children and descendants of CHECKIN</dt>
+<blockquote><dl>
+<dt> <tt>d2</tt>=<i>CKIN2</i>      </dt><dd>... Use CKIN2 if CHECKIN is not found</dt>
+</dd><dt> <tt>ft</tt>=<i>DESCENDANT</i> </dt><dd>... going forward to DESCENDANT</dt>
+</dd></dl></blockquote></dd><dt> <tt>dp</tt>=<i>CHECKIN</i>    </dt><dd>Same as 'd=CHECKIN&amp;p=CHECKIN'</dt>
+</dd><dt> <tt>dp2</tt>=<i>CKIN2</i>     </dt><dd>Same as 'd2=CKIN2&amp;p2=CKIN2'</dt>
+</dd><dt> <tt>df</tt>=<i>CHECKIN</i>    </dt><dd>Same as 'd=CHECKIN&amp;n1=all&amp;nd'.  Mnemonic: "Derived From"</dt>
+</dd><dt> <tt>bt</tt>=<i>CHECKIN</i>    </dt><dd>"Back To".  Show ancenstors going back to CHECKIN</dt>
+<blockquote><dl>
+<dt> <tt>p</tt>=<i>CX</i>     </dt><dd>... from CX back to time of CHECKIN</dt>
+</dd><dt> <tt>from</tt>=<i>CX</i>  </dt><dd>... path from CX back to CHECKIN</dt>
+</dd></dl></blockquote></dd><dt> <tt>ft</tt>=<i>CHECKIN</i>    </dt><dd>"Forward To":  Show decendents forward to CHECKIN</dt>
+<blockquote><dl>
+<dt> <tt>d</tt>=<i>CX</i>     </dt><dd>... from CX up to the time of CHECKIN</dt>
+</dd><dt> <tt>from</tt>=<i>CX</i>  </dt><dd>... path from CX up to CHECKIN</dt>
+</dd></dl></blockquote></dd><dt> <tt>t</tt>=<i>TAG</i>         </dt><dd>Show only check-ins with the given TAG</dt>
+</dd><dt> <tt>r</tt>=<i>TAG</i>         </dt><dd>Same as 't=TAG&amp;rel'.  Mnemonic: "Related"</dt>
+</dd><dt> <tt>tl</tt>=<i>TAGLIST</i>    </dt><dd>Same as 't=TAGLIST&amp;ms=brlist'.  Mnemonic: "Tag List"</dt>
+</dd><dt> <tt>rl</tt>=<i>TAGLIST</i>    </dt><dd>Same as 'r=TAGLIST&amp;ms=brlist'.  Mnemonic: "Related List"</dt>
+</dd><dt> <tt>ml</tt>=<i>TAGLIST</i>    </dt><dd>Same as 'tl=TAGLIST&amp;mionly'.  Mnemonic: "Merge-in List"</dt>
+</dd><dt> <tt>sl</tt>=<i>TAGLIST</i>    </dt><dd>"Sort List". Draw TAGLIST branches ordered left to right.</dt>
+</dd><dt> <tt>rel</tt>           </dt><dd>Show related check-ins as well as those matching t=TAG</dt>
+</dd><dt> <tt>mionly</tt>        </dt><dd>Show related parents but not related children.</dt>
+</dd><dt> <tt>nowiki</tt>        </dt><dd>Do not show wiki associated with branch or tag</dt>
+</dd><dt> <tt>ms</tt>=<i>MATCHSTYLE</i> </dt><dd>Set tag name match algorithm.  One of "exact", "glob",</dt>
+"like", or "regexp".
+</dd><dt> <tt>u</tt>=<i>USER</i>        </dt><dd>Only show items associated with USER</dt>
+</dd><dt> <tt>y</tt>=<i>TYPE</i>        </dt><dd>'ci', 'w', 't', 'n', 'e', 'f', or 'all'.</dt>
+</dd><dt> <tt>ss</tt>=<i>VIEWSTYLE</i>  </dt><dd>c: "Compact", v: "Verbose", m: "Modern", j: "Columnar",</dt>
+</dd><dt> <tt>advm</tt>          </dt><dd>Use the "Advanced" or "Busy" menu design.</dt>
+</dd><dt> <tt>ng</tt>            </dt><dd>No Graph.</dt>
+</dd><dt> <tt>ncp</tt>           </dt><dd>Omit cherrypick merges</dt>
+</dd><dt> <tt>nd</tt>            </dt><dd>Do not highlight the focus check-in</dt>
+</dd><dt> <tt>nsm</tt>           </dt><dd>Omit the submenu</dt>
+</dd><dt> <tt>nc</tt>            </dt><dd>Omit all graph colors other than highlights</dt>
+</dd><dt> <tt>v</tt>             </dt><dd>Show details of files changed</dt>
+</dd><dt> <tt>vfx</tt>           </dt><dd>Show complete text of forum messages</dt>
+</dd><dt> <tt>f</tt>=<i>CHECKIN</i>     </dt><dd>Family (immediate parents and children) of CHECKIN</dt>
+</dd><dt> <tt>from</tt>=<i>CHECKIN</i>  </dt><dd>Path through common ancestor from CHECKIN...</dt>
+<blockquote><dl>
+<dt> <tt>to</tt>=<i>CHECKIN</i> </dt><dd>... to this</dt>
+</dd><dt> <tt>to2</tt>=<i>CHECKIN</i></dt><dd>... backup name if to= doesn't resolve</dt>
+</dd><dt> <tt>shortest</tt>   </dt><dd>... pick path with least number of nodes</dt>
+</dd><dt> <tt>rel</tt>        </dt><dd>... also show related checkins</dt>
+</dd><dt> <tt>min</tt>        </dt><dd>... hide long sequences along same branch</dt>
+</dd><dt> <tt>bt</tt>=<i>PRIOR</i>   </dt><dd>... path from CHECKIN back to PRIOR</dt>
+</dd><dt> <tt>ft</tt>=<i>LATER</i>   </dt><dd>... path from CHECKIN forward to LATER</dt>
+</dd></dl></blockquote></dd><dt> <tt>me</tt>=<i>CHECKIN</i>    </dt><dd>Most direct path from CHECKIN...</dt>
+<blockquote><dl>
+<dt> <tt>you</tt>=<i>CHECKIN</i></dt><dd>... to this</dt>
+</dd><dt> <tt>rel</tt>        </dt><dd>... also show related checkins</dt>
+</dd></dl></blockquote></dd><dt> <tt>uf</tt>=<i>FILE_HASH</i>  </dt><dd>Show only check-ins that contain the given file version</dt>
+All qualifying check-ins are shown unless there is
+also an n= or n1= query parameter.
+</dd><dt> <tt>chng</tt>=<i>GLOBLIST</i> </dt><dd>Show only check-ins that involve changes to a file whose</dt>
+name matches one of the comma-separate GLOBLIST
+</dd><dt> <tt>brbg</tt>          </dt><dd>Background color determined by branch name</dt>
+</dd><dt> <tt>ubg</tt>           </dt><dd>Background color determined by user</dt>
+</dd><dt> <tt>deltabg</tt>       </dt><dd>Background color red for delta manifests or green</dt>
+for baseline manifests
+</dd><dt> <tt>namechng</tt>      </dt><dd>Show only check-ins that have filename changes</dt>
+</dd><dt> <tt>forks</tt>         </dt><dd>Show only forks and their children</dt>
+</dd><dt> <tt>cherrypicks</tt>   </dt><dd>Show all cherrypicks</dt>
+</dd><dt> <tt>ym</tt>=<i>YYYYMM</i>     </dt><dd>Show only events for the given year/month</dt>
+</dd><dt> <tt>yw</tt>=<i>YYYYWW</i>     </dt><dd>Show only events for the given week of the given year</dt>
+</dd><dt> <tt>yw</tt>=<i>YYYYMMDD</i>   </dt><dd>Show events for the week that includes the given day</dt>
+</dd><dt> <tt>ymd</tt>=<i>YYYYMMDD</i>  </dt><dd>Show only events on the given day. The use "ymd=now"</dt>
+to see all changes for the current week.  Add "z" at end
+to divide days at UTC instead of localtime days.
+Use ymd=YYYYMMDD-YYYYMMDD (with optional "z") for a range.
+</dd><dt> <tt>year</tt>=<i>YYYY</i>     </dt><dd>Show only events on the given year. The use "year=0"</dt>
+to see all changes for the current year.
+</dd><dt> <tt>days</tt>=<i>N</i>        </dt><dd>Show events over the previous N days</dt>
+</dd><dt> <tt>datefmt</tt>=<i>N</i>     </dt><dd>Override the date format:  0=HH:MM, 1=HH:MM:SS,</dt>
+2=YYYY-MM-DD HH:MM:SS, 3=YYMMDD HH:MM, and 4 means "off".
+</dd><dt> <tt>bisect</tt>        </dt><dd>Show the check-ins that are in the current bisect</dt>
+</dd><dt> <tt>oldestfirst</tt>   </dt><dd>Show events oldest first.</dt>
+</dd><dt> <tt>showid</tt>        </dt><dd>Show RIDs</dt>
+</dd><dt> <tt>showsql</tt>       </dt><dd>Show the SQL used to generate the report</dt>
+
+</dd></dl></blockquote><p> p= and d= can appear individually or together.  If either p= or d=
+appear, then u=, y=, a=, and b= are ignored.
+
+<p> If both a= and b= appear then both upper and lower bounds are honored.
+
+<p> When multiple time-related filters are used, e.g. ym, yw, and ymd,
+which one(s) is/are applied is unspecified and may change between
+fossil versions.
+
+<p> CHECKIN or TIMEORTAG can be a check-in hash prefix, or a tag, or the
+name of a branch.
+</div>
+</div>
+<footer>
+This page was generated in about
+0.005s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="61013b921211b15d4b460b684b72d689dcef20c1644a8301">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='61013b921211b15d4b460b684b72d689dcef20c1644a8301'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+</script>
+</body>
+</html>

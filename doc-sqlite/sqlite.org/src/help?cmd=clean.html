@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-4215faa384b6caa3ad9ddffba64d43c6b3da713a670aa7b3'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQLite: Help: clean</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="tkt rpage-help cpage-help">
+<header>
+  <div class="title"><h1>SQLite</h1>Help: clean</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='https://sqlite.org/' class=''>Home</a>
+<a href='timeline.html' class=''>Timeline</a>
+<a href='https://sqlite.org/forum/forum' class='desktoponly'>Forum</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="submenu">
+<a class="label sml-topic-list" href="help.html">Topic-List</a>
+</div>
+<div class="content"><span id="debugMsg"></span>
+<h1>The "clean" command:</h1>
+<div class="helpPage">
+Usage: <tt>fossil</tt> <tt>clean</tt> <i>?OPTIONS?</i> <i>?PATH</i> ...?<br>
+
+<p> Delete all "extra" files in the source tree.  "Extra" files are files
+that are not officially part of the check-out.  If one or more PATH
+arguments appear, then only the files named, or files contained with
+directories named, will be removed.
+
+<p> If the --prompt option is used, prompts are issued to confirm the
+permanent removal of each file.  Otherwise, files are backed up to the
+undo buffer prior to removal, and prompts are issued only for files
+whose removal cannot be undone due to their large size or due to
+--disable-undo being used.
+
+<p> The --force option treats all prompts as having been answered yes,
+whereas --no-prompt treats them as having been answered no.
+
+<p> Files matching any glob pattern specified by the --clean option are
+deleted without prompting, and the removal cannot be undone.
+
+<p> No file that matches glob patterns specified by --ignore or --keep will
+ever be deleted.  Files and subdirectories whose names begin with "."
+are automatically ignored unless the --dotfiles option is used.
+
+<p> The default values for --clean, --ignore, and --keep are determined by
+the (versionable) clean-glob, ignore-glob, and keep-glob settings.
+
+<p> The --verily option ignores the keep-glob and ignore-glob settings and
+turns on --force, --emptydirs, --dotfiles, and --disable-undo.  Use the
+--verily option when you really want to clean up everything.  Extreme
+care should be exercised when using the --verily option.
+
+<p> Options:
+<blockquote><dl>
+<dt> <tt>--allckouts</tt>          </dt><dd>Check for empty directories within any check-outs</dt>
+that may be nested within the current one.  This
+option should be used with great care because the
+empty-dirs setting (and other applicable settings)
+belonging to the other repositories, if any, will
+not be checked.
+</dd><dt> <tt>--case-sensitive</tt> <i>BOOL</i></dt><dd>Override case-sensitive setting</dt>
+</dd><dt> <tt>--dirsonly</tt>           </dt><dd>Only remove empty directories.  No files will</dt>
+be removed.  Using this option will automatically
+enable the --emptydirs option as well.
+</dd><dt> <tt>--disable-undo</tt>       </dt><dd>WARNING: This option disables use of the undo</dt>
+mechanism for this clean operation and should be
+used with extreme caution.
+</dd><dt> <tt>--dotfiles</tt>           </dt><dd>Include files beginning with a dot (".")</dt>
+</dd><dt> <tt>--emptydirs</tt>          </dt><dd>Remove any empty directories that are not</dt>
+explicitly exempted via the empty-dirs setting
+or another applicable setting or command line
+argument.  Matching files, if any, are removed
+prior to checking for any empty directories;
+therefore, directories that contain only files
+that were removed will be removed as well.
+</dd><dt> <tt>-f|--force</tt>           </dt><dd>Remove files without prompting</dt>
+</dd><dt> <tt>-i|--prompt</tt>          </dt><dd>Prompt before removing each file.  This option</dt>
+implies the --disable-undo option.
+</dd><dt> <tt>-x|--verily</tt>          </dt><dd>WARNING: Removes everything that is not a managed</dt>
+file or the repository itself.  This option
+implies the --force, --emptydirs, --dotfiles, and
+--disable-undo options. Furthermore, it
+completely disregards the keep-glob
+and ignore-glob settings.  However, it does honor
+the --ignore and --keep options.
+</dd><dt> <tt>--clean</tt> <i>CSG</i>          </dt><dd>WARNING: Never prompt to delete any files matching</dt>
+this comma separated list of glob patterns.  Also,
+deletions of any files matching this pattern list
+cannot be undone.
+</dd><dt> <tt>--ignore</tt> <i>CSG</i>         </dt><dd>Ignore files matching patterns from the</dt>
+comma separated list of glob patterns
+</dd><dt> <tt>--keep</tt> <i>&lt;CSG&gt;</i>         </dt><dd>Keep files matching this comma separated</dt>
+list of glob patterns
+</dd><dt> <tt>-n|--dry-run</tt>         </dt><dd>Delete nothing, but display what would have been</dt>
+deleted
+</dd><dt> <tt>--no-prompt</tt>          </dt><dd>Do not prompt the user for input and assume an</dt>
+answer of 'No' for every question
+</dd><dt> <tt>--temp</tt>               </dt><dd>Remove only Fossil-generated temporary files</dt>
+</dd><dt> <tt>-v|--verbose</tt>         </dt><dd>Show all files as they are removed</dt>
+
+</dd></dl></blockquote><p> See also: <a href='help%3Fcmd=addremove.html'>addremove</a>, <a href='help%3Fcmd=extras.html'>extras</a>, <a href='help%3Fcmd=status.html'>status</a>
+</div>
+</div>
+<footer>
+This page was generated in about
+0.005s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="4215faa384b6caa3ad9ddffba64d43c6b3da713a670aa7b3">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='4215faa384b6caa3ad9ddffba64d43c6b3da713a670aa7b3'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+</script>
+</body>
+</html>

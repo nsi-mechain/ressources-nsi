@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-6c97dc2c636e02dd0e4cb5f59f7d01046dbe75f1e96db9c1'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>sqllogictest: Help: /uv</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="tkt rpage-help cpage-help">
+<header>
+  <div class="title"><h1>sqllogictest</h1>Help: /uv</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='home.html' class=''>Home</a>
+<a href='timeline.html' class=''>Timeline</a>
+<a href='brlist.html' class='wideonly'>Branches</a>
+<a href='taglist.html' class='wideonly'>Tags</a>
+<a href='ticket.html' class='wideonly'>Tickets</a>
+<a href='wiki.html' class='wideonly'>Wiki</a>
+<a href='login.html' class='wideonly'>Login</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="submenu">
+<a class="label sml-topic-list" href="help.html">Topic-List</a>
+</div>
+<div class="content"><span id="debugMsg"></span>
+<h1>The "/uv" page:</h1>
+<div class="helpPage">
+URL: /uv/FILE
+URL: /doc/CHECKIN/FILE
+
+<p> CHECKIN can be either tag or hash prefix or timestamp identifying a
+particular check-in, or the name of a branch (meaning the most recent
+check-in on that branch) or one of various magic words:
+
+<blockquote><dl>
+<dt> <tt>"tip"</tt>    </dt><dd>means the most recent check-in</dt>
+
+</dd><p> <dt> <tt>"ckout"</tt>  </dt><dd>means the current check-out, if the server is run from</dt>
+within a check-out, otherwise it is the same as "tip"
+
+</dd><p> <dt> <tt>"latest"</tt> </dt><dd>means use the most recent check-in for the document</dt>
+regardless of what branch it occurs on.
+
+</dd></dl></blockquote><p> FILE is the name of a file to delivered up as a webpage.  FILE is relative
+to the root of the source tree of the repository. The FILE must
+be a part of CHECKIN, except when CHECKIN=="ckout" when FILE is read
+directly from disk and need not be a managed file.  For /uv, FILE
+can also be the hash of the unversioned file.
+
+<p> The "ckout" CHECKIN is intended for development - to provide a mechanism
+for looking at what a file will look like using the /doc webpage after
+it gets checked in.  Some commands like "fossil ui", "fossil server",
+and "fossil http" accept an argument "--ckout-alias NAME" when allows
+NAME to be understood as an alias for "ckout".  On a site with many
+embedded hyperlinks to /doc/trunk/... one can run with "--ckout-alias trunk"
+to simulate what the pending changes will look like after they are
+checked in.  The NAME alias is stored in g.zCkoutAlias.
+
+<p> The file extension is used to decide how to render the file.
+
+<p> If FILE ends in "/" then the names "FILE/index.html", "FILE/index.wiki",
+and "FILE/index.md" are tried in that order.  If the binary was compiled
+with TH1 embedded documentation support and the "th1-docs" setting is
+enabled, the name "FILE/index.th1" is also tried.  If none of those are
+found, then FILE is completely replaced by "404.md" and tried.  If that
+is not found, then a default 404 screen is generated.
+
+<p> If the file's mimetype is "text/x-fossil-wiki" or "text/x-markdown"
+then headers and footers are added. If the document has mimetype
+text/html then headers and footers are usually not added.  However,
+if a "text/html" document begins with the following div:
+
+<blockquote><pre>&lt;div class='fossil-doc' data-title='TEXT'&gt;
+</pre></blockquote><p> then headers and footers are supplied.  The optional data-title field
+specifies the title of the document in that case.
+
+<p> For fossil-doc documents and for markdown documents, text of the
+form:  "href='$ROOT/" or "action='$ROOT" has the $ROOT name expanded
+to the top-level of the repository.
+</div>
+</div>
+<footer>
+This page was generated in about
+0.004s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="6c97dc2c636e02dd0e4cb5f59f7d01046dbe75f1e96db9c1">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='6c97dc2c636e02dd0e4cb5f59f7d01046dbe75f1e96db9c1'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+</script>
+</body>
+</html>

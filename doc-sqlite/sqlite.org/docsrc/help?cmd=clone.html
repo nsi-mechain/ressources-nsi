@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-d32abac6d67c839ecd29d1521aa0c5b12903225c7130a34e'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentation Source Text: Help: clone</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="tkt rpage-help cpage-help">
+<header>
+  <div class="title"><h1>Documentation Source Text</h1>Help: clone</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='home.html' class=''>Home</a>
+<a href='timeline.html' class=''>Timeline</a>
+<a href='brlist.html' class='wideonly'>Branches</a>
+<a href='taglist.html' class='wideonly'>Tags</a>
+<a href='ticket.html' class='wideonly'>Tickets</a>
+<a href='wiki.html' class='wideonly'>Wiki</a>
+<a href='login.html' class='wideonly'>Login</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="submenu">
+<a class="label sml-topic-list" href="help.html">Topic-List</a>
+</div>
+<div class="content"><span id="debugMsg"></span>
+<h1>The "clone" command:</h1>
+<div class="helpPage">
+Usage: <tt>fossil</tt> <tt>clone</tt> <i>?OPTIONS?</i> <i>URI</i> <i>?FILENAME?</i><br>
+
+<p> Make a clone of a repository specified by URI in the local
+file named FILENAME.  If FILENAME is omitted, then an appropriate
+filename is deduced from last element of the path in the URL.
+
+<p> URI may be one of the following forms ([...] denotes optional elements):
+
+<p><ul>
+<li> HTTP/HTTPS protocol:
+
+<blockquote><pre>http[s]://[userid[:password]@]host[:port][/path]
+</pre></blockquote><li> <p> SSH protocol:
+
+<blockquote><pre>ssh://[userid@]host[:port]/path/to/repo.fossil[?fossil=path/fossil.exe]
+</pre></blockquote><li> <p> Filesystem:
+
+<blockquote><pre>[file://]path/to/repo.fossil
+</pre></blockquote></ul><p> For ssh and filesystem, path must have an extra leading
+'/' to use an absolute path.
+
+<p> Use %HH escapes for special characters in the userid and
+password.  For example "%40" in place of "@", "%2f" in place
+of "/", and "%3a" in place of ":".
+
+<p> Note that in Fossil (in contrast to some other DVCSes) a repository
+is distinct from a check-out.  Cloning a repository is not the same thing
+as opening a repository.  This command always clones the repository.  This
+command might also open the repository, but only if the --no-open option
+is omitted and either the --workdir option is included or the FILENAME
+argument is omitted.  Use the separate <a href='help%3Fcmd=open.html'>open</a> command to open a
+repository that was previously cloned and already exists on the
+local machine.
+
+<p> By default, the current login name is used to create the default
+admin user for the new clone. This can be overridden using
+the -A|--admin-user parameter.
+
+<p> Options:
+<blockquote><dl>
+<dt> <tt>-A|--admin-user</tt> <i>USERNAME</i> </dt><dd>Make USERNAME the administrator</dt>
+</dd><dt> <tt>-B|--httpauth</tt> <i>USER:PASS</i>  </dt><dd>Add HTTP Basic Authorization to requests</dt>
+</dd><dt> <tt>--nested</tt>                 </dt><dd>Allow opening a repository inside an opened</dt>
+check-out
+</dd><dt> <tt>--nocompress</tt>             </dt><dd>Omit extra delta compression</dt>
+</dd><dt> <tt>--no-open</tt>                </dt><dd>Clone only.  Do not open a check-out.</dt>
+</dd><dt> <tt>--once</tt>                   </dt><dd>Don't remember the URI.</dt>
+</dd><dt> <tt>--private</tt>                </dt><dd>Also clone private branches</dt>
+</dd><dt> <tt>--proxy</tt> <i>PROXY</i>            </dt><dd>Use the specified HTTP proxy</dt>
+</dd><dt> <tt>--save-http-password</tt>     </dt><dd>Remember the HTTP password without asking</dt>
+</dd><dt> <tt>-c|--ssh-command</tt> <i>SSH</i>     </dt><dd>Use SSH as the "ssh" command</dt>
+</dd><dt> <tt>--ssl-identity</tt> <i>FILENAME</i>  </dt><dd>Use the SSL identity if requested by the server</dt>
+</dd><dt> <tt>--transport-command</tt> <i>CMD</i>  </dt><dd>Use CMD to move messages to the server and back</dt>
+</dd><dt> <tt>-u|--unversioned</tt>         </dt><dd>Also sync unversioned content</dt>
+</dd><dt> <tt>-v|--verbose</tt>             </dt><dd>Show more statistics in output</dt>
+</dd><dt> <tt>--workdir</tt> <i>DIR</i>            </dt><dd>Also open a check-out in DIR</dt>
+</dd><dt> <tt>--xverbose</tt>               </dt><dd>Extra debugging output</dt>
+
+</dd></dl></blockquote><p> See also: <a href='help%3Fcmd=init.html'>init</a>, <a href='help%3Fcmd=open.html'>open</a>
+</div>
+</div>
+<footer>
+This page was generated in about
+0.005s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="d32abac6d67c839ecd29d1521aa0c5b12903225c7130a34e">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='d32abac6d67c839ecd29d1521aa0c5b12903225c7130a34e'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+</script>
+</body>
+</html>

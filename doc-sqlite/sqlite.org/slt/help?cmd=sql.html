@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-a4ca91093dafca7b609f5b5b1d4ab68ed50fafbad38e26ac'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>sqllogictest: Help: sql</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="tkt rpage-help cpage-help">
+<header>
+  <div class="title"><h1>sqllogictest</h1>Help: sql</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='home.html' class=''>Home</a>
+<a href='timeline.html' class=''>Timeline</a>
+<a href='brlist.html' class='wideonly'>Branches</a>
+<a href='taglist.html' class='wideonly'>Tags</a>
+<a href='ticket.html' class='wideonly'>Tickets</a>
+<a href='wiki.html' class='wideonly'>Wiki</a>
+<a href='login.html' class='wideonly'>Login</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="submenu">
+<a class="label sml-topic-list" href="help.html">Topic-List</a>
+</div>
+<div class="content"><span id="debugMsg"></span>
+<h1>The "sql" command:</h1>
+<div class="helpPage">
+Usage: <tt>fossil</tt> <tt>sql</tt> <i>?OPTIONS?</i><br>
+
+<p> Run the sqlite3 command-line shell on the Fossil repository
+identified by the -R option, or on the current repository.
+See https://www.sqlite.org/cli.html for additional information about
+the sqlite3 command-line shell.
+
+<p> WARNING:  Careless use of this command can corrupt a Fossil repository
+in ways that are unrecoverable.  Be sure you know what you are doing before
+running any SQL commands that modify the repository database.  Use the
+--readonly option to prevent accidental damage to the repository.
+
+<p> Options:
+<blockquote><dl>
+<dt> <tt>--no-repository</tt>         </dt><dd>Skip opening the repository database</dt>
+</dd><dt> <tt>--readonly</tt>              </dt><dd>Open the repository read-only.  No changes</dt>
+are allowed.  This is a recommended safety
+precaution to prevent repository damage.
+</dd><dt> <tt>-R</tt> <i>REPOSITORY</i>           </dt><dd>Use REPOSITORY as the repository database</dt>
+</dd><dt> <tt>--test</tt>                  </dt><dd>Enable some testing and analysis features</dt>
+that are normally disabled.
+
+</dd></dl></blockquote><p> All of the standard sqlite3 command-line shell options should also
+work.
+
+<p> The following SQL extensions are provided with this Fossil-enhanced
+version of the sqlite3 command-line shell:
+
+<blockquote><dl>
+<dt> <tt>builtin</tt>                 </dt><dd>A virtual table that contains one row for</dt>
+each datafile that is built into the Fossil
+binary.
+
+</dd><p> <dt> <tt>checkin_mtime(X,Y)</tt>      </dt><dd>Return the mtime for the file Y (a BLOB.RID)</dt>
+found in check-in X (another BLOB.RID value).
+
+</dd><p> <dt> <tt>compress(X)</tt>             </dt><dd>Compress text X with the same algorithm used</dt>
+to compress artifacts in the BLOB table.
+
+</dd><p> <dt> <tt>content(X)</tt>              </dt><dd>Return the content of artifact X. X can be an</dt>
+artifact hash or hash prefix or a tag. Artifacts
+are stored compressed and deltaed. This function
+does all necessary decompression and undeltaing.
+
+</dd><p> <dt> <tt>decompress(X)</tt>           </dt><dd>Decompress text X.  Undoes the work of</dt>
+compress(X).
+
+</dd><p> <dt> <tt>delta_apply(X,D)</tt>        </dt><dd>Apply delta D to source blob X and return</dt>
+the result.
+
+</dd><p> <dt> <tt>delta_create(X,Y)</tt>       </dt><dd>Create and return a delta that will convert</dt>
+X into Y.
+
+</dd><p> <dt> <tt>delta_output_size(D)</tt>    </dt><dd>Return the number of bytes of output to expect</dt>
+when applying delta D
+
+</dd><p> <dt> <tt>delta_parse(D)</tt>          </dt><dd>A table-valued function that deconstructs</dt>
+delta D and returns rows for each element of
+that delta.
+
+</dd><p> <dt> <tt>files_of_checkin(X)</tt>     </dt><dd>A table-valued function that returns info on</dt>
+all files contained in check-in X.  Example:
+
+<blockquote><pre>SELECT * FROM files_of_checkin('trunk');
+</pre></blockquote></dd><p> <dt> <tt>helptext</tt>                </dt><dd>A virtual table with one row for each command,</dt>
+webpage, and setting together with the built-in
+help text.
+
+</dd><p> <dt> <tt>now()</tt>                   </dt><dd>Return the number of seconds since 1970.</dt>
+
+</dd><p> <dt> <tt>obscure(T)</tt>              </dt><dd>Obfuscate the text password T so that its</dt>
+original value is not readily visible.  Fossil
+uses this same algorithm when storing passwords
+of remote URLs.
+
+</dd><p> <dt> <tt>regexp</tt>                  </dt><dd>The REGEXP operator works, unlike in</dt>
+standard SQLite.
+
+</dd><p> <dt> <tt>symbolic_name_to_rid(X)</tt> </dt><dd>Return the BLOB.RID corresponding to symbolic</dt>
+name X.
+</dd>
+</dl></blockquote>
+</div>
+</div>
+<footer>
+This page was generated in about
+0.006s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="a4ca91093dafca7b609f5b5b1d4ab68ed50fafbad38e26ac">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='a4ca91093dafca7b609f5b5b1d4ab68ed50fafbad38e26ac'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+</script>
+</body>
+</html>

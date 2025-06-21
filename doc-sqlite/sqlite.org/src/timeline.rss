@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>SQLite</title>
+    <link>https://www.sqlite.org/src</link>
+    <description>SQLite</description>
+    <pubDate>Thu, 19 Jun 2025 13:44:21 +0000</pubDate>
+    <generator>Fossil version [c953e01c9e] 2025-06-05 13:07:01</generator>
+    <item>
+      <title>A slight doc rephrasing for clarity, suggested in the forum. (tags: trunk)</title>
+      <link>https://www.sqlite.org/src/info/0d6084a398edb013fcfb613eff8d75e2f86cbb5e3c8049328ede89e75db93cb3</link>
+      <description>A slight doc rephrasing for clarity, suggested in the forum. (tags: trunk)</description>
+      <pubDate>Thu, 19 Jun 2025 12:35:30 +0000</pubDate>
+      <dc:creator>stephan</dc:creator>
+      <guid>https://www.sqlite.org/src/info/0d6084a398edb013fcfb613eff8d75e2f86cbb5e3c8049328ede89e75db93cb3</guid>
+    </item>
+    <item>
+      <title>Doc typo fixes from [forum:0bce273669 | forum post 0bce273669]. (tags: trunk)</title>
+      <link>https://www.sqlite.org/src/info/8f97e3f00d24b26fe87a9d3396ad855277a1a369f6f89e9c77dc9af4d203bdf1</link>
+      <description>Doc typo fixes from [forum:0bce273669 | forum post 0bce273669]. (tags: trunk)</description>
+      <pubDate>Thu, 19 Jun 2025 10:46:39 +0000</pubDate>
+      <dc:creator>stephan</dc:creator>
+      <guid>https://www.sqlite.org/src/info/8f97e3f00d24b26fe87a9d3396ad855277a1a369f6f89e9c77dc9af4d203bdf1</guid>
+    </item>
+    <item>
+      <title>*MERGE* Expose the column metadata APIs to WASM (which does not require a non-default sqlite3.c build, contrary to my prior mistaken claims). This adds only 424 bytes to sqlite3.wasm and 660 bytes to sqlite3.js. (tags: trunk)</title>
+      <link>https://www.sqlite.org/src/info/3cf983816ccd167d93cb39c7a16b6db4b4f7ef2a64f4181d3bc4530cd0bd3b67</link>
+      <description>*MERGE* Expose the column metadata APIs to WASM (which does not require a non-default sqlite3.c build, contrary to my prior mistaken claims). This adds only 424 bytes to sqlite3.wasm and 660 bytes to sqlite3.js. (tags: trunk)</description>
+      <pubDate>Thu, 19 Jun 2025 10:25:50 +0000</pubDate>
+      <dc:creator>stephan</dc:creator>
+      <guid>https://www.sqlite.org/src/info/3cf983816ccd167d93cb39c7a16b6db4b4f7ef2a64f4181d3bc4530cd0bd3b67</guid>
+    </item>
+    <item>
+      <title>Extend the pedantic enforcement of type in STRICT tables to cover VIRTUAL columns. (tags: trunk)</title>
+      <link>https://www.sqlite.org/src/info/b734c74e55acb26eb61b60937bef870f4b55b2e2e7560a22362f5f31ba2fcd03</link>
+      <description>Extend the pedantic enforcement of type in STRICT tables to cover VIRTUAL columns. (tags: trunk)</description>
+      <pubDate>Wed, 18 Jun 2025 19:04:28 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/src/info/b734c74e55acb26eb61b60937bef870f4b55b2e2e7560a22362f5f31ba2fcd03</guid>
+    </item>
+    <item>
+      <title>Enforce judgmental typing on STORED generated columns for STRICT
+tables.  [forum:/forumpost/6caf195248a849e4|Forum post 6caf195248]. (tags: trunk)</title>
+      <link>https://www.sqlite.org/src/info/5e9279bff0482806f86657ae05ca3e916708d138bc3c3ceb3fbf454818649d44</link>
+      <description>Enforce judgmental typing on STORED generated columns for STRICT
+tables.  [forum:/forumpost/6caf195248a849e4|Forum post 6caf195248]. (tags: trunk)</description>
+      <pubDate>Wed, 18 Jun 2025 16:17:00 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/src/info/5e9279bff0482806f86657ae05ca3e916708d138bc3c3ceb3fbf454818649d44</guid>
+    </item>
+    <item>
+      <title>Export the column-metadata APIs to WASM. &lt;s&gt;Doing so requires a non-default build of sqlite3.c, so this is a proof-of-concept branch saved just in case SQLITE_ENABLE_COLUMN_METADATA ever becomes the default for sqlite3.c.&lt;/s&gt; Edit: that was a misunderstanding on my part. This build increases the .wasm file by only 424 bytes and the JS by 660, so there&#39;s no blocker to merging this. (tags: wasm-column-metadata)</title>
+      <link>https://www.sqlite.org/src/info/59db3f639d1073678805dea26a4686eddfb238f055aa90bd429fc7fd33241502</link>
+      <description>Export the column-metadata APIs to WASM. &lt;s&gt;Doing so requires a non-default build of sqlite3.c, so this is a proof-of-concept branch saved just in case SQLITE_ENABLE_COLUMN_METADATA ever becomes the default for sqlite3.c.&lt;/s&gt; Edit: that was a misunderstanding on my part. This build increases the .wasm file by only 424 bytes and the JS by 660, so there&#39;s no blocker to merging this. (tags: wasm-column-metadata)</description>
+      <pubDate>Wed, 18 Jun 2025 15:37:04 +0000</pubDate>
+      <dc:creator>stephan</dc:creator>
+      <guid>https://www.sqlite.org/src/info/59db3f639d1073678805dea26a4686eddfb238f055aa90bd429fc7fd33241502</guid>
+    </item>
+    <item>
+      <title>Add the --enable-column-metadata flag to the configure script (off by default). It&#39;s only available in the canonical build, not the autoconf build, because it changes how sqlite3.c gets generated. (tags: trunk)</title>
+      <link>https://www.sqlite.org/src/info/986b601db11a041d280eb61004723604bf4b6fd573b9832c97e3a9da9ea16e9a</link>
+      <description>Add the --enable-column-metadata flag to the configure script (off by default). It&#39;s only available in the canonical build, not the autoconf build, because it changes how sqlite3.c gets generated. (tags: trunk)</description>
+      <pubDate>Wed, 18 Jun 2025 15:22:50 +0000</pubDate>
+      <dc:creator>stephan</dc:creator>
+      <guid>https://www.sqlite.org/src/info/986b601db11a041d280eb61004723604bf4b6fd573b9832c97e3a9da9ea16e9a</guid>
+    </item>
+    <item>
+      <title>Eliminate configure/build discrepancies in how &#39;make tclextension-...&#39; works vs other makefile-side handling of the extension, conforming to the former. (tags: trunk)</title>
+      <link>https://www.sqlite.org/src/info/7ca545fd3b460fcf92e117baef42655eb6e78ebb5bdc6302f8f1b5b8446c0a06</link>
+      <description>Eliminate configure/build discrepancies in how &#39;make tclextension-...&#39; works vs other makefile-side handling of the extension, conforming to the former. (tags: trunk)</description>
+      <pubDate>Wed, 18 Jun 2025 14:17:18 +0000</pubDate>
+      <dc:creator>stephan</dc:creator>
+      <guid>https://www.sqlite.org/src/info/7ca545fd3b460fcf92e117baef42655eb6e78ebb5bdc6302f8f1b5b8446c0a06</guid>
+    </item>
+    <item>
+      <title>Change the definition of SQLITE_DYNAMIC to a function that has exactly
+the same type as sqlite3_destructor_type, in an effort to work around
+possible legacy compiler bugs. (tags: trunk)</title>
+      <link>https://www.sqlite.org/src/info/83553edf78c35d171a0ddf1a51306e963d715e56d95b8159b561b729cfb27843</link>
+      <description>Change the definition of SQLITE_DYNAMIC to a function that has exactly
+the same type as sqlite3_destructor_type, in an effort to work around
+possible legacy compiler bugs. (tags: trunk)</description>
+      <pubDate>Wed, 18 Jun 2025 14:14:46 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/src/info/83553edf78c35d171a0ddf1a51306e963d715e56d95b8159b561b729cfb27843</guid>
+    </item>
+    <item>
+      <title>Add the --tclConfig.sh FILE flag to buildtclext.tcl to eliminate the discrepancy between the configure-time-detected tclConfig.sh and the one auto-detected by the tclextension family of makefile targets. Add the tclextension-all target to run all of the various tclextension-... targets in their natural order to facilitate testing changes like this one. Update the --help text to note that --with-tclsh should only be used if there&#39;s a specific need, and that --with-tcl is generall preferred. This is in response to [https://github.com/termux/termux-packages/issues/23268 | Termux ticket 23268]. (tags: trunk)</title>
+      <link>https://www.sqlite.org/src/info/928976abcb11f9d5abe1f7631002592c4af7bf83ecadba5b0763866d039c2270</link>
+      <description>Add the --tclConfig.sh FILE flag to buildtclext.tcl to eliminate the discrepancy between the configure-time-detected tclConfig.sh and the one auto-detected by the tclextension family of makefile targets. Add the tclextension-all target to run all of the various tclextension-... targets in their natural order to facilitate testing changes like this one. Update the --help text to note that --with-tclsh should only be used if there&#39;s a specific need, and that --with-tcl is generall preferred. This is in response to [https://github.com/termux/termux-packages/issues/23268 | Termux ticket 23268]. (tags: trunk)</description>
+      <pubDate>Wed, 18 Jun 2025 11:11:30 +0000</pubDate>
+      <dc:creator>stephan</dc:creator>
+      <guid>https://www.sqlite.org/src/info/928976abcb11f9d5abe1f7631002592c4af7bf83ecadba5b0763866d039c2270</guid>
+    </item>
+    <item>
+      <title>tea: remove the vsatisfies 8.6- enforcement from the extension because at least one platform with tcl 8.6 is inexplicably failing it. [forum:fde857fb8101a4be | Forum post fde857fb8101a4be] (tags: trunk)</title>
+      <link>https://www.sqlite.org/src/info/7331e32a76a8a41cc1bd1c84069219c9929e0e0f941c1d9e308cbbb7959373c5</link>
+      <description>tea: remove the vsatisfies 8.6- enforcement from the extension because at least one platform with tcl 8.6 is inexplicably failing it. [forum:fde857fb8101a4be | Forum post fde857fb8101a4be] (tags: trunk)</description>
+      <pubDate>Tue, 17 Jun 2025 20:50:51 +0000</pubDate>
+      <dc:creator>stephan</dc:creator>
+      <guid>https://www.sqlite.org/src/info/7331e32a76a8a41cc1bd1c84069219c9929e0e0f941c1d9e308cbbb7959373c5</guid>
+    </item>
+    <item>
+      <title>Avoid writing frames with no checksums into the wal file if a
+savepoint is rolled back after dirty pages have already been
+spilled into the wal file.  Also fix a corner case in the previous
+check-in on this branch. (tags: branch-3.50)</title>
+      <link>https://www.sqlite.org/src/info/c232fa2bfc1a3f2c659a1d3bb26f98f2b39f20777eebd4d08e53c21d018d3b59</link>
+      <description>Avoid writing frames with no checksums into the wal file if a
+savepoint is rolled back after dirty pages have already been
+spilled into the wal file.  Also fix a corner case in the previous
+check-in on this branch. (tags: branch-3.50)</description>
+      <pubDate>Tue, 17 Jun 2025 19:32:23 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/src/info/c232fa2bfc1a3f2c659a1d3bb26f98f2b39f20777eebd4d08e53c21d018d3b59</guid>
+    </item>
+    <item>
+      <title>*MERGE* Avoid writing frames with no checksums into the wal file if a
+savepoint is rolled back after dirty pages have already been
+spilled into the wal file. (tags: trunk)</title>
+      <link>https://www.sqlite.org/src/info/5973f9b9aa828ec9274b02a124b95f452c58235eaafffbdda1c32b4ae2d5616d</link>
+      <description>*MERGE* Avoid writing frames with no checksums into the wal file if a
+savepoint is rolled back after dirty pages have already been
+spilled into the wal file. (tags: trunk)</description>
+      <pubDate>Tue, 17 Jun 2025 19:10:33 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/src/info/5973f9b9aa828ec9274b02a124b95f452c58235eaafffbdda1c32b4ae2d5616d</guid>
+    </item>
+    <item>
+      <title>Fix a corner-case for [9441fff52cc4e19c]. (tags: trunk)</title>
+      <link>https://www.sqlite.org/src/info/336a59eb3afd80ce048de472368df6dfc32934ee783859d37663ed8f5cf169a5</link>
+      <description>Fix a corner-case for [9441fff52cc4e19c]. (tags: trunk)</description>
+      <pubDate>Tue, 17 Jun 2025 18:57:07 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/src/info/336a59eb3afd80ce048de472368df6dfc32934ee783859d37663ed8f5cf169a5</guid>
+    </item>
+    <item>
+      <title>Update walcksum.test so that it works with SQLITE_DEFAULT_AUTOVACUUM=1 builds. (tags: forum-b490f726db-fix)</title>
+      <link>https://www.sqlite.org/src/info/0da16f6c625bff9f2ca5624afa6dce6b5a157f44c1d56b25b92946c13217ab02</link>
+      <description>Update walcksum.test so that it works with SQLITE_DEFAULT_AUTOVACUUM=1 builds. (tags: forum-b490f726db-fix)</description>
+      <pubDate>Tue, 17 Jun 2025 18:17:09 +0000</pubDate>
+      <dc:creator>dan</dc:creator>
+      <guid>https://www.sqlite.org/src/info/0da16f6c625bff9f2ca5624afa6dce6b5a157f44c1d56b25b92946c13217ab02</guid>
+    </item>
+    <item>
+      <title>Extend [b5c6cb13cff5] to use a wildcard on darwin* because some OSes report a version number in the suffix. [forum:0c4bbc2962dfb06e | Forum post 0c4bbc2962dfb06e]. (tags: trunk)</title>
+      <link>https://www.sqlite.org/src/info/d960bd6f9256410ebc98125b0567380457e39bc8fe768fcd9ea05c6de1994df6</link>
+      <description>Extend [b5c6cb13cff5] to use a wildcard on darwin* because some OSes report a version number in the suffix. [forum:0c4bbc2962dfb06e | Forum post 0c4bbc2962dfb06e]. (tags: trunk)</description>
+      <pubDate>Tue, 17 Jun 2025 17:15:12 +0000</pubDate>
+      <dc:creator>stephan</dc:creator>
+      <guid>https://www.sqlite.org/src/info/d960bd6f9256410ebc98125b0567380457e39bc8fe768fcd9ea05c6de1994df6</guid>
+    </item>
+    <item>
+      <title>*MERGE* Minor proj.tcl portability fixes and cleanups suggested in [forum:7b218c3c9f|forum post 7b218c3c9f]. Tested on Linux, Msys, Cygwin, and Haiku. (tags: trunk)</title>
+      <link>https://www.sqlite.org/src/info/b5c6cb13cff53f4ba1e0e6a0d61389252bd004d9099727e7a9304217e3f81d80</link>
+      <description>*MERGE* Minor proj.tcl portability fixes and cleanups suggested in [forum:7b218c3c9f|forum post 7b218c3c9f]. Tested on Linux, Msys, Cygwin, and Haiku. (tags: trunk)</description>
+      <pubDate>Tue, 17 Jun 2025 14:56:30 +0000</pubDate>
+      <dc:creator>stephan</dc:creator>
+      <guid>https://www.sqlite.org/src/info/b5c6cb13cff53f4ba1e0e6a0d61389252bd004d9099727e7a9304217e3f81d80</guid>
+    </item>
+    <item>
+      <title>proj.tcl portability fixes and cleanups suggested in [forum:7b218c3c9f|forum post 7b218c3c9f]. Branching so that it can be tested on msys/cygwin/haiku before committing to it. (tags: linux-named-apple)</title>
+      <link>https://www.sqlite.org/src/info/89552e9137b7ebba9600443720e936e8dc4f7ab021d2ac3f0bb01b74071e130c</link>
+      <description>proj.tcl portability fixes and cleanups suggested in [forum:7b218c3c9f|forum post 7b218c3c9f]. Branching so that it can be tested on msys/cygwin/haiku before committing to it. (tags: linux-named-apple)</description>
+      <pubDate>Tue, 17 Jun 2025 14:37:31 +0000</pubDate>
+      <dc:creator>stephan</dc:creator>
+      <guid>https://www.sqlite.org/src/info/89552e9137b7ebba9600443720e936e8dc4f7ab021d2ac3f0bb01b74071e130c</guid>
+    </item>
+    <item>
+      <title>Avoid writing frames with no checksums into the wal file if a savepoint is rolled back after dirty pages have already been spilled into the wal file. Possible fix for [forum:/forumpost/b490f726db | forum post b490f726db]. (tags: forum-b490f726db-fix)</title>
+      <link>https://www.sqlite.org/src/info/3a3269fe8e925a522d5df9f011220a842fb15a9f56e785884e32d2e15abda5bb</link>
+      <description>Avoid writing frames with no checksums into the wal file if a savepoint is rolled back after dirty pages have already been spilled into the wal file. Possible fix for [forum:/forumpost/b490f726db | forum post b490f726db]. (tags: forum-b490f726db-fix)</description>
+      <pubDate>Tue, 17 Jun 2025 11:36:39 +0000</pubDate>
+      <dc:creator>dan</dc:creator>
+      <guid>https://www.sqlite.org/src/info/3a3269fe8e925a522d5df9f011220a842fb15a9f56e785884e32d2e15abda5bb</guid>
+    </item>
+    <item>
+      <title>Fix an issue going back to version 3.39.0 with transitive IS constraints
+in queries that make use of RIGHT JOIN. (tags: branch-3.50)</title>
+      <link>https://www.sqlite.org/src/info/6c5f4c8af90cfe2f1b06485f8cf61d7e6d4ad92f5209e84aa1c6d1a938780a64</link>
+      <description>Fix an issue going back to version 3.39.0 with transitive IS constraints
+in queries that make use of RIGHT JOIN. (tags: branch-3.50)</description>
+      <pubDate>Mon, 16 Jun 2025 18:04:21 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/src/info/6c5f4c8af90cfe2f1b06485f8cf61d7e6d4ad92f5209e84aa1c6d1a938780a64</guid>
+    </item>
+  </channel>
+</rss>

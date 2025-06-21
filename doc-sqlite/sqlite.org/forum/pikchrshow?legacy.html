@@ -1,0 +1,2044 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-79d6a10b22f150c10e96b490669df9a5b97941ea6e22a14d'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQLite User Forum: PikchrShow Client/Server</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css/pikchrshow%3Fid=587432de.css" type="text/css">
+</head>
+<body class="pikchrshow rpage-pikchrshow cpage-pikchrshow">
+<header>
+  <div class="title"><h1>SQLite User Forum</h1>PikchrShow Client/Server</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='about.html' class='desktoponly'>About</a>
+<a href='../forum.html' class=''>Threads</a>
+<a href='forumnew.html' class=''>Post</a>
+<a href='register.html' class='desktoponly'>Subscribe</a>
+<a href='https://sqlite.org/' class=''>SQLite</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="content"><span id="debugMsg"></span>
+<noscript><div class='error'>This page requires JavaScript (ES2015, a.k.a. ES6, or newer).</div></noscript><style>div.content { padding-top: 0.5em }
+#sbs-wrapper {display: flex; flex-direction: column;}
+#sbs-wrapper > * {margin: 0 0.25em 0.5em 0; flex: 1 10 auto;align-self: stretch;}
+#sbs-wrapper textarea {max-width: initial; flex: 1 1 auto;}
+#pikchrshow-output, #pikchrshow-form{display: flex; flex-direction: column; align-items: stretch;}#pikchrshow-form > * {margin: 0.25em 0}
+#pikchrshow-output {flex: 5 1 auto; padding: 0}
+#pikchrshow-output > pre, #pikchrshow-output > pre > div, #pikchrshow-output > pre > div > pre {margin: 0; padding: 0}
+#pikchrshow-output.error > pre {padding: 0.5em}
+#pikchrshow-controls {display: flex; flex-direction: row; align-items: center; flex-wrap: wrap;}
+#pikchrshow-controls > * {display: inline; margin: 0 0.25em 0.5em 0;}
+#pikchrshow-output-wrapper label {cursor: pointer;}
+body.pikchrshow .input-with-label > * {margin: 0 0.2em;}
+body.pikchrshow .input-with-label > label {cursor: pointer;}
+#pikchrshow-output.dark-mode svg {filter: invert(1) hue-rotate(180deg);}
+#pikchrshow-output-wrapper {padding: 0.25em 0.5em; border-radius: 0.25em;border-width: 1px;}
+#pikchrshow-output-wrapper > legend > *:not(.copy-button){margin-right: 0.5em; vertical-align: middle;}
+body.pikchrshow .v-align-middle{vertical-align: middle}
+.dragover {border: 3px dotted rgba(0,255,0,0.6)}
+</style><div>Input pikchr code and tap Preview (or Shift-Enter) to render it. <a href='pikchrshow%3Fwasm.html'>Switch to WASM mode</a>.</div><div id='sbs-wrapper'><div id='pikchrshow-form'><textarea id='content' name='content' rows='15'>arrow right 200% "Markdown" "Source"
+box rad 10px "Markdown" "Formatter" "(markdown.c)" fit
+arrow right 200% "HTML+SVG" "Output"
+arrow <-> down from last box.s
+box same "Pikchr" "Formatter" "(pikchr.c)" fit
+</textarea><div id='pikchrshow-controls'><button id='pikchr-submit-preview'>Preview</button><div class='input-with-label'><button id='pikchr-stash'>Stash</button><button id='pikchr-unstash'>Unstash</button><button id='pikchr-clear-stash'>Clear stash</button><span>Stores/restores a single pikchr script to/from browser-local storage from/to the editor.</span></div><div class='input-with-label' id='flipcolors-wrapper'><input type='checkbox' id='input-id-1' name='flipcolors' value='1'/><label for='input-id-1'>Dark mode?</label></div></div></div><fieldset id='pikchrshow-output-wrapper'><legend></legend><div id='pikchrshow-output'><div class='pikchr-wrapper'><div class="pikchr-svg" style="max-width:423px">
+<svg xmlns='http://www.w3.org/2000/svg' style='font-size:initial;' class="pikchr" viewBox="0 0 423.821 217.44" data-pikchr-date="20250319161943">
+<polygon points="146.16,37.44 134.64,41.76 134.64,33.12" style="fill:rgb(0,0,0)"/>
+<path d="M2.16,37.44L140.4,37.44"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<text x="74.16" y="25.74" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">Markdown</text>
+<text x="74.16" y="49.14" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">Source</text>
+<path d="M161.16,72.72L258.341,72.72A15 15 0 0 0 273.341 57.72L273.341,17.16A15 15 0 0 0 258.341 2.16L161.16,2.16A15 15 0 0 0 146.16 17.16L146.16,57.72A15 15 0 0 0 161.16 72.72Z"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<text x="209.75" y="17.28" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">Markdown</text>
+<text x="209.75" y="37.44" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">Formatter</text>
+<text x="209.75" y="57.6" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">(markdown.c)</text>
+<polygon points="417.341,37.44 405.821,41.76 405.821,33.12" style="fill:rgb(0,0,0)"/>
+<path d="M273.341,37.44L411.581,37.44"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<text x="345.341" y="25.74" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">HTML+SVG</text>
+<text x="345.341" y="49.14" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">Output</text>
+<polygon points="209.75,72.72 214.07,84.24 205.43,84.24" style="fill:rgb(0,0,0)"/>
+<polygon points="209.75,144.72 205.43,133.2 214.07,133.2" style="fill:rgb(0,0,0)"/>
+<path d="M209.75,78.48L209.75,138.96"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<path d="M176.136,215.28L243.365,215.28A15 15 0 0 0 258.365 200.28L258.365,159.72A15 15 0 0 0 243.365 144.72L176.136,144.72A15 15 0 0 0 161.136 159.72L161.136,200.28A15 15 0 0 0 176.136 215.28Z"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<text x="209.75" y="159.84" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">Pikchr</text>
+<text x="209.75" y="180" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">Formatter</text>
+<text x="209.75" y="200.16" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">(pikchr.c)</text>
+</svg>
+</div>
+<div class='pikchr-src'><pre id='pikchr-src-1'>arrow right 200% &quot;Markdown&quot; &quot;Source&quot;
+box rad 10px &quot;Markdown&quot; &quot;Formatter&quot; &quot;(markdown.c)&quot; fit
+arrow right 200% &quot;HTML+SVG&quot; &quot;Output&quot;
+arrow &lt;-&gt; down from last box.s
+box same &quot;Pikchr&quot; &quot;Formatter&quot; &quot;(pikchr.c)&quot; fit
+</pre><span class='hidden'><a href='pikchrshow%3FfromSession.html' class='pikchr-src-pikchrshow' target='_new-1' data-pikchrid='pikchr-src-1' title='Open this pikchr in /pikchrshow'>&rarr; /pikchrshow</a></span></div>
+</div>
+</div></fieldset></div><script nonce='79d6a10b22f150c10e96b490669df9a5b97941ea6e22a14d'>/* builtin.c:637 */
+(function(){
+if(window.NodeList && !NodeList.prototype.forEach){NodeList.prototype.forEach = Array.prototype.forEach;}
+if(!window.fossil) window.fossil={};
+window.fossil.version = "2.27 [c953e01c9e] 2025-06-05 13:07:01 UTC";
+window.fossil.rootPath = "/forum"+'/';
+window.fossil.config = {projectName: "SQLite User Forum",
+shortProjectName: "sqlite-forum",
+projectCode: "f9ddc3a2d2f7cf9bed55631b3e5be65ef79a7dea",
+/* Length of UUID hashes for display purposes. */hashDigits: 10, hashDigitsUrl: 16,
+diffContextLines: 5,
+editStateMarkers: {/*Symbolic markers to denote certain edit states.*/isNew:'[+]', isModified:'[*]', isDeleted:'[-]'},
+confirmerButtonTicks: 3 /*default fossil.confirmer tick count.*/,
+skin:{isDark: false/*true if the current skin has the 'white-foreground' detail*/}
+};
+window.fossil.user = {name: "guest",isAdmin: false};
+if(fossil.config.skin.isDark) document.body.classList.add('fossil-dark-style');
+window.fossil.page = {name:"pikchrshow"};
+})();
+</script>
+<script nonce='79d6a10b22f150c10e96b490669df9a5b97941ea6e22a14d'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+/* fossil.bootstrap.js *************************************************************/
+"use strict";
+(function () {
+if(typeof window.CustomEvent === "function") return false;
+window.CustomEvent = function(event, params) {
+if(!params) params = {bubbles: false, cancelable: false, detail: null};
+const evt = document.createEvent('CustomEvent');
+evt.initCustomEvent( event, !!params.bubbles, !!params.cancelable, params.detail );
+return evt;
+};
+})();
+(function(global){
+const F = global.fossil;
+const timestring = function f(){
+if(!f.rx1){
+f.rx1 = /\.\d+Z$/;
+}
+const d = new Date();
+return d.toISOString().replace(f.rx1,'').split('T').join(' ');
+};
+const localTimeString = function ff(d){
+if(!ff.pad){
+ff.pad = (x)=>(''+x).length>1 ? x : '0'+x;
+}
+d || (d = new Date());
+return [
+d.getFullYear(),'-',ff.pad(d.getMonth()+1),
+'-',ff.pad(d.getDate()),
+' ',ff.pad(d.getHours()),':',ff.pad(d.getMinutes()),
+':',ff.pad(d.getSeconds())
+].join('');
+};
+F.message = function f(msg){
+const args = Array.prototype.slice.call(arguments,0);
+const tgt = f.targetElement;
+if(args.length) args.unshift(
+localTimeString()+':'
+);
+if(tgt){
+tgt.classList.remove('error');
+tgt.innerText = args.join(' ');
+}
+else{
+if(args.length){
+args.unshift('Fossil status:');
+console.debug.apply(console,args);
+}
+}
+return this;
+};
+F.message.targetElement =
+document.querySelector('#fossil-status-bar');
+if(F.message.targetElement){
+F.message.targetElement.addEventListener(
+'dblclick', ()=>F.message(), false
+);
+}
+F.error = function f(msg){
+const args = Array.prototype.slice.call(arguments,0);
+const tgt = F.message.targetElement;
+args.unshift(timestring(),'UTC:');
+if(tgt){
+tgt.classList.add('error');
+tgt.innerText = args.join(' ');
+}
+else{
+args.unshift('Fossil error:');
+console.error.apply(console,args);
+}
+return this;
+};
+F.encodeUrlArgs = function(obj,tgtArray,fakeEncode){
+if(!obj) return '';
+const a = (tgtArray instanceof Array) ? tgtArray : [],
+enc = fakeEncode ? (x)=>x : encodeURIComponent;
+let k, i = 0;
+for( k in obj ){
+if(i++) a.push('&');
+a.push(enc(k),'=',enc(obj[k]));
+}
+return a===tgtArray ? a : a.join('');
+};
+F.repoUrl = function(path,urlParams){
+if(!urlParams) return this.rootPath+path;
+const url=[this.rootPath,path];
+url.push('?');
+if('string'===typeof urlParams) url.push(urlParams);
+else if(urlParams && 'object'===typeof urlParams){
+this.encodeUrlArgs(urlParams, url);
+}
+return url.join('');
+};
+F.isObject = function(v){
+return v &&
+(v instanceof Object) &&
+('[object Object]' === Object.prototype.toString.apply(v) );
+};
+F.mergeLastWins = function(){
+var k, o, i;
+const n = arguments.length, rc={};
+for(i = 0; i < n; ++i){
+if(!F.isObject(o = arguments[i])) continue;
+for( k in o ){
+if(o.hasOwnProperty(k)) rc[k] = o[k];
+}
+}
+return rc;
+};
+F.hashDigits = function(hash,forUrl){
+const n = ('number'===typeof forUrl)
+? forUrl : F.config[forUrl ? 'hashDigitsUrl' : 'hashDigits'];
+return ('string'==typeof hash ? hash.substr(
+0, n
+) : hash);
+};
+F.onPageLoad = function(callback){
+window.addEventListener('load', callback, false);
+return this;
+};
+F.onDOMContentLoaded = function(callback){
+window.addEventListener('DOMContentLoaded', callback, false);
+return this;
+};
+F.shortenFilename = function(name){
+const a = name.split('/');
+if(a.length<=2) return name;
+while(a.length>2) a.shift();
+return '.../'+a.join('/');
+};
+F.page.addEventListener = function f(eventName, callback){
+if(!f.proxy){
+f.proxy = document.createElement('span');
+}
+f.proxy.addEventListener(eventName, callback, false);
+return this;
+};
+F.page.dispatchEvent = function(eventName, eventDetail){
+if(this.addEventListener.proxy){
+try{
+this.addEventListener.proxy.dispatchEvent(
+new CustomEvent(eventName,{detail: eventDetail})
+);
+}catch(e){
+console.error(eventName,"event listener threw:",e);
+}
+}
+return this;
+};
+F.page.setPageTitle = function(title){
+const t = document.querySelector('title');
+if(t) t.innerText = title;
+return this;
+};
+F.debounce = function f(func, waitMs, immediate) {
+var timeoutId;
+if(!waitMs) waitMs = f.$defaultDelay;
+return function() {
+const context = this, args = Array.prototype.slice.call(arguments);
+const later = function() {
+timeoutId = undefined;
+if(!immediate) func.apply(context, args);
+};
+const callNow = immediate && !timeoutId;
+clearTimeout(timeoutId);
+timeoutId = setTimeout(later, waitMs);
+if(callNow) func.apply(context, args);
+};
+};
+F.debounce.$defaultDelay = 500;
+})(window);
+/* fossil.fetch.js *************************************************************/
+"use strict";
+(function(namespace){
+const fossil = namespace;
+fossil.fetch = function f(uri,opt){
+const F = fossil;
+if(!f.onload){
+f.onload = (r)=>console.debug('fossil.fetch() XHR response:',r);
+}
+if(!f.onerror){
+f.onerror = function(e){
+console.error("fossil.fetch() XHR error:",e);
+if(e instanceof Error) F.error('Exception:',e);
+else F.error("Unknown error in handling of XHR request.");
+};
+}
+if(!f.parseResponseHeaders){
+f.parseResponseHeaders = function(h){
+const rc = {};
+if(!h) return rc;
+const ar = h.trim().split(/[\r\n]+/);
+ar.forEach(function(line) {
+const parts = line.split(': ');
+const header = parts.shift();
+const value = parts.join(': ');
+rc[header.toLowerCase()] = value;
+});
+return rc;
+};
+}
+if('/'===uri[0]) uri = uri.substr(1);
+if(!opt) opt = {};
+else if('function'===typeof opt) opt={onload:opt};
+if(!opt.onload) opt.onload = f.onload;
+if(!opt.onerror) opt.onerror = f.onerror;
+if(!opt.beforesend) opt.beforesend = f.beforesend;
+if(!opt.aftersend) opt.aftersend = f.aftersend;
+let payload = opt.payload, jsonResponse = false;
+if(undefined!==payload){
+opt.method = 'POST';
+if(!(payload instanceof FormData)
+&& !(payload instanceof Document)
+&& !(payload instanceof Blob)
+&& !(payload instanceof File)
+&& !(payload instanceof ArrayBuffer)
+&& ('object'===typeof payload
+|| payload instanceof Array)){
+payload = JSON.stringify(payload);
+opt.contentType = 'application/json';
+}
+}
+const url=[f.urlTransform(uri,opt.urlParams)],
+x=new XMLHttpRequest();
+if('json'===opt.responseType){
+jsonResponse = true;
+x.responseType = 'text';
+}else{
+x.responseType = opt.responseType||'text';
+}
+x.ontimeout = function(ev){
+try{opt.aftersend()}catch(e){}
+const err = new Error("XHR timeout of "+x.timeout+"ms expired.");
+err.status = x.status;
+err.name = 'timeout';
+try{
+(opt.ontimeout || opt.onerror)(err);
+}catch(e){
+console.error("fossil.fetch()'s ontimeout() handler threw",e);
+}
+};
+const origOnError = opt.onerror;
+opt.onerror = (arg)=>{
+try{ origOnError.call(this, arg) }
+catch(e){
+console.error("fossil.fetch()'s onerror() threw",e);
+}
+};
+x.onreadystatechange = function(ev){
+if(XMLHttpRequest.DONE !== x.readyState) return;
+try{opt.aftersend()}catch(e){}
+if(false && 0===x.status){
+return;
+}
+if(200!==x.status){
+let err;
+try{
+const j = JSON.parse(x.response);
+if(j.error){
+err = new Error(j.error);
+err.name = 'json.error';
+}
+}catch(ex){}
+if( !err ){
+err = new Error("HTTP response status "+x.status+".")
+err.name = 'http';
+}
+err.status = x.status;
+opt.onerror(err);
+return;
+}
+const orh = opt.responseHeaders;
+let head;
+if(true===orh){
+head = f.parseResponseHeaders(x.getAllResponseHeaders());
+}else if('string'===typeof orh){
+head = x.getResponseHeader(orh);
+}else if(orh instanceof Array){
+head = {};
+orh.forEach((s)=>{
+if('string' === typeof s) head[s.toLowerCase()] = x.getResponseHeader(s);
+});
+}
+try{
+const args = [(jsonResponse && x.response)
+? JSON.parse(x.response) : x.response];
+if(head) args.push(head);
+opt.onload.apply(opt, args);
+}catch(err){
+opt.onerror(err);
+}
+};
+try{opt.beforesend()}
+catch(err){
+opt.onerror(err);
+return;
+}
+x.open(opt.method||'GET', url.join(''), true);
+if('POST'===opt.method && 'string'===typeof opt.contentType){
+x.setRequestHeader('Content-Type',opt.contentType);
+}
+x.timeout = +opt.timeout || f.timeout;
+if(undefined!==payload) x.send(payload);
+else x.send();
+return this;
+};
+fossil.fetch.urlTransform = (u,p)=>fossil.repoUrl(u,p);
+fossil.fetch.beforesend = function(){};
+fossil.fetch.aftersend = function(){};
+fossil.fetch.timeout = 15000;
+})(window.fossil);
+/* fossil.dom.js *************************************************************/
+"use strict";
+(function(F){
+const argsToArray = (a)=>Array.prototype.slice.call(a,0);
+const isArray = (v)=>v instanceof Array;
+const dom = {
+create: function(elemType){
+return document.createElement(elemType);
+},
+createElemFactory: function(eType){
+return function(){
+return document.createElement(eType);
+};
+},
+remove: function(e){
+if(e?.forEach){
+e.forEach(
+(x)=>x?.parentNode?.removeChild(x)
+);
+}else{
+e?.parentNode?.removeChild(e);
+}
+return e;
+},
+clearElement: function f(e){
+if(!f.each){
+f.each = function(e){
+if(e.forEach){
+e.forEach((x)=>f(x));
+return e;
+}
+while(e.firstChild) e.removeChild(e.firstChild);
+};
+}
+argsToArray(arguments).forEach(f.each);
+return arguments[0];
+},
+};
+dom.splitClassList = function f(str){
+if(!f.rx){
+f.rx = /(\s+|\s*,\s*)/;
+}
+return str ? str.split(f.rx) : [str];
+};
+dom.div = dom.createElemFactory('div');
+dom.p = dom.createElemFactory('p');
+dom.code = dom.createElemFactory('code');
+dom.pre = dom.createElemFactory('pre');
+dom.header = dom.createElemFactory('header');
+dom.footer = dom.createElemFactory('footer');
+dom.section = dom.createElemFactory('section');
+dom.span = dom.createElemFactory('span');
+dom.strong = dom.createElemFactory('strong');
+dom.em = dom.createElemFactory('em');
+dom.ins = dom.createElemFactory('ins');
+dom.del = dom.createElemFactory('del');
+dom.label = function(forElem, text){
+const rc = document.createElement('label');
+if(forElem){
+if(forElem instanceof HTMLElement){
+forElem = this.attr(forElem, 'id');
+}
+if(forElem){
+dom.attr(rc, 'for', forElem);
+}
+}
+if(text) this.append(rc, text);
+return rc;
+};
+dom.img = function(src){
+const e = this.create('img');
+if(src) e.setAttribute('src',src);
+return e;
+};
+dom.a = function(href,label){
+const e = this.create('a');
+if(href) e.setAttribute('href',href);
+if(label) e.appendChild(dom.text(true===label ? href : label));
+return e;
+};
+dom.hr = dom.createElemFactory('hr');
+dom.br = dom.createElemFactory('br');
+dom.text = function(){
+return document.createTextNode(argsToArray(arguments).join(''));
+};
+dom.button = function(label,callback){
+const b = this.create('button');
+if(label) b.appendChild(this.text(label));
+if('function' === typeof callback){
+b.addEventListener('click', callback, false);
+}
+return b;
+};
+dom.textarea = function(){
+const rc = this.create('textarea');
+let rows, cols, readonly;
+if(1===arguments.length){
+if('boolean'===typeof arguments[0]){
+readonly = !!arguments[0];
+}else{
+rows = arguments[0];
+}
+}else if(arguments.length){
+rows = arguments[0];
+cols = arguments[1];
+readonly = arguments[2];
+}
+if(rows) rc.setAttribute('rows',rows);
+if(cols) rc.setAttribute('cols', cols);
+if(readonly) rc.setAttribute('readonly', true);
+return rc;
+};
+dom.select = dom.createElemFactory('select');
+dom.option = function(value,label){
+const a = arguments;
+var sel;
+if(1==a.length){
+if(a[0] instanceof HTMLElement){
+sel = a[0];
+}else{
+value = a[0];
+}
+}else if(2==a.length){
+if(a[0] instanceof HTMLElement){
+sel = a[0];
+value = a[1];
+}else{
+value = a[0];
+label = a[1];
+}
+}
+else if(3===a.length){
+sel = a[0];
+value = a[1];
+label = a[2];
+}
+const o = this.create('option');
+if(undefined !== value){
+o.value = value;
+this.append(o, this.text(label || value));
+}else if(undefined !== label){
+this.append(o, label);
+}
+if(sel) this.append(sel, o);
+return o;
+};
+dom.h = function(level){
+return this.create('h'+level);
+};
+dom.ul = dom.createElemFactory('ul');
+dom.li = function(parent){
+const li = this.create('li');
+if(parent) parent.appendChild(li);
+return li;
+};
+dom.createElemFactoryWithOptionalParent = function(childType){
+return function(parent){
+const e = this.create(childType);
+if(parent) parent.appendChild(e);
+return e;
+};
+};
+dom.table = dom.createElemFactory('table');
+dom.thead = dom.createElemFactoryWithOptionalParent('thead');
+dom.tbody = dom.createElemFactoryWithOptionalParent('tbody');
+dom.tfoot = dom.createElemFactoryWithOptionalParent('tfoot');
+dom.tr = dom.createElemFactoryWithOptionalParent('tr');
+dom.td = dom.createElemFactoryWithOptionalParent('td');
+dom.th = dom.createElemFactoryWithOptionalParent('th');
+dom.fieldset = function(legendText){
+const fs = this.create('fieldset');
+if(legendText){
+this.append(
+fs,
+(legendText instanceof HTMLElement)
+? legendText
+: this.append(this.legend(legendText))
+);
+}
+return fs;
+};
+dom.legend = function(legendText){
+const rc = this.create('legend');
+if(legendText) this.append(rc, legendText);
+return rc;
+};
+dom.append = function f(parent){
+const a = argsToArray(arguments);
+a.shift();
+for(let i in a) {
+var e = a[i];
+if(isArray(e) || e.forEach){
+e.forEach((x)=>f.call(this, parent,x));
+continue;
+}
+if('string'===typeof e
+|| 'number'===typeof e
+|| 'boolean'===typeof e
+|| e instanceof Error) e = this.text(e);
+parent.appendChild(e);
+}
+return parent;
+};
+dom.input = function(type){
+return this.attr(this.create('input'), 'type', type);
+};
+dom.checkbox = function(value, checked){
+const rc = this.input('checkbox');
+if(1===arguments.length && 'boolean'===typeof value){
+checked = !!value;
+value = undefined;
+}
+if(undefined !== value) rc.value = value;
+if(!!checked) rc.checked = true;
+return rc;
+};
+dom.radio = function(){
+const rc = this.input('radio');
+let name, value, checked;
+if(1===arguments.length && 'boolean'===typeof name){
+checked = arguments[0];
+name = value = undefined;
+}else if(2===arguments.length){
+name = arguments[0];
+if('boolean'===typeof arguments[1]){
+checked = arguments[1];
+}else{
+value = arguments[1];
+checked = undefined;
+}
+}else if(arguments.length){
+name = arguments[0];
+value = arguments[1];
+checked = arguments[2];
+}
+if(name) this.attr(rc, 'name', name);
+if(undefined!==value) rc.value = value;
+if(!!checked) rc.checked = true;
+return rc;
+};
+const domAddRemoveClass = function f(action,e){
+if(!f.rxSPlus){
+f.rxSPlus = /\s+/;
+f.applyAction = function(e,a,v){
+if(!e || !v
+) return;
+else if(e.forEach){
+e.forEach((E)=>E.classList[a](v));
+}else{
+e.classList[a](v);
+}
+};
+}
+var i = 2, n = arguments.length;
+for( ; i < n; ++i ){
+let c = arguments[i];
+if(!c) continue;
+else if(isArray(c) ||
+('string'===typeof c
+&& c.indexOf(' ')>=0
+&& (c = c.split(f.rxSPlus)))
+|| c.forEach
+){
+c.forEach((k)=>k ? f.applyAction(e, action, k) : false);
+}else if(c){
+f.applyAction(e, action, c);
+}
+}
+return e;
+};
+dom.addClass = function(e,c){
+const a = argsToArray(arguments);
+a.unshift('add');
+return domAddRemoveClass.apply(this, a);
+};
+dom.removeClass = function(e,c){
+const a = argsToArray(arguments);
+a.unshift('remove');
+return domAddRemoveClass.apply(this, a);
+};
+dom.toggleClass = function f(e,c){
+if(e.forEach){
+e.forEach((x)=>x.classList.toggle(c));
+}else{
+e.classList.toggle(c);
+}
+return e;
+};
+dom.hasClass = function(e,c){
+return (e && e.classList) ? e.classList.contains(c) : false;
+};
+dom.moveTo = function(dest,e){
+const n = arguments.length;
+var i = 1;
+const self = this;
+for( ; i < n; ++i ){
+e = arguments[i];
+this.append(dest, e);
+}
+return dest;
+};
+dom.moveChildrenTo = function f(dest,e){
+if(!f.mv){
+f.mv = function(d,v){
+if(d instanceof Array){
+d.push(v);
+if(v.parentNode) v.parentNode.removeChild(v);
+}
+else d.appendChild(v);
+};
+}
+const n = arguments.length;
+var i = 1;
+for( ; i < n; ++i ){
+e = arguments[i];
+if(!e){
+console.warn("Achtung: dom.moveChildrenTo() passed a falsy value at argument",i,"of",
+arguments,arguments[i]);
+continue;
+}
+if(e.forEach){
+e.forEach((x)=>f.mv(dest, x));
+}else{
+while(e.firstChild){
+f.mv(dest, e.firstChild);
+}
+}
+}
+return dest;
+};
+dom.replaceNode = function f(old,nu){
+var i = 1, n = arguments.length;
+++f.counter;
+try {
+for( ; i < n; ++i ){
+const e = arguments[i];
+if(e.forEach){
+e.forEach((x)=>f.call(this,old,e));
+continue;
+}
+old.parentNode.insertBefore(e, old);
+}
+}
+finally{
+--f.counter;
+}
+if(!f.counter){
+old.parentNode.removeChild(old);
+}
+};
+dom.replaceNode.counter = 0;
+dom.attr = function f(e){
+if(2===arguments.length) return e.getAttribute(arguments[1]);
+const a = argsToArray(arguments);
+if(e.forEach){
+e.forEach(function(x){
+a[0] = x;
+f.apply(f,a);
+});
+return e;
+}
+a.shift();
+while(a.length){
+const key = a.shift(), val = a.shift();
+if(null===val || undefined===val){
+e.removeAttribute(key);
+}else{
+e.setAttribute(key,val);
+}
+}
+return e;
+};
+const enableDisable = function f(enable){
+var i = 1, n = arguments.length;
+for( ; i < n; ++i ){
+let e = arguments[i];
+if(e.forEach){
+e.forEach((x)=>f(enable,x));
+}else{
+e.disabled = !enable;
+}
+}
+return arguments[1];
+};
+dom.enable = function(e){
+const args = argsToArray(arguments);
+args.unshift(true);
+return enableDisable.apply(this,args);
+};
+dom.disable = function(e){
+const args = argsToArray(arguments);
+args.unshift(false);
+return enableDisable.apply(this,args);
+};
+dom.selectOne = function(x,origin){
+var src = origin || document,
+e = src.querySelector(x);
+if(!e){
+e = new Error("Cannot find DOM element: "+x);
+console.error(e, src);
+throw e;
+}
+return e;
+};
+dom.flashOnce = function f(e,howLongMs,afterFlashCallback){
+if(e.dataset.isBlinking){
+return;
+}
+if(2===arguments.length && 'function' ===typeof howLongMs){
+afterFlashCallback = howLongMs;
+howLongMs = f.defaultTimeMs;
+}
+if(!howLongMs || 'number'!==typeof howLongMs){
+howLongMs = f.defaultTimeMs;
+}
+e.dataset.isBlinking = true;
+const transition = e.style.transition;
+e.style.transition = "opacity "+howLongMs+"ms ease-in-out";
+const opacity = e.style.opacity;
+e.style.opacity = 0;
+setTimeout(function(){
+e.style.transition = transition;
+e.style.opacity = opacity;
+delete e.dataset.isBlinking;
+if(afterFlashCallback) afterFlashCallback();
+}, howLongMs);
+return e;
+};
+dom.flashOnce.defaultTimeMs = 400;
+dom.flashOnce.eventHandler = (event)=>dom.flashOnce(event.target)
+dom.flashNTimes = function(e,n,howLongMs,afterFlashCallback){
+const args = argsToArray(arguments);
+args.splice(1,1);
+if(arguments.length===3 && 'function'===typeof howLongMs){
+afterFlashCallback = howLongMs;
+howLongMs = args[1] = this.flashOnce.defaultTimeMs;
+}else if(arguments.length<3){
+args[1] = this.flashOnce.defaultTimeMs;
+}
+n = +n;
+const self = this;
+const cb = args[2] = function f(){
+if(--n){
+setTimeout(()=>self.flashOnce(e, howLongMs, f),
+howLongMs+(howLongMs*0.1));
+}else if(afterFlashCallback){
+afterFlashCallback();
+}
+};
+this.flashOnce.apply(this, args);
+return this;
+};
+dom.addClassBriefly = function f(e, className, howLongMs, afterCallback){
+if(arguments.length<4 && 'function'===typeof howLongMs){
+afterCallback = howLongMs;
+howLongMs = f.defaultTimeMs;
+}else if(arguments.length<3 || !+howLongMs){
+howLongMs = f.defaultTimeMs;
+}
+this.addClass(e, className);
+setTimeout(function(){
+dom.removeClass(e, className);
+if(afterCallback) afterCallback();
+}, howLongMs);
+return this;
+};
+dom.addClassBriefly.defaultTimeMs = 1000;
+dom.copyTextToClipboard = function(text){
+if( window.clipboardData && window.clipboardData.setData ){
+window.clipboardData.setData('Text',text);
+return true;
+}else{
+const x = document.createElement("textarea");
+x.style.position = 'fixed';
+x.value = text;
+document.body.appendChild(x);
+x.select();
+var rc;
+try{
+document.execCommand('copy');
+rc = true;
+}catch(err){
+rc = false;
+}finally{
+document.body.removeChild(x);
+}
+return rc;
+}
+};
+dom.copyStyle = function f(e, style){
+if(e.forEach){
+e.forEach((x)=>f(x, style));
+return e;
+}
+if(style){
+let k;
+for(k in style){
+if(style.hasOwnProperty(k)) e.style[k] = style[k];
+}
+}
+return e;
+};
+dom.effectiveHeight = function f(e){
+if(!e) return 0;
+if(!f.measure){
+f.measure = function callee(e, depth){
+if(!e) return;
+const m = e.getBoundingClientRect();
+if(0===depth){
+callee.top = m.top;
+callee.bottom = m.bottom;
+}else{
+callee.top = m.top ? Math.min(callee.top, m.top) : callee.top;
+callee.bottom = Math.max(callee.bottom, m.bottom);
+}
+Array.prototype.forEach.call(e.children,(e)=>callee(e,depth+1));
+if(0===depth){
+f.extra += callee.bottom - callee.top;
+}
+return f.extra;
+};
+}
+f.extra = 0;
+f.measure(e,0);
+return f.extra;
+};
+dom.parseHtml = function(){
+let childs, string, tgt;
+if(1===arguments.length){
+string = arguments[0];
+}else if(2==arguments.length){
+tgt = arguments[0];
+string  = arguments[1];
+}
+if(string){
+const newNode = new DOMParser().parseFromString(string, 'text/html');
+childs = newNode.documentElement.querySelector('body');
+childs = childs ? Array.prototype.slice.call(childs.childNodes, 0) : [];
+}else{
+childs = [];
+}
+return tgt ? this.moveTo(tgt, childs) : childs;
+};
+F.connectPagePreviewers = function f(selector,methodNamespace){
+if('string'===typeof selector){
+selector = document.querySelectorAll(selector);
+}else if(!selector.forEach){
+selector = [selector];
+}
+if(!methodNamespace){
+methodNamespace = F.page;
+}
+selector.forEach(function(e){
+e.addEventListener(
+'click', function(r){
+const eTo = '#'===e.dataset.fPreviewTo[0]
+? document.querySelector(e.dataset.fPreviewTo)
+: methodNamespace[e.dataset.fPreviewTo],
+eFrom = '#'===e.dataset.fPreviewFrom[0]
+? document.querySelector(e.dataset.fPreviewFrom)
+: methodNamespace[e.dataset.fPreviewFrom],
+asText = +(e.dataset.fPreviewAsText || 0);
+eTo.textContent = "Fetching preview...";
+methodNamespace[e.dataset.fPreviewVia](
+(eFrom instanceof Function ? eFrom.call(methodNamespace) : eFrom.value),
+function(r){
+if(eTo instanceof Function) eTo.call(methodNamespace, r||'');
+else if(!r){
+dom.clearElement(eTo);
+}else if(asText){
+eTo.textContent = r;
+}else{
+dom.parseHtml(dom.clearElement(eTo), r);
+}
+}
+);
+}, false
+);
+});
+return this;
+};
+return F.dom = dom;
+})(window.fossil);
+/* fossil.copybutton.js *************************************************************/
+(function(F){
+const D = F.dom;
+F.copyButton = function f(e, opt){
+if('string'===typeof e){
+e = document.querySelector(e);
+}
+opt = F.mergeLastWins(f.defaultOptions, opt);
+if(opt.cssClass){
+D.addClass(e, opt.cssClass);
+}
+var srcId, srcElem;
+if(opt.copyFromElement){
+srcElem = opt.copyFromElement;
+}else if((srcId = opt.copyFromId || e.dataset.copyFromId)){
+srcElem = document.querySelector('#'+srcId);
+}
+const extract = opt.extractText || (
+undefined===srcElem.value ? ()=>srcElem.innerText : ()=>srcElem.value
+);
+D.copyStyle(e, opt.style);
+e.addEventListener(
+'click',
+function(ev){
+ev.preventDefault();
+ev.stopPropagation();
+if(e.classList.contains('disabled')) return;
+const txt = extract.call(opt);
+if(txt && D.copyTextToClipboard(txt)){
+e.dispatchEvent(new CustomEvent('text-copied',{
+detail: {text: txt}
+}));
+}
+},
+false
+);
+if('function' === typeof opt.oncopy){
+e.addEventListener('text-copied', opt.oncopy, false);
+}
+return e;
+};
+F.copyButton.defaultOptions = {
+cssClass: 'copy-button',
+oncopy: D.flashOnce.eventHandler,
+style: {}
+};
+})(window.fossil);
+/* fossil.popupwidget.js *************************************************************/
+(function(F){
+const D = F.dom;
+F.PopupWidget = function f(opt){
+opt = F.mergeLastWins(f.defaultOptions,opt);
+this.options = opt;
+const e = this.e = D.addClass(D.div(), opt.cssClass,
+"fossil-PopupWidget");
+this.show(false);
+if(opt.style){
+let k;
+for(k in opt.style){
+if(opt.style.hasOwnProperty(k)) e.style[k] = opt.style[k];
+}
+}
+D.append(document.body, e);
+D.copyStyle(e, opt.style);
+if(opt.init){
+opt.init.call(this);
+delete opt.init;
+}
+};
+F.PopupWidget.defaultOptions = {
+cssClass: 'fossil-tooltip',
+style: undefined,
+adjustX: (x)=>x,
+adjustY: (y)=>y,
+refresh: function(){},
+init: undefined
+};
+F.PopupWidget.prototype = {
+isShown: function(){return !this.e.classList.contains('hidden')},
+refresh: function(){
+if(this.options.refresh){
+this.options.refresh.call(this);
+}
+return this;
+},
+show: function(){
+var x = undefined, y = undefined, showIt,
+wasShown = !this.e.classList.contains('hidden');
+if(2===arguments.length){
+x = arguments[0];
+y = arguments[1];
+showIt = true;
+}else if(1===arguments.length){
+if(arguments[0] instanceof HTMLElement){
+const p = arguments[0];
+const r = p.getBoundingClientRect();
+x = r.x + r.x/5;
+y = r.y - r.height/2;
+showIt = true;
+}else{
+showIt = !!arguments[0];
+}
+}
+if(showIt){
+if(!wasShown) this.refresh();
+x = this.options.adjustX.call(this,x);
+y = this.options.adjustY.call(this,y);
+x += window.pageXOffset;
+y += window.pageYOffset;
+}
+if(showIt){
+if('number'===typeof x && 'number'===typeof y){
+this.e.style.left = x+"px";
+this.e.style.top = y+"px";
+}
+D.removeClass(this.e, 'hidden');
+}else{
+D.addClass(this.e, 'hidden');
+this.e.style.removeProperty('left');
+this.e.style.removeProperty('top');
+}
+return this;
+},
+hide: function(){return this.show(false)},
+installHideHandlers: function f(onClickSelf, onClickOther, onEsc){
+if(!arguments.length) onClickSelf = onClickOther = onEsc = true;
+else if(1===arguments.length) onClickOther = onEsc = true;
+else if(2===arguments.length) onEsc = true;
+if(onClickSelf) this.e.addEventListener('click', ()=>this.hide(), false);
+if(onClickOther) document.body.addEventListener('click', ()=>this.hide(), true);
+if(onEsc){
+const self = this;
+document.body.addEventListener('keydown', function(ev){
+if(self.isShown() && 27===ev.which) self.hide();
+}, true);
+}
+return this;
+}
+};
+const toastImpl = function f(cssClass, durationMult, argsObject){
+if(!f.toaster){
+f.toaster = new F.PopupWidget({
+cssClass: 'fossil-toast-message'
+});
+D.attr(f.toaster.e, 'role', 'alert');
+}
+const T = f.toaster;
+if(f._timer) clearTimeout(f._timer);
+D.clearElement(T.e);
+if(f._prevCssClass) T.e.classList.remove(f._prevCssClass);
+if(cssClass) T.e.classList.add(cssClass);
+f._prevCssClass = cssClass;
+D.append(T.e, Array.prototype.slice.call(argsObject,0));
+T.show(F.toast.config.position.x, F.toast.config.position.y);
+f._timer = setTimeout(
+()=>T.hide(),
+F.toast.config.displayTimeMs * durationMult
+);
+return F.toast;
+};
+F.toast = {
+config: {
+position: { x: 5, y: 5 },
+displayTimeMs: 5000
+},
+message: function(){
+return toastImpl(false,1, arguments);
+},
+warning: function(){
+return toastImpl('warning',1.5,arguments);
+},
+error: function(){
+return toastImpl('error',2,arguments);
+}
+};
+F.helpButtonlets = {
+setup: function f(){
+if(!f.hasOwnProperty('clickHandler')){
+f.clickHandler = function fch(ev){
+ev.preventDefault();
+ev.stopPropagation();
+if(!fch.popup){
+fch.popup = new F.PopupWidget({
+cssClass: ['fossil-tooltip', 'help-buttonlet-content'],
+refresh: function(){
+}
+});
+fch.popup.e.style.maxWidth = '80%';
+fch.popup.installHideHandlers();
+}
+D.append(D.clearElement(fch.popup.e), ev.target.$helpContent);
+var popupRect, rectElem = ev.target;
+while(rectElem){
+popupRect = rectElem.getClientRects()[0];
+if(popupRect) break;
+rectElem = rectElem.parentNode;
+}
+if(!popupRect) popupRect = {x:0, y:0, left:0, right:0};
+var x = popupRect.left, y = popupRect.top;
+if(x<0) x = 0;
+if(y<0) y = 0;
+if(rectElem){
+const rz = window.getComputedStyle(rectElem).zIndex;
+var myZ;
+if(rz && !isNaN(+rz)){
+myZ = +rz + 1;
+}else{
+myZ = 10000;
+}
+fch.popup.e.style.zIndex = myZ;
+}
+fch.popup.show(x, y);
+x = popupRect.left, y = popupRect.top;
+popupRect = fch.popup.e.getBoundingClientRect();
+const rectBody = document.body.getClientRects()[0];
+if(popupRect.right > rectBody.right){
+x -= (popupRect.right - rectBody.right);
+}
+if(x + popupRect.width > rectBody.right){
+x = rectBody.x + (rectBody.width*0.1);
+fch.popup.e.style.minWidth = '70%';
+}else{
+fch.popup.e.style.removeProperty('min-width');
+x -= popupRect.width/2;
+}
+if(x<0) x = 0;
+fch.popup.show(x, y);
+return false;
+};
+f.foreachElement = function(e){
+if(e.classList.contains('processed')) return;
+e.classList.add('processed');
+e.$helpContent = [];
+e.childNodes.forEach((ch)=>e.$helpContent.push(ch));
+e.$helpContent.forEach((ch)=>ch.remove());
+e.addEventListener('click', f.clickHandler, false);
+};
+}
+var elems;
+if(!arguments.length){
+arguments[0] = '.help-buttonlet:not(.processed)';
+arguments.length = 1;
+}
+if(arguments.length){
+if('string'===typeof arguments[0]){
+elems = document.querySelectorAll(arguments[0]);
+}else if(arguments[0] instanceof HTMLElement){
+elems = [arguments[0]];
+}else if(arguments[0].forEach){
+elems = arguments[0];
+}
+}
+if(elems) elems.forEach(f.foreachElement);
+},
+create: function(elem){
+D.addClass(elem, 'help-buttonlet');
+if(arguments.length>1){
+const args = Array.prototype.slice.call(arguments,1);
+D.append(elem, args);
+}
+this.setup(elem);
+return elem;
+}
+};
+F.onDOMContentLoaded( ()=>F.helpButtonlets.setup() );
+})(window.fossil);
+/* fossil.storage.js *************************************************************/
+(function(F){
+const tryStorage = function f(obj){
+if(!f.key) f.key = 'fossil.access.check';
+try{
+obj.setItem(f.key, 'f');
+const x = obj.getItem(f.key);
+obj.removeItem(f.key);
+if(x!=='f') throw new Error(f.key+" failed")
+return obj;
+}catch(e){
+return undefined;
+}
+};
+const $storage =
+tryStorage(window.localStorage)
+|| tryStorage(window.sessionStorage)
+|| tryStorage({
+$$$:{},
+setItem: function(k,v){this.$$$[k]=v},
+getItem: function(k){
+return this.$$$.hasOwnProperty(k) ? this.$$$[k] : undefined;
+},
+removeItem: function(k){delete this.$$$[k]},
+clear: function(){this.$$$={}}
+});
+const $storageHolder = $storage.hasOwnProperty('$$$') ? $storage.$$$ : $storage;
+const storageKeyPrefix = (
+$storageHolder===$storage
+? (
+F.config.projectCode || F.config.projectName
+|| F.config.shortProjectName || window.location.pathname
+)+'::' : (
+''
+)
+);
+F.storage = {
+storageKeyPrefix: storageKeyPrefix,
+set: (k,v)=>$storage.setItem(storageKeyPrefix+k,v),
+setJSON: (k,v)=>$storage.setItem(storageKeyPrefix+k,JSON.stringify(v)),
+get: (k,dflt)=>$storageHolder.hasOwnProperty(
+storageKeyPrefix+k
+) ? $storage.getItem(storageKeyPrefix+k) : dflt,
+getBool: function(k,dflt){
+return 'true'===this.get(k,''+(!!dflt));
+},
+getJSON: function f(k,dflt){
+try {
+const x = this.get(k,f);
+return x===f ? dflt : JSON.parse(x);
+}
+catch(e){return dflt}
+},
+contains: (k)=>$storageHolder.hasOwnProperty(storageKeyPrefix+k),
+remove: function(k){
+$storage.removeItem(storageKeyPrefix+k);
+return this;
+},
+clear: function(){
+this.keys().forEach((k)=>$storage.removeItem(k));
+return this;
+},
+keys: ()=>Object.keys($storageHolder).filter((v)=>(v||'').startsWith(storageKeyPrefix)),
+isTransient: ()=>$storageHolder!==$storage,
+storageImplName: function(){
+if($storage===window.localStorage) return 'localStorage';
+else if($storage===window.sessionStorage) return 'sessionStorage';
+else return 'transient';
+},
+storageHelpDescription: function(){
+return {
+localStorage: "Browser-local persistent storage with an "+
+"unspecified long-term lifetime (survives closing the browser, "+
+"but maybe not a browser upgrade).",
+sessionStorage: "Storage local to this browser tab, "+
+"lost if this tab is closed.",
+"transient": "Transient storage local to this invocation of this page."
+}[this.storageImplName()];
+}
+};
+})(window.fossil);
+/* fossil.pikchr.js *************************************************************/
+(function(F){
+"use strict";
+const D = F.dom, P = F.pikchr = {};
+P.addSrcView = function f(svg){
+if(!f.hasOwnProperty('parentClick')){
+f.parentClick = function(ev){
+if(ev.altKey || ev.metaKey || ev.ctrlKey
+|| this.classList.contains('toggle')){
+this.classList.toggle('source');
+ev.stopPropagation();
+ev.preventDefault();
+}
+};
+f.clickPikchrShow = function(ev){
+const pId = this.dataset['pikchrid'];
+if(!pId) return;
+const ePikchr = this.parentNode.parentNode.querySelector('#'+pId);
+if(!ePikchr) return;
+ev.stopPropagation();
+window.sessionStorage.setItem('pikchr-xfer', ePikchr.innerText);
+};
+};
+if(!svg) svg = 'svg.pikchr';
+if('string' === typeof svg){
+document.querySelectorAll(svg).forEach((e)=>f.call(this, e));
+return this;
+}else if(svg.forEach){
+svg.forEach((e)=>f.call(this, e));
+return this;
+}
+if(svg.dataset.pikchrProcessed){
+return this;
+}
+svg.dataset.pikchrProcessed = 1;
+const parent = svg.parentNode.parentNode;
+const srcView = parent ? svg.parentNode.nextElementSibling : undefined;
+if(srcView && srcView.classList.contains('pikchr-src')){
+parent.addEventListener('click', f.parentClick, false);
+const eSpan = window.sessionStorage
+? srcView.querySelector('span')
+: undefined;
+if(eSpan){
+const openLink = eSpan.querySelector('a');
+if(openLink){
+openLink.addEventListener('click', f.clickPikchrShow, false);
+eSpan.classList.remove('hidden');
+}
+}
+}
+return this;
+};
+})(window.fossil);
+/* fossil.page.pikchrshow.js *************************************************************/
+(function(F){
+"use strict";
+const E = (s)=>document.querySelector(s),
+D = F.dom,
+P = F.page;
+P.previewMode = 0
+P.response = {
+isError: false,
+inputText: undefined,
+raw: undefined,
+rawSvg: undefined
+};
+const getResponseSvg = function(r){
+const i0 = r.indexOf("<svg");
+if(i0>=0){
+const i1 = r.indexOf("</svg");
+return r.substring(i0,i1+6);
+}
+return '';
+};
+F.onPageLoad(function() {
+document.body.classList.add('pikchrshow');
+P.e = {
+previewTarget: E('#pikchrshow-output'),
+previewLegend: E('#pikchrshow-output-wrapper > legend'),
+previewCopyButton: D.attr(
+D.addClass(D.span(),'copy-button'),
+'id','preview-copy-button'
+),
+previewModeLabel: D.label('preview-copy-button'),
+btnSubmit: E('#pikchr-submit-preview'),
+btnStash: E('#pikchr-stash'),
+btnUnstash: E('#pikchr-unstash'),
+btnClearStash: E('#pikchr-clear-stash'),
+cbDarkMode: E('#flipcolors-wrapper > input[type=checkbox]'),
+taContent: E('#content'),
+taPreviewText: D.textarea(20,0,true),
+uiControls: E('#pikchrshow-controls'),
+previewModeToggle: D.button("Preview mode"),
+markupAlignDefault: D.attr(D.radio('markup-align','',true),
+'id','markup-align-default'),
+markupAlignCenter: D.attr(D.radio('markup-align','center'),
+'id','markup-align-center'),
+markupAlignIndent: D.attr(D.radio('markup-align','indent'),
+'id','markup-align-indent'),
+markupAlignWrapper: D.addClass(D.span(), 'input-with-label')
+};
+const alignEvent = function(ev){
+if(P.previewMode==1 || P.previewMode==2){
+P.renderPreview();
+}
+};
+P.e.markupAlignRadios = [
+P.e.markupAlignDefault,
+P.e.markupAlignCenter,
+P.e.markupAlignIndent
+];
+D.append(P.e.markupAlignWrapper,
+D.addClass(D.append(D.span(),"align:"),
+'v-align-middle'));
+P.e.markupAlignRadios.forEach(
+function(e){
+e.addEventListener('change', alignEvent, false);
+D.append(P.e.markupAlignWrapper,
+D.addClass([
+e,
+D.label(e, e.value || "left")
+], 'v-align-middle'));
+}
+);
+D.append( P.e.previewLegend,
+P.e.previewModeToggle,
+'\u00a0',
+P.e.previewCopyButton,
+P.e.previewModeLabel,
+P.e.markupAlignWrapper );
+P.e.taContent.addEventListener('keydown',function(ev){
+if(ev.shiftKey && 13 === ev.keyCode){
+ev.preventDefault();
+ev.stopPropagation();
+P.preview();
+return false;
+}
+}, false);
+F.copyButton(P.e.previewCopyButton, {copyFromElement: P.e.taPreviewText});
+P.e.previewModeLabel.addEventListener('click', ()=>P.e.previewCopyButton.click(), false);
+P.e.cbDarkMode.addEventListener('change', function(ev){
+if(ev.target.checked) D.addClass(P.e.previewTarget, 'dark-mode');
+else D.removeClass(P.e.previewTarget, 'dark-mode');
+}, false);
+if(P.e.cbDarkMode.checked) D.addClass(P.e.previewTarget, 'dark-mode');
+P.e.btnSubmit.addEventListener('click', ()=>P.preview(), false);
+P.e.previewModeToggle.addEventListener('click', function(){
+P.previewMode = ++P.previewMode % 4;
+P.renderPreview();
+}, false);
+if(true){
+const selectScript = P.e.selectScript = D.select(),
+cbAutoPreview = P.e.cbAutoPreview =
+D.attr(D.checkbox(true),'id', 'cb-auto-preview'),
+cbWrap = D.addClass(D.div(),'input-with-label')
+;
+D.append(
+cbWrap,
+selectScript,
+cbAutoPreview,
+D.label(cbAutoPreview,"Auto-preview?"),
+F.helpButtonlets.create(
+D.append(D.div(),
+'Auto-preview automatically previews selected ',
+'built-in pikchr scripts by sending them to ',
+'the server for rendering. Not recommended on a ',
+'slow connection/server.',
+D.br(),D.br(),
+'Pikchr scripts may also be dragged/dropped from ',
+'the local filesystem into the text area, if the ',
+'environment supports it, but the auto-preview ',
+'option does not apply to them.'
+)
+)
+);
+D.append(P.e.uiControls, cbWrap);
+P.predefinedPiks.forEach(function(script,ndx){
+const opt = D.option(script.code ? script.code.trim() :'', script.name);
+D.append(selectScript, opt);
+opt.$_sampleScript = script;
+if(!ndx) selectScript.selectedIndex = 0;
+if(!script.code) D.disable(opt);
+});
+delete P.predefinedPiks;
+selectScript.addEventListener('change', function(ev){
+const val = ev.target.value;
+if(!val) return;
+const opt = ev.target.selectedOptions[0];
+P.e.taContent.value = val;
+if(cbAutoPreview.checked){
+P.preview.$_sampleScript = opt.$_sampleScript;
+P.preview();
+}
+}, false);
+}
+D.append(
+P.e.uiControls,
+D.append(
+P.e.cbDarkMode.parentNode,
+F.helpButtonlets.create(
+D.div(),
+'Dark mode changes the colors of rendered SVG to ',
+'make them more visible in dark-themed skins. ',
+'This only changes (using CSS) how they are rendered, ',
+'not any actual colors written in the script.',
+D.br(), D.br(),
+'In some color combinations, certain browsers might ',
+'cause the SVG image to blur considerably with this ',
+'setting enabled!'
+)
+)
+);
+const dropHighlight = P.e.taContent;
+const dropEvents = {
+drop: function(ev){
+ev.preventDefault();
+D.removeClass(dropHighlight, 'dragover');
+const file = ev.dataTransfer.files[0];
+if(file) {
+const reader = new FileReader();
+reader.addEventListener(
+'load', function(e) {P.e.taContent.value = e.target.result}, false
+);
+reader.readAsText(file, "UTF-8");
+}
+},
+dragenter: function(ev){
+ev.preventDefault();
+ev.dataTransfer.dropEffect = "copy";
+D.addClass(dropHighlight, 'dragover');
+},
+dragover: function(ev){
+ev.preventDefault();
+},
+dragend: function(ev){
+ev.preventDefault();
+},
+dragleave: function(ev){
+ev.preventDefault();
+D.removeClass(dropHighlight, 'dragover');
+}
+};
+[P.e.taContent
+].forEach(function(e){
+Object.keys(dropEvents).forEach(
+(k)=>e.addEventListener(k, dropEvents[k], true)
+);
+});
+const stashKey = 'pikchrshow-stash';
+P.e.btnStash.addEventListener('click', function(){
+const val = P.e.taContent.value;
+if(val){
+F.storage.set(stashKey, val);
+D.enable(P.e.btnUnstash);
+F.toast.message("Stashed pikchr.");
+}
+}, false);
+P.e.btnUnstash.addEventListener('click', function(){
+const val = F.storage.get(stashKey);
+P.e.taContent.value = val || '';
+}, false);
+P.e.btnClearStash.addEventListener('click', function(){
+F.storage.remove(stashKey);
+D.disable(P.e.btnUnstash);
+F.toast.message("Cleared pikchr stash.");
+}, false);
+F.helpButtonlets.create(P.e.btnClearStash.nextElementSibling);
+if(F.storage.contains(stashKey)) D.enable(P.e.btnUnstash);
+else D.disable(P.e.btnUnstash);
+let needsPreview;
+if(!P.e.taContent.value){
+P.e.taContent.value = F.storage.get(stashKey,'');
+needsPreview = true;
+}
+if(P.e.taContent.value){
+P.response.inputText = P.e.taContent.value;
+P.response.raw = P.e.previewTarget.innerHTML;
+P.response.rawSvg = getResponseSvg(
+P.response.raw.split('&nbsp;').join('\u00a0'));
+if(needsPreview) P.preview();
+else{
+P.renderPreview();
+}
+}
+});
+P.renderPreview = function f(){
+if(!f.hasOwnProperty('rxNonce')){
+f.rxNonce = /<!--.+-->\r?\n?/g;
+f.showMarkupAlignment = function(showIt){
+P.e.markupAlignWrapper.classList[showIt ? 'remove' : 'add']('hidden');
+};
+f.getMarkupAlignmentClass = function(){
+if(P.e.markupAlignCenter.checked) return ' center';
+else if(P.e.markupAlignIndent.checked) return ' indent';
+return '';
+};
+f.getSvgNode = function(txt){
+const childs = D.parseHtml(txt);
+const wrapper = childs.filter((e)=>'DIV'===e.tagName)[0];
+return wrapper ? wrapper.querySelector('svg.pikchr') : undefined;
+};
+}
+const preTgt = this.e.previewTarget;
+if(this.response.isError){
+D.append(D.clearElement(preTgt), D.parseHtml(P.response.raw));
+D.addClass(preTgt, 'error');
+this.e.previewModeLabel.innerText = "Error";
+return;
+}
+D.removeClass(preTgt, 'error');
+D.removeClass(this.e.previewCopyButton, 'disabled');
+D.removeClass(this.e.markupAlignWrapper, 'hidden');
+D.enable(this.e.previewModeToggle, this.e.markupAlignRadios);
+let label, svg;
+switch(this.previewMode){
+case 0:
+label = "SVG";
+f.showMarkupAlignment(false);
+D.parseHtml(D.clearElement(preTgt), P.response.raw);
+svg = preTgt.querySelector('svg.pikchr');
+if(svg && P.response.rawSvg){
+this.e.taPreviewText.value = P.response.rawSvg;
+F.pikchr.addSrcView(svg);
+}
+break;
+case 1:
+label = "Markdown";
+f.showMarkupAlignment(true);
+this.e.taPreviewText.value = [
+'```pikchr'+f.getMarkupAlignmentClass(),
+this.response.inputText.trim(), '```'
+].join('\n');
+D.append(D.clearElement(preTgt), this.e.taPreviewText);
+break;
+case 2:
+label = "Fossil wiki";
+f.showMarkupAlignment(true);
+this.e.taPreviewText.value = [
+'<verbatim type="pikchr',
+f.getMarkupAlignmentClass(),
+'">', this.response.inputText.trim(), '</verbatim>'
+].join('');
+D.append(D.clearElement(preTgt), this.e.taPreviewText);
+break;
+case 3:
+label = "Raw SVG";
+f.showMarkupAlignment(false);
+svg = f.getSvgNode(this.response.raw);
+if(svg){
+this.e.taPreviewText.value =
+P.response.rawSvg || "Error extracting SVG element.";
+}else{
+this.e.taPreviewText.value = "ERROR parsing response HTML:\n"+
+this.response.raw;
+console.error("svg parsed HTML nodes:",childs);
+}
+D.append(D.clearElement(preTgt), this.e.taPreviewText);
+break;
+}
+this.e.previewModeLabel.innerText = label;
+this.e.taContent.focus();
+};
+P.preview = function fp(){
+if(!fp.hasOwnProperty('toDisable')){
+fp.toDisable = [
+this.e.btnSubmit, this.e.taContent,
+this.e.cbAutoPreview, this.e.selectScript,
+this.e.btnStash, this.e.btnClearStash
+];
+fp.target = this.e.previewTarget;
+fp.updateView = function(c,isError){
+P.previewMode = 0;
+P.response.raw = c;
+P.response.rawSvg = getResponseSvg(c);
+P.response.isError = isError;
+D.enable(fp.toDisable);
+P.renderPreview();
+};
+}
+D.disable(fp.toDisable, this.e.previewModeToggle, this.e.markupAlignRadios);
+D.addClass(this.e.markupAlignWrapper, 'hidden');
+D.addClass(this.e.previewCopyButton, 'disabled');
+const content = this.e.taContent.value.trim();
+this.response.raw = this.response.rawSvg = undefined;
+this.response.inputText = content;
+const sampleScript = fp.$_sampleScript;
+delete fp.$_sampleScript;
+if(sampleScript && sampleScript.cached){
+fp.updateView(sampleScript.cached, false);
+return this;
+}
+if(!content){
+fp.updateView("No pikchr content!",true);
+return this;
+}
+const self = this;
+const fd = new FormData();
+fd.append('ajax', true);
+fd.append('content',content);
+F.fetch('pikchrshow',{
+payload: fd,
+responseHeaders: 'x-pikchrshow-is-error',
+onload: (r,isErrHeader)=>{
+const isErr = +isErrHeader ? true : false;
+if(!isErr && sampleScript){
+sampleScript.cached = r;
+}
+fp.updateView(r,isErr);
+},
+onerror: (e)=>{
+F.fetch.onerror(e);
+fp.updateView("Error fetching preview: "+e, true);
+}
+});
+return this;
+};
+P.predefinedPiks = [
+{name: "-- Example Scripts --"},
+{name:"Cardinal headings",code:`   linerad = 5px
+C: circle "Center" rad 150%
+circle "N"  at 1.0 n  of C; arrow from C to last chop ->
+circle "NE" at 1.0 ne of C; arrow from C to last chop <-
+circle "E"  at 1.0 e  of C; arrow from C to last chop <->
+circle "SE" at 1.0 se of C; arrow from C to last chop ->
+circle "S"  at 1.0 s  of C; arrow from C to last chop <-
+circle "SW" at 1.0 sw of C; arrow from C to last chop <->
+circle "W"  at 1.0 w  of C; arrow from C to last chop ->
+circle "NW" at 1.0 nw of C; arrow from C to last chop <-
+arrow from 2nd circle to 3rd circle chop
+arrow from 4th circle to 3rd circle chop
+arrow from SW to S chop <->
+circle "ESE" at 2.0 heading 112.5 from Center \
+thickness 150% fill lightblue radius 75%
+arrow from Center to ESE thickness 150% <-> chop
+arrow from ESE up 1.35 then to NE chop
+line dashed <- from E.e to (ESE.x,E.y)
+line dotted <-> thickness 50% from N to NW chop
+`},{name:"Core object types",code:`AllObjects: [
+# First row of objects
+box "box"
+box rad 10px "box (with" "rounded" "corners)" at 1in right of previous
+circle "circle" at 1in right of previous
+ellipse "ellipse" at 1in right of previous
+# second row of objects
+OVAL1: oval "oval" at 1in below first box
+oval "(tall &" "thin)" "oval" width OVAL1.height height OVAL1.width \
+at 1in right of previous
+cylinder "cylinder" at 1in right of previous
+file "file" at 1in right of previous
+# third row shows line-type objects
+dot "dot" above at 1in below first oval
+line right from 1.8cm right of previous "lines" above
+arrow right from 1.8cm right of previous "arrows" above
+spline from 1.8cm right of previous \
+go right .15 then .3 heading 30 then .5 heading 160 then .4 heading 20 \
+then right .15
+"splines" at 3rd vertex of previous
+# The third vertex of the spline is not actually on the drawn
+# curve.  The third vertex is a control point.  To see its actual
+# position, uncomment the following line:
+#dot color red at 3rd vertex of previous spline
+# Draw various lines below the first line
+line dashed right from 0.3cm below start of previous line
+line dotted right from 0.3cm below start of previous
+line thin   right from 0.3cm below start of previous
+line thick  right from 0.3cm below start of previous
+# Draw arrows with different arrowhead configurations below
+# the first arrow
+arrow <-  right from 0.4cm below start of previous arrow
+arrow <-> right from 0.4cm below start of previous
+# Draw splines with different arrowhead configurations below
+# the first spline
+spline same from .4cm below start of first spline ->
+spline same from .4cm below start of previous <-
+spline same from .4cm below start of previous <->
+] # end of AllObjects
+# Label the whole diagram
+text "Examples Of Pikchr Objects" big bold  at .8cm above north of AllObjects
+`},{name:"Swimlanes",code:`    $laneh = 0.75
+# Draw the lanes
+down
+box width 3.5in height $laneh fill 0xacc9e3
+box same fill 0xc5d8ef
+box same as first box
+box same as 2nd box
+line from 1st box.sw+(0.2,0) up until even with 1st box.n \
+"Alan" above aligned
+line from 2nd box.sw+(0.2,0) up until even with 2nd box.n \
+"Betty" above aligned
+line from 3rd box.sw+(0.2,0) up until even with 3rd box.n \
+"Charlie" above aligned
+line from 4th box.sw+(0.2,0) up until even with 4th box.n \
+"Darlene" above aligned
+# fill in content for the Alice lane
+right
+A1: circle rad 0.1in at end of first line + (0.2,-0.2) \
+fill white thickness 1.5px "1"
+arrow right 50%
+circle same "2"
+arrow right until even with first box.e - (0.65,0.0)
+ellipse "future" fit fill white height 0.2 width 0.5 thickness 1.5px
+A3: circle same at A1+(0.8,-0.3) "3" fill 0xc0c0c0
+arrow from A1 to last circle chop "fork!" below aligned
+# content for the Betty lane
+B1: circle same as A1 at A1-(0,$laneh) "1"
+arrow right 50%
+circle same "2"
+arrow right until even with first ellipse.w
+ellipse same "future"
+B3: circle same at A3-(0,$laneh) "3"
+arrow right 50%
+circle same as A3 "4"
+arrow from B1 to 2nd last circle chop
+# content for the Charlie lane
+C1: circle same as A1 at B1-(0,$laneh) "1"
+arrow 50%
+circle same "2"
+arrow right 0.8in "goes" "offline"
+C5: circle same as A3 "5"
+arrow right until even with first ellipse.w \
+"back online" above "pushes 5" below "pulls 3 & 4" below
+ellipse same "future"
+# content for the Darlene lane
+D1: circle same as A1 at C1-(0,$laneh) "1"
+arrow 50%
+circle same "2"
+arrow right until even with C5.w
+circle same "5"
+arrow 50%
+circle same as A3 "6"
+arrow right until even with first ellipse.w
+ellipse same "future"
+D3: circle same as B3 at B3-(0,2*$laneh) "3"
+arrow 50%
+circle same "4"
+arrow from D1 to D3 chop
+`}
+];
+})(window.fossil);
+</script>
+</div>
+<footer>
+This page was generated in about
+0.005s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="79d6a10b22f150c10e96b490669df9a5b97941ea6e22a14d">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+</body>
+</html>

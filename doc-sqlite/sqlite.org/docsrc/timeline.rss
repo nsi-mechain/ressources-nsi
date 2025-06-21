@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Documentation Source Text</title>
+    <link>https://www.sqlite.org/docsrc</link>
+    <description>Documentation Source Text</description>
+    <pubDate>Thu, 19 Jun 2025 13:51:52 +0000</pubDate>
+    <generator>Fossil version [c953e01c9e] 2025-06-05 13:07:01</generator>
+    <item>
+      <title>A double-negative typo fix reported in the forum. Remove some nearby EOL whitespace. (tags: branch-3.50)</title>
+      <link>https://www.sqlite.org/docsrc/info/22513b8f02bb095b541b281e54cdb7f12463cde780acfebb0a3af210317ca397</link>
+      <description>A double-negative typo fix reported in the forum. Remove some nearby EOL whitespace. (tags: branch-3.50)</description>
+      <pubDate>Wed, 18 Jun 2025 12:15:25 +0000</pubDate>
+      <dc:creator>stephan</dc:creator>
+      <guid>https://www.sqlite.org/docsrc/info/22513b8f02bb095b541b281e54cdb7f12463cde780acfebb0a3af210317ca397</guid>
+    </item>
+    <item>
+      <title>Fix documentation typos. (tags: branch-3.50)</title>
+      <link>https://www.sqlite.org/docsrc/info/b0b729f6a423ef7159eda7852aed27f22828ac94cb9a6b13286718bf115ec7bd</link>
+      <description>Fix documentation typos. (tags: branch-3.50)</description>
+      <pubDate>Tue, 17 Jun 2025 15:03:18 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/docsrc/info/b0b729f6a423ef7159eda7852aed27f22828ac94cb9a6b13286718bf115ec7bd</guid>
+    </item>
+    <item>
+      <title>*MERGE* Merge typo and wording fixes from the 3.50 branch. (tags: trunk)</title>
+      <link>https://www.sqlite.org/docsrc/info/739152a33629e89fe4daa3f25ce4e3db62fbae4e4143f5a43364d5c65535860c</link>
+      <description>*MERGE* Merge typo and wording fixes from the 3.50 branch. (tags: trunk)</description>
+      <pubDate>Mon, 16 Jun 2025 22:41:45 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/docsrc/info/739152a33629e89fe4daa3f25ce4e3db62fbae4e4143f5a43364d5c65535860c</guid>
+    </item>
+    <item>
+      <title>Wording and typo fixes based on suggestions by brickviking. (tags: branch-3.50)</title>
+      <link>https://www.sqlite.org/docsrc/info/705aae39005bc289fd13271bf3f101b4aa1346f6134227cfc4bf3a907f971f0b</link>
+      <description>Wording and typo fixes based on suggestions by brickviking. (tags: branch-3.50)</description>
+      <pubDate>Mon, 16 Jun 2025 22:38:37 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/docsrc/info/705aae39005bc289fd13271bf3f101b4aa1346f6134227cfc4bf3a907f971f0b</guid>
+    </item>
+    <item>
+      <title>*MERGE* Merge trunk into the dark-mode branch. (tags: dark-mode)</title>
+      <link>https://www.sqlite.org/docsrc/info/bb4977d22a09f08d10363a0ee33318411a9c87978730d7a30333826f2e6ea566</link>
+      <description>*MERGE* Merge trunk into the dark-mode branch. (tags: dark-mode)</description>
+      <pubDate>Thu, 12 Jun 2025 09:10:23 +0000</pubDate>
+      <dc:creator>stephan</dc:creator>
+      <guid>https://www.sqlite.org/docsrc/info/bb4977d22a09f08d10363a0ee33318411a9c87978730d7a30333826f2e6ea566</guid>
+    </item>
+    <item>
+      <title>Typo fixes from brickviking. (tags: branch-3.50)</title>
+      <link>https://www.sqlite.org/docsrc/info/ff82d262ef2aa71ec43666134634db23a4e0ac10e9ef053ef9ff3c1892f8e230</link>
+      <description>Typo fixes from brickviking. (tags: branch-3.50)</description>
+      <pubDate>Thu, 12 Jun 2025 08:29:00 +0000</pubDate>
+      <dc:creator>stephan</dc:creator>
+      <guid>https://www.sqlite.org/docsrc/info/ff82d262ef2aa71ec43666134634db23a4e0ac10e9ef053ef9ff3c1892f8e230</guid>
+    </item>
+    <item>
+      <title>Typo fixes from brickviking. (tags: branch-3.50)</title>
+      <link>https://www.sqlite.org/docsrc/info/468ab50bb9a35b211ab416436bd9dba5d4faed02d2dbdeb883d646c39ba51301</link>
+      <description>Typo fixes from brickviking. (tags: branch-3.50)</description>
+      <pubDate>Thu, 12 Jun 2025 08:27:42 +0000</pubDate>
+      <dc:creator>stephan</dc:creator>
+      <guid>https://www.sqlite.org/docsrc/info/468ab50bb9a35b211ab416436bd9dba5d4faed02d2dbdeb883d646c39ba51301</guid>
+    </item>
+    <item>
+      <title>*MERGE* Merge corrections from the 3.50 branch into trunk. (tags: trunk)</title>
+      <link>https://www.sqlite.org/docsrc/info/a128a2a505f403719004b15597c3c3e70527101a8c98c4f3771f745bdb26f7bc</link>
+      <description>*MERGE* Merge corrections from the 3.50 branch into trunk. (tags: trunk)</description>
+      <pubDate>Wed, 11 Jun 2025 16:16:48 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/docsrc/info/a128a2a505f403719004b15597c3c3e70527101a8c98c4f3771f745bdb26f7bc</guid>
+    </item>
+    <item>
+      <title>A batch of typo fixes from BrickViking. (tags: branch-3.50)</title>
+      <link>https://www.sqlite.org/docsrc/info/2f031f2748a9d947ca4be36bcb3a38a376cc65f7e58deefc33c5c790eeea9b98</link>
+      <description>A batch of typo fixes from BrickViking. (tags: branch-3.50)</description>
+      <pubDate>Mon, 9 Jun 2025 11:44:32 +0000</pubDate>
+      <dc:creator>stephan</dc:creator>
+      <guid>https://www.sqlite.org/docsrc/info/2f031f2748a9d947ca4be36bcb3a38a376cc65f7e58deefc33c5c790eeea9b98</guid>
+    </item>
+    <item>
+      <title>A batch of typo fixes from BrickViking. (tags: branch-3.50)</title>
+      <link>https://www.sqlite.org/docsrc/info/3055b3c7db07a1ae650e8aa0977cfa0a9ab06172ff8207325656935998922e29</link>
+      <description>A batch of typo fixes from BrickViking. (tags: branch-3.50)</description>
+      <pubDate>Mon, 9 Jun 2025 07:45:45 +0000</pubDate>
+      <dc:creator>stephan</dc:creator>
+      <guid>https://www.sqlite.org/docsrc/info/3055b3c7db07a1ae650e8aa0977cfa0a9ab06172ff8207325656935998922e29</guid>
+    </item>
+    <item>
+      <title>Slight rephrasing of the Tcl-related makefile vars to accommodate using a custom tcl build by passing TCLHOME=/tcl/install/root TCLVERSION=X.Y to make, with the defaults taken from their prior hard-coded values. Sidebar: TCLINC is curious because OS package installers apparently place the headers in ROOT/include/tclVERSION, but local installations place them in ROOT/include, so attempting to use a local tcl will pick up the system-wide tcl.h unless TCLINC is also explicitly overridden. (tags: branch-3.50)</title>
+      <link>https://www.sqlite.org/docsrc/info/8ad029c5b610951cab1215bfc5a35cdc8b58fb7e4bb1404571bca2d94b666142</link>
+      <description>Slight rephrasing of the Tcl-related makefile vars to accommodate using a custom tcl build by passing TCLHOME=/tcl/install/root TCLVERSION=X.Y to make, with the defaults taken from their prior hard-coded values. Sidebar: TCLINC is curious because OS package installers apparently place the headers in ROOT/include/tclVERSION, but local installations place them in ROOT/include, so attempting to use a local tcl will pick up the system-wide tcl.h unless TCLINC is also explicitly overridden. (tags: branch-3.50)</description>
+      <pubDate>Sat, 7 Jun 2025 11:20:02 +0000</pubDate>
+      <dc:creator>stephan</dc:creator>
+      <guid>https://www.sqlite.org/docsrc/info/8ad029c5b610951cab1215bfc5a35cdc8b58fb7e4bb1404571bca2d94b666142</guid>
+    </item>
+    <item>
+      <title>Small typo fix in the 3.50.1 change log. (tags: branch-3.50)</title>
+      <link>https://www.sqlite.org/docsrc/info/fabe6566cf664a3aad9a04c7797dd17661a420104199e570a09e2a7f756ba120</link>
+      <description>Small typo fix in the 3.50.1 change log. (tags: branch-3.50)</description>
+      <pubDate>Sat, 7 Jun 2025 11:14:38 +0000</pubDate>
+      <dc:creator>stephan</dc:creator>
+      <guid>https://www.sqlite.org/docsrc/info/fabe6566cf664a3aad9a04c7797dd17661a420104199e570a09e2a7f756ba120</guid>
+    </item>
+    <item>
+      <title>*MERGE* Merge branch-3.50 fixes and changes into trunk. (tags: trunk)</title>
+      <link>https://www.sqlite.org/docsrc/info/e6c76221043eac58526f97513e188431b251058e118f8102cd52d1a04ab9a78a</link>
+      <description>*MERGE* Merge branch-3.50 fixes and changes into trunk. (tags: trunk)</description>
+      <pubDate>Fri, 6 Jun 2025 22:49:57 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/docsrc/info/e6c76221043eac58526f97513e188431b251058e118f8102cd52d1a04ab9a78a</guid>
+    </item>
+    <item>
+      <title>Version 3.50.1 (tags: branch-3.50)</title>
+      <link>https://www.sqlite.org/docsrc/info/0be6cda8aedc08c943d0cd71a3f22839d40e9627cdc263e064ef2b80da9aa2a6</link>
+      <description>Version 3.50.1 (tags: branch-3.50)</description>
+      <pubDate>Fri, 6 Jun 2025 14:58:26 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/docsrc/info/0be6cda8aedc08c943d0cd71a3f22839d40e9627cdc263e064ef2b80da9aa2a6</guid>
+    </item>
+    <item>
+      <title>Typo fixes from brickviking. (tags: branch-3.50)</title>
+      <link>https://www.sqlite.org/docsrc/info/47b874409ea477b27cdae14f4020d4b2147260d41144207f69da77e54c7c6e7b</link>
+      <description>Typo fixes from brickviking. (tags: branch-3.50)</description>
+      <pubDate>Fri, 6 Jun 2025 07:49:06 +0000</pubDate>
+      <dc:creator>stephan</dc:creator>
+      <guid>https://www.sqlite.org/docsrc/info/47b874409ea477b27cdae14f4020d4b2147260d41144207f69da77e54c7c6e7b</guid>
+    </item>
+    <item>
+      <title>Add the sqlite3_setlk_timeout() fix to the 3.50.1 change log. (tags: branch-3.50)</title>
+      <link>https://www.sqlite.org/docsrc/info/528e84bf8a1b1131f6b0bb766a39eb95fddc247ee6e6b0b7bf975fb6bc9189eb</link>
+      <description>Add the sqlite3_setlk_timeout() fix to the 3.50.1 change log. (tags: branch-3.50)</description>
+      <pubDate>Thu, 5 Jun 2025 12:02:32 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/docsrc/info/528e84bf8a1b1131f6b0bb766a39eb95fddc247ee6e6b0b7bf975fb6bc9189eb</guid>
+    </item>
+    <item>
+      <title>Mention the JSON bug in the patch release change log. (tags: branch-3.50)</title>
+      <link>https://www.sqlite.org/docsrc/info/e5c658f795bb5e2503e62f4095a8bbc43f70a77219de4e639d1b4c05942d7242</link>
+      <description>Mention the JSON bug in the patch release change log. (tags: branch-3.50)</description>
+      <pubDate>Thu, 5 Jun 2025 11:45:49 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/docsrc/info/e5c658f795bb5e2503e62f4095a8bbc43f70a77219de4e639d1b4c05942d7242</guid>
+    </item>
+    <item>
+      <title>Changes in preparation for the 3.50.1 patch. (tags: branch-3.50)</title>
+      <link>https://www.sqlite.org/docsrc/info/662bb90edf6618fe8de320134a76786dcc9fccb56d3c3b923d31ecf7348d4acf</link>
+      <description>Changes in preparation for the 3.50.1 patch. (tags: branch-3.50)</description>
+      <pubDate>Tue, 3 Jun 2025 18:42:24 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/docsrc/info/662bb90edf6618fe8de320134a76786dcc9fccb56d3c3b923d31ecf7348d4acf</guid>
+    </item>
+    <item>
+      <title>Update the download page for the 3.50.1 patch release. (tags: branch-3.50)</title>
+      <link>https://www.sqlite.org/docsrc/info/a7bf513140bff792d233abece5f7c7181ffd481c13cd7397178beb305ce2a450</link>
+      <description>Update the download page for the 3.50.1 patch release. (tags: branch-3.50)</description>
+      <pubDate>Tue, 3 Jun 2025 18:20:00 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/docsrc/info/a7bf513140bff792d233abece5f7c7181ffd481c13cd7397178beb305ce2a450</guid>
+    </item>
+    <item>
+      <title>Typo fix from brickviking, sent off-list. (tags: branch-3.50)</title>
+      <link>https://www.sqlite.org/docsrc/info/077ddb875e86c46dd0909f500f518e1245bed2a8e5e5b2b6ec6b8fcae8f2b675</link>
+      <description>Typo fix from brickviking, sent off-list. (tags: branch-3.50)</description>
+      <pubDate>Mon, 2 Jun 2025 10:47:23 +0000</pubDate>
+      <dc:creator>stephan</dc:creator>
+      <guid>https://www.sqlite.org/docsrc/info/077ddb875e86c46dd0909f500f518e1245bed2a8e5e5b2b6ec6b8fcae8f2b675</guid>
+    </item>
+  </channel>
+</rss>

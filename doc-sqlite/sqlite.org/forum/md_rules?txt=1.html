@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-b0c49d7c77ebd05c53d2edffec8417a0656c79d31bbf6a48'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQLite User Forum: Markdown Formatting Rules</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="wiki rpage-md_rules cpage-md_rules">
+<header>
+  <div class="title"><h1>SQLite User Forum</h1>Markdown Formatting Rules</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='about.html' class='desktoponly'>About</a>
+<a href='../forum.html' class=''>Threads</a>
+<a href='forumnew.html' class=''>Post</a>
+<a href='register.html' class='desktoponly'>Subscribe</a>
+<a href='https://sqlite.org/' class=''>SQLite</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="submenu">
+<a class="label sml-formatted" href="md_rules.html">Formatted</a>
+<a class="label sml-wiki" href="wiki_rules.html">Wiki</a>
+</div>
+<div class="content"><span id="debugMsg"></span>
+<pre class='textPlain'>
+
+## Paragraphs ##
+
+&gt; Paragraphs are divided by blank lines.  
+&gt; End a line with two or more spaces to force a mid-paragraph line break.
+
+## Headings ##
+
+&gt;
+    # Top Level Heading                 Alternative Top Level Heading
+    # Top Level Heading Variant #       =============================
+&gt;
+    ## 2nd Level Heading                Alternative 2nd Level Heading
+    ## 2nd Level Heading Variant ##     -----------------------------
+&gt;
+    ### 3rd Level Heading               ### 3rd Level Heading Variant ###
+    #### 4th Level Heading              #### 4th Level Heading Variant ####
+    ##### 5th Level Heading             ##### 5th Level Heading Variant #####
+    ###### 6th Level Heading            ###### 6th Level Heading Variant ######
+
+## Links ##
+
+&gt; 1.  **\[display text\]\(URL\)**
+&gt; 2.  **\[display text\]\(URL &quot;Title&quot;\)**
+&gt; 3.  **\[display text\]\(URL &#39;Title&#39;\)**
+&gt; 4.  **\&lt;URL\&gt;**
+&gt; 5.  **\[display text\]\[label\]**
+&gt; 6.  **\[display text\]\[\]**
+&gt; 7.  **\[display text\]**
+&gt; 8.  **\[\]\(URL\)**
+
+&gt; With link formats 5, 6, and 7 (&quot;reference links&quot;), the URL is supplied
+&gt; elsewhere in the document, as shown below.  Link formats 6 and 7 reuse
+&gt; the display text as the label.  Labels are case-insensitive.  The title
+&gt; may be split onto the next line with optional indenting.
+
+&gt; * **\[label\]:&amp;nbsp;URL**
+&gt; * **\[label\]:&amp;nbsp;URL&amp;nbsp;&quot;Title&quot;**
+&gt; * **\[label\]:&amp;nbsp;URL&amp;nbsp;&#39;Title&#39;**
+&gt; * **\[label\]:&amp;nbsp;URL&amp;nbsp;(Title)**
+
+&gt; If **URL** begins with &quot;http:&quot;, &quot;https:&#39;, &quot;ftp:&#39; or &quot;mailto:&quot;,
+&gt; it may optionally be written **\&lt;URL\&gt;** (format 4).
+&gt; Other **URL** formats include:
+&gt; &lt;ul&gt;
+&gt; &lt;li&gt;  A relative pathname.
+&gt; &lt;li&gt;  A pathname starting with &quot;/&quot; in which case the Fossil server
+&gt;       URL prefix is prepended
+&gt; &lt;li&gt;  A wiki page name, or a wiki page name preceded by &quot;wiki:&quot;
+&gt; &lt;li&gt;  An artifact or ticket hash or hash prefix
+&gt; &lt;li&gt;  A date and time stamp: &quot;YYYY-MM-DD HH:MM:SS&quot; or a subset that
+&gt;       includes at least the day of the month.
+&gt; &lt;li&gt;  An [interwiki link](#intermap) of the form &quot;&lt;i&gt;Tag&lt;/i&gt;&lt;b&gt;:&lt;/b&gt;&lt;i&gt;PageName&lt;/i&gt;&quot;&lt;/ul&gt;
+
+&gt; In format 8, then the URL becomes the display text.  This is useful for
+&gt; hyperlinks that refer to wiki pages and check-in and ticket hashes.
+
+## Text Style ##
+
+&gt; *   _\*italic\*_
+&gt; *   *\_italic\_*
+&gt; *   __\*\*bold\*\*__
+&gt; *   **\_\_bold\_\_**
+&gt; *   ___\*\*\*italic+bold\*\*\*___
+&gt; *   ***\_\_\_italic+bold\_\_\_***
+&gt; *   \``code`\`
+
+&gt; The **\`code\`** construct disables HTML markup, so one can write, for
+&gt; example, **\`\&lt;html\&gt;\`** to yield **`&lt;html&gt;`**.
+
+## Lists ##
+
+&gt; ~~~
+   *   bullet item
+   +   bullet item
+   -   bullet item
+   1.  numbered item
+   2)  numbered item
+~~~
+
+&gt; A two-level list is created by placing additional whitespace before the
+&gt; **\***/**+**/**-**/**1.** of the secondary items.
+
+&gt; ~~~
+   *  top-level item
+      *  second-level item
+~~~
+
+## Block Quotes ##
+
+&gt; Begin each line of a paragraph with **&gt;** to block quote that paragraph.
+
+&gt; &gt;
+    &gt; This paragraph is indented
+&gt; &gt;
+    &gt; &gt; Double-indented paragraph
+
+## Literal/Verbatim Text - Code Blocks ##
+
+&gt; For inline text, you can either use \``backticks`\` or the HTML
+&gt; `&lt;code&gt;` tag.
+&gt;
+&gt; For blocks of text or code:
+&gt;
+&gt; 1. Indent the text using a tab character or at least four spaces.
+&gt; 2. Precede the block with an HTML `&lt;pre&gt;` tag and follow it with `&lt;/pre&gt;`.
+&gt; 3. Surround the block by &lt;tt&gt;\`\`\`&lt;/tt&gt; (three or more) or &lt;tt&gt;\~\~\~&lt;/tt&gt; either at the
+&gt; left margin or indented no more than three spaces. The first word
+&gt; on that same line (if any) is used in a “`language-WORD`” CSS style in
+&gt; the HTML rendering of that code block and is intended for use by
+&gt; code syntax highlighters. Thus &lt;tt&gt;\`\`\`c&lt;/tt&gt; would mark a block of code
+&gt; in the C programming language. Text to be rendered inside the code block
+&gt; should therefore start on the next line, not be cuddled up with the
+&gt; backticks or tildes.  See the &quot;Diagrams&quot; section below for the case where
+&gt; &quot;`language-WORD`&quot; is &quot;pikchr&quot;.
+
+&gt; With the standard skins, verbatim text is rendered in a fixed-width font,
+&gt; but that is purely a presentation matter, controlled by the skin’s CSS.
+
+
+## Tables ##
+
+&gt;
+    | Header 1     | Header 2    | Header 3      |
+    ----------------------------------------------
+    | Row 1 Col 1  | Row 1 Col 2 | Row 1 Col 3   |
+    |:Left-aligned |:Centered   :| Right-aligned:|
+    |              | ← Blank   → |               |
+    | Row 4 Col 1  | Row 4 Col 2 | Row 4 Col 3   |
+
+&gt; The first row is a header if followed by a horizontal rule or a blank line.
+
+&gt; Placing **:** at the left, both, or right sides of a cell gives left-aligned,
+&gt; centered, or right-aligned text, respectively.  By default, both header and
+&gt; body cells are left-aligned.
+
+&gt; The leftmost or rightmost **\|** is required only if the first or last column,
+&gt; respectively, contains at least one blank cell.
+
+## Diagrams ##
+
+&gt;
+~~~~~
+~~~ pikchr
+oval &quot;Start&quot; fit; arrow; box &quot;Hello, World!&quot; fit; arrow; oval &quot;Done&quot; fit
+~~~
+~~~~~
+
+&gt; Formatted using [Pikchr](https://pikchr.org/home), resulting in:
+
+&gt;
+~~~ pikchr
+oval &quot;Start&quot; fit; arrow; box &quot;Hello, World!&quot; fit; arrow; oval &quot;Done&quot; fit
+~~~
+
+&lt;a id=&quot;ftnts&quot;&gt;&lt;/a&gt;
+## Footnotes ##
+
+&gt; Footnotes (or &quot;endnotes&quot;) is a Fossil extension of classical Markdown.
+&gt; Fossil&#39;s syntax for footnotes is similar to links and
+&gt; is distinguished by the use of character **^**
+&gt; that *immediately* follows an opening bracket.
+
+&gt; 1. **\(^** footnote&#39;s text **)**
+&gt; 2. **\[** fragment of text **]\(^** a comment about that fragment **\)**
+&gt; 3. **\[^**&amp;nbsp;label&amp;nbsp;**\]**
+&gt; 4. **\[** fragment of text **\]\[^**&amp;nbsp;label&amp;nbsp;**\]**
+&gt; 5. **\[** fragment of text **\]\[^\]**
+
+&gt; With formats 1 and 2 (&quot;inline footnotes&quot;) text of a footnote is provided
+&gt; in the place where the corresponding numeric mark will be rendered.
+&gt; With formats 3, 4, and 5 (&quot;reference footnotes&quot;) text of a footnote
+&gt; is supplied elsewhere in the document, as shown below.
+&gt; Formats 2, 4 and 5 (&quot;span-specific footnotes&quot;) mark a specific fragment
+&gt; that is being commented in the footnote.
+&gt; Format 5 reuses a fragment of text as a label.
+&gt; Labels are case-insensitive.
+
+&gt; ```
+&gt; [^label]: Footnote definition must start on the first column.
+&gt;      The second line (if any) must be indented by two or more spaces.
+&gt;      Definition continues until indentation drops below that of the 2nd line.
+&gt;```
+&gt; Character **^** is not part of a label, it is part of the syntax.
+&gt; Both a footnote&#39;s text and a fragment to which a footnote applies
+&gt; are subject to further interpretation as Markdown sources.
+
+## Miscellaneous ##
+
+&gt; *   In-line images are made using **\!\[alt-text\]\(image-URL\)**.
+&gt; *   Use HTML for advanced formatting such as forms, noting that certain
+&gt;     tags are [disallowed in some contexts](/help?cmd=safe-html).
+&gt; *   **\&lt;!--** HTML-style comments **--&gt;** are supported.
+&gt; *   Escape special characters (ex: **\[** **\(** **\|** **\***)
+&gt;     using backslash (ex: **\\\[** **\\\(** **\\\|** **\\\***).
+&gt; *   A line consisting of **---**, **\*\*\***, or **\_\_\_** is a horizontal
+&gt;     rule.  Spaces and extra **-**/**\***/**_** are allowed.
+&gt; *   Paragraphs enclosed in **\&lt;html\&gt;...\&lt;/html\&gt;** is passed through unchanged.
+&gt; *   See [daringfireball.net][] for additional information.
+&gt; *   See this page&#39;s [Markdown source](/md_rules?txt=1) for more examples.
+
+## Special Features For Fossil ##
+
+&gt; *  In hyperlinks, if the URL begins with **/** then the root of the Fossil
+&gt;    repository is prepended.  This allows for repository-relative hyperlinks.
+&gt; *  For documents that begin with a top-level heading (ex: **# heading #**),
+&gt;    the heading is omitted from the body of the document and becomes the
+&gt;    document title displayed at the top of the Fossil page.
+
+[daringfireball.net]: http://daringfireball.net/projects/markdown/syntax
+
+&lt;a name=&quot;intermap&quot;&gt;&lt;/a&gt;
+## Interwiki Tag [Map](/intermap)
+&lt;blockquote&gt;&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;docsrc&lt;/td&gt;&lt;td&gt;&amp;nbsp;&amp;rarr;&amp;nbsp;&lt;/td&gt;&lt;td&gt;https://sqlite.org/docsrc&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;fiddle&lt;/td&gt;&lt;td&gt;&amp;nbsp;&amp;rarr;&amp;nbsp;&lt;/td&gt;&lt;td&gt;https://sqlite.org/fiddle&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;see&lt;/td&gt;&lt;td&gt;&amp;nbsp;&amp;rarr;&amp;nbsp;&lt;/td&gt;&lt;td&gt;https://sqlite.org/see&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;src&lt;/td&gt;&lt;td&gt;&amp;nbsp;&amp;rarr;&amp;nbsp;&lt;/td&gt;&lt;td&gt;https://sqlite.org/src&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;wasm&lt;/td&gt;&lt;td&gt;&amp;nbsp;&amp;rarr;&amp;nbsp;&lt;/td&gt;&lt;td&gt;https://sqlite.org/wasm&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;www&lt;/td&gt;&lt;td&gt;&amp;nbsp;&amp;rarr;&amp;nbsp;&lt;/td&gt;&lt;td&gt;https://sqlite.org&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;&lt;/blockquote&gt;
+
+</pre>
+</div>
+<footer>
+This page was generated in about
+0.005s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="b0c49d7c77ebd05c53d2edffec8417a0656c79d31bbf6a48">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='b0c49d7c77ebd05c53d2edffec8417a0656c79d31bbf6a48'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+</script>
+</body>
+</html>

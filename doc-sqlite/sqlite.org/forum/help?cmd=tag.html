@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-34727d27a4847d89d1bd0309a05a2298b0be88bd17f9f21d'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQLite User Forum: Help: tag</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="tkt rpage-help cpage-help">
+<header>
+  <div class="title"><h1>SQLite User Forum</h1>Help: tag</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='about.html' class='desktoponly'>About</a>
+<a href='../forum.html' class=''>Threads</a>
+<a href='forumnew.html' class=''>Post</a>
+<a href='register.html' class='desktoponly'>Subscribe</a>
+<a href='https://sqlite.org/' class=''>SQLite</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="submenu">
+<a class="label sml-topic-list" href="help.html">Topic-List</a>
+</div>
+<div class="content"><span id="debugMsg"></span>
+<h1>The "tag" command:</h1>
+<div class="helpPage">
+Usage: <tt>fossil</tt> <tt>tag</tt> <i>SUBCOMMAND</i> ...<br>
+
+<p> Run various subcommands to control tags and properties.
+
+<blockquote><dl>
+<dt> <tt>fossil</tt> <tt>tag</tt> <tt>add</tt> <i>?OPTIONS?</i> <i>TAGNAME</i> <i>ARTIFACT-ID</i> <i>?VALUE?</i></dt>
+
+<p><dd>Add a new tag or property to an artifact referenced by
+ARTIFACT-ID. For check-ins, the tag will be usable instead
+of a CHECK-IN in commands such as update and merge. If the
+--propagate flag is present and ARTIFACT-ID refers to a
+wiki page, forum post, technote, or check-in, the tag
+propagates to all descendants of that artifact.
+
+<p> Options:
+<blockquote><dl>
+<dt> <tt>--date-override</tt> <i>DATETIME</i> </dt><dd>Set date and time added</dt>
+</dd><dt> <tt>-n|--dry-run</tt>             </dt><dd>Display the tag text, but do not</dt>
+actually insert it into the database
+</dd><dt> <tt>--propagate</tt>              </dt><dd>Propagating tag</dt>
+</dd><dt> <tt>--raw</tt>                    </dt><dd>Raw tag name. Ignored for</dt>
+non-CHECK-IN artifacts.
+</dd><dt> <tt>--user-override</tt> <i>USER</i>     </dt><dd>Name USER when adding the tag</dt>
+
+</dd></dl></blockquote><p> The --date-override and --user-override options support
+importing history from other SCM systems. DATETIME has
+the form 'YYYY-MM-DD HH:MM:SS'.
+
+<p> Note that fossil uses some tag prefixes internally and this
+command will reject tags with these prefixes to avoid
+causing problems or confusion: "wiki-", "tkt-", "event-".
+
+</dd><p> <dt> <tt>fossil</tt> <tt>tag</tt> <tt>cancel</tt> <tt>?--raw?</tt> <i>TAGNAME</i> <i>ARTIFACT-ID</i></dt>
+
+<p><dd>Remove the tag TAGNAME from the artifact referenced by
+ARTIFACT-ID, and also remove the propagation of the tag to
+any descendants.  Use the the -n|--dry-run option to see
+what would have happened. Certain tag name prefixes are
+forbidden, as documented for the 'add' subcommand.
+
+<p> Options:
+<blockquote><dl>
+<dt> <tt>--date-override</tt> <i>DATETIME</i>  </dt><dd>Set date and time deleted</dt>
+</dd><dt> <tt>-n|--dry-run</tt>              </dt><dd>Display the control artifact, but do</dt>
+not insert it into the database
+</dd><dt> <tt>--raw</tt>                     </dt><dd>Raw tag name. Ignored for</dt>
+non-CHECK-IN artifacts.
+</dd><dt> <tt>--user-override</tt> <i>USER</i>      </dt><dd>Name USER when deleting the tag</dt>
+
+</dd></dl></blockquote></dd><p> <dt> <tt>fossil</tt> <tt>tag</tt> <tt>find</tt> <i>?OPTIONS?</i> <i>TAGNAME</i></dt>
+
+<p><dd>List all objects that use TAGNAME.
+
+<p> Options:
+<blockquote><dl>
+<dt> <tt>-n|--limit</tt> <i>N</i>  </dt><dd>Limit to N results</dt>
+</dd><dt> <tt>--raw</tt>         </dt><dd>Interprets tag as a raw name instead of a</dt>
+branch name and matches any type of artifact.
+Changes the output to include only the
+hashes of matching objects.
+</dd><dt> <tt>-t|--type</tt> <i>TYPE</i></dt><dd>One of: ci (check-in), w (wiki),</dt>
+e (event/technote), f (forum post),
+t (ticket). Default is all types. Ignored
+if --raw is used.
+
+</dd></dl></blockquote></dd><p> <dt> <tt>fossil</tt> <tt>tag</tt> <tt>list|ls</tt> <i>?OPTIONS?</i> <i>?ARTIFACT-ID?</i></dt>
+
+<p><dd>List all tags or, if ARTIFACT-ID is supplied, all tags and
+their values for that artifact. The tagtype option accepts
+one of: propagated, singleton, cancel.  For historical
+scripting compatibility, the internal tag types "wiki-",
+"tkt-", and "event-" (technote) are elided by default
+unless the --raw or --prefix options are used.
+
+<p> Options:
+<blockquote><dl>
+<dt> <tt>-v|--inverse</tt>  </dt><dd>Inverse the meaning of --tagtype TYPE</dt>
+</dd><dt> <tt>--prefix</tt>      </dt><dd>List only tags with the given prefix</dt>
+Fossil-internal prefixes include "sym-"
+(branch name), "wiki-", "event-"
+(technote), and "tkt-" (ticket). The
+prefix is stripped from the resulting
+list unless --raw is provided. Ignored if
+ARTIFACT-ID is provided.
+</dd><dt> <tt>--raw</tt>         </dt><dd>List raw names of tags</dt>
+</dd><dt> <tt>--sep</tt> <i>SEP</i>     </dt><dd>Separator when concatenating values</dt>
+</dd><dt> <tt>--tagtype</tt> <i>TYPE</i></dt><dd>List only tags of type TYPE, which must</dt>
+be one of: cancel, singleton, propagated
+</dd><dt> <tt>--values</tt>      </dt><dd>List tag values</dt>
+If --sep is supplied, list all values of a tag on
+the same line, separated by SEP; otherwise list
+each value on its own line.
+
+</dd></dl></blockquote></dd></dl></blockquote><p> The option --raw allows the manipulation of all types of tags
+used for various internal purposes in fossil. It also shows
+"cancel" tags for the "find" and "list" subcommands. You should
+not use this option to make changes unless you are sure what
+you are doing.
+
+<p> If you need to use a tagname that might be confused with
+a hexadecimal baseline or artifact ID, you can explicitly
+disambiguate it by prefixing it with "tag:". For instance:
+
+<blockquote><pre>fossil update decaf
+</pre></blockquote><p> will be taken as an artifact or baseline ID and fossil will
+probably complain that no such revision was found. However
+
+<blockquote><pre>fossil update tag:decaf
+</pre></blockquote><p> will assume that "decaf" is a tag/branch name.
+</div>
+</div>
+<footer>
+This page was generated in about
+0.005s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="34727d27a4847d89d1bd0309a05a2298b0be88bd17f9f21d">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='34727d27a4847d89d1bd0309a05a2298b0be88bd17f9f21d'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+</script>
+</body>
+</html>

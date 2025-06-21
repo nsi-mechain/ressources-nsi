@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-86593248fad212949014e6e91b4628cebb2704d1f28c9753'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>sqllogictest: Help: uv</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="tkt rpage-help cpage-help">
+<header>
+  <div class="title"><h1>sqllogictest</h1>Help: uv</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='home.html' class=''>Home</a>
+<a href='timeline.html' class=''>Timeline</a>
+<a href='brlist.html' class='wideonly'>Branches</a>
+<a href='taglist.html' class='wideonly'>Tags</a>
+<a href='ticket.html' class='wideonly'>Tickets</a>
+<a href='wiki.html' class='wideonly'>Wiki</a>
+<a href='login.html' class='wideonly'>Login</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="submenu">
+<a class="label sml-topic-list" href="help.html">Topic-List</a>
+</div>
+<div class="content"><span id="debugMsg"></span>
+<h1>The "uv" command:</h1>
+<div class="helpPage">
+Usage: <tt>fossil</tt> <tt>unversioned</tt> <i>SUBCOMMAND</i> <i>ARGS...</i><br>
+   or: <tt>fossil</tt> <tt>uv</tt> <i>SUBCOMMAND</i> <i>ARGS..</i><br>
+
+<p> Unversioned files (UV-files) are artifacts that are synced and are available
+for download but which do not preserve history.  Only the most recent version
+of each UV-file is retained.  Changes to an UV-file are permanent and cannot
+be undone, so use appropriate caution with this command.
+
+<p> Subcommands:
+
+<blockquote><dl>
+<dt> <tt>add</tt> <i>FILE</i> ...         </dt><dd>Add or update one or more unversioned files in</dt>
+the local repository so that they match FILEs
+on disk. Changes are not pushed to other
+repositories until the next sync.
+
+</dd><p> <dt> <tt>add</tt> <i>FILE</i> <tt>--as</tt> <i>UVFILE</i> </dt><dd>Add or update a single file named FILE on disk</dt>
+and UVFILE in the repository unversioned file
+namespace. This variant of the 'add' command allows
+the name to be different in the repository versus
+what appears on disk, but it only allows adding
+a single file at a time.
+
+</dd><p> <dt> <tt>cat</tt> <i>FILE</i> ...         </dt><dd>Concatenate the content of FILEs to stdout.</dt>
+
+</dd><p> <dt> <tt>edit</tt> <i>FILE</i>            </dt><dd>Bring up FILE in a text editor for modification.</dt>
+Options:
+<blockquote><dl>
+<dt> <tt>--editor</tt> <i>NAME</i>   </dt><dd>Name of the text editor to use</dt>
+
+</dd></dl></blockquote></dd><p> <dt> <tt>export</tt> <i>FILE</i> <i>OUTPUT</i>   </dt><dd>Write the content of FILE into OUTPUT on disk</dt>
+
+</dd><p> <dt> <tt>list</tt> | <tt>ls</tt>            </dt><dd>Show all unversioned files held in the local</dt>
+repository.
+
+<p> Options:
+<blockquote><dl>
+<dt> <tt>--glob</tt> <i>PATTERN</i> </dt><dd>Show only files that match</dt>
+</dd><dt> <tt>--like</tt> <i>PATTERN</i> </dt><dd>Show only files that match</dt>
+</dd><dt> <tt>-l</tt>             </dt><dd>Show additional details for</dt>
+files that match. Implied
+when 'list' is used.
+
+</dd></dl></blockquote></dd><p> <dt> <tt>revert</tt> <i>?URL?</i>         </dt><dd>Restore the state of all unversioned files in the</dt>
+local repository to match the remote repository
+URL.
+
+<p> Options:
+<blockquote><dl>
+<dt> <tt>-v|--verbose</tt>   </dt><dd>Extra diagnostic output</dt>
+</dd><dt> <tt>-n|--dry-run</tt>   </dt><dd>Show what would have happened</dt>
+</dd><dt> <tt>--proxy</tt> <i>PROXY</i>  </dt><dd>Use the specified HTTP proxy</dt>
+
+</dd></dl></blockquote></dd><p> <dt> <tt>remove|rm|delete</tt> <i>FILE</i> ...</dt>
+<dd>Remove unversioned files from the local repository.
+Changes are not pushed to other repositories until
+the next sync.
+
+<p> Options:
+<blockquote><dl>
+<dt> <tt>--glob</tt> <i>PATTERN</i> </dt><dd>Remove files that match</dt>
+</dd><dt> <tt>--like</tt> <i>PATTERN</i> </dt><dd>Remove files that match</dt>
+
+</dd></dl></blockquote></dd><p> <dt> <tt>sync</tt> <i>?URL?</i>           </dt><dd>Synchronize the state of all unversioned files with</dt>
+the remote repository URL.  The most recent version
+of each file is propagated to all repositories and
+all prior versions are permanently forgotten.
+The remote account requires the 'y' capability.
+
+<p> Options:
+<blockquote><dl>
+<dt> <tt>-v|--verbose</tt>   </dt><dd>Extra diagnostic output</dt>
+</dd><dt> <tt>-n|--dry-run</tt>   </dt><dd>Show what would have happened</dt>
+</dd><dt> <tt>--proxy</tt> <i>PROXY</i>  </dt><dd>Use the specified HTTP proxy</dt>
+
+</dd></dl></blockquote></dd><p> <dt> <tt>touch</tt> <i>FILE</i> ...       </dt><dd>Update the TIMESTAMP on all of the listed files</dt>
+
+</dd></dl></blockquote><p> Options:
+<blockquote><dl>
+<dt> <tt>--mtime</tt> <i>TIMESTAMP</i>     </dt><dd>Use TIMESTAMP instead of "now" for the "add",</dt>
+"edit", "remove", and "touch" subcommands.
+</dd><dt> <tt>-R|--repository</tt> <i>REPO</i>  </dt><dd>Use REPO as the repository</dt>
+</dd>
+</dl></blockquote>
+</div>
+</div>
+<footer>
+This page was generated in about
+0.005s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="86593248fad212949014e6e91b4628cebb2704d1f28c9753">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='86593248fad212949014e6e91b4628cebb2704d1f28c9753'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+</script>
+</body>
+</html>

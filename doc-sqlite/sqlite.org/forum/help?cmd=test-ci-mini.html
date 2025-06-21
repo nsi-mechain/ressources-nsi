@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-16a8455290bbbc41000b1ac5870a259ff6adbfde44ffd95a'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQLite User Forum: Help: test-ci-mini</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="tkt rpage-help cpage-help">
+<header>
+  <div class="title"><h1>SQLite User Forum</h1>Help: test-ci-mini</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='about.html' class='desktoponly'>About</a>
+<a href='../forum.html' class=''>Threads</a>
+<a href='forumnew.html' class=''>Post</a>
+<a href='register.html' class='desktoponly'>Subscribe</a>
+<a href='https://sqlite.org/' class=''>SQLite</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="submenu">
+<a class="label sml-topic-list" href="help.html">Topic-List</a>
+</div>
+<div class="content"><span id="debugMsg"></span>
+<h1>The "test-ci-mini" command:</h1>
+<div class="helpPage">
+Usage: <tt>fossil</tt> <tt>test-ci-mini</tt> <i>?OPTIONS?</i> <i>FILENAME</i><br>
+
+<p> where FILENAME is a repo-relative name as it would appear in the
+vfile table.
+
+<p> Options:
+<blockquote><dl>
+<dt> <tt>-R|--repository</tt> <i>REPO</i>    </dt><dd>The repository file to commit to</dt>
+</dd><dt> <tt>--as</tt> <i>FILENAME</i>           </dt><dd>The repository-side name of the input</dt>
+file, relative to the top of the
+repository. Default is the same as the
+input file name.
+</dd><dt> <tt>-m|--comment</tt> <i>COMMENT</i>    </dt><dd>Required check-in comment</dt>
+</dd><dt> <tt>-M|--comment-file</tt> <i>FILE</i>  </dt><dd>Reads check-in comment from the given file</dt>
+</dd><dt> <tt>-r|--revision</tt> <i>VERSION</i>   </dt><dd>Commit from this version. Default is</dt>
+the check-out version (if available) or
+trunk (if used without a check-out).
+</dd><dt> <tt>--allow-fork</tt>            </dt><dd>Allows the commit to be made against a</dt>
+non-leaf parent. Note that no autosync
+is performed beforehand.
+</dd><dt> <tt>--allow-merge-conflict</tt>  </dt><dd>Allows check-in of a file even if it</dt>
+appears to contain a fossil merge conflict
+marker
+</dd><dt> <tt>--user-override</tt> <i>USER</i>    </dt><dd>USER to use instead of the current</dt>
+default
+</dd><dt> <tt>--date-override</tt> <i>DATETIME</i></dt><dd>DATE to use instead of 'now'</dt>
+</dd><dt> <tt>--allow-older</tt>           </dt><dd>Allow a commit to be older than its</dt>
+ancestor
+</dd><dt> <tt>--convert-eol-inherit</tt>   </dt><dd>Convert EOL style of the check-in to match</dt>
+the previous version's content
+</dd><dt> <tt>--convert-eol-unix</tt>      </dt><dd>Convert the EOL style to Unix</dt>
+</dd><dt> <tt>--convert-eol-windows</tt>   </dt><dd>Convert the EOL style to Windows.</dt>
+</dd><dt> <i>(Only</i> <tt>one</tt> <tt>of</tt> <tt>the</tt> <tt>--convert-eol-X</tt> <tt>options</tt> <tt>may</tt> <tt>be</tt> <tt>used</tt> <tt>and</tt> <tt>they</tt> <tt>only</tt></dt>
+<dd>modified the saved blob, not the input file.)
+</dd><dt> <tt>--delta</tt>                 </dt><dd>Prefer to generate a delta manifest, if</dt>
+able. The forbid-delta-manifests repo
+config option trumps this, as do certain
+heuristics.
+</dd><dt> <tt>--allow-new-file</tt>        </dt><dd>Allow addition of a new file this way.</dt>
+Disabled by default to avoid that case-
+sensitivity errors inadvertently lead to
+adding a new file where an update is
+intended.
+</dd><dt> <tt>-d|--dump-manifest</tt>      </dt><dd>Dumps the generated manifest to stdout</dt>
+immediately after it's generated
+</dd><dt> <tt>--save-manifest</tt> <i>FILE</i>    </dt><dd>Saves the generated manifest to a file</dt>
+after successfully processing it
+</dd><dt> <tt>--wet-run</tt>               </dt><dd>Disables the default dry-run mode</dt>
+
+</dd></dl></blockquote><p> Example:
+
+<p> fossil test-ci-mini -R REPO -m ... -r foo --as src/myfile.c myfile.c
+</div>
+</div>
+<footer>
+This page was generated in about
+0.005s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="16a8455290bbbc41000b1ac5870a259ff6adbfde44ffd95a">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='16a8455290bbbc41000b1ac5870a259ff6adbfde44ffd95a'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+</script>
+</body>
+</html>

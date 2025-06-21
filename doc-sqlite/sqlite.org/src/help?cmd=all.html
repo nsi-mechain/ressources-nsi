@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-dec042a0f8f477c1e651bbe743569d3b7521d10a82ba8fb0'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQLite: Help: all</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="tkt rpage-help cpage-help">
+<header>
+  <div class="title"><h1>SQLite</h1>Help: all</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='https://sqlite.org/' class=''>Home</a>
+<a href='timeline.html' class=''>Timeline</a>
+<a href='https://sqlite.org/forum/forum' class='desktoponly'>Forum</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="submenu">
+<a class="label sml-topic-list" href="help.html">Topic-List</a>
+</div>
+<div class="content"><span id="debugMsg"></span>
+<h1>The "all" command:</h1>
+<div class="helpPage">
+Usage: <tt>fossil</tt> <tt>all</tt> <i>SUBCOMMAND</i> ...<br>
+
+<p> The ~/.fossil file records the location of all repositories for a
+user.  This command performs certain operations on all repositories
+that can be useful before or after a period of disconnected operation.
+
+<p> On Win32 systems, the file is named "_fossil" and is located in
+%LOCALAPPDATA%, %APPDATA% or %HOMEPATH%.
+
+<p> Available operations are:
+
+<blockquote><dl>
+<dt> <tt>backup</tt>    </dt><dd>Backup all repositories.  The argument must be the name of</dt>
+a directory into which all backup repositories are written.
+
+</dd><p> <dt> <tt>cache</tt>     </dt><dd>Manages the cache used for potentially expensive web</dt>
+pages.  Any additional arguments are passed on verbatim
+to the cache command.
+
+</dd><p> <dt> <tt>changes</tt>   </dt><dd>Shows all local check-outs that have uncommitted changes.</dt>
+This operation has no additional options.
+
+</dd><p> <dt> <tt>clean</tt>     </dt><dd>Delete all "extra" files in all local check-outs.  Extreme</dt>
+caution should be exercised with this command because its
+effects cannot be undone.  Use of the --dry-run option to
+carefully review the local check-outs to be operated upon
+and the --whatif option to carefully review the files to
+be deleted beforehand is highly recommended.  The command
+line options supported by the clean command itself, if any
+are present, are passed along verbatim.
+
+</dd><p> <dt> <tt>config</tt>    </dt><dd>Only the "config pull AREA" command works.</dt>
+
+</dd><p> <dt> <tt>dbstat</tt>    </dt><dd>Run the "dbstat" command on all repositories.</dt>
+
+</dd><p> <dt> <tt>extras</tt>    </dt><dd>Shows "extra" files from all local check-outs.  The command</dt>
+line options supported by the extra command itself, if any
+are present, are passed along verbatim.
+
+</dd><p> <dt> <tt>fts-config</tt></dt><dd>Run the "fts-config" command on all repositories.</dt>
+
+</dd><p> <dt> <tt>git</tt> <i>CMD</i>   </dt><dd>Do the "git export" or "git status" command (whichever</dt>
+is specified by CMD) on all repositories for which
+a Git mirror has been previously established.
+
+</dd><p> <dt> <tt>info</tt>      </dt><dd>Run the "info" command on all repositories.</dt>
+
+</dd><p> <dt> <tt>pull</tt>      </dt><dd>Run a "pull" operation on all repositories.  Only the</dt>
+--verbose and --share-links options are supported.
+
+</dd><p> <dt> <tt>push</tt>      </dt><dd>Run a "push" on all repositories.  Only the --verbose</dt>
+option is supported.
+
+</dd><p> <dt> <tt>rebuild</tt>   </dt><dd>Rebuild on all repositories.  The command line options</dt>
+supported by the rebuild command itself, if any are
+present, are passed along verbatim.  The --force option
+is not supported.
+
+</dd><p> <dt> <tt>remote</tt>    </dt><dd>Show remote hosts for all repositories.</dt>
+
+</dd><p> <dt> <tt>repack</tt>    </dt><dd>Look for extra compression in all repositories.</dt>
+
+</dd><p> <dt> <tt>sync</tt>      </dt><dd>Run a "sync" on all repositories.  Only the --verbose</dt>
+and --unversioned and --share-links options are supported.
+
+</dd><p> <dt> <tt>set[tings]</tt></dt><dd>Run the "settings" command on all repositories.</dt>
+This command is useful for settings like "max-loadavg" which
+you usually want to be the same across all repositories
+on a server.
+
+</dd><p> <dt> <tt>unset</tt>     </dt><dd>Run the "unset" command on all repositories</dt>
+
+</dd><p> <dt> <tt>server</tt>    </dt><dd>Run the "server" commands on all repositories.</dt>
+The root URI gives a listing of all repos.
+
+</dd><p> <dt> <tt>ui</tt>        </dt><dd>Run the "ui" command on all repositories.  Like "server"</dt>
+but bind to the loopback TCP address only, enable
+the --localauth option and automatically launch a
+web-browser
+
+</dd><p> <dt> <tt>whatis</tt>    </dt><dd>Run the "whatis" command on all repositories.  Only</dt>
+show output for repositories that have a match.
+
+
+</dd></dl></blockquote><p> In addition, the following maintenance operations are supported:
+
+<blockquote><dl>
+<dt> <tt>add</tt>       </dt><dd>Add all the repositories named to the set of repositories</dt>
+tracked by Fossil.  Normally Fossil is able to keep up with
+this list by itself, but sometimes it can benefit from this
+hint if you rename repositories.
+
+</dd><p> <dt> <tt>ignore</tt>    </dt><dd>Arguments are repositories that should be ignored by</dt>
+subsequent clean, extras, list, pull, push, rebuild, and
+sync operations.  The -c|--ckout option causes the listed
+local check-outs to be ignored instead.
+
+</dd><p> <dt> <tt>list</tt> | <tt>ls</tt> </dt><dd>Display the location of all repositories.  The -c|--ckout</dt>
+option causes all local check-outs to be listed instead.
+
+</dd></dl></blockquote><p> Repositories are automatically added to the set of known repositories
+when one of the following commands are run against the repository:
+clone, info, pull, push, or sync.  Even previously ignored repositories
+are added back to the list of repositories by these commands.
+
+<p> Options:
+<blockquote><dl>
+<dt> <tt>--dry-run</tt>       </dt><dd>If given, display instead of run actions</dt>
+</dd><dt> <tt>--showfile</tt>      </dt><dd>Show the repository or check-out being operated upon</dt>
+</dd><dt> <tt>--stop-on-error</tt> </dt><dd>Halt immediately if any subprocess fails</dt>
+</dd>
+</dl></blockquote>
+</div>
+</div>
+<footer>
+This page was generated in about
+0.005s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="dec042a0f8f477c1e651bbe743569d3b7521d10a82ba8fb0">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='dec042a0f8f477c1e651bbe743569d3b7521d10a82ba8fb0'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+</script>
+</body>
+</html>

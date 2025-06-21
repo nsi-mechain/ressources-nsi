@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-86a14acd5b0f915be60e0107d4205311249f62a4a72e1170'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>sqllogictest: Help: git</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="tkt rpage-help cpage-help">
+<header>
+  <div class="title"><h1>sqllogictest</h1>Help: git</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='home.html' class=''>Home</a>
+<a href='timeline.html' class=''>Timeline</a>
+<a href='brlist.html' class='wideonly'>Branches</a>
+<a href='taglist.html' class='wideonly'>Tags</a>
+<a href='ticket.html' class='wideonly'>Tickets</a>
+<a href='wiki.html' class='wideonly'>Wiki</a>
+<a href='login.html' class='wideonly'>Login</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="submenu">
+<a class="label sml-topic-list" href="help.html">Topic-List</a>
+</div>
+<div class="content"><span id="debugMsg"></span>
+<h1>The "git" command:</h1>
+<div class="helpPage">
+Usage: <tt>fossil</tt> <tt>git</tt> <i>SUBCOMMAND</i><br>
+
+<p> Do incremental import or export operations between Fossil and Git.
+Subcommands:
+
+<blockquote><dl>
+<dt> <tt>fossil</tt> <tt>git</tt> <tt>export</tt> <i>[MIRROR]</i> <i>[OPTIONS]</i></dt>
+
+<p><dd>Write content from the Fossil repository into the Git repository
+in directory MIRROR.  The Git repository is created if it does not
+already exist.  If the Git repository does already exist, then
+new content added to fossil since the previous export is appended.
+
+<p> Repeat this command whenever new check-ins are added to the Fossil
+repository in order to reflect those changes into the mirror.  If
+the MIRROR option is omitted, the repository from the previous
+invocation is used.
+
+<p> The MIRROR directory will contain a subdirectory named
+".mirror_state" that contains information that Fossil needs to
+do incremental exports.  Do not attempt to manage or edit the files
+in that directory since doing so can disrupt future incremental
+exports.
+
+<p> Options:
+<blockquote><dl>
+<dt> <tt>--autopush</tt> <i>URL</i>    </dt><dd>Automatically do a 'git push' to URL.  The</dt>
+URL is remembered and used on subsequent exports
+to the same repository.  Or if URL is "off" the
+auto-push mechanism is disabled
+</dd><dt> <tt>--debug</tt> <i>FILE</i>      </dt><dd>Write fast-export text to FILE rather than</dt>
+piping it into "git fast-import"
+</dd><dt> <tt>-f|--force</tt>        </dt><dd>Do the export even if nothing has changed</dt>
+</dd><dt> <tt>--if-mirrored</tt>     </dt><dd>No-op if the mirror does not already exist</dt>
+</dd><dt> <tt>--limit</tt> <i>N</i>         </dt><dd>Add no more than N new check-ins to MIRROR.</dt>
+Useful for debugging
+</dd><dt> <tt>--mainbranch</tt> <i>NAME</i> </dt><dd>Use NAME as the name of the main branch in Git.</dt>
+The "trunk" branch of the Fossil repository is
+mapped into this name.  "master" is used if
+this option is omitted.
+</dd><dt> <tt>-q|--quiet</tt>        </dt><dd>Reduce output. Repeat for even less output.</dt>
+</dd><dt> <tt>-v|--verbose</tt>      </dt><dd>More output</dt>
+
+</dd></dl></blockquote></dd><p> <dt> <tt>fossil</tt> <tt>git</tt> <tt>import</tt> <i>MIRROR</i></dt>
+
+<p><dd>TBD...
+
+</dd><p> <dt> <tt>fossil</tt> <tt>git</tt> <tt>status</tt></dt>
+
+<p><dd>Show the status of the current Git mirror, if there is one.
+
+<blockquote><dl>
+<dt> <tt>-q|--quiet</tt>       </dt><dd>No output if there is nothing to report</dt>
+</dd>
+</dl></blockquote>
+</dd>
+</dl></blockquote>
+</div>
+</div>
+<footer>
+This page was generated in about
+0.005s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="86a14acd5b0f915be60e0107d4205311249f62a4a72e1170">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='86a14acd5b0f915be60e0107d4205311249f62a4a72e1170'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+</script>
+</body>
+</html>

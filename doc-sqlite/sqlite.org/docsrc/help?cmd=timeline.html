@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-0a987b072fd01d789d7b6375f96d379913660b75adcd7762'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentation Source Text: Help: timeline</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="tkt rpage-help cpage-help">
+<header>
+  <div class="title"><h1>Documentation Source Text</h1>Help: timeline</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='home.html' class=''>Home</a>
+<a href='timeline.html' class=''>Timeline</a>
+<a href='brlist.html' class='wideonly'>Branches</a>
+<a href='taglist.html' class='wideonly'>Tags</a>
+<a href='ticket.html' class='wideonly'>Tickets</a>
+<a href='wiki.html' class='wideonly'>Wiki</a>
+<a href='login.html' class='wideonly'>Login</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="submenu">
+<a class="label sml-topic-list" href="help.html">Topic-List</a>
+</div>
+<div class="content"><span id="debugMsg"></span>
+<h1>The "timeline" command:</h1>
+<div class="helpPage">
+Usage: <tt>fossil</tt> <tt>timeline</tt> <i>?WHEN?</i> <i>?CHECKIN|DATETIME?</i> <i>?OPTIONS?</i><br>
+
+<p> Print a summary of activity going backwards in date and time
+specified or from the current date and time if no arguments
+are given.  The WHEN argument can be any unique abbreviation
+of one of these keywords:
+
+<blockquote><pre>before
+after
+descendants | children
+ancestors | parents
+</pre></blockquote><p> The CHECKIN can be any unique prefix of 4 characters or more. You
+can also say "current" for the current version.
+
+<p> DATETIME may be "now" or "YYYY-MM-DDTHH:MM:SS.SSS". If in
+year-month-day form, it may be truncated, the "T" may be replaced by
+a space, and it may also name a timezone offset from UTC as "-HH:MM"
+(westward) or "+HH:MM" (eastward). Either no timezone suffix or "Z"
+means UTC.
+
+
+<p> Options:
+<blockquote><dl>
+<dt> <tt>-b|--branch</tt> <i>BRANCH</i> </dt><dd>Show only items on the branch named BRANCH</dt>
+</dd><dt> <tt>-c|--current-branch</tt></dt><dd>Show only items on the current branch</dt>
+</dd><dt> <tt>-F|--format</tt>        </dt><dd>Entry format. Values "oneline", "medium", and "full"</dt>
+get mapped to the full options below. Otherwise a
+string which can contain these placeholders:
+<blockquote><dl>
+<dt> <tt>%n</tt></dt><dd>newline</dt>
+</dd><dt> %%</dt><dd>a raw %</dt>
+</dd><dt> <i>%H</i></dt><dd>commit hash</dt>
+</dd><dt> <tt>%h</tt></dt><dd>abbreviated commit hash</dt>
+</dd><dt> <tt>%a</tt></dt><dd>author name</dt>
+</dd><dt> <tt>%d</tt></dt><dd>date</dt>
+</dd><dt> <tt>%c</tt></dt><dd>comment (NL, TAB replaced by space, LF erased)</dt>
+</dd><dt> <tt>%b</tt></dt><dd>branch</dt>
+</dd><dt> <tt>%t</tt></dt><dd>tags</dt>
+</dd><dt> <tt>%p</tt></dt><dd>phase: zero or more of *CURRENT*, *MERGE*,</dt>
+*FORK*, *UNPUBLISHED*, *LEAF*, *BRANCH*
+</dd></dl></blockquote></dd><dt> <tt>--oneline</tt>          </dt><dd>Show only short hash and comment for each entry</dt>
+</dd><dt> <tt>--medium</tt>           </dt><dd>Medium-verbose entry formatting</dt>
+</dd><dt> <tt>--full</tt>             </dt><dd>Extra verbose entry formatting</dt>
+</dd><dt> <tt>-n|--limit</tt> <i>N</i>       </dt><dd>If N is positive, output the first N entries.  If</dt>
+N is negative, output the first -N lines.  If N is
+zero, no limit.  Default is -20 meaning 20 lines.
+</dd><dt> <tt>--offset</tt> <i>P</i>         </dt><dd>Skip P changes</dt>
+</dd><dt> <tt>-p|--path</tt> <i>PATH</i>     </dt><dd>Output items affecting PATH only.</dt>
+PATH can be a file or a sub directory.
+</dd><dt> <tt>-R</tt> <i>REPO_FILE</i>       </dt><dd>Specifies the repository db to use. Default is</dt>
+the current check-out's repository.
+</dd><dt> <tt>--sql</tt>              </dt><dd>Show the SQL used to generate the timeline</dt>
+</dd><dt> <tt>-t|--type</tt> <i>TYPE</i>     </dt><dd>Output items from the given types only, such as:</dt>
+ci = file commits only
+e  = technical notes only
+f  = forum posts only
+t  = tickets only
+w  = wiki commits only
+</dd><dt> <tt>-v|--verbose</tt>       </dt><dd>Output the list of files changed by each commit</dt>
+and the type of each change (edited, deleted,
+etc.) after the check-in comment.
+</dd><dt> <tt>-W|--width</tt> <i>N</i>       </dt><dd>Width of lines (default is to auto-detect). N must be</dt>
+either greater than 20 or it must be zero 0 to
+indicate no limit, resulting in a single line per
+entry.
+</dd>
+</dl></blockquote>
+</div>
+</div>
+<footer>
+This page was generated in about
+0.005s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="0a987b072fd01d789d7b6375f96d379913660b75adcd7762">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='0a987b072fd01d789d7b6375f96d379913660b75adcd7762'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+</script>
+</body>
+</html>

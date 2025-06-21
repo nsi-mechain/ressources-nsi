@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-7ae66764531a6b3387e081bc5898d0aa22938d4d32e4679b'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQLite: Help: ls</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="tkt rpage-help cpage-help">
+<header>
+  <div class="title"><h1>SQLite</h1>Help: ls</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='https://sqlite.org/' class=''>Home</a>
+<a href='timeline.html' class=''>Timeline</a>
+<a href='https://sqlite.org/forum/forum' class='desktoponly'>Forum</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="submenu">
+<a class="label sml-topic-list" href="help.html">Topic-List</a>
+</div>
+<div class="content"><span id="debugMsg"></span>
+<h1>The "ls" command:</h1>
+<div class="helpPage">
+Usage: <tt>fossil</tt> <tt>ls</tt> <i>?OPTIONS?</i> <i>?PATHS</i> ...?<br>
+
+<p> List all files in the current check-out.  If PATHS is included, only the
+named files (or their children if directories) are shown.
+
+<p> The ls command is essentially two related commands in one, depending on
+whether or not the -r option is given.  -r selects a specific check-in
+version to list, in which case -R can be used to select the repository.
+The fine behavior of the --age, -v, and -t options is altered by the -r
+option as well, as explained below.
+
+<p> The --age option displays file commit times.  Like -r, --age has the
+side effect of making -t sort by commit time, not modification time.
+
+<p> The -v option provides extra information about each file.  Without -r,
+-v displays the change status, in the manner of the changes command.
+With -r, -v shows the commit time and size of the checked-in files.
+
+<p> The -t option changes the sort order.  Without -t, files are sorted by
+path and name (case insensitive sort if -r).  If neither --age nor -r
+are used, -t sorts by modification time, otherwise by commit time.
+
+<p> Options:
+<blockquote><dl>
+<dt> <tt>--age</tt>               </dt><dd>Show when each file was committed</dt>
+</dd><dt> <tt>--hash</tt>              </dt><dd>With -v, verify file status using hashing</dt>
+rather than relying on file sizes and mtimes
+</dd><dt> <tt>-r</tt> <i>VERSION</i>          </dt><dd>The specific check-in to list</dt>
+</dd><dt> <tt>-R|--repository</tt> <i>REPO</i></dt><dd>Extract info from repository REPO</dt>
+</dd><dt> <tt>-t</tt>                  </dt><dd>Sort output in time order</dt>
+</dd><dt> <tt>--tree</tt>              </dt><dd>Tree format</dt>
+</dd><dt> <tt>-v|--verbose</tt>        </dt><dd>Provide extra information about each file</dt>
+
+</dd></dl></blockquote><p> See also: <a href='help%3Fcmd=changes.html'>changes</a>, <a href='help%3Fcmd=extras.html'>extras</a>, <a href='help%3Fcmd=status.html'>status</a>, <a href='help%3Fcmd=tree.html'>tree</a>
+</div>
+</div>
+<footer>
+This page was generated in about
+0.005s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="7ae66764531a6b3387e081bc5898d0aa22938d4d32e4679b">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='7ae66764531a6b3387e081bc5898d0aa22938d4d32e4679b'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-7bef2707df37ceaff9bb22a40f5fb9d731055ed016198d20'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>sqllogictest: Help: cgi</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="tkt rpage-help cpage-help">
+<header>
+  <div class="title"><h1>sqllogictest</h1>Help: cgi</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='home.html' class=''>Home</a>
+<a href='timeline.html' class=''>Timeline</a>
+<a href='brlist.html' class='wideonly'>Branches</a>
+<a href='taglist.html' class='wideonly'>Tags</a>
+<a href='ticket.html' class='wideonly'>Tickets</a>
+<a href='wiki.html' class='wideonly'>Wiki</a>
+<a href='login.html' class='wideonly'>Login</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="submenu">
+<a class="label sml-topic-list" href="help.html">Topic-List</a>
+</div>
+<div class="content"><span id="debugMsg"></span>
+<h1>The "cgi" command:</h1>
+<div class="helpPage">
+Usage: <tt>fossil</tt> <tt>?cgi?</tt> <i>FILE</i><br>
+
+<p> This command causes Fossil to generate reply to a CGI request.
+
+<p> The FILE argument is the name of a control file that provides Fossil
+with important information such as where to find its repository.  In
+a typical CGI deployment, FILE is the name of the CGI script and will
+typically look something like this:
+
+<blockquote><pre>#!/usr/bin/fossil
+repository: /home/somebody/project.db
+</pre></blockquote><p> The command name, "cgi", may be omitted if the GATEWAY_INTERFACE
+environment variable is set to "CGI", which should always be the
+case for CGI scripts run by a webserver.  Fossil ignores any lines
+that begin with "#".
+
+<p> The following control lines are recognized:
+
+<blockquote><dl>
+<dt> <tt>repository:</tt> <i>PATH</i>       </dt><dd>Name of the Fossil repository</dt>
+
+</dd><p> <dt> <tt>directory:</tt></dt><dd>PATH         Name of a directory containing many Fossil</dt>
+repositories whose names all end with ".fossil".
+There should only be one of "repository:"
+or "directory:"
+
+</dd><p> <dt> <tt>notfound:</tt> <i>URL</i>          </dt><dd>When in "directory:" mode, redirect to</dt>
+URL if no suitable repository is found.
+
+</dd><p> <dt> <tt>repolist</tt>               </dt><dd>When in "directory:" mode, display a page</dt>
+showing a list of available repositories if
+the URL is "/".  Some control over the display
+is accomplished using environment variables.
+FOSSIL_REPOLIST_TITLE is the tital of the page.
+FOSSIL_REPOLIST_SHOW cause the "Description"
+column to display if it contains "description" as
+as a substring, and causes the Login-Group column
+to display if it contains the "login-group"
+substring.
+
+</dd><p> <dt> <tt>localauth</tt>              </dt><dd>Grant administrator privileges to connections</dt>
+from 127.0.0.1 or ::1.
+
+</dd><p> <dt> <tt>nossl</tt>                  </dt><dd>Signal that no SSL connections are available.</dt>
+
+</dd><p> <dt> <tt>nocompress</tt>             </dt><dd>Do not compress HTTP replies.</dt>
+
+</dd><p> <dt> <tt>skin:</tt> <i>LABEL</i>            </dt><dd>Use the built-in skin called LABEL rather than</dt>
+the default, or the default if LABEL is empty.
+If there are no skins called LABEL then this
+line is a no-op.
+
+</dd><p> <dt> <tt>files:</tt> <i>GLOBLIST</i>        </dt><dd>GLOBLIST is a comma-separated list of GLOB</dt>
+patterns that specify files that can be
+returned verbatim.  This feature allows Fossil
+to act as a web server returning static
+content.
+
+</dd><p> <dt> <tt>setenv:</tt> <i>NAME</i> <i>VALUE</i>     </dt><dd>Set environment variable NAME to VALUE.  Or</dt>
+if VALUE is omitted, unset NAME.
+
+</dd><p> <dt> <i>HOME:</i> <i>PATH</i>             </dt><dd>Shorthand for "setenv: HOME PATH"</dt>
+
+</dd><p> <dt> <tt>cgi-debug:</tt> <i>FILE</i>        </dt><dd>Causing debugging information to be written</dt>
+into FILE.
+
+</dd><p> <dt> <tt>errorlog:</tt> <i>FILE</i>         </dt><dd>Warnings, errors, and panics written to FILE.</dt>
+
+</dd><p> <dt> <tt>timeout:</tt> <i>SECONDS</i>       </dt><dd>Do not run for longer than SECONDS.  The default</dt>
+timeout is FOSSIL_DEFAULT_TIMEOUT (600) seconds.
+
+</dd><p> <dt> <tt>extroot:</tt> <i>DIR</i>           </dt><dd>Directory that is the root of the sub-CGI tree</dt>
+on the /ext page.
+
+</dd><p> <dt> <tt>redirect:</tt> <i>REPO</i> <i>URL</i>     </dt><dd>Extract the "name" query parameter and search</dt>
+REPO for a check-in or ticket that matches the
+value of "name", then redirect to URL.  There
+can be multiple "redirect:" lines that are
+processed in order.  If the REPO is "*", then
+an unconditional redirect to URL is taken.
+When "*" is used a 301 permanent redirect is
+issued and the tail and query string from the
+original query are appeneded onto URL.
+
+</dd><p> <dt> <tt>jsmode:</tt> <i>VALUE</i>          </dt><dd>Specifies the delivery mode for JavaScript</dt>
+files. See the help text for the --jsmode
+flag of the http command.
+
+</dd><p> <dt> <tt>mainmenu:</tt> <i>FILE</i>         </dt><dd>Override the mainmenu config setting with the</dt>
+contents of the given file.
+
+</dd></dl></blockquote><p> Most CGI files contain only a "repository:" line.  It is uncommon to
+use any other option.
+
+<p> The lines are processed in the order they are read, which is most
+significant for "errorlog:", which should be set before "repository:"
+so that any warnings from the database when opening the repository
+go to that log file.
+
+<p> See also: <a href='help%3Fcmd=http.html'>http</a>, <a href='help%3Fcmd=server.html'>server</a>, <a href='help%3Fcmd=winsrv.html'>winsrv</a> [Windows only]
+</div>
+</div>
+<footer>
+This page was generated in about
+0.005s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="7bef2707df37ceaff9bb22a40f5fb9d731055ed016198d20">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='7bef2707df37ceaff9bb22a40f5fb9d731055ed016198d20'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+</script>
+</body>
+</html>

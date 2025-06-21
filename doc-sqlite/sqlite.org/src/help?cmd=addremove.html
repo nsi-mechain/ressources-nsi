@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-39c577b3f97d7d66bae3e16a0f20f1533354ce87e65c61b4'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQLite: Help: addremove</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="tkt rpage-help cpage-help">
+<header>
+  <div class="title"><h1>SQLite</h1>Help: addremove</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='https://sqlite.org/' class=''>Home</a>
+<a href='timeline.html' class=''>Timeline</a>
+<a href='https://sqlite.org/forum/forum' class='desktoponly'>Forum</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="submenu">
+<a class="label sml-topic-list" href="help.html">Topic-List</a>
+</div>
+<div class="content"><span id="debugMsg"></span>
+<h1>The "addremove" command:</h1>
+<div class="helpPage">
+Usage: <tt>fossil</tt> <tt>addremove</tt> <i>?OPTIONS?</i><br>
+
+<p> Do all necessary "<a href='help%3Fcmd=add.html'>add</a>" and "<a href='help%3Fcmd=rm.html'>rm</a>" commands to synchronize the
+repository with the content of the working check-out:
+
+<p><ul>
+<li> All files in the check-out but not in the repository (that is,
+all files displayed using the "extras" command) are added as
+if by the "<a href='help%3Fcmd=add.html'>add</a>" command.
+
+<li> <p> All files in the repository but missing from the check-out (that is,
+all files that show as MISSING with the "status" command) are
+removed as if by the "<a href='help%3Fcmd=rm.html'>rm</a>" command.
+
+</ul><p> Note that this command does not "commit", as that is a separate step.
+
+<p> Files and directories whose names begin with "." are ignored unless
+the --dotfiles option is used.
+
+<p> The --ignore option overrides the "ignore-glob" setting, as do the
+--case-sensitive option with the "case-sensitive" setting and the
+--clean option with the "clean-glob" setting. See the documentation
+on the "settings" command for further information.
+
+<p> The -n|--dry-run option shows what would happen without actually doing
+anything.
+
+<p> This command can be used to track third party software.
+
+<p> Options:
+<blockquote><dl>
+<dt> <tt>--case-sensitive</tt> <i>BOOL</i> </dt><dd>Override the case-sensitive setting</dt>
+</dd><dt> <tt>--dotfiles</tt>            </dt><dd>Include files beginning with a dot (".")</dt>
+</dd><dt> <tt>--ignore</tt> <i>CSG</i>          </dt><dd>Ignore unmanaged files matching patterns from</dt>
+the Comma Separated Glob (CSG) list
+</dd><dt> <tt>--clean</tt> <i>CSG</i>           </dt><dd>Also ignore files matching patterns from</dt>
+the Comma Separated Glob (CSG) list
+</dd><dt> <tt>-n|--dry-run</tt>          </dt><dd>If given, display instead of run actions</dt>
+</dd><dt> <tt>--reset</tt>               </dt><dd>Reset the ADDED/DELETED state of a check-out,</dt>
+such that all newly-added (but not yet committed)
+files are no longer added and all newly-removed
+(but not yet committed) files are no longer
+removed. No flags other than --verbose and
+--dry-run may be used with --reset.
+</dd><dt> <tt>-v|--verbose</tt>          </dt><dd>Outputs information about each --reset file.</dt>
+Only usable with --reset.
+
+</dd></dl></blockquote><p> See also: <a href='help%3Fcmd=add.html'>add</a>, <a href='help%3Fcmd=rm.html'>rm</a>
+</div>
+</div>
+<footer>
+This page was generated in about
+0.005s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="39c577b3f97d7d66bae3e16a0f20f1533354ce87e65c61b4">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='39c577b3f97d7d66bae3e16a0f20f1533354ce87e65c61b4'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+</script>
+</body>
+</html>

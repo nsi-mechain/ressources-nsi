@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-717a5d7255edded67ee14c3f5c3b29cf1d20dfa5b6e75012'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQLite: Help: diff</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="tkt rpage-help cpage-help">
+<header>
+  <div class="title"><h1>SQLite</h1>Help: diff</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='https://sqlite.org/' class=''>Home</a>
+<a href='timeline.html' class=''>Timeline</a>
+<a href='https://sqlite.org/forum/forum' class='desktoponly'>Forum</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="submenu">
+<a class="label sml-topic-list" href="help.html">Topic-List</a>
+</div>
+<div class="content"><span id="debugMsg"></span>
+<h1>The "diff" command:</h1>
+<div class="helpPage">
+Usage: <tt>fossil</tt> <tt>diff|gdiff</tt> <i>?OPTIONS?</i> <i>?FILE1?</i> <i>?FILE2</i> ...?<br>
+
+<p> Show the difference between the current version of each of the FILEs
+specified (as they exist on disk) and that same file as it was checked-
+out.  Or if the FILE arguments are omitted, show all unsaved changes
+currently in the working check-out.  The "gdiff" variant means to
+to use a GUI diff.
+
+<p> The default output format is a "unified patch" (the same as the
+output of "diff -u" on most unix systems).  Many alternative formats
+are available.  A few of the more useful alternatives:
+
+<blockquote><dl>
+<dt> <tt>--tk</tt>            </dt><dd>Pop up a Tcl/Tk-based GUI to show the diff</dt>
+</dd><dt> <tt>--by</tt>            </dt><dd>Show a side-by-side diff in the default web browser</dt>
+</dd><dt> <tt>-b</tt>              </dt><dd>Show a linear diff in the default web browser</dt>
+</dd><dt> <tt>-y</tt>              </dt><dd>Show a text side-by-side diff</dt>
+</dd><dt> <tt>--webpage</tt>       </dt><dd>Format output as HTML</dt>
+</dd><dt> <tt>--webpage</tt> <tt>-y</tt>    </dt><dd>HTML output in the side-by-side format</dt>
+
+</dd></dl></blockquote><p> The "--from VERSION" option is used to specify the source check-in
+for the diff operation.  If not specified, the source check-in is the
+base check-in for the current check-out. Similarly, the "--to VERSION"
+option specifies the check-in from which the second version of the file
+or files is taken.  If there is no "--to" option then the (possibly edited)
+files in the current check-out are used.  The "--checkin VERSION" option
+shows the changes made by check-in VERSION relative to its primary parent.
+The "--branch BRANCHNAME" shows all the changes on the branch BRANCHNAME.
+
+<p> With the "--from VERSION" option, if VERSION is actually a directory name
+(not a tag or check-in hash) then the files under that directory are used
+as the baseline for the diff.
+
+<p> The "-i" command-line option forces the use of Fossil's own internal
+diff logic rather than any external diff program that might be configured
+using the "setting" command.  If no external diff program is configured,
+then the "-i" option is a no-op.  The "-i" option converts "gdiff" into
+"diff".
+
+<p> The "--diff-binary" option enables or disables the inclusion of binary files
+when using an external diff program.
+
+<p> The "--binary" option causes files matching the glob PATTERN to be treated
+as binary when considering if they should be used with the external diff
+program.  This option overrides the "binary-glob" setting.
+
+<p> These command show differences between managed files. Use the "fossil xdiff"
+command to see differences in unmanaged files.
+
+<p> Options:
+<blockquote><dl>
+<dt> <tt>--binary</tt> <i>PATTERN</i>          </dt><dd>Treat files that match the glob PATTERN</dt>
+as binary
+</dd><dt> <tt>--branch</tt> <i>BRANCH</i>           </dt><dd>Show diff of all changes on BRANCH</dt>
+</dd><dt> <tt>--brief</tt>                   </dt><dd>Show filenames only</dt>
+</dd><dt> <tt>-b|--browser</tt>              </dt><dd>Show the diff output in a web-browser</dt>
+</dd><dt> <tt>--by</tt>                      </dt><dd>Shorthand for "--browser -y"</dt>
+</dd><dt> <tt>-ci|--checkin</tt> <i>VERSION</i>     </dt><dd>Show diff of all changes in VERSION</dt>
+</dd><dt> <tt>--command</tt> <i>PROG</i>            </dt><dd>External diff program. Overrides "diff-command"</dt>
+</dd><dt> <tt>-c|--context</tt> <i>N</i>            </dt><dd>Show N lines of context around each change,</dt>
+with negative N meaning show all content
+</dd><dt> <tt>--dark</tt>                    </dt><dd>Use dark mode for the Tcl/Tk-based GUI and HTML</dt>
+</dd><dt> <tt>--diff-binary</tt> <i>BOOL</i>        </dt><dd>Include binary files with external commands</dt>
+</dd><dt> <tt>--exec-abs-paths</tt>          </dt><dd>Force absolute path names on external commands</dt>
+</dd><dt> <tt>--exec-rel-paths</tt>          </dt><dd>Force relative path names on external commands</dt>
+</dd><dt> <tt>-r|--from</tt> <i>VERSION</i>         </dt><dd>Use VERSION as the baseline for the diff, or</dt>
+if VERSION is a directory name, use files in
+that directory as the baseline.
+</dd><dt> <tt>-w|--ignore-all-space</tt>     </dt><dd>Ignore white space when comparing lines</dt>
+</dd><dt> <tt>-i|--internal</tt>             </dt><dd>Use internal diff logic</dt>
+</dd><dt> <tt>--invert</tt>                  </dt><dd>Invert the diff</dt>
+</dd><dt> <tt>--json</tt>                    </dt><dd>Output formatted as JSON</dt>
+</dd><dt> <tt>-n|--linenum</tt>              </dt><dd>Show line numbers</dt>
+</dd><dt> <tt>-N|--new-file</tt>             </dt><dd>Alias for --verbose</dt>
+</dd><dt> <tt>--numstat</tt>                 </dt><dd>Show the number of added and deleted lines per</dt>
+file, omitting the diff. When combined with
+<blockquote><dl>
+<dt> <tt>--brief,</tt> <tt>show</tt> <tt>only</tt> <tt>the</tt> <tt>total</tt> <tt>row.</tt></dt>
+</dl></blockquote></dd><dt> <tt>-y|--side-by-side</tt>         </dt><dd>Side-by-side diff</dt>
+</dd><dt> <tt>--strip-trailing-cr</tt>       </dt><dd>Strip trailing CR</dt>
+</dd><dt> <tt>--tcl</tt>                     </dt><dd>Tcl-formatted output used internally by --tk</dt>
+</dd><dt> <tt>--tclsh</tt> <i>PATH</i>              </dt><dd>Tcl/Tk shell used for --tk (default: "tclsh")</dt>
+</dd><dt> <tt>--tk</tt>                      </dt><dd>Launch a Tcl/Tk GUI for display</dt>
+</dd><dt> <tt>--to</tt> <i>VERSION</i>              </dt><dd>Select VERSION as target for the diff</dt>
+</dd><dt> <tt>--undo</tt>                    </dt><dd>Use the undo buffer as the baseline</dt>
+</dd><dt> <tt>--unified</tt>                 </dt><dd>Unified diff</dt>
+</dd><dt> <tt>-v|--verbose</tt>              </dt><dd>Output complete text of added or deleted files</dt>
+</dd><dt> <tt>-h|--versions</tt>             </dt><dd>Show compared versions in the diff header</dt>
+</dd><dt> <tt>--webpage</tt>                 </dt><dd>Format output as a stand-alone HTML webpage</dt>
+</dd><dt> <tt>-W|--width</tt> <i>N</i>              </dt><dd>Width of lines in side-by-side diff</dt>
+</dd><dt> <tt>-Z|--ignore-trailing-space</tt></dt><dd>Ignore changes to end-of-line whitespace</dt>
+</dd>
+</dl></blockquote>
+</div>
+</div>
+<footer>
+This page was generated in about
+0.005s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="717a5d7255edded67ee14c3f5c3b29cf1d20dfa5b6e75012">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='717a5d7255edded67ee14c3f5c3b29cf1d20dfa5b6e75012'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+</script>
+</body>
+</html>

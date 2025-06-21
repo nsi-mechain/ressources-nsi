@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>SQLite User Forum</title>
+    <link>https://www.sqlite.org/forum</link>
+    <description>Discussion board for SQLite</description>
+    <pubDate>Thu, 19 Jun 2025 13:47:34 +0000</pubDate>
+    <generator>Fossil version [c953e01c9e] 2025-06-05 13:07:01</generator>
+    <item>
+      <title>Reply: Schema-altering commands</title>
+      <link>https://www.sqlite.org/forum/info/9ea14dd52d986c264fe87d9dc7cfcb7740bb5b00d4edd25ed23f6ad5388bf4fd</link>
+      <description>Reply: Schema-altering commands</description>
+      <pubDate>Thu, 19 Jun 2025 13:32:14 +0000</pubDate>
+      <dc:creator>rogerbinns</dc:creator>
+      <guid>https://www.sqlite.org/forum/info/9ea14dd52d986c264fe87d9dc7cfcb7740bb5b00d4edd25ed23f6ad5388bf4fd</guid>
+    </item>
+    <item>
+      <title>Reply: Schema-altering commands</title>
+      <link>https://www.sqlite.org/forum/info/e2972eaf68348945b2694fbef269f55e2343872a9dca3bb2a060ca76248c23c5</link>
+      <description>Reply: Schema-altering commands</description>
+      <pubDate>Thu, 19 Jun 2025 13:28:57 +0000</pubDate>
+      <dc:creator>slavin</dc:creator>
+      <guid>https://www.sqlite.org/forum/info/e2972eaf68348945b2694fbef269f55e2343872a9dca3bb2a060ca76248c23c5</guid>
+    </item>
+    <item>
+      <title>Edit reply: Schema-altering commands</title>
+      <link>https://www.sqlite.org/forum/info/1063a0b7bf7d9290abf1edebbd48fee7f0ab7e0e44f0c1e33d62bca0f16ec407</link>
+      <description>Edit reply: Schema-altering commands</description>
+      <pubDate>Thu, 19 Jun 2025 12:22:29 +0000</pubDate>
+      <dc:creator>stephan</dc:creator>
+      <guid>https://www.sqlite.org/forum/info/1063a0b7bf7d9290abf1edebbd48fee7f0ab7e0e44f0c1e33d62bca0f16ec407</guid>
+    </item>
+    <item>
+      <title>Reply: Schema-altering commands</title>
+      <link>https://www.sqlite.org/forum/info/aafe45b31a6baaeb7a92123a4346625a31a2ecac8bb2b539fd9fa2885f62424d</link>
+      <description>Reply: Schema-altering commands</description>
+      <pubDate>Thu, 19 Jun 2025 12:21:13 +0000</pubDate>
+      <dc:creator>stephan</dc:creator>
+      <guid>https://www.sqlite.org/forum/info/aafe45b31a6baaeb7a92123a4346625a31a2ecac8bb2b539fd9fa2885f62424d</guid>
+    </item>
+    <item>
+      <title>Reply: bug report: invalid WAL frames written after rollback</title>
+      <link>https://www.sqlite.org/forum/info/2d2c4de4da25121edcc6fc6acbdba6b6b38829e2e8c96612a8c355f778ca3097</link>
+      <description>Reply: bug report: invalid WAL frames written after rollback</description>
+      <pubDate>Thu, 19 Jun 2025 11:56:54 +0000</pubDate>
+      <dc:creator>jicman</dc:creator>
+      <guid>https://www.sqlite.org/forum/info/2d2c4de4da25121edcc6fc6acbdba6b6b38829e2e8c96612a8c355f778ca3097</guid>
+    </item>
+    <item>
+      <title>Post: Schema-altering commands</title>
+      <link>https://www.sqlite.org/forum/info/623a998dfa1f71b9ce7ac23a2c78b47e0e78a2ac669492a51e42b8c0ab0a0cd0</link>
+      <description>Post: Schema-altering commands</description>
+      <pubDate>Thu, 19 Jun 2025 11:43:59 +0000</pubDate>
+      <dc:creator>bepaald</dc:creator>
+      <guid>https://www.sqlite.org/forum/info/623a998dfa1f71b9ce7ac23a2c78b47e0e78a2ac669492a51e42b8c0ab0a0cd0</guid>
+    </item>
+    <item>
+      <title>Reply: Unexpected inner join result</title>
+      <link>https://www.sqlite.org/forum/info/7c02f2cbacc0772c5ba0564ad005d1c4c351d9c2c9445cce64f01557ec77d96b</link>
+      <description>Reply: Unexpected inner join result</description>
+      <pubDate>Thu, 19 Jun 2025 11:35:04 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/forum/info/7c02f2cbacc0772c5ba0564ad005d1c4c351d9c2c9445cce64f01557ec77d96b</guid>
+    </item>
+    <item>
+      <title>Reply: Duplicate Primary Key Entries in SQLite Table Despite Constraint</title>
+      <link>https://www.sqlite.org/forum/info/2ddc8666f6b8fa357dd0469592dd84ea4e8170d5c038a265f33321e61cb1e15c</link>
+      <description>Reply: Duplicate Primary Key Entries in SQLite Table Despite Constraint</description>
+      <pubDate>Thu, 19 Jun 2025 11:15:38 +0000</pubDate>
+      <dc:creator>sqlitening</dc:creator>
+      <guid>https://www.sqlite.org/forum/info/2ddc8666f6b8fa357dd0469592dd84ea4e8170d5c038a265f33321e61cb1e15c</guid>
+    </item>
+    <item>
+      <title>Delete reply: Generated columns in strict tables</title>
+      <link>https://www.sqlite.org/forum/info/154c97e9f134e19f1de5f96ea5abf3bce3a78afbe0ba2a3fd2a660b1a6bba2a3</link>
+      <description>Delete reply: Generated columns in strict tables</description>
+      <pubDate>Thu, 19 Jun 2025 11:05:26 +0000</pubDate>
+      <dc:creator>ludlovian</dc:creator>
+      <guid>https://www.sqlite.org/forum/info/154c97e9f134e19f1de5f96ea5abf3bce3a78afbe0ba2a3fd2a660b1a6bba2a3</guid>
+    </item>
+    <item>
+      <title>Reply: Generated columns in strict tables</title>
+      <link>https://www.sqlite.org/forum/info/52c0a075cf03d3da199fe6522075172a77d0a74a82f4f5be233a1a58fcf1158d</link>
+      <description>Reply: Generated columns in strict tables</description>
+      <pubDate>Thu, 19 Jun 2025 11:05:01 +0000</pubDate>
+      <dc:creator>ludlovian</dc:creator>
+      <guid>https://www.sqlite.org/forum/info/52c0a075cf03d3da199fe6522075172a77d0a74a82f4f5be233a1a58fcf1158d</guid>
+    </item>
+    <item>
+      <title>Reply: Any way to get the sql that caused an sqlite error?</title>
+      <link>https://www.sqlite.org/forum/info/48a1acb9ae6ca5ed3d4b9f6eb18b3810c70dad00a14cdf8496fad0c8563c4fb7</link>
+      <description>Reply: Any way to get the sql that caused an sqlite error?</description>
+      <pubDate>Thu, 19 Jun 2025 11:04:03 +0000</pubDate>
+      <dc:creator>stephan</dc:creator>
+      <guid>https://www.sqlite.org/forum/info/48a1acb9ae6ca5ed3d4b9f6eb18b3810c70dad00a14cdf8496fad0c8563c4fb7</guid>
+    </item>
+    <item>
+      <title>Reply: Generated columns in strict tables</title>
+      <link>https://www.sqlite.org/forum/info/beebf65c61687ce76315301c96055b694ff8569600ae39f57df471bb338aa855</link>
+      <description>Reply: Generated columns in strict tables</description>
+      <pubDate>Thu, 19 Jun 2025 11:03:25 +0000</pubDate>
+      <dc:creator>ludlovian</dc:creator>
+      <guid>https://www.sqlite.org/forum/info/beebf65c61687ce76315301c96055b694ff8569600ae39f57df471bb338aa855</guid>
+    </item>
+    <item>
+      <title>Edit reply: Any way to get the sql that caused an sqlite error?</title>
+      <link>https://www.sqlite.org/forum/info/b51d0c2bfe2a9b27ff0c0dd16f3b3d09d428dfc20725455f6edb6aa39c60cd94</link>
+      <description>Edit reply: Any way to get the sql that caused an sqlite error?</description>
+      <pubDate>Thu, 19 Jun 2025 11:01:27 +0000</pubDate>
+      <dc:creator>curmudgeon</dc:creator>
+      <guid>https://www.sqlite.org/forum/info/b51d0c2bfe2a9b27ff0c0dd16f3b3d09d428dfc20725455f6edb6aa39c60cd94</guid>
+    </item>
+    <item>
+      <title>Reply: Any way to get the sql that caused an sqlite error?</title>
+      <link>https://www.sqlite.org/forum/info/42f6343626a8e7fa57f2ca259417a07f9b6a488a1ca1387b9fdfa6710490c0f7</link>
+      <description>Reply: Any way to get the sql that caused an sqlite error?</description>
+      <pubDate>Thu, 19 Jun 2025 11:00:52 +0000</pubDate>
+      <dc:creator>curmudgeon</dc:creator>
+      <guid>https://www.sqlite.org/forum/info/42f6343626a8e7fa57f2ca259417a07f9b6a488a1ca1387b9fdfa6710490c0f7</guid>
+    </item>
+    <item>
+      <title>Edit reply: Is it possible to get the table name by index from a result in the WASM build?</title>
+      <link>https://www.sqlite.org/forum/info/0d99850d9f9a1db3be83992749de4f77ee6d48a9058c04d03229a8ac68b25b83</link>
+      <description>Edit reply: Is it possible to get the table name by index from a result in the WASM build?</description>
+      <pubDate>Thu, 19 Jun 2025 10:27:11 +0000</pubDate>
+      <dc:creator>stephan</dc:creator>
+      <guid>https://www.sqlite.org/forum/info/0d99850d9f9a1db3be83992749de4f77ee6d48a9058c04d03229a8ac68b25b83</guid>
+    </item>
+    <item>
+      <title>Reply: (sqlite) Changes for src/sqlite.h.in</title>
+      <link>https://www.sqlite.org/forum/info/1f776af8ecfc1b1e968ecdf4ac9dba8aae58791b55896a239269ed165afdd71b</link>
+      <description>Reply: (sqlite) Changes for src/sqlite.h.in</description>
+      <pubDate>Thu, 19 Jun 2025 10:08:08 +0000</pubDate>
+      <dc:creator>brickviking</dc:creator>
+      <guid>https://www.sqlite.org/forum/info/1f776af8ecfc1b1e968ecdf4ac9dba8aae58791b55896a239269ed165afdd71b</guid>
+    </item>
+    <item>
+      <title>Reply: Is it possible to get the table name by index from a result in the WASM build?</title>
+      <link>https://www.sqlite.org/forum/info/d017294f1aa9aae09f1b1c33a0f63d9fe85b31839b647e86f7f7667daffa3582</link>
+      <description>Reply: Is it possible to get the table name by index from a result in the WASM build?</description>
+      <pubDate>Thu, 19 Jun 2025 10:03:42 +0000</pubDate>
+      <dc:creator>stephan</dc:creator>
+      <guid>https://www.sqlite.org/forum/info/d017294f1aa9aae09f1b1c33a0f63d9fe85b31839b647e86f7f7667daffa3582</guid>
+    </item>
+    <item>
+      <title>Reply: Any way to get the sql that caused an sqlite error?</title>
+      <link>https://www.sqlite.org/forum/info/fd8480c01c59db05c5d88b2aed517985343125572d0fa12c740d974bd08918b7</link>
+      <description>Reply: Any way to get the sql that caused an sqlite error?</description>
+      <pubDate>Thu, 19 Jun 2025 09:50:59 +0000</pubDate>
+      <dc:creator>_blgl_</dc:creator>
+      <guid>https://www.sqlite.org/forum/info/fd8480c01c59db05c5d88b2aed517985343125572d0fa12c740d974bd08918b7</guid>
+    </item>
+    <item>
+      <title>Reply: Is it possible to get the table name by index from a result in the WASM build?</title>
+      <link>https://www.sqlite.org/forum/info/a717d1cfe1626c1744e15a25c84a4de5345dfbb7115803c093391243c8b5fef1</link>
+      <description>Reply: Is it possible to get the table name by index from a result in the WASM build?</description>
+      <pubDate>Thu, 19 Jun 2025 09:36:12 +0000</pubDate>
+      <dc:creator>ncruces</dc:creator>
+      <guid>https://www.sqlite.org/forum/info/a717d1cfe1626c1744e15a25c84a4de5345dfbb7115803c093391243c8b5fef1</guid>
+    </item>
+    <item>
+      <title>Post: Any way to get the sql that caused an sqlite error?</title>
+      <link>https://www.sqlite.org/forum/info/835e75cfc4a46deb3b9dc4d0ddc808ae26d988b5061f535239a3d0f8a09ab9a6</link>
+      <description>Post: Any way to get the sql that caused an sqlite error?</description>
+      <pubDate>Thu, 19 Jun 2025 09:16:24 +0000</pubDate>
+      <dc:creator>curmudgeon</dc:creator>
+      <guid>https://www.sqlite.org/forum/info/835e75cfc4a46deb3b9dc4d0ddc808ae26d988b5061f535239a3d0f8a09ab9a6</guid>
+    </item>
+  </channel>
+</rss>

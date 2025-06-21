@@ -1,0 +1,2522 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-d5021bc5060afc4ed3e918ae9c18260961581fa2cf3325a7'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQLite: Timeline</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="timeline rpage-timeline cpage-timeline">
+<header>
+  <div class="title"><h1>SQLite</h1>Timeline</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='https://sqlite.org/' class=''>Home</a>
+<a href='timeline.html' class='active '>Timeline</a>
+<a href='https://sqlite.org/forum/forum' class='desktoponly'>Forum</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<form id='f01' method='GET' action='timeline.html'>
+<input type='hidden' name='udc' value='1'>
+<div class="submenu">
+<a class="label sml-basic" href="timeline%3Fadvm=0&amp;udc=1.html">Basic</a>
+<a class="label sml-help" href="help%3Fcmd=%252Ftimeline.html">Help</a>
+<a class="label sml-search" href="search%3Fy=c.html">Search</a>
+<select class='submenuctrl smc-ss' size='1' name='ss' id='submenuctrl-0'>
+<option value='m'>Modern View</option>
+<option value='j'>Columnar View</option>
+<option value='c'>Compact View</option>
+<option value='v' selected>Verbose View</option>
+<option value='x'>Classic View</option>
+</select>
+</div>
+<input type="hidden" name="advm" value="1">
+<input type="hidden" name="n" value="">
+</form>
+<div class="content"><span id="debugMsg"></span>
+<p>Many <span class="disabled">hyperlinks are disabled.</span><br>
+Use <a href="login%3Fanon=1&amp;g=%252Ftimeline.html">anonymous login</a>
+to enable hyperlinks.</p>
+<h2>50 most recent check-ins</h2>
+<table id="timelineTable0" class="timelineTable"> <!-- tmFlags: 0xc02008 -->
+<tr class="timelineDateRow"><td>
+  <div class="divider timelineDate">2025-06-19</div>
+</td><td></td><td></td></tr>
+<tr>
+<td class="timelineTime">12:35</a></td>
+<td class="timelineGraph">
+<div id="m1" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc1'>
+<span class='timelineVerboseComment'>
+A slight doc rephrasing for clarity, suggested in the forum.
+</span>
+<span class='timelineVerboseDetail'>(<span class='timelineLeaf'>Leaf</span>
+check-in:&nbsp;0d6084a398</a> user:&nbsp;stephan tags:&nbsp;trunk)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">10:46</a></td>
+<td class="timelineGraph">
+<div id="m2" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc2'>
+<span class='timelineVerboseComment'>
+Doc typo fixes from <a href="https://sqlite.org/forum/info/0bce273669">forum post 0bce273669</a>.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;8f97e3f00d</a> user:&nbsp;stephan tags:&nbsp;trunk)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">10:25</a></td>
+<td class="timelineGraph">
+<div id="m3" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc3'>
+<span class='timelineVerboseComment'>
+Expose the column metadata APIs to WASM (which does not require a non-default sqlite3.c build, contrary to my prior mistaken claims). This adds only 424 bytes to sqlite3.wasm and 660 bytes to sqlite3.js.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;3cf983816c</a> user:&nbsp;stephan tags:&nbsp;trunk)</span>
+</td></tr>
+<tr class="timelineDateRow"><td>
+  <div class="divider timelineDate">2025-06-18</div>
+</td><td></td><td></td></tr>
+<tr>
+<td class="timelineTime">19:04</a></td>
+<td class="timelineGraph">
+<div id="m4" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc4'>
+<span class='timelineVerboseComment'>
+Extend the pedantic enforcement of type in STRICT tables to cover VIRTUAL columns.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;b734c74e55</a> user:&nbsp;drh tags:&nbsp;trunk)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">16:17</a></td>
+<td class="timelineGraph">
+<div id="m5" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc5'>
+<span class='timelineVerboseComment'>
+Enforce judgmental typing on STORED generated columns for STRICT
+tables.  <a href="https://sqlite.org/forum/forumpost/6caf195248a849e4">Forum post 6caf195248</a>.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;5e9279bff0</a> user:&nbsp;drh tags:&nbsp;trunk)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">15:37</a></td>
+<td class="timelineGraph">
+<div id="m6" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc6'>
+<span class='timelineVerboseComment'>
+Export the column-metadata APIs to WASM. <s>Doing so requires a non-default build of sqlite3.c, so this is a proof-of-concept branch saved just in case SQLITE_ENABLE_COLUMN_METADATA ever becomes the default for sqlite3.c.</s> Edit: that was a misunderstanding on my part. This build increases the .wasm file by only 424 bytes and the JS by 660, so there's no blocker to merging this.
+</span>
+<span class='timelineVerboseDetail'>(<span class='timelineLeaf'>Closed-Leaf</span>
+check-in:&nbsp;59db3f639d</a> user:&nbsp;stephan tags:&nbsp;wasm-column-metadata)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">15:22</a></td>
+<td class="timelineGraph">
+<div id="m7" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc7'>
+<span class='timelineVerboseComment'>
+Add the --enable-column-metadata flag to the configure script (off by default). It's only available in the canonical build, not the autoconf build, because it changes how sqlite3.c gets generated.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;986b601db1</a> user:&nbsp;stephan tags:&nbsp;trunk)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">14:17</a></td>
+<td class="timelineGraph">
+<div id="m8" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc8'>
+<span class='timelineVerboseComment'>
+Eliminate configure/build discrepancies in how 'make tclextension-...' works vs other makefile-side handling of the extension, conforming to the former.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;7ca545fd3b</a> user:&nbsp;stephan tags:&nbsp;trunk)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">14:14</a></td>
+<td class="timelineGraph">
+<div id="m9" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc9'>
+<span class='timelineVerboseComment'>
+Change the definition of SQLITE_DYNAMIC to a function that has exactly
+the same type as sqlite3_destructor_type, in an effort to work around
+possible legacy compiler bugs.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;83553edf78</a> user:&nbsp;drh tags:&nbsp;trunk)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">11:11</a></td>
+<td class="timelineGraph">
+<div id="m10" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc10'>
+<span class='timelineVerboseComment'>
+Add the --tclConfig.sh FILE flag to buildtclext.tcl to eliminate the discrepancy between the configure-time-detected tclConfig.sh and the one auto-detected by the tclextension family of makefile targets. Add the tclextension-all target to run all of the various tclextension-... targets in their natural order to facilitate testing changes like this one. Update the --help text to note that --with-tclsh should only be used if there's a specific need, and that --with-tcl is generall preferred. This is in response to <a href="https://github.com/termux/termux-packages/issues/23268">Termux ticket 23268</a>.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;928976abcb</a> user:&nbsp;stephan tags:&nbsp;trunk)</span>
+</td></tr>
+<tr class="timelineDateRow"><td>
+  <div class="divider timelineDate">2025-06-17</div>
+</td><td></td><td></td></tr>
+<tr>
+<td class="timelineTime">20:50</a></td>
+<td class="timelineGraph">
+<div id="m11" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc11'>
+<span class='timelineVerboseComment'>
+tea: remove the vsatisfies 8.6- enforcement from the extension because at least one platform with tcl 8.6 is inexplicably failing it. <a href="https://sqlite.org/forum/info/fde857fb8101a4be">Forum post fde857fb8101a4be</a>
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;7331e32a76</a> user:&nbsp;stephan tags:&nbsp;trunk)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">19:32</a></td>
+<td class="timelineGraph">
+<div id="m12" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc12'>
+<span class='timelineVerboseComment'>
+Avoid writing frames with no checksums into the wal file if a
+savepoint is rolled back after dirty pages have already been
+spilled into the wal file.  Also fix a corner case in the previous
+check-in on this branch.
+</span>
+<span class='timelineVerboseDetail'>(<span class='timelineLeaf'>Leaf</span>
+check-in:&nbsp;c232fa2bfc</a> user:&nbsp;drh tags:&nbsp;branch-3.50)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">19:10</a></td>
+<td class="timelineGraph">
+<div id="m13" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc13'>
+<span class='timelineVerboseComment'>
+Avoid writing frames with no checksums into the wal file if a
+savepoint is rolled back after dirty pages have already been
+spilled into the wal file.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;5973f9b9aa</a> user:&nbsp;drh tags:&nbsp;trunk)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">18:57</a></td>
+<td class="timelineGraph">
+<div id="m14" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc14'>
+<span class='timelineVerboseComment'>
+Fix a corner-case for [9441fff52cc4e19c].
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;336a59eb3a</a> user:&nbsp;drh tags:&nbsp;trunk)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">18:17</a></td>
+<td class="timelineGraph">
+<div id="m15" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc15'>
+<span class='timelineVerboseComment'>
+Update walcksum.test so that it works with SQLITE_DEFAULT_AUTOVACUUM=1 builds.
+</span>
+<span class='timelineVerboseDetail'>(<span class='timelineLeaf'>Closed-Leaf</span>
+check-in:&nbsp;0da16f6c62</a> user:&nbsp;dan tags:&nbsp;forum-b490f726db-fix)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">17:15</a></td>
+<td class="timelineGraph">
+<div id="m16" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc16'>
+<span class='timelineVerboseComment'>
+Extend [b5c6cb13cff5] to use a wildcard on darwin* because some OSes report a version number in the suffix. <a href="https://sqlite.org/forum/info/0c4bbc2962dfb06e">Forum post 0c4bbc2962dfb06e</a>.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;d960bd6f92</a> user:&nbsp;stephan tags:&nbsp;trunk)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">14:56</a></td>
+<td class="timelineGraph">
+<div id="m17" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc17'>
+<span class='timelineVerboseComment'>
+Minor proj.tcl portability fixes and cleanups suggested in <a href="https://sqlite.org/forum/info/7b218c3c9f">forum post 7b218c3c9f</a>. Tested on Linux, Msys, Cygwin, and Haiku.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;b5c6cb13cf</a> user:&nbsp;stephan tags:&nbsp;trunk)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">14:37</a></td>
+<td class="timelineGraph">
+<div id="m18" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc18'>
+<span class='timelineVerboseComment'>
+proj.tcl portability fixes and cleanups suggested in <a href="https://sqlite.org/forum/info/7b218c3c9f">forum post 7b218c3c9f</a>. Branching so that it can be tested on msys/cygwin/haiku before committing to it.
+</span>
+<span class='timelineVerboseDetail'>(<span class='timelineLeaf'>Closed-Leaf</span>
+check-in:&nbsp;89552e9137</a> user:&nbsp;stephan tags:&nbsp;linux-named-apple)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">11:36</a></td>
+<td class="timelineGraph">
+<div id="m19" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc19'>
+<span class='timelineVerboseComment'>
+Avoid writing frames with no checksums into the wal file if a savepoint is rolled back after dirty pages have already been spilled into the wal file. Possible fix for <a href="https://sqlite.org/forum/forumpost/b490f726db">forum post b490f726db</a>.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;3a3269fe8e</a> user:&nbsp;dan tags:&nbsp;forum-b490f726db-fix)</span>
+</td></tr>
+<tr class="timelineDateRow"><td>
+  <div class="divider timelineDate">2025-06-16</div>
+</td><td></td><td></td></tr>
+<tr>
+<td class="timelineTime">18:04</a></td>
+<td class="timelineGraph">
+<div id="m20" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc20'>
+<span class='timelineVerboseComment'>
+Fix an issue going back to version 3.39.0 with transitive IS constraints
+in queries that make use of RIGHT JOIN.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;6c5f4c8af9</a> user:&nbsp;drh tags:&nbsp;branch-3.50)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">17:36</a></td>
+<td class="timelineGraph">
+<div id="m21" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc21'>
+<span class='timelineVerboseComment'>
+Fix an issue going back to version 3.39.0 with transitive IS constraints
+in queries that make use of RIGHT JOIN.  Problem reported by
+<a href="https://sqlite.org/forum/forumpost/68f29a2005">forum post 68f29a2005</a>.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;9441fff52c</a> user:&nbsp;drh tags:&nbsp;trunk)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">16:07</a></td>
+<td class="timelineGraph">
+<div id="m22" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc22'>
+<span class='timelineVerboseComment'>
+Improved debugging output for the transitive constraint optimization.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;94b53c20e9</a> user:&nbsp;drh tags:&nbsp;trunk)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">15:34</a></td>
+<td class="timelineGraph">
+<div id="m23" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc23'>
+<span class='timelineVerboseComment'>
+Make the show-%p-az-zero hack of the previous check-in configurable at
+run-time using the 0x100000 bit of either .treetrace or .wheretrace.
+As before, this is all a no-op except for debugging builds.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;a29627d7e7</a> user:&nbsp;drh tags:&nbsp;trunk)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">13:51</a></td>
+<td class="timelineGraph">
+<div id="m24" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc24'>
+<span class='timelineVerboseComment'>
+Add an "#if 0" that can be changed to "1" to cause all %p output to render
+as 0, thus making comparisons of .treetrace and .wheretrace output easier.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;65e2704c0b</a> user:&nbsp;drh tags:&nbsp;trunk)</span>
+</td></tr>
+<tr class="timelineDateRow"><td>
+  <div class="divider timelineDate">2025-06-14</div>
+</td><td></td><td></td></tr>
+<tr>
+<td class="timelineTime">18:02</a></td>
+<td class="timelineGraph">
+<div id="m25" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc25'>
+<span class='timelineVerboseComment'>
+Generalize the indexCellCompare() so that works on any index page, not just
+the current page that a cursor is pointing to.
+</span>
+<span class='timelineVerboseDetail'>(<span class='timelineLeaf'>Leaf</span>
+check-in:&nbsp;eda518028f</a> user:&nbsp;drh tags:&nbsp;flex-search)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">14:46</a></td>
+<td class="timelineGraph">
+<div id="m26" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc26'>
+<span class='timelineVerboseComment'>
+Fix issues with expression indexes for flex-search queries.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;711608e49b</a> user:&nbsp;drh tags:&nbsp;flex-search)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">13:18</a></td>
+<td class="timelineGraph">
+<div id="m27" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc27'>
+<span class='timelineVerboseComment'>
+Add the ability to disable the Flex-Search optimization using
+SQLITE_TESTCTRL_OPTIMIZATION.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;5319a55ab2</a> user:&nbsp;drh tags:&nbsp;flex-search)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">09:54</a></td>
+<td class="timelineGraph">
+<div id="m28" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc28'>
+<span class='timelineVerboseComment'>
+Generates code to implement either an index search or a table scan,
+according to the results of the OP_IfUseIndex opcode.  But does not
+always work.  And the OP_IfUseIndex opcode is currently an unconditional
+"yes".
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;9872df2b85</a> user:&nbsp;drh tags:&nbsp;flex-search)</span>
+</td></tr>
+<tr class="timelineDateRow"><td>
+  <div class="divider timelineDate">2025-06-13</div>
+</td><td></td><td></td></tr>
+<tr>
+<td class="timelineTime">11:08</a></td>
+<td class="timelineGraph">
+<div id="m29" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc29'>
+<span class='timelineVerboseComment'>
+Further improvements to the EQP text for flex-search.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;40a83da503</a> user:&nbsp;drh tags:&nbsp;flex-search)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">00:50</a></td>
+<td class="timelineGraph">
+<div id="m30" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc30'>
+<span class='timelineVerboseComment'>
+Change the flex-search EQP message to be "SEARCH ... OR SCAN" as this seems
+less disruptive and more readable.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;680e278c3e</a> user:&nbsp;drh tags:&nbsp;flex-search)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">00:25</a></td>
+<td class="timelineGraph">
+<div id="m31" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc31'>
+<span class='timelineVerboseComment'>
+Fix test cases on the expert extension.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;c46feb36b5</a> user:&nbsp;drh tags:&nbsp;flex-search)</span>
+</td></tr>
+<tr class="timelineDateRow"><td>
+  <div class="divider timelineDate">2025-06-12</div>
+</td><td></td><td></td></tr>
+<tr>
+<td class="timelineTime">19:02</a></td>
+<td class="timelineGraph">
+<div id="m32" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc32'>
+<span class='timelineVerboseComment'>
+Preliminary code generation for flex-search.  Add a no-op IfUseIndex opcode
+as a placeholder.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;521948c64f</a> user:&nbsp;drh tags:&nbsp;flex-search)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">13:40</a></td>
+<td class="timelineGraph">
+<div id="m33" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc33'>
+<span class='timelineVerboseComment'>
+Merge latest trunk enhancements and fixes into the experimental
+flex-search branch.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;51c89c886f</a> user:&nbsp;drh tags:&nbsp;flex-search)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">13:27</a></td>
+<td class="timelineGraph">
+<div id="m34" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc34'>
+<span class='timelineVerboseComment'>
+Have sqlite3_setlk_timeout() take the database handle mutex. This fixes an assert() failure that could occur if sqlite3_setlk_timeout() were called on a threadsafe handle.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;954efdd30d</a> user:&nbsp;drh tags:&nbsp;branch-3.50)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">10:56</a></td>
+<td class="timelineGraph">
+<div id="m35" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc35'>
+<span class='timelineVerboseComment'>
+Help ext/wasm 'make snapshot' find the wasm docs dir when it's run from outside of my usual checkout structure.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;0e04136bc5</a> user:&nbsp;stephan tags:&nbsp;branch-3.50)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">07:35</a></td>
+<td class="timelineGraph">
+<div id="m36" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc36'>
+<span class='timelineVerboseComment'>
+Have sqlite3_setlk_timeout() take the database handle mutex. This fixes an assert() failure that could occur if sqlite3_setlk_timeout() were called on a threadsafe handle.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;a95d126e13</a> user:&nbsp;dan tags:&nbsp;trunk)</span>
+</td></tr>
+<tr class="timelineDateRow"><td>
+  <div class="divider timelineDate">2025-06-11</div>
+</td><td></td><td></td></tr>
+<tr>
+<td class="timelineTime">17:24</a></td>
+<td class="timelineGraph">
+<div id="m37" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc37'>
+<span class='timelineVerboseComment'>
+Fix a problem with UPDATEs on fts5 tables that contain blob values.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;2b4577d83c</a> user:&nbsp;drh tags:&nbsp;branch-3.50)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">15:03</a></td>
+<td class="timelineGraph">
+<div id="m38" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc38'>
+<span class='timelineVerboseComment'>
+Fix a problem with UPDATEs on fts5 tables that contain blob values.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;badf3014bd</a> user:&nbsp;dan tags:&nbsp;trunk)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">00:06</a></td>
+<td class="timelineGraph">
+<div id="m39" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc39'>
+<span class='timelineVerboseComment'>
+Increase the version number for this branch to 3.50.2.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;e9652e398e</a> user:&nbsp;drh tags:&nbsp;branch-3.50)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">00:05</a></td>
+<td class="timelineGraph">
+<div id="m40" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc40'>
+<span class='timelineVerboseComment'>
+Fix the concat_ws() SQL function so that it includes empty strings in the
+concatenation.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;e0ce6dab46</a> user:&nbsp;drh tags:&nbsp;branch-3.50)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">00:01</a></td>
+<td class="timelineGraph">
+<div id="m41" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc41'>
+<span class='timelineVerboseComment'>
+Fix the concat_ws() SQL function so that it includes empty strings in the
+concatenation.  <a href="https://sqlite.org/forum/forumpost/52503ac21d">Forum post 52503ac21d</a>.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;80a78987da</a> user:&nbsp;drh tags:&nbsp;trunk)</span>
+</td></tr>
+<tr class="timelineDateRow"><td>
+  <div class="divider timelineDate">2025-06-10</div>
+</td><td></td><td></td></tr>
+<tr>
+<td class="timelineTime">20:06</a></td>
+<td class="timelineGraph">
+<div id="m42" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc42'>
+<span class='timelineVerboseComment'>
+Improved selection of the divisor when subdividing nested Bitvec objects.
+This fixes a potential stack overflow that can occur when the database size
+is within 60 pages of the maximum allowed by the file format.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;5d40152bfe</a> user:&nbsp;drh tags:&nbsp;branch-3.50)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">19:52</a></td>
+<td class="timelineGraph">
+<div id="m43" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc43'>
+<span class='timelineVerboseComment'>
+Improved selection of the divisor when subdividing nested Bitvec objects.
+This fixes a potential stack overflow that can occur when the database size
+is within 60 pages of the maximum allowed by the file format.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;f7ab764ed9</a> user:&nbsp;drh tags:&nbsp;trunk)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">18:26</a></td>
+<td class="timelineGraph">
+<div id="m44" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc44'>
+<span class='timelineVerboseComment'>
+Minor corrections to the new Bitvec testing logic.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;77b79ca127</a> user:&nbsp;drh tags:&nbsp;trunk)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">17:22</a></td>
+<td class="timelineGraph">
+<div id="m45" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc45'>
+<span class='timelineVerboseComment'>
+Enhancements to sqlite3BitvecBuiltinTest() that allow testing code to
+create very large Bitvec objects that do not use the linear array cross-check.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;c5680672ca</a> user:&nbsp;drh tags:&nbsp;trunk)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">16:56</a></td>
+<td class="timelineGraph">
+<div id="m46" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc46'>
+<span class='timelineVerboseComment'>
+Adjustments to ext/misc/fileio.c in an attempt to get it to build using mingw.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;ac786b92e3</a> user:&nbsp;drh tags:&nbsp;branch-3.50)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">16:02</a></td>
+<td class="timelineGraph">
+<div id="m47" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc47'>
+<span class='timelineVerboseComment'>
+Improved diagnostics for Bitvec:  Add the sqlite3ShowBitvec() routine that
+can be called from a debugger (only available with SQLITE_DEBUG).  Add new
+output opcodes for sqlite3BitvecBuiltinTest().
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;dea1e37fa6</a> user:&nbsp;drh tags:&nbsp;trunk)</span>
+</td></tr>
+<tr class="timelineDateRow"><td>
+  <div class="divider timelineDate">2025-06-09</div>
+</td><td></td><td></td></tr>
+<tr>
+<td class="timelineTime">22:38</a></td>
+<td class="timelineGraph">
+<div id="m48" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc48'>
+<span class='timelineVerboseComment'>
+Adjustments to ext/misc/fileio.c in an attempt to get it to build using mingw.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;96b14a3f11</a> user:&nbsp;drh tags:&nbsp;trunk)</span>
+</td></tr>
+<tr>
+<td class="timelineTime">16:32</a></td>
+<td class="timelineGraph">
+<div id="m49" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc49'>
+<span class='timelineVerboseComment'>
+Initial implementation of sqlite3BtreeEstimatedPosition() with the
+est_rank() SQL function used for testing.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;e93048425b</a> user:&nbsp;drh tags:&nbsp;flex-search)</span>
+</td></tr>
+<tr class="timelineDateRow"><td>
+  <div class="divider timelineDate">2025-06-07</div>
+</td><td></td><td></td></tr>
+<tr>
+<td class="timelineTime">16:45</a></td>
+<td class="timelineGraph">
+<div id="m50" class="tl-nodemark"></div>
+</td>
+<td class="timelineVerboseCell" id='mc50'>
+<span class='timelineVerboseComment'>
+Query planner identifies loops where it might be advantageous to check
+the number of matching rows and fall back to a full table scan if the
+number of matching rows is large.
+</span>
+<span class='timelineVerboseDetail'>(check-in:&nbsp;87fd199257</a> user:&nbsp;drh tags:&nbsp;flex-search)</span>
+</td></tr>
+<!-- aiRailMap = 0 1 3 2 -->
+<tr class="timelineBottom" id="btm-0"><td></td><td></td><td></td></tr>
+</table>
+<script id='timeline-data-0' type='application/json'>{
+  "iTableId": 0,
+  "circleNodes": 1,
+  "showArrowheads": 1,
+  "iRailPitch": 0,
+  "colorGraph": 1,
+  "nomo": 0,
+  "iTopRow": 1,
+  "omitDescenders": 0,
+  "fileDiff": 0,
+  "scrollToSelect": 1,
+  "nrail": 4,
+  "baseUrl": "/src",
+  "dwellTimeout": 100,
+  "closeTimeout": 250,
+  "hashDigits": 16,
+  "bottomRowId": "btm-0",
+  "rowinfo": [
+{"id":1,"bg":"","r":0,"u":-1,"f":1,"br":"trunk","h":"0d6084a398edb013"},
+{"id":2,"bg":"","r":0,"u":1,"f":0,"br":"trunk","h":"8f97e3f00d24b26f"},
+{"id":3,"bg":"","r":0,"u":2,"f":0,"mi":[1],"br":"trunk","h":"3cf983816ccd167d"},
+{"id":4,"bg":"","r":0,"u":3,"f":0,"br":"trunk","h":"b734c74e55acb26e"},
+{"id":5,"bg":"","r":0,"u":4,"f":0,"br":"trunk","h":"5e9279bff0482806"},
+{"id":6,"bg":"#cdd3f3","r":1,"mo":1,"mu":3,"u":-1,"f":3,"fg":"#5a6080","br":"wasm-column-metadata","h":"59db3f639d107367"},
+{"id":7,"bg":"","r":0,"u":5,"f":0,"au":[1,6],"br":"trunk","h":"986b601db11a041d"},
+{"id":8,"bg":"","r":0,"u":7,"f":0,"br":"trunk","h":"7ca545fd3b460fcf"},
+{"id":9,"bg":"","r":0,"u":8,"f":0,"br":"trunk","h":"83553edf78c35d17"},
+{"id":10,"bg":"","r":0,"u":9,"f":0,"br":"trunk","h":"928976abcb11f9d5"},
+{"id":11,"bg":"","r":0,"u":10,"f":0,"br":"trunk","h":"7331e32a76a8a41c"},
+{"id":12,"bg":"#f3d5f6","r":3,"u":-1,"f":1,"fg":"#7d5f80","ci":[1],"br":"branch-3.50","h":"c232fa2bfc1a3f2c"},
+{"id":13,"bg":"","r":0,"mo":1,"mu":13,"cu":13,"u":11,"f":0,"mi":[2],"br":"trunk","h":"5973f9b9aa828ec9"},
+{"id":14,"bg":"","r":0,"mo":1,"mu":14,"cu":12,"u":13,"f":0,"br":"trunk","h":"336a59eb3afd80ce"},
+{"id":15,"bg":"#cef3ca","r":1,"mo":2,"mu":13,"u":-1,"f":3,"fg":"#5b8057","br":"forum-b490f726db-fix","h":"0da16f6c625bff9f"},
+{"id":16,"bg":"","r":0,"u":14,"f":0,"br":"trunk","h":"d960bd6f9256410e"},
+{"id":17,"bg":"","r":0,"u":16,"f":0,"mi":[2],"br":"trunk","h":"b5c6cb13cff53f4b"},
+{"id":18,"bg":"#f1e7cd","r":2,"mo":2,"mu":17,"u":-1,"f":3,"fg":"#80765c","br":"linux-named-apple","h":"89552e9137b7ebba"},
+{"id":19,"bg":"#cef3ca","r":1,"u":15,"f":0,"fg":"#5b8057","br":"forum-b490f726db-fix","h":"3a3269fe8e925a52"},
+{"id":20,"bg":"#f3d5f6","r":3,"u":12,"f":0,"fg":"#7d5f80","ci":[0],"br":"branch-3.50","h":"6c5f4c8af90cfe2f"},
+{"id":21,"bg":"","r":0,"mo":0,"mu":21,"cu":20,"u":17,"f":0,"au":[1,19,2,18],"br":"trunk","h":"9441fff52cc4e19c"},
+{"id":22,"bg":"","r":0,"u":21,"f":0,"br":"trunk","h":"94b53c20e9bc8687"},
+{"id":23,"bg":"","r":0,"u":22,"f":0,"br":"trunk","h":"a29627d7e7f8344d"},
+{"id":24,"bg":"","r":0,"u":23,"f":0,"br":"trunk","h":"65e2704c0bc329f3"},
+{"id":25,"bg":"#dad1f4","r":1,"u":-1,"f":1,"fg":"#665d80","br":"flex-search","h":"eda518028f60efc7"},
+{"id":26,"bg":"#dad1f4","r":1,"u":25,"f":0,"fg":"#665d80","br":"flex-search","h":"711608e49b0ec2ed"},
+{"id":27,"bg":"#dad1f4","r":1,"u":26,"f":0,"fg":"#665d80","br":"flex-search","h":"5319a55ab2351288"},
+{"id":28,"bg":"#dad1f4","r":1,"u":27,"f":0,"fg":"#665d80","br":"flex-search","h":"9872df2b85cc19b2"},
+{"id":29,"bg":"#dad1f4","r":1,"u":28,"f":0,"fg":"#665d80","br":"flex-search","h":"40a83da50303fa0d"},
+{"id":30,"bg":"#dad1f4","r":1,"u":29,"f":0,"fg":"#665d80","br":"flex-search","h":"680e278c3e15d3d2"},
+{"id":31,"bg":"#dad1f4","r":1,"u":30,"f":0,"fg":"#665d80","br":"flex-search","h":"c46feb36b50d6128"},
+{"id":32,"bg":"#dad1f4","r":1,"u":31,"f":0,"fg":"#665d80","br":"flex-search","h":"521948c64fc7a043"},
+{"id":33,"bg":"#dad1f4","r":1,"u":32,"f":0,"fg":"#665d80","mi":[0],"br":"flex-search","h":"51c89c886f1846e2"},
+{"id":34,"bg":"#f3d5f6","r":3,"u":20,"f":0,"fg":"#7d5f80","ci":[0],"br":"branch-3.50","h":"954efdd30da169e5"},
+{"id":35,"bg":"#f3d5f6","r":3,"u":34,"f":0,"fg":"#7d5f80","br":"branch-3.50","h":"0e04136bc5a72b47"},
+{"id":36,"bg":"","r":0,"mo":0,"mu":33,"u":24,"f":0,"br":"trunk","h":"a95d126e1330e1b8"},
+{"id":37,"bg":"#f3d5f6","r":3,"u":35,"f":0,"fg":"#7d5f80","ci":[0],"br":"branch-3.50","h":"2b4577d83ca6a9f4"},
+{"id":38,"bg":"","r":0,"mo":0,"mu":38,"cu":37,"u":36,"f":0,"br":"trunk","h":"badf3014bd1620fd"},
+{"id":39,"bg":"#f3d5f6","r":3,"u":37,"f":0,"fg":"#7d5f80","br":"branch-3.50","h":"e9652e398ef2f6d5"},
+{"id":40,"bg":"#f3d5f6","r":3,"u":39,"f":0,"fg":"#7d5f80","ci":[0],"br":"branch-3.50","h":"e0ce6dab46ba965e"},
+{"id":41,"bg":"","r":0,"mo":0,"mu":41,"cu":40,"u":38,"f":0,"br":"trunk","h":"80a78987da484d43"},
+{"id":42,"bg":"#f3d5f6","r":3,"u":40,"f":0,"fg":"#7d5f80","ci":[0],"br":"branch-3.50","h":"5d40152bfed84675"},
+{"id":43,"bg":"","r":0,"mo":0,"mu":43,"cu":42,"u":41,"f":0,"br":"trunk","h":"f7ab764ed9df6d7a"},
+{"id":44,"bg":"","r":0,"u":43,"f":0,"br":"trunk","h":"77b79ca1277419b9"},
+{"id":45,"bg":"","r":0,"u":44,"f":0,"br":"trunk","h":"c5680672cae23f65"},
+{"id":46,"bg":"#f3d5f6","r":3,"d":1,"u":42,"f":0,"fg":"#7d5f80","ci":[2],"br":"branch-3.50","h":"ac786b92e3e24e2f"},
+{"id":47,"bg":"","r":0,"u":45,"f":0,"br":"trunk","h":"dea1e37fa67ada6e"},
+{"id":48,"bg":"","r":0,"d":1,"mo":2,"mu":48,"cu":46,"u":47,"f":0,"br":"trunk","h":"96b14a3f1193de8f"},
+{"id":49,"bg":"#dad1f4","r":1,"u":33,"f":0,"fg":"#665d80","br":"flex-search","h":"e93048425bb7183e"},
+{"id":50,"bg":"#dad1f4","r":1,"d":1,"u":49,"f":0,"fg":"#665d80","br":"flex-search","h":"87fd19925752b52c"}]
+}</script>
+<script nonce='d5021bc5060afc4ed3e918ae9c18260961581fa2cf3325a7'>/* builtin.c:637 */
+(function(){
+if(window.NodeList && !NodeList.prototype.forEach){NodeList.prototype.forEach = Array.prototype.forEach;}
+if(!window.fossil) window.fossil={};
+window.fossil.version = "2.27 [c953e01c9e] 2025-06-05 13:07:01 UTC";
+window.fossil.rootPath = "/src"+'/';
+window.fossil.config = {projectName: "SQLite",
+shortProjectName: "",
+projectCode: "2ab58778c2967968b94284e989e43dc11791f548",
+/* Length of UUID hashes for display purposes. */hashDigits: 10, hashDigitsUrl: 16,
+diffContextLines: 5,
+editStateMarkers: {/*Symbolic markers to denote certain edit states.*/isNew:'[+]', isModified:'[*]', isDeleted:'[-]'},
+confirmerButtonTicks: 3 /*default fossil.confirmer tick count.*/,
+skin:{isDark: false/*true if the current skin has the 'white-foreground' detail*/}
+};
+window.fossil.user = {name: "guest",isAdmin: false};
+if(fossil.config.skin.isDark) document.body.classList.add('fossil-dark-style');
+window.fossil.page = {name:"timeline"};
+})();
+</script>
+<script nonce='d5021bc5060afc4ed3e918ae9c18260961581fa2cf3325a7'>/* doc.c:434 */
+window.addEventListener('load', ()=>window.fossil.pikchr.addSrcView(), false);
+</script>
+</div>
+<footer>
+This page was generated in about
+0.009s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="d5021bc5060afc4ed3e918ae9c18260961581fa2cf3325a7">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='d5021bc5060afc4ed3e918ae9c18260961581fa2cf3325a7'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+/* graph.js *************************************************************/
+var amendCssOnce = 1;
+function amendCss(circleNodes,showArrowheads){
+if( !amendCssOnce ) return;
+var css = "";
+if( circleNodes ){
+css += ".tl-node, .tl-node:after { border-radius: 50%; }";
+}
+if( !showArrowheads ){
+css += ".tl-arrow.u { display: none; }";
+}
+if( css!=="" ){
+var style = document.createElement("style");
+style.textContent = css;
+document.querySelector("head").appendChild(style);
+}
+amendCssOnce = 0;
+}
+var tooltipObj = document.createElement("span");
+tooltipObj.className = "tl-tooltip";
+tooltipObj.style.display = "none";
+document.getElementsByClassName("content")[0].appendChild(tooltipObj);
+tooltipObj.onmouseenter = function(){
+stopCloseTimer();
+stopDwellTimer();
+tooltipInfo.ixHover = tooltipInfo.ixActive;
+}
+tooltipObj.onmouseleave = function(){
+if (tooltipInfo.ixActive != -1) resumeCloseTimer();
+};
+window.tooltipInfo = {
+dwellTimeout: 250,
+closeTimeout: 3000,
+hashDigits: 16,
+idTimer: 0,
+idTimerClose: 0,
+ixHover: -1,
+ixActive: -1,
+nodeHover: null,
+idNodeActive: 0,
+posX: 0, posY: 0
+};
+function onKeyDown(event){
+var key = event.which || event.keyCode;
+if( key==27 ){
+event.stopPropagation();
+hideGraphTooltip();
+}
+}
+function hideGraphTooltip(){
+document.removeEventListener('keydown',onKeyDown,true);
+stopCloseTimer();
+tooltipObj.style.display = "none";
+tooltipInfo.ixActive = -1;
+tooltipInfo.idNodeActive = 0;
+}
+window.onpagehide = hideGraphTooltip;
+function stopDwellTimer(){
+if(tooltipInfo.idTimer!=0){
+clearTimeout(tooltipInfo.idTimer);
+tooltipInfo.idTimer = 0;
+}
+}
+function resumeCloseTimer(){
+if(tooltipInfo.idTimerClose==0 && tooltipInfo.closeTimeout>0) {
+tooltipInfo.idTimerClose = setTimeout(function(){
+tooltipInfo.idTimerClose = 0;
+hideGraphTooltip();
+},tooltipInfo.closeTimeout);
+}
+}
+function stopCloseTimer(){
+if(tooltipInfo.idTimerClose!=0){
+clearTimeout(tooltipInfo.idTimerClose);
+tooltipInfo.idTimerClose = 0;
+}
+}
+function TimelineGraph(tx){
+var topObj = document.getElementById("timelineTable"+tx.iTableId);
+amendCss(tx.circleNodes, tx.showArrowheads);
+tooltipInfo.dwellTimeout = tx.dwellTimeout
+tooltipInfo.closeTimeout = tx.closeTimeout
+tooltipInfo.hashDigits = tx.hashDigits
+topObj.onclick = clickOnGraph
+topObj.ondblclick = dblclickOnGraph
+topObj.onmousemove = function(e) {
+var ix = findTxIndex(e);
+topObj.style.cursor = (ix<0) ? "" : "pointer"
+mouseOverGraph(e,ix,null);
+};
+topObj.onmouseleave = function(e) {
+if(e.relatedTarget && e.relatedTarget != tooltipObj){
+tooltipInfo.ixHover = -1;
+hideGraphTooltip();
+stopDwellTimer();
+stopCloseTimer();
+}
+};
+function mouseOverNode(e){
+e.stopPropagation()
+mouseOverGraph(e,-2,this)
+}
+function mouseOverGraph(e,ix,node){
+stopDwellTimer();
+var ownTooltip =
+(ix>=0 && ix==tooltipInfo.ixActive) ||
+(ix==-2 && tooltipInfo.idNodeActive==node.id);
+if(ownTooltip) stopCloseTimer();
+else resumeCloseTimer();
+tooltipInfo.ixHover = ix;
+tooltipInfo.nodeHover = node;
+tooltipInfo.posX = e.clientX;
+tooltipInfo.posY = e.clientY;
+if(ix!=-1 && !ownTooltip && tooltipInfo.dwellTimeout>0){
+tooltipInfo.idTimer = setTimeout(function(){
+tooltipInfo.idTimer = 0;
+stopCloseTimer();
+showGraphTooltip();
+},tooltipInfo.dwellTimeout);
+}
+}
+var canvasDiv;
+var railPitch;
+var mergeOffset;
+var node, arrow, arrowSmall, line, mArrow, mLine, wArrow, wLine;
+function initGraph(){
+var parent = topObj.rows[0].cells[1];
+parent.style.verticalAlign = "top";
+canvasDiv = document.createElement("div");
+canvasDiv.className = "tl-canvas";
+canvasDiv.style.position = "absolute";
+parent.appendChild(canvasDiv);
+var elems = {};
+var elemClasses = [
+"rail", "mergeoffset", "node", "arrow u", "arrow u sm", "line",
+"arrow merge r", "line merge", "arrow warp", "line warp",
+"line cherrypick", "line dotted"
+];
+for( var i=0; i<elemClasses.length; i++ ){
+var cls = elemClasses[i];
+var elem = document.createElement("div");
+elem.className = "tl-" + cls;
+if( cls.indexOf("line")==0 ) elem.className += " v";
+canvasDiv.appendChild(elem);
+var k = cls.replace(/\s/g, "_");
+var r = elem.getBoundingClientRect();
+var w = Math.round(r.right - r.left);
+var h = Math.round(r.bottom - r.top);
+elems[k] = {w: w, h: h, cls: cls};
+}
+node = elems.node;
+arrow = elems.arrow_u;
+arrowSmall = elems.arrow_u_sm;
+line = elems.line;
+mArrow = elems.arrow_merge_r;
+mLine = elems.line_merge;
+cpLine = elems.line_cherrypick;
+wArrow = elems.arrow_warp;
+wLine = elems.line_warp;
+dotLine = elems.line_dotted;
+var minRailPitch = Math.ceil((node.w+line.w)/2 + mArrow.w + 1);
+if( window.innerWidth<400 ){
+railPitch = minRailPitch;
+}else{
+if( tx.iRailPitch>0 ){
+railPitch = tx.iRailPitch;
+}else{
+railPitch = elems.rail.w;
+railPitch -= Math.floor((tx.nrail-1)*(railPitch-minRailPitch)/21);
+}
+railPitch = Math.max(railPitch, minRailPitch);
+}
+if( tx.nomo ){
+mergeOffset = 0;
+}else{
+mergeOffset = railPitch-minRailPitch-mLine.w;
+mergeOffset = Math.min(mergeOffset, elems.mergeoffset.w);
+mergeOffset = mergeOffset>0 ? mergeOffset + line.w/2 : 0;
+}
+var canvasWidth = (tx.nrail-1)*railPitch + node.w;
+canvasDiv.style.width = canvasWidth + "px";
+canvasDiv.style.position = "relative";
+}
+function drawBox(cls,color,x0,y0,x1,y1){
+var n = document.createElement("div");
+x0 = Math.floor(x0);
+y0 = Math.floor(y0);
+x1 = x1 || x1===0 ? Math.floor(x1) : x0;
+y1 = y1 || y1===0 ? Math.floor(y1) : y0;
+if( x0>x1 ){ var t=x0; x0=x1; x1=t; }
+if( y0>y1 ){ var t=y0; y0=y1; y1=t; }
+var w = x1-x0;
+var h = y1-y0;
+n.style.position = "absolute";
+n.style.left = x0+"px";
+n.style.top = y0+"px";
+if( w ) n.style.width = w+"px";
+if( h ) n.style.height = h+"px";
+if( color ) n.style.backgroundColor = color;
+n.className = "tl-"+cls;
+canvasDiv.appendChild(n);
+return n;
+}
+function absoluteY(obj){
+var y = 0;
+do{
+y += obj.offsetTop;
+}while( obj = obj.offsetParent );
+return y;
+}
+function absoluteX(obj){
+var x = 0;
+do{
+x += obj.offsetLeft;
+}while( obj = obj.offsetParent );
+return x;
+}
+function miLineY(p){
+return p.y + node.h - mLine.w - 1;
+}
+function drawLine(elem,color,x0,y0,x1,y1){
+var cls = elem.cls + " ";
+if( x1===null ){
+x1 = x0+elem.w;
+cls += "v";
+}else{
+y1 = y0+elem.w;
+cls += "h";
+}
+return drawBox(cls,color,x0,y0,x1,y1);
+}
+function drawUpArrow(from,to,color,id){
+var y = to.y + node.h;
+var arrowSpace = from.y - y + (!from.id || from.r!=to.r ? node.h/2 : 0);
+var arw = arrowSpace < arrow.h*1.5 ? arrowSmall : arrow;
+var x = to.x + (node.w-line.w)/2;
+var y0 = from.y + node.h/2;
+var y1 = Math.ceil(to.y + node.h + arw.h/2);
+var n = drawLine(line,color,x,y0,null,y1);
+addToolTip(n,id)
+x = to.x + (node.w-arw.w)/2;
+n = drawBox(arw.cls,null,x,y);
+if(color) n.style.borderBottomColor = color;
+addToolTip(n,id)
+}
+function drawDotted(from,to,color,id){
+var x = to.x + (node.w-line.w)/2;
+var y0 = from.y + node.h/2;
+var y1 = Math.ceil(to.y + node.h);
+var n = drawLine(dotLine,null,x,y0,null,y1)
+if( color ) n.style.borderColor = color
+addToolTip(n,id)
+}
+function addToolTip(n,id){
+if( id ) n.setAttribute("data-ix",id-tx.iTopRow)
+}
+function drawMergeLine(x0,y0,x1,y1){
+drawLine(mLine,null,x0,y0,x1,y1);
+}
+function drawCherrypickLine(x0,y0,x1,y1){
+drawLine(cpLine,null,x0,y0,x1,y1);
+}
+function drawMergeArrow(p,rail,isCP){
+var x0 = rail*railPitch + node.w/2;
+if( rail in mergeLines ){
+x0 += mergeLines[rail];
+if( p.r<rail ) x0 += mLine.w;
+}else{
+x0 += (p.r<rail ? -1 : 1)*line.w/2;
+}
+var x1 = mArrow.w ? mArrow.w/2 : -node.w/2;
+x1 = p.x + (p.r<rail ? node.w + Math.ceil(x1) : -x1);
+var y = miLineY(p);
+var x = p.x + (p.r<rail ? node.w : -mArrow.w);
+var cls;
+if( isCP ){
+drawCherrypickLine(x0,y,x1,null);
+cls = "arrow cherrypick " + (p.r<rail ? "l" : "r");
+}else{
+drawMergeLine(x0,y,x1,null);
+cls = "arrow merge " + (p.r<rail ? "l" : "r");
+}
+drawBox(cls,null,x,y+(mLine.w-mArrow.h)/2);
+}
+function drawNode(p, btm){
+if( p.bg ){
+var e = document.getElementById("mc"+p.id);
+if(e) e.style.backgroundColor = p.bg;
+e = document.getElementById("md"+p.id);
+if(e) e.style.backgroundColor = p.bg;
+}
+if( p.r<0 ) return;
+if( p.u>0 ) drawUpArrow(p,tx.rowinfo[p.u-tx.iTopRow],p.fg,p.id);
+if( p.sb>0 ) drawDotted(p,tx.rowinfo[p.sb-tx.iTopRow],p.fg,p.id);
+var cls = node.cls;
+if( p.hasOwnProperty('mi') && p.mi.length ) cls += " merge";
+if( p.f&2 ) cls += " closed-leaf";
+else if( p.f&1 ) cls += " leaf";
+var n = drawBox(cls,p.bg,p.x,p.y);
+n.id = "tln"+p.id;
+n.onclick = clickOnNode;
+n.ondblclick = dblclickOnNode;
+n.onmousemove = mouseOverNode;
+n.style.zIndex = 10;
+if( p.f&2 ){
+var pt1 = 0;
+var pt2 = 100;
+if( tx.circleNodes ){
+pt1 = 14;
+pt2 = 86;
+}
+n.innerHTML = "<svg width='100%' height='100%'viewbox='0 0 100 100'>"
++ `<path d='M ${pt1},${pt1} L ${pt2},${pt2} M ${pt1},${pt2} L ${pt2},${pt1}'`
++ " stroke='currentcolor' stroke-width='13'/>"
++ "</svg>";
+}
+if( !tx.omitDescenders ){
+if( p.u==0 ){
+if( p.hasOwnProperty('mo') && p.r==p.mo ){
+var ix = p.hasOwnProperty('cu') ? p.cu : p.mu;
+var top = tx.rowinfo[ix-tx.iTopRow]
+drawUpArrow(p,{x: p.x, y: top.y-node.h}, p.fg, p.id);
+}else if( p.y>100 ){
+drawUpArrow(p,{x: p.x, y: p.y-50}, p.fg, p.id);
+}else{
+drawUpArrow(p,{x: p.x, y: 0},p.fg, p.id);
+}
+}
+if( p.hasOwnProperty('d') ){
+if( p.y + 150 >= btm ){
+drawUpArrow({x: p.x, y: btm - node.h/2},p,p.fg,p.id);
+}else{
+drawUpArrow({x: p.x, y: p.y+50},p,p.fg,p.id);
+drawDotted({x: p.x, y: p.y+63},{x: p.x, y: p.y+50-node.h/2},p.fg,p.id);
+}
+}
+}
+if( p.hasOwnProperty('mo') ){
+var x0 = p.x + node.w/2;
+var x1 = p.mo*railPitch + node.w/2;
+var u = tx.rowinfo[p.mu-tx.iTopRow];
+var mtop = u;
+if( p.hasOwnProperty('cu') ){
+mtop = tx.rowinfo[p.cu-tx.iTopRow];
+}
+var y1 = miLineY(u);
+if( p.u<=0 || p.mo!=p.r ){
+if( p.u==0 && p.mo==p.r ){
+mergeLines[p.mo] = mtop.r<p.r ? -mergeOffset-mLine.w : mergeOffset;
+}else{
+mergeLines[p.mo] = -mLine.w/2;
+}
+x1 += mergeLines[p.mo]
+var y0 = p.y+2;
+var isCP = p.hasOwnProperty('cu');
+if( p.mu==p.id ){
+var dx = x1<x0 ? mArrow.w : -mArrow.w;
+if( isCP ){
+drawCherrypickLine(x0,y0,x1+dx,null);
+cls = "arrow cherrypick " + (x1<x0 ? "l" : "r");
+}else{
+drawMergeLine(x0,y0,x1+dx,null);
+cls = "arrow merge " + (x1<x0 ? "l" : "r");
+}
+if( !isCP || p.mu==p.cu ){
+dx = x1<x0 ? mLine.w : -(mArrow.w + mLine.w/2);
+drawBox(cls,null,x1+dx,y0+(mLine.w-mArrow.h)/2);
+}
+y1 = y0;
+}else{
+drawMergeLine(x0,y0,x1+(x0<x1 ? mLine.w : 0),null);
+drawMergeLine(x1,y0+mLine.w,null,y1);
+}
+if( isCP && p.cu!=p.id ){
+var u2 = tx.rowinfo[p.cu-tx.iTopRow];
+var y2 = miLineY(u2);
+drawCherrypickLine(x1,y1,null,y2);
+}
+}else if( mergeOffset ){
+mergeLines[p.mo] = mtop.r<p.r ? -mergeOffset-mLine.w : mergeOffset;
+x1 += mergeLines[p.mo];
+if( p.mu<p.id ){
+drawMergeLine(x1,p.y+node.h/2,null,y1);
+}
+if( p.hasOwnProperty('cu') ){
+var u2 = tx.rowinfo[p.cu-tx.iTopRow];
+var y2 = miLineY(u2);
+drawCherrypickLine(x1,y1,null,y2);
+}
+}else{
+delete mergeLines[p.mo];
+}
+}
+if( p.hasOwnProperty('au') ){
+for( var i=0; i<p.au.length; i+=2 ){
+var rail = p.au[i];
+var x0 = p.x + node.w/2;
+var x1 = rail*railPitch + (node.w-line.w)/2;
+if( x0<x1 ){
+x0 = Math.ceil(x0);
+x1 += line.w;
+}
+var y0 = p.y + (node.h-line.w)/2;
+var u = tx.rowinfo[p.au[i+1]-tx.iTopRow];
+if( u.id<p.id ){
+drawLine(line,u.fg,x0,y0,x1,null);
+drawUpArrow(p,u,u.fg,u.id);
+}else{
+var y1 = u.y + (node.h-line.w)/2;
+var n = drawLine(wLine,u.fg,x0,y0,x1,null);
+addToolTip(n,u.id)
+n = drawLine(wLine,u.fg,x1-line.w,y0,null,y1+line.w);
+addToolTip(n,u.id)
+n = drawLine(wLine,u.fg,x1,y1,u.x-wArrow.w/2,null);
+addToolTip(n,u.id)
+var x = u.x-wArrow.w;
+var y = u.y+(node.h-wArrow.h)/2;
+n = drawBox(wArrow.cls,null,x,y);
+addToolTip(n,u.id)
+if( u.fg ) n.style.borderLeftColor = u.fg;
+}
+}
+}
+if( p.hasOwnProperty('mi') ){
+for( var i=0; i<p.mi.length; i++ ){
+var rail = p.mi[i];
+if( rail<0 ){
+rail = -1-rail;
+mergeLines[rail] = -mLine.w/2;
+var x = rail*railPitch + (node.w-mLine.w)/2;
+var y = miLineY(p);
+drawMergeLine(x,y,null,mergeBtm[rail]);
+mergeBtm[rail] = y;
+}
+drawMergeArrow(p,rail,0);
+}
+}
+if( p.hasOwnProperty('ci') ){
+for( var i=0; i<p.ci.length; i++ ){
+var rail = p.ci[i];
+if( rail<0 ){
+rail = -rail;
+mergeLines[rail] = -mLine.w/2;
+var x = rail*railPitch + (node.w-mLine.w)/2;
+var y = miLineY(p);
+drawCherrypickLine(x,y,null,mergeBtm[rail]);
+mergeBtm[rail] = y;
+}
+drawMergeArrow(p,rail,1);
+}
+}
+}
+var mergeLines;
+var mergeBtm = new Array;
+function renderGraph(){
+mergeLines = {};
+canvasDiv.innerHTML = "";
+var canvasY = absoluteY(canvasDiv);
+for(var i=0; i<tx.rowinfo.length; i++ ){
+var e = document.getElementById("m"+tx.rowinfo[i].id);
+tx.rowinfo[i].y = absoluteY(e) - canvasY;
+tx.rowinfo[i].x = tx.rowinfo[i].r*railPitch;
+}
+var tlBtm = document.getElementById(tx.bottomRowId);
+if( tlBtm.offsetHeight<node.h ){
+tlBtm.style.height = node.h + "px";
+}
+var btm = absoluteY(tlBtm) - canvasY + tlBtm.offsetHeight;
+for( var i=0; i<tx.nrail; i++) mergeBtm[i] = btm;
+for( var i=tx.rowinfo.length-1; i>=0; i-- ){
+drawNode(tx.rowinfo[i], btm);
+}
+}
+var selRow;
+function clickOnNode(e){
+hideGraphTooltip()
+var p = tx.rowinfo[parseInt(this.id.match(/\d+$/)[0], 10)-tx.iTopRow];
+if( !selRow ){
+selRow = p;
+this.className += " sel";
+canvasDiv.className += " sel";
+}else if( selRow==p ){
+selRow = null;
+this.className = this.className.replace(" sel", "");
+canvasDiv.className = canvasDiv.className.replace(" sel", "");
+}else{
+if( tx.fileDiff ){
+location.href=tx.baseUrl + "/fdiff?v1="+selRow.h+"&v2="+p.h;
+}else{
+var href = tx.baseUrl + "/vdiff?from="+selRow.h+"&to="+p.h;
+let params = (new URL(document.location)).searchParams;
+if(params && typeof params === "object"){
+let glob = params.get("chng");
+if( !glob ){
+glob = params.get("glob");
+}
+if( glob ){
+href += "&glob=" + glob;
+}
+}
+location.href = href;
+}
+}
+e.stopPropagation()
+}
+function dblclickOnNode(e){
+var p = tx.rowinfo[parseInt(this.id.match(/\d+$/)[0], 10)-tx.iTopRow];
+window.location.href = tx.baseUrl+"/info/"+p.h
+e.stopPropagation()
+}
+function findTxIndex(e){
+if( !tx.rowinfo ) return -1;
+var x = e.clientX + window.pageXOffset - absoluteX(canvasDiv);
+var y = e.clientY + window.pageYOffset - absoluteY(canvasDiv);
+var aNode = canvasDiv.childNodes
+var nNode = aNode.length;
+var i;
+for(i=0;i<nNode;i++){
+var n = aNode[i]
+if( !n.hasAttribute("data-ix") ) continue;
+if( x<n.offsetLeft-5 ) continue;
+if( x>n.offsetLeft+n.offsetWidth+5 ) continue;
+if( y<n.offsetTop-5 ) continue;
+if( y>n.offsetTop+n.offsetHeight ) continue;
+return n.getAttribute("data-ix")
+}
+return -1
+}
+function branchHyperlink(ix){
+var br = tx.rowinfo[ix].br
+var dest = tx.baseUrl + "/timeline?r=" + encodeURIComponent(br)
+dest += tx.fileDiff ? "&m&cf=" : "&m&c="
+dest += encodeURIComponent(tx.rowinfo[ix].h)
+return dest
+}
+function clickOnGraph(e){
+stopCloseTimer();
+stopDwellTimer();
+tooltipInfo.ixHover = findTxIndex(e);
+tooltipInfo.posX = e.clientX;
+tooltipInfo.posY = e.clientY;
+showGraphTooltip();
+}
+function showGraphTooltip(){
+var html = null
+var ix = -1
+if( tooltipInfo.ixHover==-2 ){
+ix = parseInt(tooltipInfo.nodeHover.id.match(/\d+$/)[0],10)-tx.iTopRow
+var h = tx.rowinfo[ix].h
+var dest = tx.baseUrl + "/info/" + h
+h = h.slice(0,tooltipInfo.hashDigits);
+if( tx.fileDiff ){
+html = "artifact <a id=\"tooltip-link\" href="https://www.sqlite.org/src/\&quot;&quot;+dest+&quot;\&quot;">"+h+"</a>"
+}else{
+html = "check-in <a id=\"tooltip-link\" href="https://www.sqlite.org/src/\&quot;&quot;+dest+&quot;\&quot;">"+h+"</a>"
+}
+tooltipInfo.ixActive = -2;
+tooltipInfo.idNodeActive = tooltipInfo.nodeHover.id;
+}else if( tooltipInfo.ixHover>=0 ){
+ix = tooltipInfo.ixHover
+var br = tx.rowinfo[ix].br
+var dest = branchHyperlink(ix)
+var hbr = br.replace(/&/g, "&amp;")
+.replace(/</g, "&lt;")
+.replace(/>/g, "&gt;")
+.replace(/"/g, "&quot;")
+.replace(/'/g, "&#039;");
+html = "branch <a id=\"tooltip-link\" href="https://www.sqlite.org/src/\&quot;&quot;+dest+&quot;\&quot;">"+hbr+"</a>"
+tooltipInfo.ixActive = ix;
+tooltipInfo.idNodeActive = 0;
+}
+if( html ){
+var s = getComputedStyle(document.body)
+if( tx.rowinfo[ix].bg.length ){
+tooltipObj.style.backgroundColor = tx.rowinfo[ix].bg
+}else{
+tooltipObj.style.backgroundColor = s.getPropertyValue('background-color')
+}
+tooltipObj.style.borderColor =
+tooltipObj.style.color = s.getPropertyValue('color')
+tooltipObj.style.visibility = "hidden"
+tooltipObj.innerHTML = html
+tooltipObj.insertBefore(makeCopyButton("tooltip-link",0,0),
+tooltipObj.childNodes[1]);
+tooltipObj.style.display = "inline"
+tooltipObj.style.position = "absolute"
+var x = tooltipInfo.posX + 4 + window.pageXOffset
+- absoluteX(tooltipObj.offsetParent)
+tooltipObj.style.left = x+"px"
+var y = tooltipInfo.posY + window.pageYOffset
+- tooltipObj.clientHeight - 4
+- absoluteY(tooltipObj.offsetParent)
+tooltipObj.style.top = y+"px"
+tooltipObj.style.visibility = "visible"
+document.addEventListener('keydown',onKeyDown,true);
+}else{
+hideGraphTooltip()
+}
+}
+function dblclickOnGraph(e){
+var ix = findTxIndex(e);
+hideGraphTooltip()
+if( ix>=0 ){
+var dest = branchHyperlink(ix)
+window.location.href = dest
+}
+}
+function changeDisplay(selector,value){
+var x = document.getElementsByClassName(selector);
+var n = x.length;
+for(var i=0; i<n; i++) {x[i].style.display = value;}
+}
+function changeDisplayById(id,value){
+var x = document.getElementById(id);
+if(x) x.style.display=value;
+}
+function toggleDetail(){
+var id = parseInt(this.getAttribute('data-id'))
+var x = document.getElementById("detail-"+id);
+if( x.style.display=="inline" ){
+x.style.display="none";
+changeDisplayById("ellipsis-"+id,"inline");
+changeDisplayById("links-"+id,"none");
+}else{
+x.style.display="inline";
+changeDisplayById("ellipsis-"+id,"none");
+changeDisplayById("links-"+id,"inline");
+}
+checkHeight();
+}
+function scrollToSelected(){
+var x = document.getElementsByClassName('timelineSelected');
+if(x[0]){
+var h = window.innerHeight;
+var y = absoluteY(x[0]) - h/2;
+if( y>0 ) window.scrollTo(0, y);
+}
+}
+if( tx.rowinfo ){
+var lastRow =
+document.getElementById("m"+tx.rowinfo[tx.rowinfo.length-1].id);
+var lastY = 0;
+function checkHeight(){
+var h = absoluteY(lastRow);
+if( h!=lastY ){
+renderGraph();
+lastY = h;
+}
+setTimeout(checkHeight, 1000);
+}
+initGraph();
+checkHeight();
+}else{
+function checkHeight(){}
+}
+if( tx.scrollToSelect ){
+scrollToSelected();
+}
+var lx = topObj.getElementsByClassName('timelineEllipsis');
+var i;
+for(i=0; i<lx.length; i++){
+if( lx[i].hasAttribute('data-id') ) lx[i].onclick = toggleDetail;
+}
+lx = topObj.getElementsByClassName('timelineCompactComment');
+for(i=0; i<lx.length; i++){
+if( lx[i].hasAttribute('data-id') ) lx[i].onclick = toggleDetail;
+}
+if( window.innerWidth<400 ){
+lx = topObj.getElementsByClassName('timelineDateRow');
+for(i=0; i<lx.length; i++){
+var rx = lx[i];
+if( rx.getAttribute('data-reordered') ) break;
+rx.setAttribute('data-reordered',1);
+rx.appendChild(rx.firstChild);
+rx.insertBefore(rx.childNodes[1],rx.firstChild);
+}
+lx = topObj.getElementsByClassName('timelineHistLink');
+for(i=0; i<lx.length; i++){
+var rx = lx[i];
+rx.style.display="none";
+}
+}
+}
+(function(){
+var i;
+for(i=0; 1; i++){
+var dataObj = document.getElementById("timeline-data-"+i);
+if(!dataObj) break;
+var txJson = dataObj.textContent || dataObj.innerText;
+var tx = JSON.parse(txJson);
+TimelineGraph(tx);
+}
+}());
+/* copybtn.js *************************************************************/
+function makeCopyButton(idTarget,bFlipped,cchLength){
+var elButton = document.createElement("span");
+elButton.className = "copy-button";
+if( bFlipped ) elButton.className += " copy-button-flipped";
+elButton.id = "copy-" + idTarget;
+initCopyButton(elButton,idTarget,cchLength);
+return elButton;
+}
+function initCopyButtonById(idButton,idTarget,cchLength){
+idButton = idButton || "copy-" + idTarget;
+var elButton = document.getElementById(idButton);
+if( elButton ) initCopyButton(elButton,idTarget,cchLength);
+return elButton;
+}
+function initCopyButton(elButton,idTarget,cchLength){
+elButton.style.transition = "";
+elButton.style.opacity = 1;
+if( idTarget ) elButton.setAttribute("data-copytarget",idTarget);
+if( cchLength ) elButton.setAttribute("data-copylength",cchLength);
+elButton.onclick = clickCopyButton;
+return elButton;
+}
+setTimeout(function(){
+var elButtons = document.getElementsByClassName("copy-button");
+for ( var i=0; i<elButtons.length; i++ ){
+initCopyButton(elButtons[i],0,0);
+}
+},1);
+function clickCopyButton(e){
+e.preventDefault();
+e.stopPropagation();
+if( this.getAttribute("data-copylocked") ) return;
+this.setAttribute("data-copylocked","1");
+this.style.transition = "opacity 400ms ease-in-out";
+this.style.opacity = 0;
+var idTarget = this.getAttribute("data-copytarget");
+var elTarget = document.getElementById(idTarget);
+if( elTarget ){
+var text = elTarget.innerText.replace(/^\s+|\s+$/g,"");
+var cchLength = parseInt(this.getAttribute("data-copylength"));
+if( !isNaN(cchLength) && cchLength>0 ){
+text = text.slice(0,cchLength);
+}
+copyTextToClipboard(text);
+}
+setTimeout(function(){
+this.style.transition = "";
+this.style.opacity = 1;
+this.removeAttribute("data-copylocked");
+}.bind(this),400);
+}
+function copyTextToClipboard(text){
+if( window.clipboardData && window.clipboardData.setData ){
+window.clipboardData.setData("Text",text);
+}else{
+var elTextarea = document.createElement("textarea");
+elTextarea.style.position = "fixed";
+elTextarea.value = text;
+document.body.appendChild(elTextarea);
+elTextarea.select();
+try{
+document.execCommand("copy");
+}catch(err){
+}finally{
+document.body.removeChild(elTextarea);
+}
+}
+}
+/* fossil.bootstrap.js *************************************************************/
+"use strict";
+(function () {
+if(typeof window.CustomEvent === "function") return false;
+window.CustomEvent = function(event, params) {
+if(!params) params = {bubbles: false, cancelable: false, detail: null};
+const evt = document.createEvent('CustomEvent');
+evt.initCustomEvent( event, !!params.bubbles, !!params.cancelable, params.detail );
+return evt;
+};
+})();
+(function(global){
+const F = global.fossil;
+const timestring = function f(){
+if(!f.rx1){
+f.rx1 = /\.\d+Z$/;
+}
+const d = new Date();
+return d.toISOString().replace(f.rx1,'').split('T').join(' ');
+};
+const localTimeString = function ff(d){
+if(!ff.pad){
+ff.pad = (x)=>(''+x).length>1 ? x : '0'+x;
+}
+d || (d = new Date());
+return [
+d.getFullYear(),'-',ff.pad(d.getMonth()+1),
+'-',ff.pad(d.getDate()),
+' ',ff.pad(d.getHours()),':',ff.pad(d.getMinutes()),
+':',ff.pad(d.getSeconds())
+].join('');
+};
+F.message = function f(msg){
+const args = Array.prototype.slice.call(arguments,0);
+const tgt = f.targetElement;
+if(args.length) args.unshift(
+localTimeString()+':'
+);
+if(tgt){
+tgt.classList.remove('error');
+tgt.innerText = args.join(' ');
+}
+else{
+if(args.length){
+args.unshift('Fossil status:');
+console.debug.apply(console,args);
+}
+}
+return this;
+};
+F.message.targetElement =
+document.querySelector('#fossil-status-bar');
+if(F.message.targetElement){
+F.message.targetElement.addEventListener(
+'dblclick', ()=>F.message(), false
+);
+}
+F.error = function f(msg){
+const args = Array.prototype.slice.call(arguments,0);
+const tgt = F.message.targetElement;
+args.unshift(timestring(),'UTC:');
+if(tgt){
+tgt.classList.add('error');
+tgt.innerText = args.join(' ');
+}
+else{
+args.unshift('Fossil error:');
+console.error.apply(console,args);
+}
+return this;
+};
+F.encodeUrlArgs = function(obj,tgtArray,fakeEncode){
+if(!obj) return '';
+const a = (tgtArray instanceof Array) ? tgtArray : [],
+enc = fakeEncode ? (x)=>x : encodeURIComponent;
+let k, i = 0;
+for( k in obj ){
+if(i++) a.push('&');
+a.push(enc(k),'=',enc(obj[k]));
+}
+return a===tgtArray ? a : a.join('');
+};
+F.repoUrl = function(path,urlParams){
+if(!urlParams) return this.rootPath+path;
+const url=[this.rootPath,path];
+url.push('?');
+if('string'===typeof urlParams) url.push(urlParams);
+else if(urlParams && 'object'===typeof urlParams){
+this.encodeUrlArgs(urlParams, url);
+}
+return url.join('');
+};
+F.isObject = function(v){
+return v &&
+(v instanceof Object) &&
+('[object Object]' === Object.prototype.toString.apply(v) );
+};
+F.mergeLastWins = function(){
+var k, o, i;
+const n = arguments.length, rc={};
+for(i = 0; i < n; ++i){
+if(!F.isObject(o = arguments[i])) continue;
+for( k in o ){
+if(o.hasOwnProperty(k)) rc[k] = o[k];
+}
+}
+return rc;
+};
+F.hashDigits = function(hash,forUrl){
+const n = ('number'===typeof forUrl)
+? forUrl : F.config[forUrl ? 'hashDigitsUrl' : 'hashDigits'];
+return ('string'==typeof hash ? hash.substr(
+0, n
+) : hash);
+};
+F.onPageLoad = function(callback){
+window.addEventListener('load', callback, false);
+return this;
+};
+F.onDOMContentLoaded = function(callback){
+window.addEventListener('DOMContentLoaded', callback, false);
+return this;
+};
+F.shortenFilename = function(name){
+const a = name.split('/');
+if(a.length<=2) return name;
+while(a.length>2) a.shift();
+return '.../'+a.join('/');
+};
+F.page.addEventListener = function f(eventName, callback){
+if(!f.proxy){
+f.proxy = document.createElement('span');
+}
+f.proxy.addEventListener(eventName, callback, false);
+return this;
+};
+F.page.dispatchEvent = function(eventName, eventDetail){
+if(this.addEventListener.proxy){
+try{
+this.addEventListener.proxy.dispatchEvent(
+new CustomEvent(eventName,{detail: eventDetail})
+);
+}catch(e){
+console.error(eventName,"event listener threw:",e);
+}
+}
+return this;
+};
+F.page.setPageTitle = function(title){
+const t = document.querySelector('title');
+if(t) t.innerText = title;
+return this;
+};
+F.debounce = function f(func, waitMs, immediate) {
+var timeoutId;
+if(!waitMs) waitMs = f.$defaultDelay;
+return function() {
+const context = this, args = Array.prototype.slice.call(arguments);
+const later = function() {
+timeoutId = undefined;
+if(!immediate) func.apply(context, args);
+};
+const callNow = immediate && !timeoutId;
+clearTimeout(timeoutId);
+timeoutId = setTimeout(later, waitMs);
+if(callNow) func.apply(context, args);
+};
+};
+F.debounce.$defaultDelay = 500;
+})(window);
+/* fossil.dom.js *************************************************************/
+"use strict";
+(function(F){
+const argsToArray = (a)=>Array.prototype.slice.call(a,0);
+const isArray = (v)=>v instanceof Array;
+const dom = {
+create: function(elemType){
+return document.createElement(elemType);
+},
+createElemFactory: function(eType){
+return function(){
+return document.createElement(eType);
+};
+},
+remove: function(e){
+if(e?.forEach){
+e.forEach(
+(x)=>x?.parentNode?.removeChild(x)
+);
+}else{
+e?.parentNode?.removeChild(e);
+}
+return e;
+},
+clearElement: function f(e){
+if(!f.each){
+f.each = function(e){
+if(e.forEach){
+e.forEach((x)=>f(x));
+return e;
+}
+while(e.firstChild) e.removeChild(e.firstChild);
+};
+}
+argsToArray(arguments).forEach(f.each);
+return arguments[0];
+},
+};
+dom.splitClassList = function f(str){
+if(!f.rx){
+f.rx = /(\s+|\s*,\s*)/;
+}
+return str ? str.split(f.rx) : [str];
+};
+dom.div = dom.createElemFactory('div');
+dom.p = dom.createElemFactory('p');
+dom.code = dom.createElemFactory('code');
+dom.pre = dom.createElemFactory('pre');
+dom.header = dom.createElemFactory('header');
+dom.footer = dom.createElemFactory('footer');
+dom.section = dom.createElemFactory('section');
+dom.span = dom.createElemFactory('span');
+dom.strong = dom.createElemFactory('strong');
+dom.em = dom.createElemFactory('em');
+dom.ins = dom.createElemFactory('ins');
+dom.del = dom.createElemFactory('del');
+dom.label = function(forElem, text){
+const rc = document.createElement('label');
+if(forElem){
+if(forElem instanceof HTMLElement){
+forElem = this.attr(forElem, 'id');
+}
+if(forElem){
+dom.attr(rc, 'for', forElem);
+}
+}
+if(text) this.append(rc, text);
+return rc;
+};
+dom.img = function(src){
+const e = this.create('img');
+if(src) e.setAttribute('src',src);
+return e;
+};
+dom.a = function(href,label){
+const e = this.create('a');
+if(href) e.setAttribute('href',href);
+if(label) e.appendChild(dom.text(true===label ? href : label));
+return e;
+};
+dom.hr = dom.createElemFactory('hr');
+dom.br = dom.createElemFactory('br');
+dom.text = function(){
+return document.createTextNode(argsToArray(arguments).join(''));
+};
+dom.button = function(label,callback){
+const b = this.create('button');
+if(label) b.appendChild(this.text(label));
+if('function' === typeof callback){
+b.addEventListener('click', callback, false);
+}
+return b;
+};
+dom.textarea = function(){
+const rc = this.create('textarea');
+let rows, cols, readonly;
+if(1===arguments.length){
+if('boolean'===typeof arguments[0]){
+readonly = !!arguments[0];
+}else{
+rows = arguments[0];
+}
+}else if(arguments.length){
+rows = arguments[0];
+cols = arguments[1];
+readonly = arguments[2];
+}
+if(rows) rc.setAttribute('rows',rows);
+if(cols) rc.setAttribute('cols', cols);
+if(readonly) rc.setAttribute('readonly', true);
+return rc;
+};
+dom.select = dom.createElemFactory('select');
+dom.option = function(value,label){
+const a = arguments;
+var sel;
+if(1==a.length){
+if(a[0] instanceof HTMLElement){
+sel = a[0];
+}else{
+value = a[0];
+}
+}else if(2==a.length){
+if(a[0] instanceof HTMLElement){
+sel = a[0];
+value = a[1];
+}else{
+value = a[0];
+label = a[1];
+}
+}
+else if(3===a.length){
+sel = a[0];
+value = a[1];
+label = a[2];
+}
+const o = this.create('option');
+if(undefined !== value){
+o.value = value;
+this.append(o, this.text(label || value));
+}else if(undefined !== label){
+this.append(o, label);
+}
+if(sel) this.append(sel, o);
+return o;
+};
+dom.h = function(level){
+return this.create('h'+level);
+};
+dom.ul = dom.createElemFactory('ul');
+dom.li = function(parent){
+const li = this.create('li');
+if(parent) parent.appendChild(li);
+return li;
+};
+dom.createElemFactoryWithOptionalParent = function(childType){
+return function(parent){
+const e = this.create(childType);
+if(parent) parent.appendChild(e);
+return e;
+};
+};
+dom.table = dom.createElemFactory('table');
+dom.thead = dom.createElemFactoryWithOptionalParent('thead');
+dom.tbody = dom.createElemFactoryWithOptionalParent('tbody');
+dom.tfoot = dom.createElemFactoryWithOptionalParent('tfoot');
+dom.tr = dom.createElemFactoryWithOptionalParent('tr');
+dom.td = dom.createElemFactoryWithOptionalParent('td');
+dom.th = dom.createElemFactoryWithOptionalParent('th');
+dom.fieldset = function(legendText){
+const fs = this.create('fieldset');
+if(legendText){
+this.append(
+fs,
+(legendText instanceof HTMLElement)
+? legendText
+: this.append(this.legend(legendText))
+);
+}
+return fs;
+};
+dom.legend = function(legendText){
+const rc = this.create('legend');
+if(legendText) this.append(rc, legendText);
+return rc;
+};
+dom.append = function f(parent){
+const a = argsToArray(arguments);
+a.shift();
+for(let i in a) {
+var e = a[i];
+if(isArray(e) || e.forEach){
+e.forEach((x)=>f.call(this, parent,x));
+continue;
+}
+if('string'===typeof e
+|| 'number'===typeof e
+|| 'boolean'===typeof e
+|| e instanceof Error) e = this.text(e);
+parent.appendChild(e);
+}
+return parent;
+};
+dom.input = function(type){
+return this.attr(this.create('input'), 'type', type);
+};
+dom.checkbox = function(value, checked){
+const rc = this.input('checkbox');
+if(1===arguments.length && 'boolean'===typeof value){
+checked = !!value;
+value = undefined;
+}
+if(undefined !== value) rc.value = value;
+if(!!checked) rc.checked = true;
+return rc;
+};
+dom.radio = function(){
+const rc = this.input('radio');
+let name, value, checked;
+if(1===arguments.length && 'boolean'===typeof name){
+checked = arguments[0];
+name = value = undefined;
+}else if(2===arguments.length){
+name = arguments[0];
+if('boolean'===typeof arguments[1]){
+checked = arguments[1];
+}else{
+value = arguments[1];
+checked = undefined;
+}
+}else if(arguments.length){
+name = arguments[0];
+value = arguments[1];
+checked = arguments[2];
+}
+if(name) this.attr(rc, 'name', name);
+if(undefined!==value) rc.value = value;
+if(!!checked) rc.checked = true;
+return rc;
+};
+const domAddRemoveClass = function f(action,e){
+if(!f.rxSPlus){
+f.rxSPlus = /\s+/;
+f.applyAction = function(e,a,v){
+if(!e || !v
+) return;
+else if(e.forEach){
+e.forEach((E)=>E.classList[a](v));
+}else{
+e.classList[a](v);
+}
+};
+}
+var i = 2, n = arguments.length;
+for( ; i < n; ++i ){
+let c = arguments[i];
+if(!c) continue;
+else if(isArray(c) ||
+('string'===typeof c
+&& c.indexOf(' ')>=0
+&& (c = c.split(f.rxSPlus)))
+|| c.forEach
+){
+c.forEach((k)=>k ? f.applyAction(e, action, k) : false);
+}else if(c){
+f.applyAction(e, action, c);
+}
+}
+return e;
+};
+dom.addClass = function(e,c){
+const a = argsToArray(arguments);
+a.unshift('add');
+return domAddRemoveClass.apply(this, a);
+};
+dom.removeClass = function(e,c){
+const a = argsToArray(arguments);
+a.unshift('remove');
+return domAddRemoveClass.apply(this, a);
+};
+dom.toggleClass = function f(e,c){
+if(e.forEach){
+e.forEach((x)=>x.classList.toggle(c));
+}else{
+e.classList.toggle(c);
+}
+return e;
+};
+dom.hasClass = function(e,c){
+return (e && e.classList) ? e.classList.contains(c) : false;
+};
+dom.moveTo = function(dest,e){
+const n = arguments.length;
+var i = 1;
+const self = this;
+for( ; i < n; ++i ){
+e = arguments[i];
+this.append(dest, e);
+}
+return dest;
+};
+dom.moveChildrenTo = function f(dest,e){
+if(!f.mv){
+f.mv = function(d,v){
+if(d instanceof Array){
+d.push(v);
+if(v.parentNode) v.parentNode.removeChild(v);
+}
+else d.appendChild(v);
+};
+}
+const n = arguments.length;
+var i = 1;
+for( ; i < n; ++i ){
+e = arguments[i];
+if(!e){
+console.warn("Achtung: dom.moveChildrenTo() passed a falsy value at argument",i,"of",
+arguments,arguments[i]);
+continue;
+}
+if(e.forEach){
+e.forEach((x)=>f.mv(dest, x));
+}else{
+while(e.firstChild){
+f.mv(dest, e.firstChild);
+}
+}
+}
+return dest;
+};
+dom.replaceNode = function f(old,nu){
+var i = 1, n = arguments.length;
+++f.counter;
+try {
+for( ; i < n; ++i ){
+const e = arguments[i];
+if(e.forEach){
+e.forEach((x)=>f.call(this,old,e));
+continue;
+}
+old.parentNode.insertBefore(e, old);
+}
+}
+finally{
+--f.counter;
+}
+if(!f.counter){
+old.parentNode.removeChild(old);
+}
+};
+dom.replaceNode.counter = 0;
+dom.attr = function f(e){
+if(2===arguments.length) return e.getAttribute(arguments[1]);
+const a = argsToArray(arguments);
+if(e.forEach){
+e.forEach(function(x){
+a[0] = x;
+f.apply(f,a);
+});
+return e;
+}
+a.shift();
+while(a.length){
+const key = a.shift(), val = a.shift();
+if(null===val || undefined===val){
+e.removeAttribute(key);
+}else{
+e.setAttribute(key,val);
+}
+}
+return e;
+};
+const enableDisable = function f(enable){
+var i = 1, n = arguments.length;
+for( ; i < n; ++i ){
+let e = arguments[i];
+if(e.forEach){
+e.forEach((x)=>f(enable,x));
+}else{
+e.disabled = !enable;
+}
+}
+return arguments[1];
+};
+dom.enable = function(e){
+const args = argsToArray(arguments);
+args.unshift(true);
+return enableDisable.apply(this,args);
+};
+dom.disable = function(e){
+const args = argsToArray(arguments);
+args.unshift(false);
+return enableDisable.apply(this,args);
+};
+dom.selectOne = function(x,origin){
+var src = origin || document,
+e = src.querySelector(x);
+if(!e){
+e = new Error("Cannot find DOM element: "+x);
+console.error(e, src);
+throw e;
+}
+return e;
+};
+dom.flashOnce = function f(e,howLongMs,afterFlashCallback){
+if(e.dataset.isBlinking){
+return;
+}
+if(2===arguments.length && 'function' ===typeof howLongMs){
+afterFlashCallback = howLongMs;
+howLongMs = f.defaultTimeMs;
+}
+if(!howLongMs || 'number'!==typeof howLongMs){
+howLongMs = f.defaultTimeMs;
+}
+e.dataset.isBlinking = true;
+const transition = e.style.transition;
+e.style.transition = "opacity "+howLongMs+"ms ease-in-out";
+const opacity = e.style.opacity;
+e.style.opacity = 0;
+setTimeout(function(){
+e.style.transition = transition;
+e.style.opacity = opacity;
+delete e.dataset.isBlinking;
+if(afterFlashCallback) afterFlashCallback();
+}, howLongMs);
+return e;
+};
+dom.flashOnce.defaultTimeMs = 400;
+dom.flashOnce.eventHandler = (event)=>dom.flashOnce(event.target)
+dom.flashNTimes = function(e,n,howLongMs,afterFlashCallback){
+const args = argsToArray(arguments);
+args.splice(1,1);
+if(arguments.length===3 && 'function'===typeof howLongMs){
+afterFlashCallback = howLongMs;
+howLongMs = args[1] = this.flashOnce.defaultTimeMs;
+}else if(arguments.length<3){
+args[1] = this.flashOnce.defaultTimeMs;
+}
+n = +n;
+const self = this;
+const cb = args[2] = function f(){
+if(--n){
+setTimeout(()=>self.flashOnce(e, howLongMs, f),
+howLongMs+(howLongMs*0.1));
+}else if(afterFlashCallback){
+afterFlashCallback();
+}
+};
+this.flashOnce.apply(this, args);
+return this;
+};
+dom.addClassBriefly = function f(e, className, howLongMs, afterCallback){
+if(arguments.length<4 && 'function'===typeof howLongMs){
+afterCallback = howLongMs;
+howLongMs = f.defaultTimeMs;
+}else if(arguments.length<3 || !+howLongMs){
+howLongMs = f.defaultTimeMs;
+}
+this.addClass(e, className);
+setTimeout(function(){
+dom.removeClass(e, className);
+if(afterCallback) afterCallback();
+}, howLongMs);
+return this;
+};
+dom.addClassBriefly.defaultTimeMs = 1000;
+dom.copyTextToClipboard = function(text){
+if( window.clipboardData && window.clipboardData.setData ){
+window.clipboardData.setData('Text',text);
+return true;
+}else{
+const x = document.createElement("textarea");
+x.style.position = 'fixed';
+x.value = text;
+document.body.appendChild(x);
+x.select();
+var rc;
+try{
+document.execCommand('copy');
+rc = true;
+}catch(err){
+rc = false;
+}finally{
+document.body.removeChild(x);
+}
+return rc;
+}
+};
+dom.copyStyle = function f(e, style){
+if(e.forEach){
+e.forEach((x)=>f(x, style));
+return e;
+}
+if(style){
+let k;
+for(k in style){
+if(style.hasOwnProperty(k)) e.style[k] = style[k];
+}
+}
+return e;
+};
+dom.effectiveHeight = function f(e){
+if(!e) return 0;
+if(!f.measure){
+f.measure = function callee(e, depth){
+if(!e) return;
+const m = e.getBoundingClientRect();
+if(0===depth){
+callee.top = m.top;
+callee.bottom = m.bottom;
+}else{
+callee.top = m.top ? Math.min(callee.top, m.top) : callee.top;
+callee.bottom = Math.max(callee.bottom, m.bottom);
+}
+Array.prototype.forEach.call(e.children,(e)=>callee(e,depth+1));
+if(0===depth){
+f.extra += callee.bottom - callee.top;
+}
+return f.extra;
+};
+}
+f.extra = 0;
+f.measure(e,0);
+return f.extra;
+};
+dom.parseHtml = function(){
+let childs, string, tgt;
+if(1===arguments.length){
+string = arguments[0];
+}else if(2==arguments.length){
+tgt = arguments[0];
+string  = arguments[1];
+}
+if(string){
+const newNode = new DOMParser().parseFromString(string, 'text/html');
+childs = newNode.documentElement.querySelector('body');
+childs = childs ? Array.prototype.slice.call(childs.childNodes, 0) : [];
+}else{
+childs = [];
+}
+return tgt ? this.moveTo(tgt, childs) : childs;
+};
+F.connectPagePreviewers = function f(selector,methodNamespace){
+if('string'===typeof selector){
+selector = document.querySelectorAll(selector);
+}else if(!selector.forEach){
+selector = [selector];
+}
+if(!methodNamespace){
+methodNamespace = F.page;
+}
+selector.forEach(function(e){
+e.addEventListener(
+'click', function(r){
+const eTo = '#'===e.dataset.fPreviewTo[0]
+? document.querySelector(e.dataset.fPreviewTo)
+: methodNamespace[e.dataset.fPreviewTo],
+eFrom = '#'===e.dataset.fPreviewFrom[0]
+? document.querySelector(e.dataset.fPreviewFrom)
+: methodNamespace[e.dataset.fPreviewFrom],
+asText = +(e.dataset.fPreviewAsText || 0);
+eTo.textContent = "Fetching preview...";
+methodNamespace[e.dataset.fPreviewVia](
+(eFrom instanceof Function ? eFrom.call(methodNamespace) : eFrom.value),
+function(r){
+if(eTo instanceof Function) eTo.call(methodNamespace, r||'');
+else if(!r){
+dom.clearElement(eTo);
+}else if(asText){
+eTo.textContent = r;
+}else{
+dom.parseHtml(dom.clearElement(eTo), r);
+}
+}
+);
+}, false
+);
+});
+return this;
+};
+return F.dom = dom;
+})(window.fossil);
+/* fossil.pikchr.js *************************************************************/
+(function(F){
+"use strict";
+const D = F.dom, P = F.pikchr = {};
+P.addSrcView = function f(svg){
+if(!f.hasOwnProperty('parentClick')){
+f.parentClick = function(ev){
+if(ev.altKey || ev.metaKey || ev.ctrlKey
+|| this.classList.contains('toggle')){
+this.classList.toggle('source');
+ev.stopPropagation();
+ev.preventDefault();
+}
+};
+f.clickPikchrShow = function(ev){
+const pId = this.dataset['pikchrid'];
+if(!pId) return;
+const ePikchr = this.parentNode.parentNode.querySelector('#'+pId);
+if(!ePikchr) return;
+ev.stopPropagation();
+window.sessionStorage.setItem('pikchr-xfer', ePikchr.innerText);
+};
+};
+if(!svg) svg = 'svg.pikchr';
+if('string' === typeof svg){
+document.querySelectorAll(svg).forEach((e)=>f.call(this, e));
+return this;
+}else if(svg.forEach){
+svg.forEach((e)=>f.call(this, e));
+return this;
+}
+if(svg.dataset.pikchrProcessed){
+return this;
+}
+svg.dataset.pikchrProcessed = 1;
+const parent = svg.parentNode.parentNode;
+const srcView = parent ? svg.parentNode.nextElementSibling : undefined;
+if(srcView && srcView.classList.contains('pikchr-src')){
+parent.addEventListener('click', f.parentClick, false);
+const eSpan = window.sessionStorage
+? srcView.querySelector('span')
+: undefined;
+if(eSpan){
+const openLink = eSpan.querySelector('a');
+if(openLink){
+openLink.addEventListener('click', f.clickPikchrShow, false);
+eSpan.classList.remove('hidden');
+}
+}
+}
+return this;
+};
+})(window.fossil);
+/* menu.js *************************************************************/
+function toggle_annotation_log(){
+var w = document.getElementById("annotation_log");
+var x = document.forms["f01"].elements["log"].checked
+w.style.display = x ? "block" : "none";
+}
+function submenu_onchange_submit(){
+var w = document.getElementById("f01");
+w.submit();
+}
+(function (){
+for(var i=0; 1; i++){
+var x = document.getElementById("submenuctrl-"+i);
+if(!x) break;
+if( !x.hasAttribute('data-ctrl') ){
+x.onchange = submenu_onchange_submit;
+}else{
+var cx = x.getAttribute('data-ctrl');
+if( cx=="toggle_annotation_log" ){
+x.onchange = toggle_annotation_log;
+}
+}
+}
+})();
+</script>
+</body>
+</html>

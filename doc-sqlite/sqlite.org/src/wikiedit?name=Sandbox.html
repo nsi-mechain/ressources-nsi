@@ -1,0 +1,3534 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-663dae017db4f3fbdc78da0ff7521e48b9250a27bd765571'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQLite: Wiki Editor</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css/wikiedit%3Fid=587432de.css" type="text/css">
+</head>
+<body class="wiki rpage-wikiedit cpage-wikiedit">
+<header>
+  <div class="title"><h1>SQLite</h1>Wiki Editor</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='https://sqlite.org/' class=''>Home</a>
+<a href='timeline.html' class=''>Timeline</a>
+<a href='https://sqlite.org/forum/forum' class='desktoponly'>Forum</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="content"><span id="debugMsg"></span>
+<noscript><div class='error'>This page requires JavaScript (ES2015, a.k.a. ES6, or newer).</div></noscript><div id='fossil-status-bar' title='Status message area. Double-click to clear them.'>Status messages will go here.</div>
+<div id='wikiedit-edit-status'><span class='name'></span><span class='links'></span></div><div id='wikiedit-tabs' class='tab-container'>Loading...</div><div id='wikiedit-tab-pages' data-tab-parent='wikiedit-tabs' data-tab-label='Wiki Page List' class='hidden'><div>Loading wiki pages list...</div></div><div id='wikiedit-tab-content' data-tab-parent='wikiedit-tabs' data-tab-label='Editor' class='hidden'><div class='wikiedit-options flex-container flex-row child-gap-small'><div class='input-with-label'><label>Mime type</label><select name="mimetype" size="1">
+<option value="text/x-fossil-wiki">Fossil Wiki</option>
+<option value="text/x-markdown" selected>Markdown</option>
+<option value="text/plain">Plain Text</option>
+</select>
+</div><div class='input-with-label' id='select-font-size'><label for='input-id-1'>Editor font size</label><select name='editor_font_size' id='input-id-1'><option value='100' selected>100%</option>
+<option value='125'>125%</option>
+<option value='150'>150%</option>
+<option value='175'>175%</option>
+<option value='200'>200%</option>
+</select>
+</div>
+<div class='input-with-label'><button class='wikiedit-save'>Save</button><button class='wikiedit-save-close'>Save &amp; Close</button><div class='help-buttonlet'>Save edits to this page and optionally return to the wiki page viewer.</div></div><span class='save-button-slot'></span><div class='input-with-label'><button class='wikiedit-content-reload' >Discard &amp; Reload</button><div class='help-buttonlet'>Reload the file from the server, discarding any local edits. To help avoid accidental loss of edits, it requires confirmation (a second click) within a few seconds or it will not reload.</div></div><div class='input-with-label'><input type='checkbox' id='edit-shift-enter-preview' ></input><label for='edit-shift-enter-preview'>Shift-enter previews</label><div class='help-buttonlet'>When enabled, shift-enter switches between preview and edit modes. Some software-based keyboards misinteract with this, so it can be disabled when needed.</div></div></div><div class='flex-container flex-column stretch'><textarea name='content' id='wikiedit-content-editor' class='wikiedit' rows='25'></textarea></div></div><div id='wikiedit-tab-preview' data-tab-parent='wikiedit-tabs' data-tab-label='Preview' class='hidden'><div class='wikiedit-options flex-container flex-row child-gap-small'><button id='btn-preview-refresh' data-f-preview-from='wikiContent' data-f-preview-via='_postPreview' data-f-preview-to='_previewTo' >Refresh</button><div class='input-with-label'><input type='checkbox' value='1' id='cb-preview-autorefresh' checked><label for='cb-preview-autorefresh'>Auto-refresh?</label></div><span class='save-button-slot'></span></div><div id='wikiedit-tab-preview-wrapper'></div></div><div id='wikiedit-tab-diff' data-tab-parent='wikiedit-tabs' data-tab-label='Diff' class='hidden'><div class='wikiedit-options flex-container flex-row child-gap-small' id='wikiedit-tab-diff-buttons'><div class='input-with-label'><button class='sbs'>Side-by-side</button><button class='unified'>Unified</button></div><span class='save-button-slot'></span></div><div id='wikiedit-tab-diff-wrapper'>Diffs will be shown here.</div></div><div id='wikiedit-tab-misc' data-tab-parent='wikiedit-tabs' data-tab-label='Misc.' class='hidden'><fieldset id='attachment-wrapper'><legend>Attachments</legend><div>No attachments for the current page.</div></fieldset><h2>Wiki formatting rules</h2><ul><li><a href='wiki_rules.html'>Fossil wiki format</a></li><li><a href='md_rules.html'>Markdown format</a></li><li>Plain-text pages use no special formatting.</li></ul><h2>The "Sandbox" Page</h2><p>The page named "Sandbox" is not a real wiki page. It provides a place where users may test out wiki syntax without having to actually save anything, nor pollute the repo with endless test runs. Any attempt to save the sandbox page will fail.</p><h2>Wiki Name Rules</h2><ul>
+<li> Must not begin or end with a space.</li>
+<li> Must not contain any control characters, including tab or
+     newline.</li>
+<li> Must not have two or more spaces in a row internally.</li>
+<li> Must be between 1 and 100 characters in length.</li>
+</ul>
+</div><script nonce='663dae017db4f3fbdc78da0ff7521e48b9250a27bd765571'>/* builtin.c:637 */
+(function(){
+if(window.NodeList && !NodeList.prototype.forEach){NodeList.prototype.forEach = Array.prototype.forEach;}
+if(!window.fossil) window.fossil={};
+window.fossil.version = "2.27 [c953e01c9e] 2025-06-05 13:07:01 UTC";
+window.fossil.rootPath = "/src"+'/';
+window.fossil.config = {projectName: "SQLite",
+shortProjectName: "",
+projectCode: "2ab58778c2967968b94284e989e43dc11791f548",
+/* Length of UUID hashes for display purposes. */hashDigits: 10, hashDigitsUrl: 16,
+diffContextLines: 5,
+editStateMarkers: {/*Symbolic markers to denote certain edit states.*/isNew:'[+]', isModified:'[*]', isDeleted:'[-]'},
+confirmerButtonTicks: 3 /*default fossil.confirmer tick count.*/,
+skin:{isDark: false/*true if the current skin has the 'white-foreground' detail*/}
+};
+window.fossil.user = {name: "guest",isAdmin: false};
+if(fossil.config.skin.isDark) document.body.classList.add('fossil-dark-style');
+window.fossil.page = {name:"wikiedit"};
+})();
+</script>
+<script nonce='663dae017db4f3fbdc78da0ff7521e48b9250a27bd765571'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+/* fossil.bootstrap.js *************************************************************/
+"use strict";
+(function () {
+if(typeof window.CustomEvent === "function") return false;
+window.CustomEvent = function(event, params) {
+if(!params) params = {bubbles: false, cancelable: false, detail: null};
+const evt = document.createEvent('CustomEvent');
+evt.initCustomEvent( event, !!params.bubbles, !!params.cancelable, params.detail );
+return evt;
+};
+})();
+(function(global){
+const F = global.fossil;
+const timestring = function f(){
+if(!f.rx1){
+f.rx1 = /\.\d+Z$/;
+}
+const d = new Date();
+return d.toISOString().replace(f.rx1,'').split('T').join(' ');
+};
+const localTimeString = function ff(d){
+if(!ff.pad){
+ff.pad = (x)=>(''+x).length>1 ? x : '0'+x;
+}
+d || (d = new Date());
+return [
+d.getFullYear(),'-',ff.pad(d.getMonth()+1),
+'-',ff.pad(d.getDate()),
+' ',ff.pad(d.getHours()),':',ff.pad(d.getMinutes()),
+':',ff.pad(d.getSeconds())
+].join('');
+};
+F.message = function f(msg){
+const args = Array.prototype.slice.call(arguments,0);
+const tgt = f.targetElement;
+if(args.length) args.unshift(
+localTimeString()+':'
+);
+if(tgt){
+tgt.classList.remove('error');
+tgt.innerText = args.join(' ');
+}
+else{
+if(args.length){
+args.unshift('Fossil status:');
+console.debug.apply(console,args);
+}
+}
+return this;
+};
+F.message.targetElement =
+document.querySelector('#fossil-status-bar');
+if(F.message.targetElement){
+F.message.targetElement.addEventListener(
+'dblclick', ()=>F.message(), false
+);
+}
+F.error = function f(msg){
+const args = Array.prototype.slice.call(arguments,0);
+const tgt = F.message.targetElement;
+args.unshift(timestring(),'UTC:');
+if(tgt){
+tgt.classList.add('error');
+tgt.innerText = args.join(' ');
+}
+else{
+args.unshift('Fossil error:');
+console.error.apply(console,args);
+}
+return this;
+};
+F.encodeUrlArgs = function(obj,tgtArray,fakeEncode){
+if(!obj) return '';
+const a = (tgtArray instanceof Array) ? tgtArray : [],
+enc = fakeEncode ? (x)=>x : encodeURIComponent;
+let k, i = 0;
+for( k in obj ){
+if(i++) a.push('&');
+a.push(enc(k),'=',enc(obj[k]));
+}
+return a===tgtArray ? a : a.join('');
+};
+F.repoUrl = function(path,urlParams){
+if(!urlParams) return this.rootPath+path;
+const url=[this.rootPath,path];
+url.push('?');
+if('string'===typeof urlParams) url.push(urlParams);
+else if(urlParams && 'object'===typeof urlParams){
+this.encodeUrlArgs(urlParams, url);
+}
+return url.join('');
+};
+F.isObject = function(v){
+return v &&
+(v instanceof Object) &&
+('[object Object]' === Object.prototype.toString.apply(v) );
+};
+F.mergeLastWins = function(){
+var k, o, i;
+const n = arguments.length, rc={};
+for(i = 0; i < n; ++i){
+if(!F.isObject(o = arguments[i])) continue;
+for( k in o ){
+if(o.hasOwnProperty(k)) rc[k] = o[k];
+}
+}
+return rc;
+};
+F.hashDigits = function(hash,forUrl){
+const n = ('number'===typeof forUrl)
+? forUrl : F.config[forUrl ? 'hashDigitsUrl' : 'hashDigits'];
+return ('string'==typeof hash ? hash.substr(
+0, n
+) : hash);
+};
+F.onPageLoad = function(callback){
+window.addEventListener('load', callback, false);
+return this;
+};
+F.onDOMContentLoaded = function(callback){
+window.addEventListener('DOMContentLoaded', callback, false);
+return this;
+};
+F.shortenFilename = function(name){
+const a = name.split('/');
+if(a.length<=2) return name;
+while(a.length>2) a.shift();
+return '.../'+a.join('/');
+};
+F.page.addEventListener = function f(eventName, callback){
+if(!f.proxy){
+f.proxy = document.createElement('span');
+}
+f.proxy.addEventListener(eventName, callback, false);
+return this;
+};
+F.page.dispatchEvent = function(eventName, eventDetail){
+if(this.addEventListener.proxy){
+try{
+this.addEventListener.proxy.dispatchEvent(
+new CustomEvent(eventName,{detail: eventDetail})
+);
+}catch(e){
+console.error(eventName,"event listener threw:",e);
+}
+}
+return this;
+};
+F.page.setPageTitle = function(title){
+const t = document.querySelector('title');
+if(t) t.innerText = title;
+return this;
+};
+F.debounce = function f(func, waitMs, immediate) {
+var timeoutId;
+if(!waitMs) waitMs = f.$defaultDelay;
+return function() {
+const context = this, args = Array.prototype.slice.call(arguments);
+const later = function() {
+timeoutId = undefined;
+if(!immediate) func.apply(context, args);
+};
+const callNow = immediate && !timeoutId;
+clearTimeout(timeoutId);
+timeoutId = setTimeout(later, waitMs);
+if(callNow) func.apply(context, args);
+};
+};
+F.debounce.$defaultDelay = 500;
+})(window);
+/* fossil.fetch.js *************************************************************/
+"use strict";
+(function(namespace){
+const fossil = namespace;
+fossil.fetch = function f(uri,opt){
+const F = fossil;
+if(!f.onload){
+f.onload = (r)=>console.debug('fossil.fetch() XHR response:',r);
+}
+if(!f.onerror){
+f.onerror = function(e){
+console.error("fossil.fetch() XHR error:",e);
+if(e instanceof Error) F.error('Exception:',e);
+else F.error("Unknown error in handling of XHR request.");
+};
+}
+if(!f.parseResponseHeaders){
+f.parseResponseHeaders = function(h){
+const rc = {};
+if(!h) return rc;
+const ar = h.trim().split(/[\r\n]+/);
+ar.forEach(function(line) {
+const parts = line.split(': ');
+const header = parts.shift();
+const value = parts.join(': ');
+rc[header.toLowerCase()] = value;
+});
+return rc;
+};
+}
+if('/'===uri[0]) uri = uri.substr(1);
+if(!opt) opt = {};
+else if('function'===typeof opt) opt={onload:opt};
+if(!opt.onload) opt.onload = f.onload;
+if(!opt.onerror) opt.onerror = f.onerror;
+if(!opt.beforesend) opt.beforesend = f.beforesend;
+if(!opt.aftersend) opt.aftersend = f.aftersend;
+let payload = opt.payload, jsonResponse = false;
+if(undefined!==payload){
+opt.method = 'POST';
+if(!(payload instanceof FormData)
+&& !(payload instanceof Document)
+&& !(payload instanceof Blob)
+&& !(payload instanceof File)
+&& !(payload instanceof ArrayBuffer)
+&& ('object'===typeof payload
+|| payload instanceof Array)){
+payload = JSON.stringify(payload);
+opt.contentType = 'application/json';
+}
+}
+const url=[f.urlTransform(uri,opt.urlParams)],
+x=new XMLHttpRequest();
+if('json'===opt.responseType){
+jsonResponse = true;
+x.responseType = 'text';
+}else{
+x.responseType = opt.responseType||'text';
+}
+x.ontimeout = function(ev){
+try{opt.aftersend()}catch(e){}
+const err = new Error("XHR timeout of "+x.timeout+"ms expired.");
+err.status = x.status;
+err.name = 'timeout';
+try{
+(opt.ontimeout || opt.onerror)(err);
+}catch(e){
+console.error("fossil.fetch()'s ontimeout() handler threw",e);
+}
+};
+const origOnError = opt.onerror;
+opt.onerror = (arg)=>{
+try{ origOnError.call(this, arg) }
+catch(e){
+console.error("fossil.fetch()'s onerror() threw",e);
+}
+};
+x.onreadystatechange = function(ev){
+if(XMLHttpRequest.DONE !== x.readyState) return;
+try{opt.aftersend()}catch(e){}
+if(false && 0===x.status){
+return;
+}
+if(200!==x.status){
+let err;
+try{
+const j = JSON.parse(x.response);
+if(j.error){
+err = new Error(j.error);
+err.name = 'json.error';
+}
+}catch(ex){}
+if( !err ){
+err = new Error("HTTP response status "+x.status+".")
+err.name = 'http';
+}
+err.status = x.status;
+opt.onerror(err);
+return;
+}
+const orh = opt.responseHeaders;
+let head;
+if(true===orh){
+head = f.parseResponseHeaders(x.getAllResponseHeaders());
+}else if('string'===typeof orh){
+head = x.getResponseHeader(orh);
+}else if(orh instanceof Array){
+head = {};
+orh.forEach((s)=>{
+if('string' === typeof s) head[s.toLowerCase()] = x.getResponseHeader(s);
+});
+}
+try{
+const args = [(jsonResponse && x.response)
+? JSON.parse(x.response) : x.response];
+if(head) args.push(head);
+opt.onload.apply(opt, args);
+}catch(err){
+opt.onerror(err);
+}
+};
+try{opt.beforesend()}
+catch(err){
+opt.onerror(err);
+return;
+}
+x.open(opt.method||'GET', url.join(''), true);
+if('POST'===opt.method && 'string'===typeof opt.contentType){
+x.setRequestHeader('Content-Type',opt.contentType);
+}
+x.timeout = +opt.timeout || f.timeout;
+if(undefined!==payload) x.send(payload);
+else x.send();
+return this;
+};
+fossil.fetch.urlTransform = (u,p)=>fossil.repoUrl(u,p);
+fossil.fetch.beforesend = function(){};
+fossil.fetch.aftersend = function(){};
+fossil.fetch.timeout = 15000;
+})(window.fossil);
+/* fossil.dom.js *************************************************************/
+"use strict";
+(function(F){
+const argsToArray = (a)=>Array.prototype.slice.call(a,0);
+const isArray = (v)=>v instanceof Array;
+const dom = {
+create: function(elemType){
+return document.createElement(elemType);
+},
+createElemFactory: function(eType){
+return function(){
+return document.createElement(eType);
+};
+},
+remove: function(e){
+if(e?.forEach){
+e.forEach(
+(x)=>x?.parentNode?.removeChild(x)
+);
+}else{
+e?.parentNode?.removeChild(e);
+}
+return e;
+},
+clearElement: function f(e){
+if(!f.each){
+f.each = function(e){
+if(e.forEach){
+e.forEach((x)=>f(x));
+return e;
+}
+while(e.firstChild) e.removeChild(e.firstChild);
+};
+}
+argsToArray(arguments).forEach(f.each);
+return arguments[0];
+},
+};
+dom.splitClassList = function f(str){
+if(!f.rx){
+f.rx = /(\s+|\s*,\s*)/;
+}
+return str ? str.split(f.rx) : [str];
+};
+dom.div = dom.createElemFactory('div');
+dom.p = dom.createElemFactory('p');
+dom.code = dom.createElemFactory('code');
+dom.pre = dom.createElemFactory('pre');
+dom.header = dom.createElemFactory('header');
+dom.footer = dom.createElemFactory('footer');
+dom.section = dom.createElemFactory('section');
+dom.span = dom.createElemFactory('span');
+dom.strong = dom.createElemFactory('strong');
+dom.em = dom.createElemFactory('em');
+dom.ins = dom.createElemFactory('ins');
+dom.del = dom.createElemFactory('del');
+dom.label = function(forElem, text){
+const rc = document.createElement('label');
+if(forElem){
+if(forElem instanceof HTMLElement){
+forElem = this.attr(forElem, 'id');
+}
+if(forElem){
+dom.attr(rc, 'for', forElem);
+}
+}
+if(text) this.append(rc, text);
+return rc;
+};
+dom.img = function(src){
+const e = this.create('img');
+if(src) e.setAttribute('src',src);
+return e;
+};
+dom.a = function(href,label){
+const e = this.create('a');
+if(href) e.setAttribute('href',href);
+if(label) e.appendChild(dom.text(true===label ? href : label));
+return e;
+};
+dom.hr = dom.createElemFactory('hr');
+dom.br = dom.createElemFactory('br');
+dom.text = function(){
+return document.createTextNode(argsToArray(arguments).join(''));
+};
+dom.button = function(label,callback){
+const b = this.create('button');
+if(label) b.appendChild(this.text(label));
+if('function' === typeof callback){
+b.addEventListener('click', callback, false);
+}
+return b;
+};
+dom.textarea = function(){
+const rc = this.create('textarea');
+let rows, cols, readonly;
+if(1===arguments.length){
+if('boolean'===typeof arguments[0]){
+readonly = !!arguments[0];
+}else{
+rows = arguments[0];
+}
+}else if(arguments.length){
+rows = arguments[0];
+cols = arguments[1];
+readonly = arguments[2];
+}
+if(rows) rc.setAttribute('rows',rows);
+if(cols) rc.setAttribute('cols', cols);
+if(readonly) rc.setAttribute('readonly', true);
+return rc;
+};
+dom.select = dom.createElemFactory('select');
+dom.option = function(value,label){
+const a = arguments;
+var sel;
+if(1==a.length){
+if(a[0] instanceof HTMLElement){
+sel = a[0];
+}else{
+value = a[0];
+}
+}else if(2==a.length){
+if(a[0] instanceof HTMLElement){
+sel = a[0];
+value = a[1];
+}else{
+value = a[0];
+label = a[1];
+}
+}
+else if(3===a.length){
+sel = a[0];
+value = a[1];
+label = a[2];
+}
+const o = this.create('option');
+if(undefined !== value){
+o.value = value;
+this.append(o, this.text(label || value));
+}else if(undefined !== label){
+this.append(o, label);
+}
+if(sel) this.append(sel, o);
+return o;
+};
+dom.h = function(level){
+return this.create('h'+level);
+};
+dom.ul = dom.createElemFactory('ul');
+dom.li = function(parent){
+const li = this.create('li');
+if(parent) parent.appendChild(li);
+return li;
+};
+dom.createElemFactoryWithOptionalParent = function(childType){
+return function(parent){
+const e = this.create(childType);
+if(parent) parent.appendChild(e);
+return e;
+};
+};
+dom.table = dom.createElemFactory('table');
+dom.thead = dom.createElemFactoryWithOptionalParent('thead');
+dom.tbody = dom.createElemFactoryWithOptionalParent('tbody');
+dom.tfoot = dom.createElemFactoryWithOptionalParent('tfoot');
+dom.tr = dom.createElemFactoryWithOptionalParent('tr');
+dom.td = dom.createElemFactoryWithOptionalParent('td');
+dom.th = dom.createElemFactoryWithOptionalParent('th');
+dom.fieldset = function(legendText){
+const fs = this.create('fieldset');
+if(legendText){
+this.append(
+fs,
+(legendText instanceof HTMLElement)
+? legendText
+: this.append(this.legend(legendText))
+);
+}
+return fs;
+};
+dom.legend = function(legendText){
+const rc = this.create('legend');
+if(legendText) this.append(rc, legendText);
+return rc;
+};
+dom.append = function f(parent){
+const a = argsToArray(arguments);
+a.shift();
+for(let i in a) {
+var e = a[i];
+if(isArray(e) || e.forEach){
+e.forEach((x)=>f.call(this, parent,x));
+continue;
+}
+if('string'===typeof e
+|| 'number'===typeof e
+|| 'boolean'===typeof e
+|| e instanceof Error) e = this.text(e);
+parent.appendChild(e);
+}
+return parent;
+};
+dom.input = function(type){
+return this.attr(this.create('input'), 'type', type);
+};
+dom.checkbox = function(value, checked){
+const rc = this.input('checkbox');
+if(1===arguments.length && 'boolean'===typeof value){
+checked = !!value;
+value = undefined;
+}
+if(undefined !== value) rc.value = value;
+if(!!checked) rc.checked = true;
+return rc;
+};
+dom.radio = function(){
+const rc = this.input('radio');
+let name, value, checked;
+if(1===arguments.length && 'boolean'===typeof name){
+checked = arguments[0];
+name = value = undefined;
+}else if(2===arguments.length){
+name = arguments[0];
+if('boolean'===typeof arguments[1]){
+checked = arguments[1];
+}else{
+value = arguments[1];
+checked = undefined;
+}
+}else if(arguments.length){
+name = arguments[0];
+value = arguments[1];
+checked = arguments[2];
+}
+if(name) this.attr(rc, 'name', name);
+if(undefined!==value) rc.value = value;
+if(!!checked) rc.checked = true;
+return rc;
+};
+const domAddRemoveClass = function f(action,e){
+if(!f.rxSPlus){
+f.rxSPlus = /\s+/;
+f.applyAction = function(e,a,v){
+if(!e || !v
+) return;
+else if(e.forEach){
+e.forEach((E)=>E.classList[a](v));
+}else{
+e.classList[a](v);
+}
+};
+}
+var i = 2, n = arguments.length;
+for( ; i < n; ++i ){
+let c = arguments[i];
+if(!c) continue;
+else if(isArray(c) ||
+('string'===typeof c
+&& c.indexOf(' ')>=0
+&& (c = c.split(f.rxSPlus)))
+|| c.forEach
+){
+c.forEach((k)=>k ? f.applyAction(e, action, k) : false);
+}else if(c){
+f.applyAction(e, action, c);
+}
+}
+return e;
+};
+dom.addClass = function(e,c){
+const a = argsToArray(arguments);
+a.unshift('add');
+return domAddRemoveClass.apply(this, a);
+};
+dom.removeClass = function(e,c){
+const a = argsToArray(arguments);
+a.unshift('remove');
+return domAddRemoveClass.apply(this, a);
+};
+dom.toggleClass = function f(e,c){
+if(e.forEach){
+e.forEach((x)=>x.classList.toggle(c));
+}else{
+e.classList.toggle(c);
+}
+return e;
+};
+dom.hasClass = function(e,c){
+return (e && e.classList) ? e.classList.contains(c) : false;
+};
+dom.moveTo = function(dest,e){
+const n = arguments.length;
+var i = 1;
+const self = this;
+for( ; i < n; ++i ){
+e = arguments[i];
+this.append(dest, e);
+}
+return dest;
+};
+dom.moveChildrenTo = function f(dest,e){
+if(!f.mv){
+f.mv = function(d,v){
+if(d instanceof Array){
+d.push(v);
+if(v.parentNode) v.parentNode.removeChild(v);
+}
+else d.appendChild(v);
+};
+}
+const n = arguments.length;
+var i = 1;
+for( ; i < n; ++i ){
+e = arguments[i];
+if(!e){
+console.warn("Achtung: dom.moveChildrenTo() passed a falsy value at argument",i,"of",
+arguments,arguments[i]);
+continue;
+}
+if(e.forEach){
+e.forEach((x)=>f.mv(dest, x));
+}else{
+while(e.firstChild){
+f.mv(dest, e.firstChild);
+}
+}
+}
+return dest;
+};
+dom.replaceNode = function f(old,nu){
+var i = 1, n = arguments.length;
+++f.counter;
+try {
+for( ; i < n; ++i ){
+const e = arguments[i];
+if(e.forEach){
+e.forEach((x)=>f.call(this,old,e));
+continue;
+}
+old.parentNode.insertBefore(e, old);
+}
+}
+finally{
+--f.counter;
+}
+if(!f.counter){
+old.parentNode.removeChild(old);
+}
+};
+dom.replaceNode.counter = 0;
+dom.attr = function f(e){
+if(2===arguments.length) return e.getAttribute(arguments[1]);
+const a = argsToArray(arguments);
+if(e.forEach){
+e.forEach(function(x){
+a[0] = x;
+f.apply(f,a);
+});
+return e;
+}
+a.shift();
+while(a.length){
+const key = a.shift(), val = a.shift();
+if(null===val || undefined===val){
+e.removeAttribute(key);
+}else{
+e.setAttribute(key,val);
+}
+}
+return e;
+};
+const enableDisable = function f(enable){
+var i = 1, n = arguments.length;
+for( ; i < n; ++i ){
+let e = arguments[i];
+if(e.forEach){
+e.forEach((x)=>f(enable,x));
+}else{
+e.disabled = !enable;
+}
+}
+return arguments[1];
+};
+dom.enable = function(e){
+const args = argsToArray(arguments);
+args.unshift(true);
+return enableDisable.apply(this,args);
+};
+dom.disable = function(e){
+const args = argsToArray(arguments);
+args.unshift(false);
+return enableDisable.apply(this,args);
+};
+dom.selectOne = function(x,origin){
+var src = origin || document,
+e = src.querySelector(x);
+if(!e){
+e = new Error("Cannot find DOM element: "+x);
+console.error(e, src);
+throw e;
+}
+return e;
+};
+dom.flashOnce = function f(e,howLongMs,afterFlashCallback){
+if(e.dataset.isBlinking){
+return;
+}
+if(2===arguments.length && 'function' ===typeof howLongMs){
+afterFlashCallback = howLongMs;
+howLongMs = f.defaultTimeMs;
+}
+if(!howLongMs || 'number'!==typeof howLongMs){
+howLongMs = f.defaultTimeMs;
+}
+e.dataset.isBlinking = true;
+const transition = e.style.transition;
+e.style.transition = "opacity "+howLongMs+"ms ease-in-out";
+const opacity = e.style.opacity;
+e.style.opacity = 0;
+setTimeout(function(){
+e.style.transition = transition;
+e.style.opacity = opacity;
+delete e.dataset.isBlinking;
+if(afterFlashCallback) afterFlashCallback();
+}, howLongMs);
+return e;
+};
+dom.flashOnce.defaultTimeMs = 400;
+dom.flashOnce.eventHandler = (event)=>dom.flashOnce(event.target)
+dom.flashNTimes = function(e,n,howLongMs,afterFlashCallback){
+const args = argsToArray(arguments);
+args.splice(1,1);
+if(arguments.length===3 && 'function'===typeof howLongMs){
+afterFlashCallback = howLongMs;
+howLongMs = args[1] = this.flashOnce.defaultTimeMs;
+}else if(arguments.length<3){
+args[1] = this.flashOnce.defaultTimeMs;
+}
+n = +n;
+const self = this;
+const cb = args[2] = function f(){
+if(--n){
+setTimeout(()=>self.flashOnce(e, howLongMs, f),
+howLongMs+(howLongMs*0.1));
+}else if(afterFlashCallback){
+afterFlashCallback();
+}
+};
+this.flashOnce.apply(this, args);
+return this;
+};
+dom.addClassBriefly = function f(e, className, howLongMs, afterCallback){
+if(arguments.length<4 && 'function'===typeof howLongMs){
+afterCallback = howLongMs;
+howLongMs = f.defaultTimeMs;
+}else if(arguments.length<3 || !+howLongMs){
+howLongMs = f.defaultTimeMs;
+}
+this.addClass(e, className);
+setTimeout(function(){
+dom.removeClass(e, className);
+if(afterCallback) afterCallback();
+}, howLongMs);
+return this;
+};
+dom.addClassBriefly.defaultTimeMs = 1000;
+dom.copyTextToClipboard = function(text){
+if( window.clipboardData && window.clipboardData.setData ){
+window.clipboardData.setData('Text',text);
+return true;
+}else{
+const x = document.createElement("textarea");
+x.style.position = 'fixed';
+x.value = text;
+document.body.appendChild(x);
+x.select();
+var rc;
+try{
+document.execCommand('copy');
+rc = true;
+}catch(err){
+rc = false;
+}finally{
+document.body.removeChild(x);
+}
+return rc;
+}
+};
+dom.copyStyle = function f(e, style){
+if(e.forEach){
+e.forEach((x)=>f(x, style));
+return e;
+}
+if(style){
+let k;
+for(k in style){
+if(style.hasOwnProperty(k)) e.style[k] = style[k];
+}
+}
+return e;
+};
+dom.effectiveHeight = function f(e){
+if(!e) return 0;
+if(!f.measure){
+f.measure = function callee(e, depth){
+if(!e) return;
+const m = e.getBoundingClientRect();
+if(0===depth){
+callee.top = m.top;
+callee.bottom = m.bottom;
+}else{
+callee.top = m.top ? Math.min(callee.top, m.top) : callee.top;
+callee.bottom = Math.max(callee.bottom, m.bottom);
+}
+Array.prototype.forEach.call(e.children,(e)=>callee(e,depth+1));
+if(0===depth){
+f.extra += callee.bottom - callee.top;
+}
+return f.extra;
+};
+}
+f.extra = 0;
+f.measure(e,0);
+return f.extra;
+};
+dom.parseHtml = function(){
+let childs, string, tgt;
+if(1===arguments.length){
+string = arguments[0];
+}else if(2==arguments.length){
+tgt = arguments[0];
+string  = arguments[1];
+}
+if(string){
+const newNode = new DOMParser().parseFromString(string, 'text/html');
+childs = newNode.documentElement.querySelector('body');
+childs = childs ? Array.prototype.slice.call(childs.childNodes, 0) : [];
+}else{
+childs = [];
+}
+return tgt ? this.moveTo(tgt, childs) : childs;
+};
+F.connectPagePreviewers = function f(selector,methodNamespace){
+if('string'===typeof selector){
+selector = document.querySelectorAll(selector);
+}else if(!selector.forEach){
+selector = [selector];
+}
+if(!methodNamespace){
+methodNamespace = F.page;
+}
+selector.forEach(function(e){
+e.addEventListener(
+'click', function(r){
+const eTo = '#'===e.dataset.fPreviewTo[0]
+? document.querySelector(e.dataset.fPreviewTo)
+: methodNamespace[e.dataset.fPreviewTo],
+eFrom = '#'===e.dataset.fPreviewFrom[0]
+? document.querySelector(e.dataset.fPreviewFrom)
+: methodNamespace[e.dataset.fPreviewFrom],
+asText = +(e.dataset.fPreviewAsText || 0);
+eTo.textContent = "Fetching preview...";
+methodNamespace[e.dataset.fPreviewVia](
+(eFrom instanceof Function ? eFrom.call(methodNamespace) : eFrom.value),
+function(r){
+if(eTo instanceof Function) eTo.call(methodNamespace, r||'');
+else if(!r){
+dom.clearElement(eTo);
+}else if(asText){
+eTo.textContent = r;
+}else{
+dom.parseHtml(dom.clearElement(eTo), r);
+}
+}
+);
+}, false
+);
+});
+return this;
+};
+return F.dom = dom;
+})(window.fossil);
+/* fossil.tabs.js *************************************************************/
+"use strict";
+(function(F){
+const E = (s)=>document.querySelector(s),
+EA = (s)=>document.querySelectorAll(s),
+D = F.dom;
+const TabManager = function(domElem, options){
+this.e = {};
+this.options = F.mergeLastWins(TabManager.defaultOptions , options);
+if(domElem) this.init(domElem);
+};
+TabManager.defaultOptions = {
+tabAccessKeys: true
+};
+const tabArg = function(arg,tabMgr){
+if('string'===typeof arg) arg = E(arg);
+else if(tabMgr && 'number'===typeof arg && arg>=0){
+arg = tabMgr.e.tabs.childNodes[arg];
+}
+return arg;
+};
+const setVisible = function(e,yes){
+D[yes ? 'removeClass' : 'addClass'](e, 'hidden');
+};
+TabManager.prototype = {
+init: function(container){
+container = tabArg(container);
+const cID = container.getAttribute('id');
+if(!cID){
+throw new Error("Tab container element is missing 'id' attribute.");
+}
+const c = this.e.container = container;
+this.e.tabBar = D.addClass(D.div(),'tab-bar');
+this.e.tabs = D.addClass(D.div(),'tabs');
+D.append(c, this.e.tabBar, this.e.tabs);
+let selectIndex = 0;
+EA('[data-tab-parent='+cID+']').forEach((c,n)=>{
+if(+c.dataset.tabSelect) selectIndex=n;
+this.addTab(c);
+});
+return this.switchToTab(selectIndex);
+},
+getButtonForTab: function(tab){
+tab = tabArg(tab,this);
+var i = -1;
+this.e.tabs.childNodes.forEach(function(e,n){
+if(e===tab) i = n;
+});
+return i>=0 ? this.e.tabBar.childNodes[i] : undefined;
+},
+addTab: function f(tab){
+if(!f.click){
+f.click = function(e){
+e.target.$manager.switchToTab(e.target.$tab);
+};
+}
+tab = tabArg(tab);
+tab.remove();
+D.append(this.e.tabs, D.addClass(tab,'tab-panel'));
+const tabCount = this.e.tabBar.childNodes.length+1;
+const lbl = tab.dataset.tabLabel || 'Tab #'+tabCount;
+const btn = D.addClass(D.append(D.span(), lbl), 'tab-button');
+D.append(this.e.tabBar,btn);
+btn.$manager = this;
+btn.$tab = tab;
+if(this.options.tabAccessKeys){
+D.attr(btn, 'accesskey', tabCount);
+}
+btn.addEventListener('click', f.click, false);
+return this;
+},
+_dispatchEvent: function(name, detail){
+try{
+this.e.container.dispatchEvent(
+new CustomEvent(name, {detail: detail})
+);
+}catch(e){
+}
+return this;
+},
+addEventListener: function(eventName, callback){
+this.e.container.addEventListener(eventName, callback, false);
+return this;
+},
+addCustomWidget: function(e){
+this.e.container.insertBefore(e, this.e.tabs);
+return this;
+},
+switchToTab: function(tab){
+tab = tabArg(tab,this);
+const self = this;
+if(tab===this._currentTab) return this;
+else if(this._currentTab){
+this._dispatchEvent('before-switch-from', this._currentTab);
+}
+delete this._currentTab;
+this.e.tabs.childNodes.forEach((e,ndx)=>{
+const btn = this.e.tabBar.childNodes[ndx];
+if(e===tab){
+if(D.hasClass(e,'selected')){
+return;
+}
+self._dispatchEvent('before-switch-to',tab);
+setVisible(e, true);
+this._currentTab = e;
+D.addClass(btn,'selected');
+self._dispatchEvent('after-switch-to',tab);
+}else{
+if(D.hasClass(e,'selected')){
+return;
+}
+setVisible(e, false);
+D.removeClass(btn,'selected');
+}
+});
+return this;
+}
+};
+F.TabManager = TabManager;
+})(window.fossil);
+/* fossil.confirmer.js *************************************************************/
+"use strict";
+(function(F){
+F.confirmer = function f(elem,opt){
+const dbg = opt.debug
+? function(){console.debug.apply(console,arguments)}
+: function(){};
+dbg("confirmer opt =",opt);
+if(!f.Holder){
+f.isInput = (e)=>/^(input|textarea)$/i.test(e.nodeName);
+f.Holder = function(target,opt){
+const self = this;
+this.target = target;
+this.opt = opt;
+this.timerID = undefined;
+this.state = this.states.initial;
+const isInput = f.isInput(target);
+const updateText = function(msg){
+if(isInput) target.value = msg;
+else{
+const newNode = new DOMParser().parseFromString(msg, 'text/html');
+let childs = newNode.documentElement.querySelector('body');
+childs = childs ? Array.prototype.slice.call(childs.childNodes, 0) : [];
+target.innerText = '';
+childs.forEach((e)=>target.appendChild(e));
+}
+}
+const formatCountdown = (txt, number) => txt + " ["+number+"]";
+if(opt.pinSize && opt.confirmText){
+const digits = (''+(opt.timeout/1000 || opt.ticks)).length;
+const lblLong = formatCountdown(opt.confirmText, "00000000".substr(0,digits+1));
+const w1 = parseInt(target.getBoundingClientRect().width);
+updateText(lblLong);
+const w2 = parseInt(target.getBoundingClientRect().width);
+if(w1 || w2){
+target.style.minWidth = target.style.maxWidth = (w1>w2 ? w1 : w2)+"px";
+}
+}
+updateText(this.opt.initialText);
+if(this.opt.ticks && !this.opt.ontick){
+this.opt.ontick = function(tick){
+updateText(formatCountdown(self.opt.confirmText,tick));
+};
+}
+this.setClasses(false);
+this.doTimeout = function() {
+if(this.timerID){
+clearTimeout( this.timerID );
+delete this.timerID;
+}
+if( this.state != this.states.waiting ) {
+return;
+}
+this.setClasses( false );
+this.state = this.states.initial;
+dbg("Timeout triggered.");
+if( this.opt.ontick ){
+try{this.opt.ontick.call(this.target, 0)}
+catch(e){dbg("ontick EXCEPTION:",e)}
+}
+if( this.opt.ontimeout ) {
+try{this.opt.ontimeout.call(this.target)}
+catch(e){dbg("ontimeout EXCEPTION:",e)}
+}
+updateText(this.opt.initialText);
+};
+target.addEventListener(
+'click', function(){
+switch( self.state ) {
+case( self.states.waiting ):
+if( undefined !== self.timerID ){
+clearTimeout( self.timerID );
+delete self.timerID;
+}
+self.state = self.states.initial;
+self.setClasses( false );
+dbg("Confirmed");
+if( self.opt.ontick ){
+try{self.opt.ontick.call(self.target,0)}
+catch(e){dbg("ontick EXCEPTION:",e)}
+}
+if( self.opt.onconfirm ){
+try{self.opt.onconfirm.call(self.target)}
+catch(e){dbg("onconfirm EXCEPTION:",e)}
+}
+updateText(self.opt.initialText);
+break;
+case( self.states.initial ):
+if(self.opt.ticks) self.opt.currentTick = self.opt.ticks;
+self.setClasses( true );
+self.state = self.states.waiting;
+updateText( self.opt.confirmText );
+if( self.opt.onactivate ) self.opt.onactivate.call( self.target );
+if( self.opt.ontick ) self.opt.ontick.call(self.target, self.opt.currentTick);
+if(self.opt.timeout){
+dbg("Waiting "+self.opt.timeout+"ms on confirmation...");
+self.timerID =
+setTimeout(()=>self.doTimeout(),self.opt.timeout );
+}else if(self.opt.ticks){
+dbg("Waiting on confirmation for "+self.opt.ticks
++" ticks of "+self.opt.ticktime+"ms each...");
+self.timerID =
+setInterval(function(){
+if(0===--self.opt.currentTick) self.doTimeout();
+else{
+try{self.opt.ontick.call(self.target,
+self.opt.currentTick)}
+catch(e){dbg("ontick EXCEPTION:",e)}
+}
+},self.opt.ticktime);
+}
+break;
+default:
+break;
+}
+}, false
+);
+};
+f.Holder.prototype = {
+states:{initial: 0, waiting: 1},
+setClasses: function(activated) {
+if(activated) {
+if( this.opt.classWaiting ) {
+this.target.classList.add( this.opt.classWaiting );
+}
+if( this.opt.classInitial ) {
+this.target.classList.remove( this.opt.classInitial );
+}
+}else{
+if( this.opt.classInitial ) {
+this.target.classList.add( this.opt.classInitial );
+}
+if( this.opt.classWaiting ) {
+this.target.classList.remove( this.opt.classWaiting );
+}
+}
+}
+};
+}
+opt = F.mergeLastWins(f.defaultOpts,{
+initialText: (
+f.isInput(elem) ? elem.value : elem.innerHTML
+) || "PLEASE SET .initialText"
+},opt);
+if(!opt.confirmText){
+opt.confirmText = "Confirm: "+opt.initialText;
+}
+if(opt.ticks){
+delete opt.timeout;
+opt.ticks = 0 | opt.ticks;
+if(opt.ticks<=0){
+throw new Error("ticks must be >0");
+}
+if(opt.ticktime <= 0) opt.ticktime = 1000;
+}else{
+delete opt.ontick;
+delete opt.ticks;
+}
+new f.Holder(elem,opt);
+return this;
+};
+F.confirmer.defaultOpts = {
+timeout:undefined,
+ticks: 3,
+ticktime: 998,
+onconfirm: undefined,
+ontimeout: undefined,
+onactivate: undefined,
+classInitial: '',
+classWaiting: '',
+debug: false
+};
+})(window.fossil);
+/* fossil.storage.js *************************************************************/
+(function(F){
+const tryStorage = function f(obj){
+if(!f.key) f.key = 'fossil.access.check';
+try{
+obj.setItem(f.key, 'f');
+const x = obj.getItem(f.key);
+obj.removeItem(f.key);
+if(x!=='f') throw new Error(f.key+" failed")
+return obj;
+}catch(e){
+return undefined;
+}
+};
+const $storage =
+tryStorage(window.localStorage)
+|| tryStorage(window.sessionStorage)
+|| tryStorage({
+$$$:{},
+setItem: function(k,v){this.$$$[k]=v},
+getItem: function(k){
+return this.$$$.hasOwnProperty(k) ? this.$$$[k] : undefined;
+},
+removeItem: function(k){delete this.$$$[k]},
+clear: function(){this.$$$={}}
+});
+const $storageHolder = $storage.hasOwnProperty('$$$') ? $storage.$$$ : $storage;
+const storageKeyPrefix = (
+$storageHolder===$storage
+? (
+F.config.projectCode || F.config.projectName
+|| F.config.shortProjectName || window.location.pathname
+)+'::' : (
+''
+)
+);
+F.storage = {
+storageKeyPrefix: storageKeyPrefix,
+set: (k,v)=>$storage.setItem(storageKeyPrefix+k,v),
+setJSON: (k,v)=>$storage.setItem(storageKeyPrefix+k,JSON.stringify(v)),
+get: (k,dflt)=>$storageHolder.hasOwnProperty(
+storageKeyPrefix+k
+) ? $storage.getItem(storageKeyPrefix+k) : dflt,
+getBool: function(k,dflt){
+return 'true'===this.get(k,''+(!!dflt));
+},
+getJSON: function f(k,dflt){
+try {
+const x = this.get(k,f);
+return x===f ? dflt : JSON.parse(x);
+}
+catch(e){return dflt}
+},
+contains: (k)=>$storageHolder.hasOwnProperty(storageKeyPrefix+k),
+remove: function(k){
+$storage.removeItem(storageKeyPrefix+k);
+return this;
+},
+clear: function(){
+this.keys().forEach((k)=>$storage.removeItem(k));
+return this;
+},
+keys: ()=>Object.keys($storageHolder).filter((v)=>(v||'').startsWith(storageKeyPrefix)),
+isTransient: ()=>$storageHolder!==$storage,
+storageImplName: function(){
+if($storage===window.localStorage) return 'localStorage';
+else if($storage===window.sessionStorage) return 'sessionStorage';
+else return 'transient';
+},
+storageHelpDescription: function(){
+return {
+localStorage: "Browser-local persistent storage with an "+
+"unspecified long-term lifetime (survives closing the browser, "+
+"but maybe not a browser upgrade).",
+sessionStorage: "Storage local to this browser tab, "+
+"lost if this tab is closed.",
+"transient": "Transient storage local to this invocation of this page."
+}[this.storageImplName()];
+}
+};
+})(window.fossil);
+/* fossil.popupwidget.js *************************************************************/
+(function(F){
+const D = F.dom;
+F.PopupWidget = function f(opt){
+opt = F.mergeLastWins(f.defaultOptions,opt);
+this.options = opt;
+const e = this.e = D.addClass(D.div(), opt.cssClass,
+"fossil-PopupWidget");
+this.show(false);
+if(opt.style){
+let k;
+for(k in opt.style){
+if(opt.style.hasOwnProperty(k)) e.style[k] = opt.style[k];
+}
+}
+D.append(document.body, e);
+D.copyStyle(e, opt.style);
+if(opt.init){
+opt.init.call(this);
+delete opt.init;
+}
+};
+F.PopupWidget.defaultOptions = {
+cssClass: 'fossil-tooltip',
+style: undefined,
+adjustX: (x)=>x,
+adjustY: (y)=>y,
+refresh: function(){},
+init: undefined
+};
+F.PopupWidget.prototype = {
+isShown: function(){return !this.e.classList.contains('hidden')},
+refresh: function(){
+if(this.options.refresh){
+this.options.refresh.call(this);
+}
+return this;
+},
+show: function(){
+var x = undefined, y = undefined, showIt,
+wasShown = !this.e.classList.contains('hidden');
+if(2===arguments.length){
+x = arguments[0];
+y = arguments[1];
+showIt = true;
+}else if(1===arguments.length){
+if(arguments[0] instanceof HTMLElement){
+const p = arguments[0];
+const r = p.getBoundingClientRect();
+x = r.x + r.x/5;
+y = r.y - r.height/2;
+showIt = true;
+}else{
+showIt = !!arguments[0];
+}
+}
+if(showIt){
+if(!wasShown) this.refresh();
+x = this.options.adjustX.call(this,x);
+y = this.options.adjustY.call(this,y);
+x += window.pageXOffset;
+y += window.pageYOffset;
+}
+if(showIt){
+if('number'===typeof x && 'number'===typeof y){
+this.e.style.left = x+"px";
+this.e.style.top = y+"px";
+}
+D.removeClass(this.e, 'hidden');
+}else{
+D.addClass(this.e, 'hidden');
+this.e.style.removeProperty('left');
+this.e.style.removeProperty('top');
+}
+return this;
+},
+hide: function(){return this.show(false)},
+installHideHandlers: function f(onClickSelf, onClickOther, onEsc){
+if(!arguments.length) onClickSelf = onClickOther = onEsc = true;
+else if(1===arguments.length) onClickOther = onEsc = true;
+else if(2===arguments.length) onEsc = true;
+if(onClickSelf) this.e.addEventListener('click', ()=>this.hide(), false);
+if(onClickOther) document.body.addEventListener('click', ()=>this.hide(), true);
+if(onEsc){
+const self = this;
+document.body.addEventListener('keydown', function(ev){
+if(self.isShown() && 27===ev.which) self.hide();
+}, true);
+}
+return this;
+}
+};
+const toastImpl = function f(cssClass, durationMult, argsObject){
+if(!f.toaster){
+f.toaster = new F.PopupWidget({
+cssClass: 'fossil-toast-message'
+});
+D.attr(f.toaster.e, 'role', 'alert');
+}
+const T = f.toaster;
+if(f._timer) clearTimeout(f._timer);
+D.clearElement(T.e);
+if(f._prevCssClass) T.e.classList.remove(f._prevCssClass);
+if(cssClass) T.e.classList.add(cssClass);
+f._prevCssClass = cssClass;
+D.append(T.e, Array.prototype.slice.call(argsObject,0));
+T.show(F.toast.config.position.x, F.toast.config.position.y);
+f._timer = setTimeout(
+()=>T.hide(),
+F.toast.config.displayTimeMs * durationMult
+);
+return F.toast;
+};
+F.toast = {
+config: {
+position: { x: 5, y: 5 },
+displayTimeMs: 5000
+},
+message: function(){
+return toastImpl(false,1, arguments);
+},
+warning: function(){
+return toastImpl('warning',1.5,arguments);
+},
+error: function(){
+return toastImpl('error',2,arguments);
+}
+};
+F.helpButtonlets = {
+setup: function f(){
+if(!f.hasOwnProperty('clickHandler')){
+f.clickHandler = function fch(ev){
+ev.preventDefault();
+ev.stopPropagation();
+if(!fch.popup){
+fch.popup = new F.PopupWidget({
+cssClass: ['fossil-tooltip', 'help-buttonlet-content'],
+refresh: function(){
+}
+});
+fch.popup.e.style.maxWidth = '80%';
+fch.popup.installHideHandlers();
+}
+D.append(D.clearElement(fch.popup.e), ev.target.$helpContent);
+var popupRect, rectElem = ev.target;
+while(rectElem){
+popupRect = rectElem.getClientRects()[0];
+if(popupRect) break;
+rectElem = rectElem.parentNode;
+}
+if(!popupRect) popupRect = {x:0, y:0, left:0, right:0};
+var x = popupRect.left, y = popupRect.top;
+if(x<0) x = 0;
+if(y<0) y = 0;
+if(rectElem){
+const rz = window.getComputedStyle(rectElem).zIndex;
+var myZ;
+if(rz && !isNaN(+rz)){
+myZ = +rz + 1;
+}else{
+myZ = 10000;
+}
+fch.popup.e.style.zIndex = myZ;
+}
+fch.popup.show(x, y);
+x = popupRect.left, y = popupRect.top;
+popupRect = fch.popup.e.getBoundingClientRect();
+const rectBody = document.body.getClientRects()[0];
+if(popupRect.right > rectBody.right){
+x -= (popupRect.right - rectBody.right);
+}
+if(x + popupRect.width > rectBody.right){
+x = rectBody.x + (rectBody.width*0.1);
+fch.popup.e.style.minWidth = '70%';
+}else{
+fch.popup.e.style.removeProperty('min-width');
+x -= popupRect.width/2;
+}
+if(x<0) x = 0;
+fch.popup.show(x, y);
+return false;
+};
+f.foreachElement = function(e){
+if(e.classList.contains('processed')) return;
+e.classList.add('processed');
+e.$helpContent = [];
+e.childNodes.forEach((ch)=>e.$helpContent.push(ch));
+e.$helpContent.forEach((ch)=>ch.remove());
+e.addEventListener('click', f.clickHandler, false);
+};
+}
+var elems;
+if(!arguments.length){
+arguments[0] = '.help-buttonlet:not(.processed)';
+arguments.length = 1;
+}
+if(arguments.length){
+if('string'===typeof arguments[0]){
+elems = document.querySelectorAll(arguments[0]);
+}else if(arguments[0] instanceof HTMLElement){
+elems = [arguments[0]];
+}else if(arguments[0].forEach){
+elems = arguments[0];
+}
+}
+if(elems) elems.forEach(f.foreachElement);
+},
+create: function(elem){
+D.addClass(elem, 'help-buttonlet');
+if(arguments.length>1){
+const args = Array.prototype.slice.call(arguments,1);
+D.append(elem, args);
+}
+this.setup(elem);
+return elem;
+}
+};
+F.onDOMContentLoaded( ()=>F.helpButtonlets.setup() );
+})(window.fossil);
+/* fossil.copybutton.js *************************************************************/
+(function(F){
+const D = F.dom;
+F.copyButton = function f(e, opt){
+if('string'===typeof e){
+e = document.querySelector(e);
+}
+opt = F.mergeLastWins(f.defaultOptions, opt);
+if(opt.cssClass){
+D.addClass(e, opt.cssClass);
+}
+var srcId, srcElem;
+if(opt.copyFromElement){
+srcElem = opt.copyFromElement;
+}else if((srcId = opt.copyFromId || e.dataset.copyFromId)){
+srcElem = document.querySelector('#'+srcId);
+}
+const extract = opt.extractText || (
+undefined===srcElem.value ? ()=>srcElem.innerText : ()=>srcElem.value
+);
+D.copyStyle(e, opt.style);
+e.addEventListener(
+'click',
+function(ev){
+ev.preventDefault();
+ev.stopPropagation();
+if(e.classList.contains('disabled')) return;
+const txt = extract.call(opt);
+if(txt && D.copyTextToClipboard(txt)){
+e.dispatchEvent(new CustomEvent('text-copied',{
+detail: {text: txt}
+}));
+}
+},
+false
+);
+if('function' === typeof opt.oncopy){
+e.addEventListener('text-copied', opt.oncopy, false);
+}
+return e;
+};
+F.copyButton.defaultOptions = {
+cssClass: 'copy-button',
+oncopy: D.flashOnce.eventHandler,
+style: {}
+};
+})(window.fossil);
+/* fossil.pikchr.js *************************************************************/
+(function(F){
+"use strict";
+const D = F.dom, P = F.pikchr = {};
+P.addSrcView = function f(svg){
+if(!f.hasOwnProperty('parentClick')){
+f.parentClick = function(ev){
+if(ev.altKey || ev.metaKey || ev.ctrlKey
+|| this.classList.contains('toggle')){
+this.classList.toggle('source');
+ev.stopPropagation();
+ev.preventDefault();
+}
+};
+f.clickPikchrShow = function(ev){
+const pId = this.dataset['pikchrid'];
+if(!pId) return;
+const ePikchr = this.parentNode.parentNode.querySelector('#'+pId);
+if(!ePikchr) return;
+ev.stopPropagation();
+window.sessionStorage.setItem('pikchr-xfer', ePikchr.innerText);
+};
+};
+if(!svg) svg = 'svg.pikchr';
+if('string' === typeof svg){
+document.querySelectorAll(svg).forEach((e)=>f.call(this, e));
+return this;
+}else if(svg.forEach){
+svg.forEach((e)=>f.call(this, e));
+return this;
+}
+if(svg.dataset.pikchrProcessed){
+return this;
+}
+svg.dataset.pikchrProcessed = 1;
+const parent = svg.parentNode.parentNode;
+const srcView = parent ? svg.parentNode.nextElementSibling : undefined;
+if(srcView && srcView.classList.contains('pikchr-src')){
+parent.addEventListener('click', f.parentClick, false);
+const eSpan = window.sessionStorage
+? srcView.querySelector('span')
+: undefined;
+if(eSpan){
+const openLink = eSpan.querySelector('a');
+if(openLink){
+openLink.addEventListener('click', f.clickPikchrShow, false);
+eSpan.classList.remove('hidden');
+}
+}
+}
+return this;
+};
+})(window.fossil);
+/* fossil.diff.js *************************************************************/
+"use strict";
+window.fossil.onPageLoad(function(){
+const potentialParents = window.fossil.page.diffControlContainers = [
+ 'body.cpage-fileedit #fileedit-tab-diff-buttons',
+ 'body.cpage-wikiedit #wikiedit-tab-diff-buttons',
+ 'body.fdiff form div.submenu',
+ 'body.vdiff form div.submenu',
+ 'body.vinfo div.sectionmenu.info-changes-menu'
+];
+window.fossil.page.diffControlContainer = undefined;
+while( potentialParents.length ){
+if( (window.fossil.page.diffControlContainer
+= document.querySelector(potentialParents.pop())) ){
+break;
+}
+}
+});
+window.fossil.onPageLoad(function(){
+if( !window.fossil.page.diffControlContainer ){
+return;
+}
+const D = window.fossil.dom;
+const allToggles = [];
+let checkedCount =
+0;
+let btnAll;
+const addToggle = function(diffElem){
+const sib = diffElem.previousElementSibling,
+ckbox = sib ? D.addClass(D.checkbox(true), 'diff-toggle') : 0;
+if(!sib) return;
+const lblToggle = D.label();
+D.append(lblToggle, ckbox, D.text(" show/hide "));
+allToggles.push(ckbox);
+++checkedCount;
+lblToggle.style.flexGrow = 1;
+lblToggle.style.textAlign = 'right';
+D.append(sib, lblToggle);
+ckbox.addEventListener('change', function(){
+diffElem.classList[this.checked ? 'remove' : 'add']('hidden');
+if(btnAll){
+checkedCount += (this.checked ? 1 : -1);
+btnAll.innerText = (checkedCount < allToggles.length)
+? "Show diffs" : "Hide diffs";
+}
+}, false);
+sib.firstElementChild.addEventListener('click', (event)=>{
+if( event.target===sib.firstElementChild ){
+ckbox.click();;
+}
+}, false);
+};
+if( !document.querySelector('body.fdiff') ){
+document.querySelectorAll('table.diff').forEach(addToggle);
+}
+const icm = allToggles.length>1 ? window.fossil.page.diffControlContainer : 0;
+if(icm) {
+btnAll = D.addClass(D.a("#", "Hide diffs"), "button");
+D.append( icm, btnAll );
+btnAll.addEventListener('click', function(ev){
+ev.preventDefault();
+ev.stopPropagation();
+const show = checkedCount < allToggles.length;
+for( const ckbox of allToggles ){
+if(ckbox.checked!==show) ckbox.click();
+}
+}, false);
+}
+});
+window.fossil.onPageLoad(function(){
+const F = window.fossil, D = F.dom;
+const Diff = F.diff = {
+e:{},
+config: {
+chunkLoadLines: (
+F.config.diffContextLines * 3
+) || 20,
+chunkFetch: {
+beforesend: function(){},
+aftersend: function(){},
+onerror: function(e){
+console.error("XHR error: ",e);
+}
+}
+}
+};
+Diff.fetchArtifactChunk = function(fetchOpt){
+if(!fetchOpt.beforesend) fetchOpt.beforesend = Diff.config.chunkFetch.beforesend;
+if(!fetchOpt.aftersend) fetchOpt.aftersend = Diff.config.chunkFetch.aftersend;
+if(!fetchOpt.onerror) fetchOpt.onerror = Diff.config.chunkFetch.onerror;
+fetchOpt.responseType = 'json';
+return F.fetch('jchunk', fetchOpt);
+};
+const extractLineNo = function f(getLHS, getStart, tr, isSplit){
+if(!f.rx){
+f.rx = {
+start: /^\s*(\d+)/,
+end: /(\d+)\n?$/
+}
+}
+const td = tr.querySelector('td:nth-child('+(
+getLHS ? 1 : (isSplit ? 4 : 2)
+)+')');
+const m = f.rx[getStart ? 'start' : 'end'].exec(td.innerText);
+return m ? +m[1] : undefined;
+};
+const ChunkLoadControls = function(tr){
+this.$fetchQueue = [];
+this.e = {
+tr: tr,
+table: tr.parentElement.parentElement
+};
+this.isSplit = this.e.table.classList.contains('splitdiff');
+this.fileHash = this.e.table.dataset.lefthash;
+tr.$chunker = this;
+this.pos = {
+startLhs: +tr.dataset.startln,
+endLhs: +tr.dataset.endln
+};
+D.clearElement(tr);
+this.e.td = D.addClass(
+D.attr(D.td(tr), 'colspan', this.isSplit ? 5 : 4),
+'chunkctrl'
+);
+this.e.msgWidget = D.addClass(D.span(), 'hidden');
+this.e.btnWrapper = D.div();
+D.append(this.e.td, this.e.btnWrapper);
+if(tr.nextElementSibling){
+this.pos.next = {
+startLhs: extractLineNo(true, true, tr.nextElementSibling, this.isSplit),
+startRhs: extractLineNo(false, true, tr.nextElementSibling, this.isSplit)
+};
+}
+if(tr.previousElementSibling){
+this.pos.prev = {
+endLhs: extractLineNo(true, false, tr.previousElementSibling, this.isSplit),
+endRhs: extractLineNo(false, false, tr.previousElementSibling, this.isSplit)
+};
+}
+let btnUp = false, btnDown = false;
+if(this.pos.prev && this.pos.next
+&& ((this.pos.endLhs - this.pos.startLhs)
+<= Diff.config.chunkLoadLines)){
+btnDown = false;
+btnUp = this.createButton(this.FetchType.FillGap);
+}else{
+if(this.pos.prev){
+btnDown = this.createButton(this.FetchType.PrevDown);
+}
+if(this.pos.next){
+btnUp = this.createButton(this.FetchType.NextUp);
+}
+}
+if(btnUp) D.append(this.e.btnWrapper, btnUp);
+if(btnDown) D.append(this.e.btnWrapper, btnDown);
+D.append(this.e.btnWrapper, this.e.msgWidget);
+this.e.posState = D.span();
+D.append(this.e.btnWrapper, this.e.posState);
+this.updatePosDebug();
+};
+ChunkLoadControls.prototype = {
+FetchType:{
+PrevDown: 1,
+FillGap: 0,
+NextUp: -1,
+ProcessQueue: 0x7fffffff
+},
+createButton: function(fetchType){
+let b;
+switch(fetchType){
+case this.FetchType.PrevDown:
+b = D.append(
+D.addClass(D.span(), 'down'),
+D.span()
+);
+break;
+case this.FetchType.FillGap:
+b = D.append(
+D.addClass(D.span(), 'up', 'down'),
+D.span()
+);
+break;
+case this.FetchType.NextUp:
+b = D.append(
+D.addClass(D.span(), 'up'),
+D.span()
+);
+break;
+default:
+throw new Error("Internal API misuse: unexpected fetchType value "+fetchType);
+}
+D.addClass(b, 'jcbutton');
+b.addEventListener('click', ()=>this.fetchChunk(fetchType),false);
+return b;
+},
+updatePosDebug: function(){
+if(this.e.posState){
+D.clearElement(this.e.posState);
+}
+return this;
+},
+destroy: function(){
+delete this.$fetchQueue;
+D.remove(this.e.tr);
+delete this.e.tr.$chunker;
+delete this.e.tr;
+delete this.e;
+delete this.pos;
+},
+maybeReplaceButtons: function(){
+if(this.pos.next && this.pos.prev
+&& (this.pos.endLhs - this.pos.startLhs <= Diff.config.chunkLoadLines)){
+D.clearElement(this.e.btnWrapper);
+D.append(this.e.btnWrapper, this.createButton(this.FetchType.FillGap));
+if( this.$fetchQueue && this.$fetchQueue.length>1 ){
+this.$fetchQueue[1] = this.FetchType.FillGap;
+this.$fetchQueue.length = 2;
+}
+}
+return this;
+},
+injectResponse: function f(fetchType,
+urlParam,
+lines){
+if(!lines.length){
+this.destroy();
+return this;
+}
+this.msg(false);
+const lineno = [],
+trPrev = this.e.tr.previousElementSibling,
+trNext = this.e.tr.nextElementSibling,
+doAppend = (
+!!trPrev && fetchType>=this.FetchType.FillGap
+);
+const tr = doAppend ? trPrev : trNext;
+const joinTr = (
+this.FetchType.FillGap===fetchType && trPrev && trNext
+) ? trNext : false
+;
+let i, td;
+if(!f.convertLines){
+f.rx = [[/&/g, '&amp;'], [/</g, '&lt;']];
+f.convertLines = function(li){
+var s = li.join('\n');
+f.rx.forEach((a)=>s=s.replace(a[0],a[1]));
+return s + '\n';
+};
+}
+if(1){
+const selector = '.difflnl > pre';
+td = tr.querySelector(selector);
+const lnTo = Math.min(urlParam.to,
+urlParam.from +
+lines.length - 1);
+for( i = urlParam.from; i <= lnTo; ++i ){
+lineno.push(i);
+}
+const lineNoTxt = lineno.join('\n')+'\n';
+const content = [td.innerHTML];
+if(doAppend) content.push(lineNoTxt);
+else content.unshift(lineNoTxt);
+if(joinTr){
+content.push(trNext.querySelector(selector).innerHTML);
+}
+td.innerHTML = content.join('');
+}
+if(1){
+const selector = '.difftxt > pre';
+td = tr.querySelectorAll(selector);
+const code = f.convertLines(lines);
+let joinNdx = 0;
+td.forEach(function(e){
+const content = [e.innerHTML];
+if(doAppend) content.push(code);
+else content.unshift(code);
+if(joinTr){
+content.push(trNext.querySelectorAll(selector)[joinNdx++].innerHTML)
+}
+e.innerHTML = content.join('');
+});
+}
+if(1){
+const selector = '.diffsep > pre';
+td = tr.querySelector(selector);
+for(i = 0; i < lineno.length; ++i) lineno[i] = '';
+const blanks = lineno.join('\n')+'\n';
+const content = [td.innerHTML];
+if(doAppend) content.push(blanks);
+else content.unshift(blanks);
+if(joinTr){
+content.push(trNext.querySelector(selector).innerHTML);
+}
+td.innerHTML = content.join('');
+}
+if(this.FetchType.FillGap===fetchType){
+let startLnR = this.pos.prev
+? this.pos.prev.endRhs+1
+: this.pos.next.startRhs - lines.length;
+lineno.length = lines.length;
+for( i = startLnR; i < startLnR + lines.length; ++i ){
+lineno[i-startLnR] = i;
+}
+const selector = '.difflnr > pre';
+td = tr.querySelector(selector);
+const lineNoTxt = lineno.join('\n')+'\n';
+lineno.length = 0;
+const content = [td.innerHTML];
+if(doAppend) content.push(lineNoTxt);
+else content.unshift(lineNoTxt);
+if(joinTr){
+content.push(trNext.querySelector(selector).innerHTML);
+}
+td.innerHTML = content.join('');
+if(joinTr) D.remove(joinTr);
+this.destroy();
+return this;
+}else if(this.FetchType.PrevDown===fetchType){
+let startLnR = this.pos.prev.endRhs+1;
+lineno.length = lines.length;
+for( i = startLnR; i < startLnR + lines.length; ++i ){
+lineno[i-startLnR] = i;
+}
+this.pos.startLhs += lines.length;
+this.pos.prev.endRhs += lines.length;
+this.pos.prev.endLhs += lines.length;
+const selector = '.difflnr > pre';
+td = tr.querySelector(selector);
+const lineNoTxt = lineno.join('\n')+'\n';
+lineno.length = 0;
+const content = [td.innerHTML];
+if(doAppend) content.push(lineNoTxt);
+else content.unshift(lineNoTxt);
+td.innerHTML = content.join('');
+if(lines.length < (urlParam.to - urlParam.from)){
+this.destroy();
+}else{
+this.maybeReplaceButtons();
+this.updatePosDebug();
+}
+return this;
+}else if(this.FetchType.NextUp===fetchType){
+if(doAppend){
+throw new Error("Internal precondition violation: doAppend is true.");
+}
+let startLnR = this.pos.next.startRhs - lines.length;
+lineno.length = lines.length;
+for( i = startLnR; i < startLnR + lines.length; ++i ){
+lineno[i-startLnR] = i;
+}
+this.pos.endLhs -= lines.length;
+this.pos.next.startRhs -= lines.length;
+this.pos.next.startLhs -= lines.length;
+const selector = '.difflnr > pre';
+td = tr.querySelector(selector);
+const lineNoTxt = lineno.join('\n')+'\n';
+lineno.length = 0;
+td.innerHTML = lineNoTxt + td.innerHTML;
+if(this.pos.endLhs<1
+|| lines.length < (urlParam.to - urlParam.from)){
+this.destroy();
+}else{
+this.maybeReplaceButtons();
+this.updatePosDebug();
+}
+return this;
+}else{
+throw new Error("Unexpected 'fetchType' value.");
+}
+},
+msg: function(isError,txt){
+if(txt){
+if(isError) D.addClass(this.e.msgWidget, 'error');
+else D.removeClass(this.e.msgWidget, 'error');
+D.append(
+D.removeClass(D.clearElement(this.e.msgWidget), 'hidden'),
+txt);
+}else{
+D.addClass(D.clearElement(this.e.msgWidget), 'hidden');
+}
+return this;
+},
+fetchChunk: function(fetchType){
+if( !this.$fetchQueue ) return this;
+if( fetchType==this.FetchType.ProcessQueue ){
+this.$fetchQueue.shift();
+if( this.$fetchQueue.length==0 ) return this;
+}
+else{
+this.$fetchQueue.push(fetchType);
+if( this.$fetchQueue.length!=1 ) return this;
+}
+fetchType = this.$fetchQueue[0];
+if( fetchType==this.FetchType.ProcessQueue ){
+this.$fetchQueue.length = 0;
+return this;
+}
+if(fetchType===this.FetchType.NextUp && !this.pos.next
+|| fetchType===this.FetchType.PrevDown && !this.pos.prev){
+console.error("Attempt to fetch diff lines but don't have any.");
+return this;
+}
+this.msg(false,"Fetching diff chunk...");
+const self = this;
+const fOpt = {
+urlParams:{
+name: this.fileHash, from: 0, to: 0
+},
+aftersend: ()=>this.msg(false),
+onload: function(list){
+self.injectResponse(fetchType,up,list);
+if( !self.$fetchQueue || self.$fetchQueue.length==0 ) return;
+self.$fetchQueue[0] = self.FetchType.ProcessQueue;
+setTimeout(self.fetchChunk.bind(self,self.FetchType.ProcessQueue));
+}
+};
+const up = fOpt.urlParams;
+if(fetchType===this.FetchType.FillGap){
+up.from = this.pos.startLhs;
+up.to = this.pos.endLhs;
+}else if(this.FetchType.PrevDown===fetchType){
+if(!this.pos.prev){
+console.error("Attempt to fetch next diff lines but don't have any.");
+return this;
+}
+up.from = this.pos.prev.endLhs + 1;
+up.to = up.from +
+Diff.config.chunkLoadLines - 1;
+if( this.pos.next && this.pos.next.startLhs <= up.to ){
+up.to = this.pos.next.startLhs - 1;
+fetchType = this.FetchType.FillGap;
+}
+}else{
+if(!this.pos.next){
+console.error("Attempt to fetch previous diff lines but don't have any.");
+return this;
+}
+up.to = this.pos.next.startLhs - 1;
+up.from = Math.max(1, up.to - Diff.config.chunkLoadLines + 1);
+if( this.pos.prev && this.pos.prev.endLhs >= up.from ){
+up.from = this.pos.prev.endLhs + 1;
+fetchType = this.FetchType.FillGap;
+}
+}
+fOpt.onerror = function(err){
+if(self.e){
+self.msg(true,err.message);
+self.$fetchQueue.length = 0;
+}else{
+Diff.config.chunkFetch.onerror.call(this,err);
+}
+};
+Diff.fetchArtifactChunk(fOpt);
+return this;
+}
+};
+Diff.setupDiffContextLoad = function(tables){
+if('string'===typeof tables){
+tables = document.querySelectorAll(tables);
+}else if(!tables){
+tables = document.querySelectorAll('table.diff[data-lefthash]:not(.diffskipped)');
+}
+tables.forEach(function(table){
+if(table.classList.contains('diffskipped') || !table.dataset.lefthash) return;
+D.addClass(table, 'diffskipped');
+table.querySelectorAll('tr.diffskip[data-startln]').forEach(function(tr){
+new ChunkLoadControls(D.addClass(tr, 'jchunk'));
+});
+});
+return F;
+};
+Diff.setupDiffContextLoad();
+});
+window.fossil.onPageLoad(function(){
+const F = window.fossil, D = F.dom, Diff = F.diff;
+let cbSync;
+let eToggleParent =
+document.querySelector('table.diff.splitdiff')
+? window.fossil.page.diffControlContainer
+: undefined;
+const keySbsScroll = 'sync-diff-scroll';
+if( eToggleParent ){
+cbSync = D.checkbox(keySbsScroll, F.storage.getBool(keySbsScroll,true));
+D.append(eToggleParent, D.append(
+D.addClass(D.create('span'), 'input-with-label'),
+D.append(D.create('label'),
+cbSync, "Scroll Sync")
+));
+cbSync.addEventListener('change', function(e){
+F.storage.set(keySbsScroll, e.target.checked);
+});
+}
+const useSync = cbSync ? ()=>cbSync.checked : ()=>F.storage.getBool(keySbsScroll,true);
+const scrollLeft = function(event){
+const table = this.parentElement.parentElement.
+parentElement.parentElement;
+if( useSync() ){
+table.$txtPres.forEach((e)=>(e===this) ? 1 : (e.scrollLeft = this.scrollLeft));
+}
+return false;
+};
+const SCROLL_LEN = 64;
+const keycodes = Object.assign(Object.create(null),{
+37: -SCROLL_LEN, 39: SCROLL_LEN
+});
+const handleDiffKeydown = function(e){
+const len = keycodes[e.keyCode];
+if( !len ) return false;
+if( useSync() ){
+this.$txtPres[0].scrollLeft += len;
+}else if( this.$preCurrent ){
+this.$preCurrent.scrollLeft += len;
+}
+return false;
+};
+const initTableDiff = function f(diff, unifiedDiffs){
+if(!diff){
+let i, diffs;
+diffs = document.querySelectorAll('table.splitdiff');
+for(i=0; i<diffs.length; ++i){
+f.call(this, diffs[i], false);
+}
+diffs = document.querySelectorAll('table.udiff');
+for(i=0; i<diffs.length; ++i){
+f.call(this, diffs[i], true);
+}
+return this;
+}
+diff.$txtCols = diff.querySelectorAll('td.difftxt');
+diff.$txtPres = diff.querySelectorAll('td.difftxt pre');
+if(!unifiedDiffs){
+diff.$txtPres.forEach(function(e){
+if(!e.classList.contains('scroller')){
+D.addClass(e, 'scroller');
+e.addEventListener('scroll', scrollLeft, false);
+}
+});
+diff.tabIndex = 0;
+if(!diff.classList.contains('scroller')){
+D.addClass(diff, 'scroller');
+diff.addEventListener('keydown', handleDiffKeydown, false);
+const handleLRClick = function(ev){
+diff.$preCurrent = this;
+};
+diff.$txtPres.forEach((e)=>e.addEventListener('click', handleLRClick, false));
+}
+}
+return this;
+}
+window.fossil.page.tweakSbsDiffs = function(){
+document.querySelectorAll('table.splitdiff').forEach((e)=>initTableDiff(e));
+};
+initTableDiff();
+}, false);
+/* fossil.page.wikiedit.js *************************************************************/
+(function(F){
+"use strict";
+const E = (s)=>document.querySelector(s),
+D = F.dom,
+P = F.page;
+P.config = {
+defaultMaxStashSize: 10,
+useConfirmerButtons:{
+save: false,
+reload: true,
+discardStash: true
+},
+shiftEnterPreview: F.storage.getBool('edit-shift-enter-preview', true)
+};
+const $stash = {
+keys: {
+index: F.page.name+'.index'
+},
+indexKey: function(winfo){return winfo.name},
+contentKey: function(suffix){return P.name+'/'+suffix},
+getIndex: function(){
+if(!this.index){
+this.index = F.storage.getJSON(
+this.keys.index, {}
+);
+}
+return this.index;
+},
+_fireStashEvent: function(){
+if(this._disableNextEvent) delete this._disableNextEvent;
+else F.page.dispatchEvent('wiki-stash-updated', this);
+},
+getWinfo: function(winfo){
+const ndx = this.getIndex();
+return ndx[this.indexKey(winfo)];
+},
+storeIndex: function(){
+if(this.index) F.storage.setJSON(this.keys.index,this.index);
+return this;
+},
+updateWinfo: function(winfo,content){
+const ndx = this.getIndex(),
+key = this.indexKey(winfo),
+old = ndx[key];
+const record = old || (ndx[key]={
+name: winfo.name
+});
+record.mimetype = winfo.mimetype;
+record.type = winfo.type;
+record.parent = winfo.parent;
+record.version = winfo.version;
+record.stashTime = new Date().getTime();
+record.isEmpty = !!winfo.isEmpty;
+record.attachments = winfo.attachments;
+this.storeIndex();
+if(arguments.length>1){
+if(content) delete record.isEmpty;
+F.storage.set(this.contentKey(key), content);
+}
+this._fireStashEvent();
+return this;
+},
+stashedContent: function(winfo){
+return F.storage.get(this.contentKey(this.indexKey(winfo)));
+},
+hasStashedContent: function(winfo){
+if('string'===typeof winfo) winfo = {name: winfo};
+return F.storage.contains(this.contentKey(this.indexKey(winfo)));
+},
+unstash: function(winfo){
+const ndx = this.getIndex(),
+key = this.indexKey(winfo);
+delete winfo.stashTime;
+delete ndx[key];
+F.storage.remove(this.contentKey(key));
+this.storeIndex();
+this._fireStashEvent();
+return this;
+},
+clear: function(){
+const ndx = this.getIndex(),
+self = this;
+let count = 0;
+Object.keys(ndx).forEach(function(k){
+++count;
+const e = ndx[k];
+delete ndx[k];
+F.storage.remove(self.contentKey(k));
+});
+F.storage.remove(this.keys.index);
+delete this.index;
+if(count) this._fireStashEvent();
+return this;
+},
+prune: function f(maxCount){
+const ndx = this.getIndex();
+const li = [];
+if(!maxCount || maxCount<0) maxCount = f.defaultMaxCount;
+Object.keys(ndx).forEach((k)=>li.push(ndx[k]));
+li.sort((l,r)=>l.stashTime - r.stashTime);
+let n = 0;
+while(li.length>maxCount){
+++n;
+const e = li.shift();
+this._disableNextEvent = true;
+this.unstash(e);
+console.warn("Pruned oldest local file edit entry:",e);
+}
+if(n) this._fireStashEvent();
+}
+};
+$stash.prune.defaultMaxCount = P.config.defaultMaxStashSize || 10;
+P.$stash = $stash;
+P.selectMimetype = function(modeValue, forceEvent){
+const s = this.e.selectMimetype;
+if(!modeValue) modeValue = s.value;
+else if(s.value != modeValue){
+s.value = modeValue;
+forceEvent = true;
+}
+if(forceEvent){
+s.dispatchEvent(new Event('change',{target:s}));
+}
+};
+const getEditMarker = function f(winfo, textOnly){
+const esm = F.config.editStateMarkers;
+if(f.NEW===winfo){
+return textOnly ? esm.isNew :
+D.addClass(D.append(D.span(),esm.isNew), 'is-new');
+}else if(f.MODIFIED===winfo){
+return textOnly ? esm.isModified :
+D.addClass(D.append(D.span(),esm.isModified), 'is-modified');
+}else if(f.DELETED===winfo){
+return textOnly ? esm.isDeleted :
+D.addClass(D.append(D.span(),esm.isDeleted), 'is-deleted');
+}else if(winfo && winfo.version){
+if($stash.getWinfo(winfo)){
+return textOnly ? esm.isModified :
+D.addClass(D.append(D.span(),esm.isModified), 'is-modified');
+}
+}
+else if(winfo){
+if('sandbox'!==winfo.type){
+return textOnly ? esm.isNew :
+D.addClass(D.append(D.span(),esm.isNew), 'is-new');
+}else if($stash.getWinfo(winfo)){
+return textOnly ? esm.isModified :
+D.addClass(D.append(D.span(),esm.isModified), 'is-modified');
+}
+}
+return textOnly ? '' : D.span();
+};
+getEditMarker.NEW = 1;
+getEditMarker.MODIFIED = 2;
+getEditMarker.DELETED = 3;
+const winfoIsNew = function(winfo){
+if(!winfo) return undefined;
+else if('sandbox' === winfo.type) return false;
+else return !winfo.version;
+};
+const WikiList = {
+e: {
+filterCheckboxes: {
+},
+},
+cache: {
+pageList: [],
+optByName:{},
+names: {
+}
+},
+_refreshStashMarks: function callee(option){
+if(!callee.eachOpt){
+const self = this;
+callee.eachOpt = function(keyOrOpt){
+const opt = 'string'===typeof keyOrOpt ? self.e.select.options[keyOrOpt] : keyOrOpt;
+const stashed = $stash.getWinfo({name:opt.value});
+var prefix = '';
+D.removeClass(opt, 'stashed', 'stashed-new', 'deleted');
+if(stashed){
+const isNew = winfoIsNew(stashed);
+prefix = getEditMarker(isNew ? getEditMarker.NEW : getEditMarker.MODIFIED, true);
+D.addClass(opt, isNew ? 'stashed-new' : 'stashed');
+D.removeClass(opt, 'deleted');
+}else if(opt.dataset.isDeleted){
+prefix = getEditMarker(getEditMarker.DELETED,true);
+D.addClass(opt, 'deleted');
+}
+opt.innerText = prefix + opt.value;
+self.cache.names[opt.value] = true;
+};
+}
+if(arguments.length){
+callee.eachOpt(option);
+}else{
+this.cache.names = {};
+Object.keys(this.e.select.options).forEach(callee.eachOpt);
+}
+},
+removeEntry: function(name){
+const sel = this.e.select;
+var ndx = sel.selectedIndex;
+sel.value = name;
+if(sel.selectedIndex>-1){
+if(ndx === sel.selectedIndex) ndx = -1;
+sel.options.remove(sel.selectedIndex);
+}
+sel.selectedIndex = ndx;
+delete this.cache.names[name];
+delete this.cache.optByName[name];
+this.cache.pageList = this.cache.pageList.filter((wi)=>name !== wi.name);
+},
+_rebuildList: function callee(){
+const list = this.cache.pageList;
+if(!list) return;
+if(!callee.sorticase){
+callee.sorticase = function(l,r){
+if(l===r) return 0;
+l = l.toLowerCase();
+r = r.toLowerCase();
+return l<=r ? -1 : 1;
+};
+}
+const map = {}, ndx = $stash.getIndex(), sel = this.e.select;
+D.clearElement(sel);
+list.forEach((winfo)=>map[winfo.name] = winfo);
+Object.keys(ndx).forEach(function(key){
+const winfo = ndx[key];
+if(!winfo.version) map[winfo.name] = winfo;
+});
+const self = this;
+Object.keys(map)
+.sort(callee.sorticase)
+.forEach(function(name){
+const winfo = map[name];
+const opt = D.option(sel, winfo.name);
+const wtype = opt.dataset.wtype =
+winfo.type==='sandbox' ? 'normal' : (winfo.type||'normal');
+const cb = self.e.filterCheckboxes[wtype];
+self.cache.optByName[winfo.name] = opt;
+if(cb && !cb.checked) D.addClass(opt, 'hidden');
+if(winfo.isEmpty){
+opt.dataset.isDeleted = true;
+}
+self._refreshStashMarks(opt);
+});
+D.enable(sel);
+if(P.winfo) sel.value = P.winfo.name;
+},
+loadList: function callee(){
+if(!callee.onload){
+const self = this;
+callee.onload = function(list){
+self.cache.pageList = list;
+self._rebuildList();
+F.message("Loaded page list.");
+};
+}
+if(P.initialPageList){
+const list = P.initialPageList;
+delete P.initialPageList;
+callee.onload(list);
+}else{
+F.fetch('wikiajax/list',{
+urlParams:{verbose:true},
+responseType: 'json',
+onload: callee.onload
+});
+}
+return this;
+},
+validatePageName: function(name){
+var err;
+if(!name){
+err = "may not be empty";
+}else if(this.cache.names.hasOwnProperty(name)){
+err = "page already exists: "+name;
+}else if(name.length>100){
+err = "too long (limit is 100)";
+}else if(/\s{2,}/.test(name)){
+err = "multiple consecutive spaces";
+}else if(/[\t\r\n]/.test(name)){
+err = "contains control character(s)";
+}else{
+let i = 0, n = name.length, c;
+for( ; i < n; ++i ){
+if(name.charCodeAt(i)<0x20){
+err = "contains control character(s)";
+break;
+}
+}
+}
+if(err){
+F.error("Invalid name:",err);
+}
+return !err;
+},
+addNewPage: function(name){
+name = name.trim();
+if(!this.validatePageName(name)) return false;
+var wtype = 'normal';
+if(0===name.indexOf('checkin/')) wtype = 'checkin';
+else if(0===name.indexOf('branch/')) wtype = 'branch';
+else if(0===name.indexOf('ticket/')) wtype = 'ticket';
+else if(0===name.indexOf('tag/')) wtype = 'tag';
+const winfo = {
+name: name, type: wtype, mimetype: 'text/x-markdown',
+version: null, parent: null
+};
+this.cache.pageList.push(
+winfo
+);
+$stash.updateWinfo(winfo, '');
+this._rebuildList();
+P.loadPage(winfo.name);
+return true;
+},
+init: function(parentElem){
+const sel = D.select(), btn = D.addClass(D.button("Reload page list"), 'save');
+this.e.select = sel;
+D.addClass(parentElem, 'WikiList');
+D.clearElement(parentElem);
+D.append(
+parentElem,
+D.append(D.fieldset("Select a page to edit"),
+sel)
+);
+D.attr(sel, 'size', 12);
+D.option(D.disable(D.clearElement(sel)), undefined, "Loading...");
+const fsFilter = D.addClass(D.fieldset("Page types"),"page-types-list"),
+fsFilterBody = D.div(),
+filters = ['normal', 'branch/...', 'tag/...', 'checkin/...', 'ticket/...']
+;
+D.append(fsFilter, fsFilterBody);
+D.addClass(fsFilterBody, 'flex-container', 'flex-column', 'stretch');
+const self = this;
+const filterByType = function(wtype, show){
+sel.querySelectorAll('option[data-wtype='+wtype+']').forEach(function(opt){
+if(show) opt.classList.remove('hidden');
+else opt.classList.add('hidden');
+});
+};
+filters.forEach(function(label){
+const wtype = label.split('/')[0];
+const cbId = 'wtype-filter-'+wtype,
+lbl = D.attr(D.append(D.label(),label),
+'for', cbId),
+cb = D.attr(D.input('checkbox'), 'id', cbId);
+D.append(fsFilterBody, D.append(D.span(), cb, lbl));
+self.e.filterCheckboxes[wtype] = cb;
+cb.checked = true;
+filterByType(wtype, cb.checked);
+cb.addEventListener(
+'change',
+function(ev){filterByType(wtype, ev.target.checked)},
+false
+);
+});
+{
+const cbId = 'wtype-filter-deleted',
+lbl = D.attr(D.append(D.label(),
+getEditMarker(getEditMarker.DELETED,false),
+'deleted'),
+'for', cbId),
+cb = D.attr(D.input('checkbox'), 'id', cbId);
+cb.checked = false;
+D.addClass(parentElem,'hide-deleted');
+D.attr(lbl);
+const deletedTip = F.helpButtonlets.create(
+D.span(),
+'Fossil considers empty pages to be "deleted" in some contexts.'
+);
+D.append(fsFilterBody, D.append(
+D.span(), cb, lbl, deletedTip
+));
+cb.addEventListener(
+'change',
+function(ev){
+if(ev.target.checked) D.removeClass(parentElem,'hide-deleted');
+else D.addClass(parentElem,'hide-deleted');
+},
+false);
+}
+const fsLegend = D.fieldset("Edit status"),
+fsLegendBody = D.div();
+D.append(fsLegend, fsLegendBody);
+D.addClass(fsLegendBody, 'flex-container', 'flex-column', 'stretch');
+D.append(
+fsLegendBody,
+D.append(D.span(), getEditMarker(getEditMarker.NEW,false)," = new/unsaved"),
+D.append(D.span(), getEditMarker(getEditMarker.MODIFIED,false)," = has local edits"),
+D.append(D.span(), getEditMarker(getEditMarker.DELETED,false)," = is empty (deleted)")
+);
+const fsNewPage = D.fieldset("Create new page"),
+fsNewPageBody = D.div(),
+newPageName = D.input('text'),
+newPageBtn = D.button("Add page locally")
+;
+D.append(parentElem, fsNewPage);
+D.append(fsNewPage, fsNewPageBody);
+D.addClass(fsNewPageBody, 'flex-container', 'flex-column', 'new-page');
+D.append(
+fsNewPageBody, newPageName, newPageBtn,
+D.append(D.addClass(D.span(), 'mini-tip'),
+"New pages exist only in this browser until they are saved.")
+);
+newPageBtn.addEventListener('click', function(){
+if(self.addNewPage(newPageName.value)){
+newPageName.value = '';
+}
+}, false);
+D.append(
+parentElem,
+D.append(D.addClass(D.div(), 'fieldset-wrapper'),
+fsFilter, fsNewPage, fsLegend)
+);
+D.append(parentElem, btn);
+btn.addEventListener('click', ()=>this.loadList(), false);
+this.loadList();
+const onSelect = (e)=>P.loadPage(e.target.value);
+sel.addEventListener('change', onSelect, false);
+sel.addEventListener('dblclick', onSelect, false);
+F.page.addEventListener('wiki-stash-updated', ()=>{
+if(P.winfo) this._refreshStashMarks();
+else this._rebuildList();
+});
+F.page.addEventListener('wiki-page-loaded', function(ev){
+const page = ev.detail,
+opt = self.cache.optByName[page.name];
+if(opt){
+if(page.isEmpty) opt.dataset.isDeleted = true;
+else delete opt.dataset.isDeleted;
+self._refreshStashMarks(opt);
+}else if('sandbox'!==page.type){
+F.error("BUG: internal mis-handling of page object: missing OPTION for page "+page.name);
+}
+});
+const cbEditPreview = E('#edit-shift-enter-preview');
+cbEditPreview.addEventListener('change', function(e){
+F.storage.set('edit-shift-enter-preview',
+P.config.shiftEnterPreview = e.target.checked);
+}, false);
+cbEditPreview.checked = P.config.shiftEnterPreview;
+delete this.init;
+}
+};
+P.stashWidget = {
+e:{},
+init: function(domInsertPoint){
+const wrapper = D.addClass(
+D.attr(D.div(),'id','wikiedit-stash-selector'),
+'input-with-label'
+);
+const sel = this.e.select = D.select(),
+btnClear = this.e.btnClear = D.button("Discard Edits"),
+btnHelp = D.append(
+D.addClass(D.div(), "help-buttonlet"),
+'Locally-edited wiki pages. Timestamps are the last local edit time. ',
+'Only the ',P.config.defaultMaxStashSize,' most recent pages ',
+'are retained. Saving or reloading a file removes it from this list. ',
+D.append(D.code(),F.storage.storageImplName()),
+' = ',F.storage.storageHelpDescription()
+);
+D.append(wrapper, "Local edits (",
+D.append(D.code(),
+F.storage.storageImplName()),
+"):",
+btnHelp, sel, btnClear);
+F.helpButtonlets.setup(btnHelp);
+D.option(D.disable(sel), undefined, "(empty)");
+P.addEventListener('wiki-stash-updated',(e)=>this.updateList(e.detail));
+P.addEventListener('wiki-page-loaded',(e)=>this.updateList($stash, e.detail));
+sel.addEventListener('change',function(e){
+const opt = this.selectedOptions[0];
+if(opt && opt._winfo) P.loadPage(opt._winfo);
+});
+if(F.storage.isTransient()){
+D.append(wrapper, D.append(
+D.addClass(D.span(),'warning'),
+"Warning: persistent storage is not available, "+
+"so uncomitted edits will not survive a page reload."
+));
+}
+domInsertPoint.parentNode.insertBefore(wrapper, domInsertPoint);
+if(P.config.useConfirmerButtons.discardStash){
+F.confirmer(btnClear, {
+pinSize: true,
+confirmText: "DISCARD all local edits?",
+onconfirm: ()=>P.clearStash(),
+ticks: F.config.confirmerButtonTicks
+});
+}else{
+btnClear.addEventListener('click', ()=>P.clearStash(), false);
+}
+D.addClass(btnClear,'hidden');
+$stash._fireStashEvent();
+delete this.init;
+},
+updateList: function f(stasher,theWinfo){
+if(!f.compare){
+const cmpBase = (l,r)=>l<r ? -1 : (l===r ? 0 : 1);
+f.compare = (l,r)=>cmpBase(l.name.toLowerCase(), r.name.toLowerCase());
+f.rxZ = /\.\d+Z$/;
+const pad=(x)=>(''+x).length>1 ? x : '0'+x;
+f.timestring = function(d){
+return [
+d.getFullYear(),'-',pad(d.getMonth()+1),'-',pad(d.getDate()),
+'@',pad(d.getHours()),':',pad(d.getMinutes())
+].join('');
+};
+}
+const index = stasher.getIndex(), ilist = [];
+Object.keys(index).forEach((winfo)=>{
+ilist.push(index[winfo]);
+});
+const self = this;
+D.clearElement(this.e.select);
+if(0===ilist.length){
+D.addClass(this.e.btnClear, 'hidden');
+D.option(D.disable(this.e.select),undefined,"No local edits");
+return;
+}
+D.enable(this.e.select);
+if(true){
+D.removeClass(this.e.btnClear, 'hidden');
+}
+D.disable(D.option(this.e.select,undefined,"Select a local edit..."));
+const currentWinfo = theWinfo || P.winfo || {name:''};
+ilist.sort(f.compare).forEach(function(winfo,n){
+const key = stasher.indexKey(winfo),
+rev = winfo.version || '';
+const opt = D.option(
+self.e.select, n+1,
+[winfo.name,
+' [',
+rev ? F.hashDigits(rev) : (
+winfo.type==='sandbox' ? 'sandbox' : 'new/local'
+),'] ',
+f.timestring(new Date(winfo.stashTime))
+].join('')
+);
+opt._winfo = winfo;
+if(0===f.compare(currentWinfo, winfo)){
+D.attr(opt, 'selected', true);
+}
+});
+}
+};
+const ajaxState = {
+count: 0,
+toDisable: undefined
+};
+F.fetch.beforesend = function f(){
+if(!ajaxState.toDisable){
+ajaxState.toDisable = document.querySelectorAll(
+['button:not([disabled])',
+'input:not([disabled])',
+'select:not([disabled])',
+'textarea:not([disabled])',
+'fieldset:not([disabled])'
+].join(',')
+);
+}
+if(1===++ajaxState.count){
+D.addClass(document.body, 'waiting');
+D.disable(ajaxState.toDisable);
+}
+};
+F.fetch.aftersend = function(){
+if(0===--ajaxState.count){
+D.removeClass(document.body, 'waiting');
+D.enable(ajaxState.toDisable);
+delete ajaxState.toDisable;
+}
+};
+F.onPageLoad(function() {
+document.body.classList.add('wikiedit');
+P.base = {tag: E('base'), wikiUrl: F.repoUrl('wiki')};
+P.base.originalHref = P.base.tag.href;
+P.e = {
+taEditor: E('#wikiedit-content-editor'),
+btnReload: E("#wikiedit-tab-content button.wikiedit-content-reload"),
+btnSave: E("button.wikiedit-save"),
+btnSaveClose: E("button.wikiedit-save-close"),
+selectMimetype: E('select[name=mimetype]'),
+selectFontSizeWrap: E('#select-font-size'),
+cbAutoPreview: E('#cb-preview-autorefresh'),
+previewTarget: E('#wikiedit-tab-preview-wrapper'),
+diffTarget: E('#wikiedit-tab-diff-wrapper'),
+editStatus: E('#wikiedit-edit-status'),
+tabContainer: E('#wikiedit-tabs'),
+attachmentContainer: E("#attachment-wrapper"),
+tabs:{
+pageList: E('#wikiedit-tab-pages'),
+content: E('#wikiedit-tab-content'),
+preview: E('#wikiedit-tab-preview'),
+diff: E('#wikiedit-tab-diff'),
+misc: E('#wikiedit-tab-misc')
+}
+};
+P.tabs = new F.TabManager(D.clearElement(P.e.tabContainer));
+P.tabs.addCustomWidget( E('#fossil-status-bar') ).addCustomWidget(P.e.editStatus);
+let currentTab;
+P.tabs.addEventListener(
+'before-switch-to', function(ev){
+const theTab = currentTab = ev.detail, btnSlot = theTab.querySelector('.save-button-slot');
+if(btnSlot){
+btnSlot.parentNode.insertBefore( P.e.btnSave.parentNode, btnSlot );
+btnSlot.parentNode.insertBefore( P.e.btnSaveClose.parentNode, btnSlot );
+P.updateSaveButton();
+}
+if(theTab===P.e.tabs.preview){
+P.baseHrefForWiki();
+if(P.previewNeedsUpdate && P.e.cbAutoPreview.checked) P.preview();
+}else if(theTab===P.e.tabs.diff){
+D.removeClass(P.e.diffTarget, 'hidden');
+}
+}
+);
+P.tabs.addEventListener(
+'before-switch-from', function(ev){
+const theTab = ev.detail;
+if(theTab===P.e.tabs.preview){
+P.baseHrefRestore();
+}else if(theTab===P.e.tabs.diff){
+D.addClass(P.e.diffTarget, 'hidden');
+}
+}
+);
+P.e.taEditor.addEventListener('keydown',function(ev){
+if(P.config.shiftEnterPreview && ev.shiftKey && 13===ev.keyCode){
+ev.preventDefault();
+ev.stopPropagation();
+P.e.taEditor.blur();
+P.tabs.switchToTab(P.e.tabs.preview);
+if(!P.e.cbAutoPreview.checked){
+P.preview();
+}
+}
+}, false);
+document.body.addEventListener('keydown',function(ev){
+if(ev.shiftKey && 13 === ev.keyCode){
+if(currentTab === P.e.tabs.preview){
+ev.preventDefault();
+ev.stopPropagation();
+P.tabs.switchToTab(P.e.tabs.content);
+P.e.taEditor.focus();
+return false;
+}
+}
+}, true);
+F.connectPagePreviewers(
+P.e.tabs.preview.querySelector(
+'#btn-preview-refresh'
+)
+);
+const diffButtons = E('#wikiedit-tab-diff-buttons');
+diffButtons.querySelector('button.sbs').addEventListener(
+"click",(e)=>P.diff(true), false
+);
+diffButtons.querySelector('button.unified').addEventListener(
+"click",(e)=>P.diff(false), false
+);
+if(0) P.e.btnCommit.addEventListener(
+"click",(e)=>P.commit(), false
+);
+const doSave = function(alsoClose){
+const w = P.winfo;
+if(!w){
+F.error("No page loaded.");
+return;
+}
+if(alsoClose){
+P.save(()=>window.location.href=F.repoUrl('wiki',{name: w.name}));
+}else{
+P.save();
+}
+};
+const doReload = function(e){
+const w = P.winfo;
+if(!w){
+F.error("No page loaded.");
+return;
+}
+if(!w.version
+&& w.type!=='sandbox'
+&& P.wikiContent()){
+F.error("This new/unsaved page has content.",
+"To really discard this page,",
+"first clear its content",
+"then use the Discard button.");
+return;
+}
+P.unstashContent();
+if(w.version || w.type==='sandbox'){
+P.loadPage(w);
+}else{
+WikiList.removeEntry(w.name);
+delete P.winfo;
+P.updatePageTitle();
+F.message("Discarded new page ["+w.name+"].");
+}
+};
+if(P.config.useConfirmerButtons.reload){
+P.tabs.switchToTab(1);
+F.confirmer(P.e.btnReload, {
+pinSize: true,
+confirmText: "Really reload, losing edits?",
+onconfirm: doReload,
+ticks: F.config.confirmerButtonTicks
+});
+}else{
+P.e.btnReload.addEventListener('click', doReload, false);
+}
+if(P.config.useConfirmerButtons.save){
+P.tabs.switchToTab(1);
+F.confirmer(P.e.btnSave, {
+pinSize: true,
+confirmText: "Really save changes?",
+onconfirm: ()=>doSave(),
+ticks: F.config.confirmerButtonTicks
+});
+F.confirmer(P.e.btnSaveClose, {
+pinSize: true,
+confirmText: "Really save changes?",
+onconfirm: ()=>doSave(true),
+ticks: F.config.confirmerButtonTicks
+});
+}else{
+P.e.btnSave.addEventListener('click', ()=>doSave(), false);
+P.e.btnSaveClose.addEventListener('click', ()=>doSave(true), false);
+}
+P.e.taEditor.addEventListener('change', ()=>P.notifyOfChange(), false);
+P.selectMimetype(false, true);
+P.e.selectMimetype.addEventListener(
+'change',
+function(e){
+if(P.winfo && P.winfo.mimetype !== e.target.value){
+P.winfo.mimetype = e.target.value;
+P._isDirty = true;
+P.stashContentChange(true);
+}
+},
+false
+);
+const selectFontSize = E('select[name=editor_font_size]');
+if(selectFontSize){
+selectFontSize.addEventListener(
+"change",function(e){
+const ed = P.e.taEditor;
+ed.className = ed.className.replace(
+/\bfont-size-\d+/g, '' );
+ed.classList.add('font-size-'+e.target.value);
+}, false
+);
+selectFontSize.dispatchEvent(
+new Event('change',{target:selectFontSize})
+);
+}
+P.addEventListener(
+'wiki-content-replaced',
+()=>{
+P.previewNeedsUpdate = true;
+D.clearElement(P.e.diffTarget, P.e.previewTarget);
+}
+);
+P.addEventListener(
+'wiki-saved',
+(e)=>{
+D.clearElement(P.e.diffTarget, P.e.previewTarget);
+}
+);
+P.addEventListener('wiki-stash-updated',function(){
+if(P.winfo && !P.winfo.version && !$stash.getWinfo(P.winfo)){
+delete P.winfo;
+P.wikiContent('');
+P.updatePageTitle();
+}
+P.updateSaveButton();
+}).updatePageTitle().updateSaveButton();
+P.addEventListener(
+'wiki-page-loaded',
+function(ev){
+delete P._isDirty;
+const winfo = ev.detail;
+P.winfo = winfo;
+P.previewNeedsUpdate = true;
+P.e.selectMimetype.value = winfo.mimetype;
+P.tabs.switchToTab(P.e.tabs.content);
+P.wikiContent(winfo.content || '');
+WikiList.e.select.value = winfo.name;
+if(!winfo.version && winfo.type!=='sandbox'){
+F.message('You are editing a new, unsaved page:',winfo.name);
+}
+P.updatePageTitle().updateSaveButton();
+},
+false
+);
+P.tabs.switchToTab(0);
+WikiList.init( P.e.tabs.pageList.firstElementChild );
+P.tabs.switchToTab(1);
+P.stashWidget.init(P.e.tabs.content.lastElementChild);
+P.tabs.switchToTab(0);
+});
+const affirmPageLoaded = function(quiet){
+if(!P.winfo && !quiet) F.error("No wiki page is loaded.");
+return !!P.winfo;
+};
+P.updateAttachmentsView = function f(){
+if(!f.eAttach){
+f.eAttach = P.e.attachmentContainer.querySelector('div');
+}
+D.clearElement(f.eAttach);
+const wi = this.winfo;
+if(!wi){
+D.append(f.eAttach,"No page loaded.");
+return this;
+}
+else if(!wi.version){
+D.append(f.eAttach,
+"Page ["+wi.name+"] cannot have ",
+"attachments until it is saved once.");
+return this;
+}
+const btnReload = D.button("Reload list");
+const self = this;
+btnReload.addEventListener('click', function(){
+const isStashed = $stash.hasStashedContent(wi);
+F.fetch('wikiajax/attachments',{
+responseType: 'json',
+urlParams: {page: wi.name},
+onload: function(r){
+wi.attachments = r;
+if(isStashed) self.stashContentChange(true);
+F.message("Reloaded attachment list for ["+wi.name+"].");
+self.updateAttachmentsView();
+}
+});
+});
+if(!wi.attachments || !wi.attachments.length){
+D.append(f.eAttach,
+btnReload,
+" No attachments found for page ["+wi.name+"]. ",
+D.a(F.repoUrl('attachadd',{
+page: wi.name,
+from: F.repoUrl('wikiedit',{name: wi.name})}),
+"Add attachments..." )
+);
+return this;
+}
+D.append(
+f.eAttach,
+D.append(D.p(),
+btnReload," ",
+D.a(F.repoUrl('attachlist',{page:wi.name}),
+"Attachments for page ["+wi.name+"]."),
+" ",
+D.a(F.repoUrl('attachadd',{
+page:wi.name,
+from: F.repoUrl('wikiedit',{name: wi.name})}),
+"Add attachments..." )
+)
+);
+wi.attachments.forEach(function(a){
+const wrap = D.div();
+D.append(f.eAttach, wrap);
+D.append(wrap,
+D.append(D.div(),
+"Attachment ",
+D.addClass(
+D.a(F.repoUrl('ainfo',{name:a.uuid}),
+F.hashDigits(a.uuid,true)),
+'monospace'),
+" ",
+a.filename,
+(a.isLatest ? " (latest)" : "")
+)
+);
+const ul = D.ul();
+D.append(wrap, ul);
+[
+[
+"attachdownload?page=",
+encodeURIComponent(wi.name),
+"&file=",
+encodeURIComponent(a.filename)
+].join(''),
+"raw/"+a.src
+].forEach(function(url){
+const imgUrl = D.append(D.addClass(D.span(), 'monospace'), url);
+const urlCopy = D.span();
+const li = D.li(ul);
+D.append(li, urlCopy, " ", imgUrl);
+F.copyButton(urlCopy, {copyFromElement: imgUrl});
+});
+});
+return this;
+};
+P.updateEditStatus = function f(){
+if(!f.eLinks){
+f.eName = P.e.editStatus.querySelector('span.name');
+f.eLinks = P.e.editStatus.querySelector('span.links');
+}
+const wi = this.winfo;
+D.clearElement(f.eName, f.eLinks);
+if(!wi){
+D.append(f.eName, '(no page loaded)');
+this.updateAttachmentsView();
+return this;
+}
+D.append(f.eName,getEditMarker(wi, false),wi.name);
+this.updateAttachmentsView();
+if(!wi.version) return this;
+D.append(
+f.eLinks,
+D.a(F.repoUrl('wiki',{name:wi.name}),"viewer"),
+D.a(F.repoUrl('whistory',{name:wi.name}),'history'),
+D.a(F.repoUrl('attachlist',{page:wi.name}),"attachments"),
+D.a(F.repoUrl('attachadd',{page:wi.name,from: F.repoUrl('wikiedit',{name: wi.name})}), "attach"),
+D.a(F.repoUrl('wikiedit',{name:wi.name}),"editor permalink")
+);
+return this;
+};
+P.updatePageTitle = function f(){
+if(!f.titleElement){
+f.titleElement = document.head.querySelector('title');
+}
+const wi = P.winfo, marker = getEditMarker(wi, true),
+title = wi ? wi.name : 'no page loaded';
+f.titleElement.innerText = 'Wiki Editor: ' + marker + title;
+this.updateEditStatus();
+return this;
+};
+P.updateSaveButton = function(){
+return this;
+};
+P.wikiContent = function f(){
+if(0===arguments.length){
+return f.get();
+}else{
+f.set(arguments[0] || '');
+this.dispatchEvent('wiki-content-replaced', this);
+return this;
+}
+};
+P.wikiContent.get = function(){return P.e.taEditor.value};
+P.wikiContent.set = function(content){P.e.taEditor.value = content};
+P.setContentMethods = function(getter, setter){
+this.wikiContent.get = getter;
+this.wikiContent.set = setter;
+return this;
+};
+P.notifyOfChange = function(){
+P._isDirty = true;
+P.stashContentChange();
+};
+P.replaceEditorElement = function(newEditor){
+P.e.taEditor.parentNode.insertBefore(newEditor, P.e.taEditor);
+P.e.taEditor.remove();
+P.e.selectFontSizeWrap.remove();
+delete this.replaceEditorElement;
+return P;
+};
+P.baseHrefForWiki = function f(){
+this.base.tag.href = this.base.wikiUrl;
+return this;
+};
+P.baseHrefRestore = function(){
+this.base.tag.href = this.base.originalHref;
+};
+P.loadPage = function(name){
+if(0===arguments.length){
+if(!affirmPageLoaded()) return this;
+name = this.winfo.name;
+}else if(1===arguments.length && 'string' !== typeof name){
+const arg = arguments[0];
+name = arg.name;
+}
+const onload = (r)=>{
+this.dispatchEvent('wiki-page-loaded', r);
+};
+const stashWinfo = this.getStashedWinfo({name: name});
+if(stashWinfo){
+F.message("Fetched from the local-edit storage:", stashWinfo.name);
+onload({
+name: stashWinfo.name,
+mimetype: stashWinfo.mimetype,
+type: stashWinfo.type,
+version: stashWinfo.version,
+parent: stashWinfo.parent,
+isEmpty: !!stashWinfo.isEmpty,
+content: $stash.stashedContent(stashWinfo),
+attachments: stashWinfo.attachments
+});
+this._isDirty = true;
+return this;
+}
+F.message(
+"Loading content..."
+).fetch('wikiajax/fetch',{
+urlParams: {
+page: name
+},
+responseType: 'json',
+onload:(r)=>{
+F.message('Loaded page ['+r.name+'].');
+onload(r);
+}
+});
+return this;
+};
+P.preview = function f(switchToTab){
+if(!affirmPageLoaded()) return this;
+return this._postPreview(this.wikiContent(), function(c){
+P._previewTo(c);
+if(switchToTab) self.tabs.switchToTab(self.e.tabs.preview);
+});
+};
+P._previewTo = function(c){
+const target = this.e.previewTarget;
+D.clearElement(target);
+if('string'===typeof c) D.parseHtml(target,c);
+if(F.pikchr){
+F.pikchr.addSrcView(target.querySelectorAll('svg.pikchr'));
+}
+};
+P._postPreview = function(content,callback){
+if(!affirmPageLoaded()) return this;
+if(!content){
+callback(content);
+return this;
+}
+const fd = new FormData();
+const mimetype = this.e.selectMimetype.value;
+fd.append('page', this.winfo.name);
+fd.append('mimetype',mimetype);
+fd.append('content',content || '');
+F.message(
+"Fetching preview..."
+).fetch('wikiajax/preview',{
+payload: fd,
+onload: (r,header)=>{
+callback(r);
+F.message('Updated preview.');
+P.previewNeedsUpdate = false;
+P.dispatchEvent('wiki-preview-updated',{
+mimetype: mimetype,
+element: P.e.previewTarget
+});
+},
+onerror: (e)=>{
+F.fetch.onerror(e);
+callback("Error fetching preview: "+e);
+}
+});
+return this;
+};
+P.diff = function f(sbs){
+if(!affirmPageLoaded()) return this;
+const content = this.wikiContent(),
+self = this,
+target = this.e.diffTarget;
+const fd = new FormData();
+fd.append('page',this.winfo.name);
+fd.append('sbs', sbs ? 1 : 0);
+fd.append('content',content);
+if(this.e.selectDiffWS) fd.append('ws',this.e.selectDiffWS.value);
+F.message(
+"Fetching diff..."
+).fetch('wikiajax/diff',{
+payload: fd,
+onload: function(c){
+D.parseHtml(D.clearElement(target), [
+"<div>Diff <code>[",
+self.winfo.name,
+"]</code> &rarr; Local Edits</div>",
+c||'No changes.'
+].join(''));
+F.diff.setupDiffContextLoad();
+if(sbs) P.tweakSbsDiffs();
+F.message('Updated diff.');
+self.tabs.switchToTab(self.e.tabs.diff);
+}
+});
+return this;
+};
+P.save = function callee(onSuccessCallback){
+if(!affirmPageLoaded()) return this;
+else if(!this._isDirty){
+F.error("There are no changes to save.");
+return this;
+}
+const content = this.wikiContent();
+const self = this;
+callee.onload = function(w){
+const oldWinfo = self.winfo;
+self.unstashContent(oldWinfo);
+self.dispatchEvent('wiki-page-loaded', w);
+F.message("Saved page: ["+w.name+"].");
+if('function'===typeof onSuccessCallback){
+onSuccessCallback();
+}
+};
+const fd = new FormData(), w = P.winfo;
+fd.append('page',w.name);
+fd.append('mimetype', w.mimetype);
+fd.append('isnew', w.version ? 0 : 1);
+fd.append('content', P.wikiContent());
+F.message(
+"Saving page..."
+).fetch('wikiajax/save',{
+payload: fd,
+responseType: 'json',
+onload: callee.onload
+});
+return this;
+};
+P.stashContentChange = function(onlyWinfo){
+if(affirmPageLoaded(true)){
+const wi = this.winfo;
+wi.mimetype = P.e.selectMimetype.value;
+if(onlyWinfo && $stash.hasStashedContent(wi)){
+$stash.updateWinfo(wi);
+}else{
+$stash.updateWinfo(wi, P.wikiContent());
+}
+F.message("Stashed changes to page ["+wi.name+"].");
+P.updatePageTitle();
+$stash.prune();
+this.previewNeedsUpdate = true;
+}
+return this;
+};
+P.unstashContent = function(){
+const winfo = arguments[0] || this.winfo;
+if(winfo){
+this.previewNeedsUpdate = true;
+$stash.unstash(winfo);
+F.message("Unstashed page ["+winfo.name+"].");
+}
+return this;
+};
+P.clearStash = function(){
+$stash.clear();
+return this;
+};
+P.contentFromStash = function(){
+return affirmPageLoaded(true) ? $stash.stashedContent(this.winfo) : undefined;
+};
+P.getStashedWinfo = function(winfo){
+return $stash.getWinfo(winfo);
+};
+})(window.fossil);
+</script>
+<script nonce='663dae017db4f3fbdc78da0ff7521e48b9250a27bd765571'>/* wiki.c:1519 */
+
+fossil.page.initialPageList = [{"name": "branch/approximate-analyze", "type": "branch", "version": "1d5fcbf960257469b23491f10577bfec8ff40e8829f84f1b9f0d2f70eee3b6e4", "mimetype": "text/x-markdown", "parent": null, "attachments": null},{"name": "branch/autosetup", "type": "branch", "version": "5ff2fe2e4cbaeba3aedb87fb3bc50f7c795dbd3c02a8541496636e36c575fc43", "mimetype": "text/x-markdown", "parent": "2e47432b8c08c5717ad1ab46709b5bf771a9b65a279d08e951afca748148607e", "attachments": null},{"name": "branch/begin-concurrent", "type": "branch", "version": "b62bc0ed6462324ac0c9bb1ccf43123931e376d5067f5eca913348242efb14fa", "mimetype": "text/x-fossil-wiki", "parent": "01fff8fcbb3e344360a9d5b4c1793e5d07e896b1d32c5fad851464735d7a04bc", "attachments": null},{"name": "branch/begin-concurrent-pnu-wal2", "type": "branch", "version": "8d6de4b360601796301c34d957ec1048b8972ee3bcb2771296df6faccadbcbfa", "mimetype": "text/x-fossil-wiki", "parent": "51315b38655c34b4e99b421af68c4bb35d54eca4cd109ad1d23267c336813391", "attachments": null},{"name": "branch/begin-concurrent-report", "type": "branch", "version": "0d290f8ae2f107f0236b29aa5b7d57457de311248d2c31dd8f4796e470bab9cd", "mimetype": "text/x-fossil-wiki", "parent": null, "attachments": null},{"name": "branch/begin-concurrent-wal2", "type": "branch", "version": "260d665cc86e2822a568d0aa0f4468a957598423417aa99c3e423c9477522301", "mimetype": "text/x-fossil-wiki", "parent": null, "attachments": null},{"name": "branch/cygwin-fixes", "type": "branch", "version": "952ce7e1f47a34942fc6d96837a76f97b70f92a9dca169eb20cdfcd08ac58d1b", "mimetype": "text/x-markdown", "parent": "ba850f840ca10e3b4d6ebb2551954cf01bb783aad41d784b0fc217ff95b38c1e", "attachments": null},{"name": "branch/new-security-options", "type": "branch", "version": "153cee48974f873dd75b0cc3ebcf56486b25e4c157ab2b990a1ca39b26d2177e", "mimetype": "text/x-markdown", "parent": "f0364230326f4c4f4680dd55f7980146e89664edeaeed5f8c8e22b589a7f9e20", "attachments": null},{"name": "branch/reuse-schema", "type": "branch", "version": "19e20ce22cbf7be0754811080e24c1bf732fec3941386e2414f4170ab7331aab", "mimetype": "text/x-fossil-wiki", "parent": "a0b0230a21e7e1f7398076c097af98112ae6ce1e6597925dff522c00e86595d6", "attachments": null},{"name": "branch/tkt9b78184b-alt", "type": "branch", "version": "8acb2716e03012f0fdd5089d33a11841fc8424b131cbd305efe42f032539d9c5", "mimetype": "text/x-fossil-wiki", "parent": null, "attachments": null},{"name": "branch/wal2", "type": "branch", "version": "040960b7c828a57a48b5f33127e2260386bc88841920af677716927e6ed36f2d", "mimetype": "text/x-fossil-wiki", "parent": "6db279db3b48a8dd4f9bb3baf7928dc36b81dfbd5c23fffbf027ed6131aed187", "attachments": null},{"name": "branch/window-functions", "type": "branch", "version": "2a4546cdd467219260cee24175c1837bdc9901a778a6ede09e20850877513c7e", "mimetype": "text/x-fossil-wiki", "parent": null, "attachments": null},{"name": "Bug Reports", "type": "normal", "version": "284bbc82a565b66420962fa73f82d3a59e08570b1f997050aec2e4bfa00dfbc7", "mimetype": "text/x-markdown", "parent": "338dca3766f9ce7bba57e01fa73d816a04b0b307f4f4fdffecf387473b4df4d1", "attachments": null},{"name": "checkin/2cbbabdf5ef624d809fbb40d2d312a29e0b5f02756fc0dbf6985fc8b0c8d1ade", "type": "checkin", "version": "ac4b684ec17dd1776d4cb2c512adef314382d4e2d1d5df78da901d7af672cfc5", "mimetype": "text/x-markdown", "parent": null, "attachments": null},{"name": "checkin/44135d6ea84f7ba6b36549954b38a8bc048d5ffea5a9779e35950afa4eb2dfb2", "type": "checkin", "version": "5835e26262e22090fd2bb09813563573ceff3c6902da1677b896bf971773e8d0", "mimetype": "text/x-markdown", "parent": null, "attachments": null},{"name": "checkin/5374226df4a2c1b59258839532b67a399c447ac8ec1408fdf2dffb9c41e1349e", "type": "checkin", "version": "5381c642e37d6613e775183d63fcdc9a76b75f1982a81c06eaf0c4d9118a1e2c", "mimetype": "text/x-markdown", "parent": "c5c998672a9db37ef600227db11ac1b18f42ce86c0cbe6e2a6b2ef64a88dee6e", "attachments": null},{"name": "checkin/718ead555b09892f3cbaddb1775ede4acfa4a2986d69f15da1270c433e5dd578", "type": "checkin", "version": "b76247d6874f62100b00802119920b51e3e4f139a58bbd9d90c2532860aee683", "mimetype": "text/x-fossil-wiki", "parent": "347abbf02dde5d8a0a8bcb58d3d9488e62ba42dd567f12cbcf98232fd8c02d56", "attachments": null},{"name": "checkin/8b12e95fec7ce6e0de82a04ca3dfcf1a8e62e233b7382aa28a8a9be6e862b1af", "type": "checkin", "version": "7a75f12d30866e4a76c08d650fde9969424b1754ebca9cc74a4bd5747a18f15c", "mimetype": "text/x-fossil-wiki", "parent": null, "attachments": null},{"name": "checkin/98d10cb52add1439f67d353e499fcc8ffddf8c5c7be51b765042e7d75a29c310", "type": "checkin", "version": "4bddf6b334290d815318730c33c4bc10cdbae44ae4d0a4623b45b90853379a36", "mimetype": "text/x-markdown", "parent": null, "attachments": null},{"name": "Sandbox", "type": "sandbox", "mimetype": "text/x-fossil-wiki", "version": null, "parent": null},{"name": "StrictMode", "type": "normal", "version": "051b27bdcf130d1a071f44b31bebc7fb050dcb1eed168f49b7ca9362f9a1b7df", "mimetype": "text/x-markdown", "parent": "4e075308eb98fac5b5655096b3f2facc2a9821599a07a45093c6b8c2a9d05bcd", "attachments": null},{"name": "ToDo", "type": "normal", "version": "4e0009755bbdf763c4d086e2ab369560d3d8dcf9efda0c7b3cec8253b936a22d", "mimetype": "text/x-markdown", "parent": "09d9dbe69b334da5562a2d3bdcdbdd2112bbdd58873d0b1eaecf464a55820947", "attachments": null}];
+fossil.onPageLoad(function(){
+const P = fossil.page;
+try{
+P.loadPage("Sandbox");
+}catch(e){fossil.error(e); console.error('Exception:',e);}
+});
+</script>
+</div>
+<footer>
+This page was generated in about
+0.011s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="663dae017db4f3fbdc78da0ff7521e48b9250a27bd765571">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+</body>
+</html>

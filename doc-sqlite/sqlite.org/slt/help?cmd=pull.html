@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-91cce9ded71dbcff027dcbda87e6df5514451118ed42f5fd'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>sqllogictest: Help: pull</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="tkt rpage-help cpage-help">
+<header>
+  <div class="title"><h1>sqllogictest</h1>Help: pull</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='home.html' class=''>Home</a>
+<a href='timeline.html' class=''>Timeline</a>
+<a href='brlist.html' class='wideonly'>Branches</a>
+<a href='taglist.html' class='wideonly'>Tags</a>
+<a href='ticket.html' class='wideonly'>Tickets</a>
+<a href='wiki.html' class='wideonly'>Wiki</a>
+<a href='login.html' class='wideonly'>Login</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="submenu">
+<a class="label sml-topic-list" href="help.html">Topic-List</a>
+</div>
+<div class="content"><span id="debugMsg"></span>
+<h1>The "pull" command:</h1>
+<div class="helpPage">
+Usage: <tt>fossil</tt> <tt>pull</tt> <i>?URL?</i> <tt>?options?</tt><br>
+
+<p> Pull all sharable changes from a remote repository into the local
+repository.  Sharable changes include public check-ins, edits to
+wiki pages, tickets, tech-notes, and forum posts.  Add
+the --private option to pull private branches.  Use the
+"configuration pull" command to pull website configuration details.
+
+<p> If URL is not specified, then the URL from the most recent clone, push,
+pull, remote, or sync command is used.  See "fossil help clone" for
+details on the URL formats.
+
+<p> Options:
+<blockquote><dl>
+<dt> <tt>--all</tt>                    </dt><dd>Pull from all remotes, not just the default</dt>
+</dd><dt> <tt>-B|--httpauth</tt> <i>USER:PASS</i>  </dt><dd>Credentials for the simple HTTP auth protocol,</dt>
+if required by the remote website
+</dd><dt> <tt>--from-parent-project</tt>    </dt><dd>Pull content from the parent project</dt>
+</dd><dt> <tt>--ipv4</tt>                   </dt><dd>Use only IPv4, not IPv6</dt>
+</dd><dt> <tt>--no-http-compression</tt>    </dt><dd>Do not compress HTTP traffic</dt>
+</dd><dt> <tt>--once</tt>                   </dt><dd>Do not remember URL for subsequent syncs</dt>
+</dd><dt> <tt>--private</tt>                </dt><dd>Pull private branches too</dt>
+</dd><dt> <tt>--project-code</tt> <i>CODE</i>      </dt><dd>Use CODE as the project code</dt>
+</dd><dt> <tt>--proxy</tt> <i>PROXY</i>            </dt><dd>Use the specified HTTP proxy</dt>
+</dd><dt> <tt>-R|--repository</tt> <i>REPO</i>     </dt><dd>Local repository to pull into</dt>
+</dd><dt> <tt>--ssl-identity</tt> <i>FILE</i>      </dt><dd>Local SSL credentials, if requested by remote</dt>
+</dd><dt> <tt>--ssh-command</tt> <i>SSH</i>        </dt><dd>Use SSH as the "ssh" command</dt>
+</dd><dt> <tt>--transport-command</tt> <i>CMD</i>  </dt><dd>Use external command CMD to move messages</dt>
+between client and server
+</dd><dt> <tt>-v|--verbose</tt>             </dt><dd>Additional (debugging) output - use twice to</dt>
+also trace network traffic.
+</dd><dt> <tt>--verily</tt>                 </dt><dd>Exchange extra information with the remote</dt>
+to ensure no content is overlooked
+
+</dd></dl></blockquote><p> See also: <a href='help%3Fcmd=clone.html'>clone</a>, <a href='help%3Fcmd=config.html'>config</a>, <a href='help%3Fcmd=push.html'>push</a>, <a href='help%3Fcmd=remote.html'>remote</a>, <a href='help%3Fcmd=sync.html'>sync</a>
+</div>
+</div>
+<footer>
+This page was generated in about
+0.004s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="91cce9ded71dbcff027dcbda87e6df5514451118ed42f5fd">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='91cce9ded71dbcff027dcbda87e6df5514451118ed42f5fd'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+</script>
+</body>
+</html>

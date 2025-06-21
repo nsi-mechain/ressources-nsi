@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>sqllogictest</title>
+    <link>https://www.sqlite.org/slt</link>
+    <description>sqllogictest</description>
+    <pubDate>Thu, 19 Jun 2025 13:56:00 +0000</pubDate>
+    <generator>Fossil version [c953e01c9e] 2025-06-05 13:07:01</generator>
+    <item>
+      <title>Update the built-in SQLite to the latest 3.50.0 beta. (tags: trunk)</title>
+      <link>https://www.sqlite.org/slt/info/047b249a50e357b68fbc798f9972753d4afb0e20</link>
+      <description>Update the built-in SQLite to the latest 3.50.0 beta. (tags: trunk)</description>
+      <pubDate>Mon, 19 May 2025 20:03:18 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/slt/info/047b249a50e357b68fbc798f9972753d4afb0e20</guid>
+    </item>
+    <item>
+      <title>Update the built-in SQLite to the latest 3.49.0 beta. (tags: trunk)</title>
+      <link>https://www.sqlite.org/slt/info/2a213a7ba7c19b2e72bdf570604608663d5d8c58</link>
+      <description>Update the built-in SQLite to the latest 3.49.0 beta. (tags: trunk)</description>
+      <pubDate>Mon, 3 Feb 2025 11:20:48 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/slt/info/2a213a7ba7c19b2e72bdf570604608663d5d8c58</guid>
+    </item>
+    <item>
+      <title>Update the built-in SQLite to the latest 3.48.0 beta. (tags: trunk)</title>
+      <link>https://www.sqlite.org/slt/info/c48d949499c5a2773eb2263a41a6841d83d19071</link>
+      <description>Update the built-in SQLite to the latest 3.48.0 beta. (tags: trunk)</description>
+      <pubDate>Fri, 3 Jan 2025 15:09:36 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/slt/info/c48d949499c5a2773eb2263a41a6841d83d19071</guid>
+    </item>
+    <item>
+      <title>Update the built-in SQLite to the latest 3.48.0 beta. (tags: trunk)</title>
+      <link>https://www.sqlite.org/slt/info/baf47264cf3ff913ee10c50143014ca0f169d9f9</link>
+      <description>Update the built-in SQLite to the latest 3.48.0 beta. (tags: trunk)</description>
+      <pubDate>Tue, 31 Dec 2024 22:38:27 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/slt/info/baf47264cf3ff913ee10c50143014ca0f169d9f9</guid>
+    </item>
+    <item>
+      <title>Add the COPYRIGHT.md file to the top-level directory. (tags: trunk)</title>
+      <link>https://www.sqlite.org/slt/info/984fad8d01f7bb1e06d8b8ce8f37385f3e287854</link>
+      <description>Add the COPYRIGHT.md file to the top-level directory. (tags: trunk)</description>
+      <pubDate>Thu, 12 Dec 2024 17:59:18 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/slt/info/984fad8d01f7bb1e06d8b8ce8f37385f3e287854</guid>
+    </item>
+    <item>
+      <title>Update the license statement on the main source code file. (tags: trunk)</title>
+      <link>https://www.sqlite.org/slt/info/11f343c9263f061990d3b46fc733536ca526038c</link>
+      <description>Update the license statement on the main source code file. (tags: trunk)</description>
+      <pubDate>Thu, 12 Dec 2024 17:57:03 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/slt/info/11f343c9263f061990d3b46fc733536ca526038c</guid>
+    </item>
+    <item>
+      <title>Enhanced to verify that the correct number of rows is returned from each
+query.  See
+[https://sqlite.org/forum/forumpost/115a6fedd9|SQLite Forum post 115a6fedd9]. (tags: trunk)</title>
+      <link>https://www.sqlite.org/slt/info/c5ec0e8e41a8106c9f564c498b58d8c25cdb9179</link>
+      <description>Enhanced to verify that the correct number of rows is returned from each
+query.  See
+[https://sqlite.org/forum/forumpost/115a6fedd9|SQLite Forum post 115a6fedd9]. (tags: trunk)</description>
+      <pubDate>Fri, 15 Nov 2024 00:01:36 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/slt/info/c5ec0e8e41a8106c9f564c498b58d8c25cdb9179</guid>
+    </item>
+    <item>
+      <title>Update the built-in SQLite to the latest 3.47.0 beta. (tags: trunk)</title>
+      <link>https://www.sqlite.org/slt/info/7dda5714359c6bcb82e111509ca2d09dae5e8950</link>
+      <description>Update the built-in SQLite to the latest 3.47.0 beta. (tags: trunk)</description>
+      <pubDate>Fri, 18 Oct 2024 16:23:11 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/slt/info/7dda5714359c6bcb82e111509ca2d09dae5e8950</guid>
+    </item>
+    <item>
+      <title>Update the built-in SQLite to the 3.46.0 release candidate. (tags: trunk)</title>
+      <link>https://www.sqlite.org/slt/info/38790915ca6b7663d739413d86532fac4d86db13</link>
+      <description>Update the built-in SQLite to the 3.46.0 release candidate. (tags: trunk)</description>
+      <pubDate>Tue, 21 May 2024 22:03:34 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/slt/info/38790915ca6b7663d739413d86532fac4d86db13</guid>
+    </item>
+    <item>
+      <title>Update the built-in SQLite to the latest 3.45.0 beta. (tags: trunk)</title>
+      <link>https://www.sqlite.org/slt/info/40cd78f7e8ce3e2d57cfb860f4cd501579e52a28</link>
+      <description>Update the built-in SQLite to the latest 3.45.0 beta. (tags: trunk)</description>
+      <pubDate>Fri, 12 Jan 2024 20:22:12 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/slt/info/40cd78f7e8ce3e2d57cfb860f4cd501579e52a28</guid>
+    </item>
+    <item>
+      <title>Update the built-in SQLite to the latest 3.44.0 release candidate. (tags: trunk)</title>
+      <link>https://www.sqlite.org/slt/info/1236e2ddf4d88bea9f2ad2cbf23dcda7f8ceb377</link>
+      <description>Update the built-in SQLite to the latest 3.44.0 release candidate. (tags: trunk)</description>
+      <pubDate>Mon, 30 Oct 2023 19:21:02 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/slt/info/1236e2ddf4d88bea9f2ad2cbf23dcda7f8ceb377</guid>
+    </item>
+    <item>
+      <title>Update the built-in SQLite to the latest 3.44.0 beta. (tags: trunk)</title>
+      <link>https://www.sqlite.org/slt/info/2dbcd3895a40729db5a070c5ee4a342c1899069b</link>
+      <description>Update the built-in SQLite to the latest 3.44.0 beta. (tags: trunk)</description>
+      <pubDate>Wed, 25 Oct 2023 12:59:36 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/slt/info/2dbcd3895a40729db5a070c5ee4a342c1899069b</guid>
+    </item>
+    <item>
+      <title>Update the built-in SQLite to the latest 3.42.0 beta. (tags: trunk)</title>
+      <link>https://www.sqlite.org/slt/info/756a41c25b59a9dfb449569c94ce598dbeb0267a</link>
+      <description>Update the built-in SQLite to the latest 3.42.0 beta. (tags: trunk)</description>
+      <pubDate>Fri, 12 May 2023 19:51:17 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/slt/info/756a41c25b59a9dfb449569c94ce598dbeb0267a</guid>
+    </item>
+    <item>
+      <title>Update the built-in SQLite to the latest beta. (tags: trunk)</title>
+      <link>https://www.sqlite.org/slt/info/a22803965ebc2fa5b71c5ad4c8da9816fd58a21a</link>
+      <description>Update the built-in SQLite to the latest beta. (tags: trunk)</description>
+      <pubDate>Sun, 19 Feb 2023 20:28:23 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/slt/info/a22803965ebc2fa5b71c5ad4c8da9816fd58a21a</guid>
+    </item>
+    <item>
+      <title>Update the built-in SQLite to the latest 3.41.0 alpha version. (tags: trunk)</title>
+      <link>https://www.sqlite.org/slt/info/df6e45280ff69cf0795de2cc59ad82df0350f045</link>
+      <description>Update the built-in SQLite to the latest 3.41.0 alpha version. (tags: trunk)</description>
+      <pubDate>Mon, 6 Feb 2023 17:27:52 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/slt/info/df6e45280ff69cf0795de2cc59ad82df0350f045</guid>
+    </item>
+    <item>
+      <title>Update SQLite to the 3.40.0 rc1 version. (tags: trunk)</title>
+      <link>https://www.sqlite.org/slt/info/6698644b2eddeeb3447652957c9fec6371ba439d</link>
+      <description>Update SQLite to the 3.40.0 rc1 version. (tags: trunk)</description>
+      <pubDate>Mon, 14 Nov 2022 16:25:09 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/slt/info/6698644b2eddeeb3447652957c9fec6371ba439d</guid>
+    </item>
+    <item>
+      <title>Update the built-in SQLite to the latest 3.40.0 beta. (tags: trunk)</title>
+      <link>https://www.sqlite.org/slt/info/ec19b41c790b781586a9da7011647ba3d968d60a</link>
+      <description>Update the built-in SQLite to the latest 3.40.0 beta. (tags: trunk)</description>
+      <pubDate>Mon, 7 Nov 2022 16:13:44 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/slt/info/ec19b41c790b781586a9da7011647ba3d968d60a</guid>
+    </item>
+    <item>
+      <title>Update requirements marks to match typo corrections in the documentation. (tags: trunk)</title>
+      <link>https://www.sqlite.org/slt/info/e6b18bef1a0d9b3be356a7c0445b2232eff91b13</link>
+      <description>Update requirements marks to match typo corrections in the documentation. (tags: trunk)</description>
+      <pubDate>Mon, 7 Nov 2022 12:19:15 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/slt/info/e6b18bef1a0d9b3be356a7c0445b2232eff91b13</guid>
+    </item>
+    <item>
+      <title>Update the built-in SQLite to the 3.39.0 beta. (tags: trunk)</title>
+      <link>https://www.sqlite.org/slt/info/2d3ce36eda2dc04485802374e98fdb343b500b91</link>
+      <description>Update the built-in SQLite to the 3.39.0 beta. (tags: trunk)</description>
+      <pubDate>Fri, 24 Jun 2022 00:40:33 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/slt/info/2d3ce36eda2dc04485802374e98fdb343b500b91</guid>
+    </item>
+    <item>
+      <title>Update the built-in SQLite to the latest 3.38.0 beta. (tags: trunk)</title>
+      <link>https://www.sqlite.org/slt/info/88723bbfd35d71b0b0036f9e9230ec52b7f20a50</link>
+      <description>Update the built-in SQLite to the latest 3.38.0 beta. (tags: trunk)</description>
+      <pubDate>Sat, 19 Feb 2022 14:07:18 +0000</pubDate>
+      <dc:creator>drh</dc:creator>
+      <guid>https://www.sqlite.org/slt/info/88723bbfd35d71b0b0036f9e9230ec52b7f20a50</guid>
+    </item>
+  </channel>
+</rss>

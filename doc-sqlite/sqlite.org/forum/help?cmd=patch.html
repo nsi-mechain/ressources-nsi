@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-8ed9ace1ebad4592ac3db28b7241239f6e676fea2d7843fc'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQLite User Forum: Help: patch</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="tkt rpage-help cpage-help">
+<header>
+  <div class="title"><h1>SQLite User Forum</h1>Help: patch</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='about.html' class='desktoponly'>About</a>
+<a href='../forum.html' class=''>Threads</a>
+<a href='forumnew.html' class=''>Post</a>
+<a href='register.html' class='desktoponly'>Subscribe</a>
+<a href='https://sqlite.org/' class=''>SQLite</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="submenu">
+<a class="label sml-topic-list" href="help.html">Topic-List</a>
+</div>
+<div class="content"><span id="debugMsg"></span>
+<h1>The "patch" command:</h1>
+<div class="helpPage">
+Usage: <tt>fossil</tt> <tt>patch</tt> <i>SUBCOMMAND</i> <i>?ARGS</i> ..?<br>
+
+<p> This command is used to create, view, and apply Fossil binary patches.
+A Fossil binary patch is a single (binary) file that captures all of the
+uncommitted changes of a check-out.  Use Fossil binary patches to transfer
+proposed or incomplete changes between machines for testing or analysis.
+
+<blockquote><dl>
+<dt> <tt>fossil</tt> <tt>patch</tt> <tt>alias</tt> <tt>add|rm|ls|list</tt> <i>?ARGS?</i></dt>
+
+<p><dd>Manage remote-name aliases, which act as short-form
+equivalents to REMOTE-CHECKOUT strings. Aliases are local to
+a given repository and do not sync. Subcommands:
+
+<blockquote><dl>
+<dt> ... <tt>add</tt> <i>ALIAS</i> <i>REMOTE-CHECKOUT</i>     </dt><dd>Add ALIAS as an alias</dt>
+for REMOTE-CHECKOUT.
+</dd><dt> ... <tt>ls|list</tt>                       </dt><dd>List all local aliases.</dt>
+</dd><dt> ... <tt>rm</tt> <i>ALIAS</i> <i>[ALIAS...]</i>           </dt><dd>Remove named aliases</dt>
+</dd><dt> ... <tt>rm</tt> <tt>--all</tt>                      </dt><dd>Remove all aliases</dt>
+
+</dd></dl></blockquote></dd><p> <dt> <tt>fossil</tt> <tt>patch</tt> <tt>create</tt> <i>[DIRECTORY]</i> <i>PATCHFILE</i></dt>
+
+<p><dd>Create a new binary patch in PATCHFILE that captures all uncommitted
+changes in the check-out at DIRECTORY, or the current directory if
+DIRECTORY is omitted.  If PATCHFILE is "-" then the binary patch
+is written to standard output.
+
+<p> Options:
+<blockquote><dl>
+<dt> <tt>-f|--force</tt>   </dt><dd>Overwrite an existing patch with the same name</dt>
+
+</dd></dl></blockquote></dd><p> <dt> <tt>fossil</tt> <tt>patch</tt> <tt>apply</tt> <i>[DIRECTORY]</i> <i>PATCHFILE</i></dt>
+
+<p><dd>Apply the changes in PATCHFILE to the check-out at DIRECTORY, or
+in the current directory if DIRECTORY is omitted.
+
+<p> Options:
+<blockquote><dl>
+<dt> <tt>-f|--force</tt>   </dt><dd>Apply the patch even though there are unsaved</dt>
+changes in the current check-out.  Unsaved changes
+are reverted and permanently lost.
+</dd><dt> <tt>-n|--dry-run</tt> </dt><dd>Do nothing, but print what would have happened</dt>
+</dd><dt> <tt>-v|--verbose</tt> </dt><dd>Extra output explaining what happens</dt>
+
+</dd></dl></blockquote></dd><p> <dt> <tt>fossil</tt> <tt>patch</tt> <tt>diff</tt> <i>[DIRECTORY]</i> <i>PATCHFILE</i></dt>
+<dt> <tt>fossil</tt> <tt>patch</tt> <tt>gdiff</tt> <i>[DIRECTORY]</i> <i>PATCHFILE</i></dt>
+
+<p><dd>Show a human-readable diff for the patch in PATCHFILE and associated
+with the repository checked out in DIRECTORY.  The current
+directory is used if DIRECTORY is omitted. All the usual
+diff flags described at "fossil help diff" apply. With gdiff,
+gdiff-command is used instead of internal diff logic.  In addition:
+
+<blockquote><dl>
+<dt> <tt>-f|--force</tt>   </dt><dd>Continue trying to perform the diff even if</dt>
+baseline information is missing from the current
+repository
+
+</dd></dl></blockquote></dd><p> <dt> <tt>fossil</tt> <tt>patch</tt> <tt>push</tt> <i>REMOTE-CHECKOUT</i></dt>
+
+<p><dd>Create a patch for the current check-out, transfer that patch to
+a remote machine (using ssh) and apply the patch there.  The
+REMOTE-CHECKOUT is in one of the following formats:
+
+<p><ul>
+<li> DIRECTORY
+<li> HOST:DIRECTORY
+<li> USER@HOST:DIRECTORY
+
+</ul><p> The name of the fossil executable on the remote host is specified
+by the --fossilcmd option, or if there is no --fossilcmd, it first
+tries "$HOME/bin/fossil" and if not found there it searches for any
+executable named "fossil" on the default $PATH set by SSH on the
+remote.
+
+<p> Command-line options:
+
+<blockquote><dl>
+<dt> <tt>-f|--force</tt>       </dt><dd>Apply the patch even though there are unsaved</dt>
+changes in the current check-out.  Unsaved
+changes will be reverted and then the patch is
+applied.
+</dd><dt> <tt>--fossilcmd</tt> <i>EXE</i>  </dt><dd>Name of the "fossil" executable on the remote</dt>
+</dd><dt> <tt>-n|--dry-run</tt>     </dt><dd>Do nothing, but print what would have happened</dt>
+</dd><dt> <tt>-v|--verbose</tt>     </dt><dd>Extra output explaining what happens</dt>
+
+
+</dd></dl></blockquote></dd><p> <dt> <tt>fossil</tt> <tt>patch</tt> <tt>pull</tt> <i>REMOTE-CHECKOUT</i></dt>
+
+<p><dd>Like "fossil patch push" except that the transfer is from remote
+to local.  All the same command-line options apply.
+
+</dd><p> <dt> <tt>fossil</tt> <tt>patch</tt> <tt>view</tt> <i>PATCHFILE</i></dt>
+
+<p><dd>View a summary of the changes in the binary patch in PATCHFILE.
+Use "fossil patch diff" for detailed patch content.
+
+<blockquote><dl>
+<dt> <tt>-v|--verbose</tt>     </dt><dd>Show extra detail about the patch</dt>
+</dd>
+</dl></blockquote>
+</dd>
+</dl></blockquote>
+</div>
+</div>
+<footer>
+This page was generated in about
+0.005s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="8ed9ace1ebad4592ac3db28b7241239f6e676fea2d7843fc">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='8ed9ace1ebad4592ac3db28b7241239f6e676fea2d7843fc'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-b69e17f97d773c42825943ddb439ae3d044ec300f8de6ea8'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>sqllogictest: Tags</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="taglist rpage-taglist cpage-taglist">
+<header>
+  <div class="title"><h1>sqllogictest</h1>Tags</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='home.html' class=''>Home</a>
+<a href='timeline.html' class=''>Timeline</a>
+<a href='brlist.html' class='wideonly'>Branches</a>
+<a href='taglist.html' class='active wideonly'>Tags</a>
+<a href='ticket.html' class='wideonly'>Tickets</a>
+<a href='wiki.html' class='wideonly'>Wiki</a>
+<a href='login.html' class='wideonly'>Login</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="submenu">
+<a class="label sml-timeline" href="tagtimeline.html">Timeline</a>
+</div>
+<div class="content"><span id="debugMsg"></span>
+<p>Many <span class="disabled">hyperlinks are disabled.</span><br>
+Use <a href="login%3Fanon=1&amp;g=%252Ftaglist.html">anonymous login</a>
+to enable hyperlinks.</p>
+<h2>Non-propagating tags:</h2>
+<table class='sortable' data-column-types='ktn' data-init-sort='2'>
+<thead><tr>
+<th>Tag Name</th>
+<th>Most Recent</th>
+<th>Count</th>
+</tr></thead><tbody>
+<tr><td data-sortkey="000001"><span class="tagDsp">release</span></td><td>&nbsp;&nbsp;&nbsp;2016-02-15 17:37&nbsp;&nbsp;&nbsp;</td><td align="center">1</td></tr>
+<tr><td data-sortkey="000002"><span class="tagDsp">version-3.11.0</span></td><td>&nbsp;&nbsp;&nbsp;2016-02-15 17:37&nbsp;&nbsp;&nbsp;</td><td align="center">1</td></tr>
+</table>
+</div>
+<footer>
+This page was generated in about
+0.006s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="b69e17f97d773c42825943ddb439ae3d044ec300f8de6ea8">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='b69e17f97d773c42825943ddb439ae3d044ec300f8de6ea8'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+/* sorttable.js *************************************************************/
+function SortableTable(tableEl){
+var columnTypes = tableEl.getAttribute("data-column-types");
+var initSort = tableEl.getAttribute("data-init-sort");
+this.tbody = tableEl.getElementsByTagName('tbody');
+this.columnTypes = columnTypes;
+if(tableEl.rows.length==0) return;
+var ncols = tableEl.rows[0].cells.length;
+for(var i = columnTypes.length; i<=ncols; i++){this.columnTypes += 't';}
+this.sort = function (cell) {
+var column = cell.cellIndex;
+var sortFn;
+switch( cell.sortType ){
+case "n": sortFn = this.sortNumeric;  break;
+case "N": sortFn = this.sortReverseNumeric;  break;
+case "t": sortFn = this.sortText;  break;
+case "T": sortFn = this.sortReverseText;  break;
+case "k": sortFn = this.sortKey;  break;
+case "K": sortFn = this.sortReverseKey;  break;
+default:  return;
+}
+this.sortIndex = column;
+var newRows = new Array();
+for (j = 0; j < this.tbody[0].rows.length; j++) {
+newRows[j] = this.tbody[0].rows[j];
+}
+if( this.sortIndex==Math.abs(this.prevColumn)-1 ){
+newRows.reverse();
+this.prevColumn = -this.prevColumn;
+}else{
+newRows.sort(sortFn);
+this.prevColumn = this.sortIndex+1;
+}
+for (i=0;i<newRows.length;i++) {
+this.tbody[0].appendChild(newRows[i]);
+}
+this.setHdrIcons();
+}
+this.setHdrIcons = function() {
+for (var i=0; i<this.hdrRow.cells.length; i++) {
+if( this.columnTypes[i]=='x' ) continue;
+var sortType;
+if( this.prevColumn==i+1 ){
+sortType = 'asc';
+}else if( this.prevColumn==(-1-i) ){
+sortType = 'desc'
+}else{
+sortType = 'none';
+}
+var hdrCell = this.hdrRow.cells[i];
+var clsName = hdrCell.className.replace(/\s*\bsort\s*\w+/, '');
+clsName += ' sort ' + sortType;
+hdrCell.className = clsName;
+}
+}
+this.sortText = function(a,b) {
+var i = thisObject.sortIndex;
+if (a.cells.length<=i) return -1;
+if (b.cells.length<=i) return 1;
+aa = a.cells[i].textContent.replace(/^\W+/,'').toLowerCase();
+bb = b.cells[i].textContent.replace(/^\W+/,'').toLowerCase();
+if(aa<bb) return -1;
+if(aa==bb) return a.rowIndex-b.rowIndex;
+return 1;
+}
+this.sortReverseText = function(a,b) {
+var i = thisObject.sortIndex;
+if (a.cells.length<=i) return 1;
+if (b.cells.length<=i) return -1;
+aa = a.cells[i].textContent.replace(/^\W+/,'').toLowerCase();
+bb = b.cells[i].textContent.replace(/^\W+/,'').toLowerCase();
+if(aa<bb) return +1;
+if(aa==bb) return a.rowIndex-b.rowIndex;
+return -1;
+}
+this.sortNumeric = function(a,b) {
+var i = thisObject.sortIndex;
+aa = parseFloat(a.cells[i].textContent);
+if (isNaN(aa)) aa = 0;
+bb = parseFloat(b.cells[i].textContent);
+if (isNaN(bb)) bb = 0;
+if(aa==bb) return a.rowIndex-b.rowIndex;
+return aa-bb;
+}
+this.sortReverseNumeric = function(a,b) {
+var i = thisObject.sortIndex;
+aa = parseFloat(a.cells[i].textContent);
+if (isNaN(aa)) aa = 0;
+bb = parseFloat(b.cells[i].textContent);
+if (isNaN(bb)) bb = 0;
+if(aa==bb) return a.rowIndex-b.rowIndex;
+return bb-aa;
+}
+this.sortKey = function(a,b) {
+var i = thisObject.sortIndex;
+aa = a.cells[i].getAttribute("data-sortkey");
+bb = b.cells[i].getAttribute("data-sortkey");
+if(aa<bb) return -1;
+if(aa==bb) return a.rowIndex-b.rowIndex;
+return 1;
+}
+this.sortReverseKey = function(a,b) {
+var i = thisObject.sortIndex;
+aa = a.cells[i].getAttribute("data-sortkey");
+bb = b.cells[i].getAttribute("data-sortkey");
+if(aa<bb) return +1;
+if(aa==bb) return a.rowIndex-b.rowIndex;
+return -1;
+}
+var x = tableEl.getElementsByTagName('thead');
+if(!(this.tbody && this.tbody[0].rows && this.tbody[0].rows.length>0)){
+return;
+}
+if(x && x[0].rows && x[0].rows.length > 0) {
+this.hdrRow = x[0].rows[0];
+} else {
+return;
+}
+var thisObject = this;
+this.prevColumn = initSort;
+for (var i=0; i<this.hdrRow.cells.length; i++) {
+if( columnTypes[i]=='x' ) continue;
+var hdrcell = this.hdrRow.cells[i];
+hdrcell.sTable = this;
+hdrcell.style.cursor = "pointer";
+hdrcell.sortType = columnTypes[i] || 't';
+hdrcell.onclick = function () {
+this.sTable.sort(this);
+return false;
+}
+}
+this.setHdrIcons()
+}
+(function(){
+var x = document.getElementsByClassName("sortable");
+for(var i=0; i<x.length; i++){
+new SortableTable(x[i]);
+}
+}())
+</script>
+</body>
+</html>

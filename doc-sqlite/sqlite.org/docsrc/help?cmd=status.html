@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-b46b028ed5332d6e7303e2569db31c5ab16df2affd306446'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentation Source Text: Help: status</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="tkt rpage-help cpage-help">
+<header>
+  <div class="title"><h1>Documentation Source Text</h1>Help: status</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='home.html' class=''>Home</a>
+<a href='timeline.html' class=''>Timeline</a>
+<a href='brlist.html' class='wideonly'>Branches</a>
+<a href='taglist.html' class='wideonly'>Tags</a>
+<a href='ticket.html' class='wideonly'>Tickets</a>
+<a href='wiki.html' class='wideonly'>Wiki</a>
+<a href='login.html' class='wideonly'>Login</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="submenu">
+<a class="label sml-topic-list" href="help.html">Topic-List</a>
+</div>
+<div class="content"><span id="debugMsg"></span>
+<h1>The "status" command:</h1>
+<div class="helpPage">
+Usage: <tt>fossil</tt> <tt>changes|status</tt> <i>?OPTIONS?</i> <i>?PATHS</i> ...?<br>
+
+<p> Report the change status of files in the current check-out.  If one or
+more PATHS are specified, only changes among the named files and
+directories are reported.  Directories are searched recursively.
+
+<p> The status command is similar to the changes command, except it lacks
+several of the options supported by changes and it has its own header
+and footer information.  The header information is a subset of that
+shown by the info command, and the footer shows if there are any forks.
+Change type classification is always enabled for the status command.
+
+<p> Each line of output is the name of a changed file, with paths shown
+according to the "relative-paths" setting, unless overridden by the
+--abs-paths or --rel-paths options.
+
+<p> By default, all changed files are selected for display.  This behavior
+can be overridden by using one or more filter options (listed below),
+in which case only files with the specified change type(s) are shown.
+As a special case, the --no-merge option does not inhibit this default.
+This default shows exactly the set of changes that would be checked-
+in by the commit command.
+
+<p> If no filter options are used, or if the --merge option is used, the
+artifact hash of each merge contributor check-in version is displayed at
+the end of the report.  The --no-merge option is useful to display the
+default set of changed files without the merge contributors.
+
+<p> If change type classification is enabled, each output line starts with
+a code describing the file's change type, e.g. EDITED or RENAMED.  It
+is enabled by default unless exactly one change type is selected.  For
+the purposes of determining the default, --changed counts as selecting
+one change type.  The default can be overridden by the --classify or
+--no-classify options.
+
+<p> --edited and --updated produce disjoint sets.  --updated shows a file
+only when it is identical to that of its merge contributor, and the
+change type classification is UPDATED_BY_MERGE or UPDATED_BY_INTEGRATE.
+If the file had to be merged with any other changes, it is considered
+to be merged or conflicted and therefore will be shown by --edited, not
+--updated, with types EDITED or CONFLICT.  The --changed option can be
+used to display the union of --edited and --updated.
+
+<p> --differ is so named because it lists all the differences between the
+checked-out version and the check-out directory.  In addition to the
+default changes (excluding --merge), it lists extra files which (if
+ignore-glob is set correctly) may be worth adding.  Prior to doing a
+commit, it is good practice to check --differ to see not only which
+changes would be committed but also if any files should be added.
+
+<p> If both --merge and --no-merge are used, --no-merge has priority.  The
+same is true of --classify and --no-classify.
+
+<p> The "fossil changes --extra" command is equivalent to "fossil extras".
+
+<p> General options:
+<blockquote><dl>
+<dt> <tt>--abs-paths</tt>     </dt><dd>Display absolute pathnames</dt>
+</dd><dt> <tt>-b|--brief</tt>      </dt><dd>Show a single keyword for the status</dt>
+</dd><dt> <tt>--rel-paths</tt>     </dt><dd>Display pathnames relative to the current working</dt>
+directory
+</dd><dt> <tt>--hash</tt>          </dt><dd>Verify file status using hashing rather than</dt>
+relying on file mtimes
+</dd><dt> <tt>--case-sensitive</tt> <i>BOOL</i></dt><dd>Override case-sensitive setting</dt>
+</dd><dt> <tt>--dotfiles</tt>      </dt><dd>Include unmanaged files beginning with a dot</dt>
+</dd><dt> <tt>--ignore</tt> <i>&lt;CSG&gt;</i>  </dt><dd>Ignore unmanaged files matching CSG glob patterns</dt>
+
+</dd></dl></blockquote><p> Options specific to the changes command:
+<blockquote><dl>
+<dt> <tt>--header</tt>        </dt><dd>Identify the repository if report is non-empty</dt>
+</dd><dt> <tt>-v|--verbose</tt>    </dt><dd>Say "(none)" if the change report is empty</dt>
+</dd><dt> <tt>--classify</tt>      </dt><dd>Start each line with the file's change type</dt>
+</dd><dt> <tt>--no-classify</tt>   </dt><dd>Do not print file change types</dt>
+
+</dd></dl></blockquote><p> Filter options:
+<blockquote><dl>
+<dt> <tt>--edited</tt>        </dt><dd>Display edited, merged, and conflicted files</dt>
+</dd><dt> <tt>--updated</tt>       </dt><dd>Display files updated by merge/integrate</dt>
+</dd><dt> <tt>--changed</tt>       </dt><dd>Combination of the above two options</dt>
+</dd><dt> <tt>--missing</tt>       </dt><dd>Display missing files</dt>
+</dd><dt> <tt>--added</tt>         </dt><dd>Display added files</dt>
+</dd><dt> <tt>--deleted</tt>       </dt><dd>Display deleted files</dt>
+</dd><dt> <tt>--renamed</tt>       </dt><dd>Display renamed files</dt>
+</dd><dt> <tt>--conflict</tt>      </dt><dd>Display files having merge conflicts</dt>
+</dd><dt> <tt>--meta</tt>          </dt><dd>Display files with metadata changes</dt>
+</dd><dt> <tt>--unchanged</tt>     </dt><dd>Display unchanged files</dt>
+</dd><dt> <tt>--all</tt>           </dt><dd>Display all managed files, i.e. all of the above</dt>
+</dd><dt> <tt>--extra</tt>         </dt><dd>Display unmanaged files</dt>
+</dd><dt> <tt>--differ</tt>        </dt><dd>Display modified and extra files</dt>
+</dd><dt> <tt>--merge</tt>         </dt><dd>Display merge contributors</dt>
+</dd><dt> <tt>--no-merge</tt>      </dt><dd>Do not display merge contributors</dt>
+
+</dd></dl></blockquote><p> See also: <a href='help%3Fcmd=extras.html'>extras</a>, <a href='help%3Fcmd=ls.html'>ls</a>
+</div>
+</div>
+<footer>
+This page was generated in about
+0.005s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="b46b028ed5332d6e7303e2569db31c5ab16df2affd306446">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='b46b028ed5332d6e7303e2569db31c5ab16df2affd306446'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+</script>
+</body>
+</html>

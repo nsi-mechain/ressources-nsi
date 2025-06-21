@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-819fba1ddd76d53822d7025640a79ad3038ed7cd41aa250f'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentation Source Text: Markdown Formatting Rules</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="wiki rpage-md_rules cpage-md_rules">
+<header>
+  <div class="title"><h1>Documentation Source Text</h1>Markdown Formatting Rules</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='home.html' class=''>Home</a>
+<a href='timeline.html' class=''>Timeline</a>
+<a href='brlist.html' class='wideonly'>Branches</a>
+<a href='taglist.html' class='wideonly'>Tags</a>
+<a href='ticket.html' class='wideonly'>Tickets</a>
+<a href='wiki.html' class='wideonly'>Wiki</a>
+<a href='login.html' class='wideonly'>Login</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="submenu">
+<a class="label sml-plain-text" href="md_rules%3Ftxt=1.html">Plain-Text</a>
+<a class="label sml-wiki" href="wiki_rules.html">Wiki</a>
+</div>
+<div class="content"><span id="debugMsg"></span>
+<div class="markdown">
+
+<h2>Paragraphs</h2>
+<blockquote>
+<p>Paragraphs are divided by blank lines. <br>
+End a line with two or more spaces to force a mid-paragraph line break.</p>
+</blockquote>
+
+<h2>Headings</h2>
+<blockquote>
+<pre><code># Top Level Heading                 Alternative Top Level Heading
+# Top Level Heading Variant #       =============================
+
+## 2nd Level Heading                Alternative 2nd Level Heading
+## 2nd Level Heading Variant ##     -----------------------------
+
+### 3rd Level Heading               ### 3rd Level Heading Variant ###
+#### 4th Level Heading              #### 4th Level Heading Variant ####
+##### 5th Level Heading             ##### 5th Level Heading Variant #####
+###### 6th Level Heading            ###### 6th Level Heading Variant ######
+</code></pre>
+</blockquote>
+
+<h2>Links</h2>
+<blockquote>
+<ol>
+<li><strong>[display text](URL)</strong></li>
+<li><strong>[display text](URL "Title")</strong></li>
+<li><strong>[display text](URL 'Title')</strong></li>
+<li><strong>&lt;URL&gt;</strong></li>
+<li><strong>[display text][label]</strong></li>
+<li><strong>[display text][]</strong></li>
+<li><strong>[display text]</strong></li>
+<li><strong>[](URL)</strong></li>
+</ol>
+
+<p>With link formats 5, 6, and 7 ("reference links"), the URL is supplied
+elsewhere in the document, as shown below.  Link formats 6 and 7 reuse
+the display text as the label.  Labels are case-insensitive.  The title
+may be split onto the next line with optional indenting.</p>
+
+<ul>
+<li><strong>[label]:&nbsp;URL</strong></li>
+<li><strong>[label]:&nbsp;URL&nbsp;"Title"</strong></li>
+<li><strong>[label]:&nbsp;URL&nbsp;'Title'</strong></li>
+<li><strong>[label]:&nbsp;URL&nbsp;(Title)</strong></li>
+</ul>
+
+<p>If <strong>URL</strong> begins with "http:", "https:', "ftp:' or "mailto:",
+it may optionally be written <strong>&lt;URL&gt;</strong> (format 4).
+Other <strong>URL</strong> formats include:
+<ul>
+<li>  A relative pathname.
+<li>  A pathname starting with "/" in which case the Fossil server
+      URL prefix is prepended
+<li>  A wiki page name, or a wiki page name preceded by "wiki:"
+<li>  An artifact or ticket hash or hash prefix
+<li>  A date and time stamp: "YYYY-MM-DD HH:MM:SS" or a subset that
+      includes at least the day of the month.
+<li>  An <a href="md_rules.html#intermap">interwiki link</a> of the form "<i>Tag</i><b>:</b><i>PageName</i>"</ul></p>
+
+<p>In format 8, then the URL becomes the display text.  This is useful for
+hyperlinks that refer to wiki pages and check-in and ticket hashes.</p>
+</blockquote>
+
+<h2>Text Style</h2>
+<blockquote>
+<ul>
+<li><em>*italic*</em></li>
+<li><em>_italic_</em></li>
+<li><strong>**bold**</strong></li>
+<li><strong>__bold__</strong></li>
+<li><strong><em>***italic+bold***</em></strong></li>
+<li><strong><em>___italic+bold___</em></strong></li>
+<li>`<code>code</code>`</li>
+</ul>
+
+<p>The <strong>`code`</strong> construct disables HTML markup, so one can write, for
+example, <strong>`&lt;html&gt;`</strong> to yield <strong><code>&lt;html&gt;</code></strong>.</p>
+</blockquote>
+
+<h2>Lists</h2>
+<blockquote>
+<pre><code>   *   bullet item
+   +   bullet item
+   -   bullet item
+   1.  numbered item
+   2)  numbered item
+</code></pre>
+<p>A two-level list is created by placing additional whitespace before the
+<strong>*</strong>/<strong>+</strong>/<strong>-</strong>/<strong>1.</strong> of the secondary items.</p>
+<pre><code>   *  top-level item
+      *  second-level item
+</code></pre></blockquote>
+
+<h2>Block Quotes</h2>
+<blockquote>
+<p>Begin each line of a paragraph with <strong>&gt;</strong> to block quote that paragraph.</p>
+
+<blockquote>
+<pre><code>&gt; This paragraph is indented
+
+&gt; &gt; Double-indented paragraph
+</code></pre>
+</blockquote>
+</blockquote>
+
+<h2>Literal/Verbatim Text - Code Blocks</h2>
+<blockquote>
+<p>For inline text, you can either use `<code>backticks</code>` or the HTML
+<code>&lt;code&gt;</code> tag.</p>
+
+<p>For blocks of text or code:</p>
+
+<ol>
+<li>Indent the text using a tab character or at least four spaces.</li>
+<li>Precede the block with an HTML <code>&lt;pre&gt;</code> tag and follow it with <code>&lt;/pre&gt;</code>.</li>
+<li>Surround the block by <tt>```</tt> (three or more) or <tt>~~~</tt> either at the
+left margin or indented no more than three spaces. The first word
+on that same line (if any) is used in a “<code>language-WORD</code>” CSS style in
+the HTML rendering of that code block and is intended for use by
+code syntax highlighters. Thus <tt>```c</tt> would mark a block of code
+in the C programming language. Text to be rendered inside the code block
+should therefore start on the next line, not be cuddled up with the
+backticks or tildes.  See the "Diagrams" section below for the case where
+"<code>language-WORD</code>" is "pikchr".</li>
+</ol>
+
+<p>With the standard skins, verbatim text is rendered in a fixed-width font,
+but that is purely a presentation matter, controlled by the skin’s CSS.</p>
+</blockquote>
+
+<h2>Tables</h2>
+<blockquote>
+<pre><code>| Header 1     | Header 2    | Header 3      |
+----------------------------------------------
+| Row 1 Col 1  | Row 1 Col 2 | Row 1 Col 3   |
+|:Left-aligned |:Centered   :| Right-aligned:|
+|              | ← Blank   → |               |
+| Row 4 Col 1  | Row 4 Col 2 | Row 4 Col 3   |
+</code></pre>
+
+<p>The first row is a header if followed by a horizontal rule or a blank line.</p>
+
+<p>Placing <strong>:</strong> at the left, both, or right sides of a cell gives left-aligned,
+centered, or right-aligned text, respectively.  By default, both header and
+body cells are left-aligned.</p>
+
+<p>The leftmost or rightmost <strong>|</strong> is required only if the first or last column,
+respectively, contains at least one blank cell.</p>
+</blockquote>
+
+<h2>Diagrams</h2>
+<blockquote>
+<pre><code>~~~ pikchr
+oval &quot;Start&quot; fit; arrow; box &quot;Hello, World!&quot; fit; arrow; oval &quot;Done&quot; fit
+~~~
+</code></pre>
+<p>Formatted using <a href="https://pikchr.org/home">Pikchr</a>, resulting in:</p>
+<!--29816707D85FB81B7BD5D9A19DD168837132CFDE558225297E1014AF5C5D8130-->
+<div class='pikchr-wrapper'><div class="pikchr-svg" style="max-width:381px">
+<svg xmlns='http://www.w3.org/2000/svg' style='font-size:initial;' class="pikchr" viewBox="0 0 381.715 34.56" data-pikchr-date="20250319161943">
+<path d="M17.28,32.4L40.7232,32.4A15.12 15.12 0 0 0 55.8432 17.28A15.12 15.12 0 0 0 40.7232 2.16L17.28,2.16A15.12 15.12 0 0 0 2.16 17.28A15.12 15.12 0 0 0 17.28 32.4Z"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<text x="29.0016" y="17.28" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">Start</text>
+<polygon points="127.843,17.28 116.323,21.6 116.323,12.96" style="fill:rgb(0,0,0)"/>
+<path d="M55.8432,17.28L122.083,17.28"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<path d="M127.843,32.4L252.49,32.4L252.49,2.16L127.843,2.16Z"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<text x="190.166" y="17.28" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">Hello, World!</text>
+<polygon points="324.49,17.28 312.97,21.6 312.97,12.96" style="fill:rgb(0,0,0)"/>
+<path d="M252.49,17.28L318.73,17.28"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<path d="M339.61,32.4L364.435,32.4A15.12 15.12 0 0 0 379.555 17.28A15.12 15.12 0 0 0 364.435 2.16L339.61,2.16A15.12 15.12 0 0 0 324.49 17.28A15.12 15.12 0 0 0 339.61 32.4Z"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<text x="352.022" y="17.28" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">Done</text>
+</svg>
+</div>
+<div class='pikchr-src'><pre id='pikchr-src-1'>oval &quot;Start&quot; fit; arrow; box &quot;Hello, World!&quot; fit; arrow; oval &quot;Done&quot; fit
+</pre><span class='hidden'><a href='pikchrshow%3FfromSession.html' class='pikchr-src-pikchrshow' target='_new-1' data-pikchrid='pikchr-src-1' title='Open this pikchr in /pikchrshow'>&rarr; /pikchrshow</a></span></div>
+</div>
+<!--29816707D85FB81B7BD5D9A19DD168837132CFDE558225297E1014AF5C5D8130-->
+</blockquote>
+
+<p><a id="ftnts"></a></p>
+
+<h2>Footnotes</h2>
+<blockquote>
+<p>Footnotes (or "endnotes") is a Fossil extension of classical Markdown.
+Fossil's syntax for footnotes is similar to links and
+is distinguished by the use of character <strong>^</strong>
+that <em>immediately</em> follows an opening bracket.</p>
+
+<ol>
+<li><strong>(^</strong> footnote's text <strong>)</strong></li>
+<li><strong>[</strong> fragment of text <strong>](^</strong> a comment about that fragment <strong>)</strong></li>
+<li><strong>[^</strong>&nbsp;label&nbsp;<strong>]</strong></li>
+<li><strong>[</strong> fragment of text <strong>][^</strong>&nbsp;label&nbsp;<strong>]</strong></li>
+<li><strong>[</strong> fragment of text <strong>][^]</strong></li>
+</ol>
+
+<p>With formats 1 and 2 ("inline footnotes") text of a footnote is provided
+in the place where the corresponding numeric mark will be rendered.
+With formats 3, 4, and 5 ("reference footnotes") text of a footnote
+is supplied elsewhere in the document, as shown below.
+Formats 2, 4 and 5 ("span-specific footnotes") mark a specific fragment
+that is being commented in the footnote.
+Format 5 reuses a fragment of text as a label.
+Labels are case-insensitive.</p>
+<pre><code>[^label]: Footnote definition must start on the first column.
+     The second line (if any) must be indented by two or more spaces.
+     Definition continues until indentation drops below that of the 2nd line.
+</code></pre>
+<p>Character <strong>^</strong> is not part of a label, it is part of the syntax.
+Both a footnote's text and a fragment to which a footnote applies
+are subject to further interpretation as Markdown sources.</p>
+</blockquote>
+
+<h2>Miscellaneous</h2>
+<blockquote>
+<ul>
+<li>In-line images are made using <strong>![alt-text](image-URL)</strong>.</li>
+<li>Use HTML for advanced formatting such as forms, noting that certain
+tags are <a href="help%3Fcmd=safe-html.html">disallowed in some contexts</a>.</li>
+<li><strong>&lt;!--</strong> HTML-style comments <strong>--&gt;</strong> are supported.</li>
+<li>Escape special characters (ex: <strong>[</strong> <strong>(</strong> <strong>|</strong> <strong>*</strong>)
+using backslash (ex: <strong>\[</strong> <strong>\(</strong> <strong>\|</strong> <strong>\*</strong>).</li>
+<li>A line consisting of <strong>---</strong>, <strong>***</strong>, or <strong>___</strong> is a horizontal
+rule.  Spaces and extra <strong>-</strong>/<strong>*</strong>/<strong>_</strong> are allowed.</li>
+<li>Paragraphs enclosed in <strong>&lt;html&gt;...&lt;/html&gt;</strong> is passed through unchanged.</li>
+<li>See <a href="http://daringfireball.net/projects/markdown/syntax">daringfireball.net</a> for additional information.</li>
+<li>See this page's <a href="md_rules%3Ftxt=1.html">Markdown source</a> for more examples.</li>
+</ul>
+</blockquote>
+
+<h2>Special Features For Fossil</h2>
+<blockquote>
+<ul>
+<li>In hyperlinks, if the URL begins with <strong>/</strong> then the root of the Fossil
+repository is prepended.  This allows for repository-relative hyperlinks.</li>
+<li>For documents that begin with a top-level heading (ex: <strong># heading #</strong>),
+the heading is omitted from the body of the document and becomes the
+document title displayed at the top of the Fossil page.</li>
+</ul>
+</blockquote>
+
+<p><a name="intermap"></a></p>
+
+<h2>Interwiki Tag <a href="intermap.html">Map</a></h2>
+<p><blockquote><table>
+<tr><td>forum</td><td>&nbsp;&rarr;&nbsp;</td><td>https://sqlite.org/forum</td></tr>
+<tr><td>src</td><td>&nbsp;&rarr;&nbsp;</td><td>https://sqlite.org/src</td></tr>
+</table></blockquote></p>
+
+</div>
+
+</div>
+<footer>
+This page was generated in about
+0.005s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="819fba1ddd76d53822d7025640a79ad3038ed7cd41aa250f">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='819fba1ddd76d53822d7025640a79ad3038ed7cd41aa250f'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+</script>
+</body>
+</html>

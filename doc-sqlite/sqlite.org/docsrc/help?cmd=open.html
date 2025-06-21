@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-5871cb3d5572eebfb8466ad3fcc630df1a7cb0eafa653f84'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentation Source Text: Help: open</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css%3Fid=587432de.css" type="text/css">
+</head>
+<body class="tkt rpage-help cpage-help">
+<header>
+  <div class="title"><h1>Documentation Source Text</h1>Help: open</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='home.html' class=''>Home</a>
+<a href='timeline.html' class=''>Timeline</a>
+<a href='brlist.html' class='wideonly'>Branches</a>
+<a href='taglist.html' class='wideonly'>Tags</a>
+<a href='ticket.html' class='wideonly'>Tickets</a>
+<a href='wiki.html' class='wideonly'>Wiki</a>
+<a href='login.html' class='wideonly'>Login</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="submenu">
+<a class="label sml-topic-list" href="help.html">Topic-List</a>
+</div>
+<div class="content"><span id="debugMsg"></span>
+<h1>The "open" command:</h1>
+<div class="helpPage">
+Usage: <tt>fossil</tt> <tt>open</tt> <i>REPOSITORY</i> <i>?VERSION?</i> <i>?OPTIONS?</i><br>
+
+<p> Open a new connection to the repository name REPOSITORY.  A check-out
+for the repository is created with its root at the current working
+directory, or in DIR if the "--workdir DIR" is used.  If VERSION is
+specified then that version is checked out.  Otherwise the most recent
+check-in on the main branch (usually "trunk") is used.
+
+<p> REPOSITORY can be the filename for a repository that already exists on the
+local machine or it can be a URI for a remote repository.  If REPOSITORY
+is a URI in one of the formats recognized by the <a href='help%3Fcmd=clone.html'>clone</a> command, the
+remote repo is first cloned, then the clone is opened. The clone will be
+stored in the current directory, or in DIR if the "--repodir DIR" option
+is used. The name of the clone will be taken from the last term of the URI.
+For "http:" and "https:" URIs, you can append an extra term to the end of
+the URI to get any repository name you like. For example:
+
+<blockquote><pre>fossil open https://fossil-scm.org/home/new-name
+</pre></blockquote><p> The base URI for cloning is "https://fossil-scm.org/home".  The extra
+"new-name" term means that the cloned repository will be called
+"new-name.fossil".
+
+<p> Options:
+<blockquote><dl>
+<dt> <tt>--empty</tt>         </dt><dd>Initialize check-out as being empty, but still connected</dt>
+with the local repository. If you commit this check-out,
+it will become a new "initial" commit in the repository.
+</dd><dt> <tt>-f|--force</tt>      </dt><dd>Continue with the open even if the working directory is</dt>
+not empty, or if auto-sync fails.
+</dd><dt> <tt>--force-missing</tt> </dt><dd>Force opening a repository with missing content</dt>
+</dd><dt> <tt>-k|--keep</tt>       </dt><dd>Only modify the manifest file(s)</dt>
+</dd><dt> <tt>--nested</tt>        </dt><dd>Allow opening a repository inside an opened check-out</dt>
+</dd><dt> <tt>--nosync</tt>        </dt><dd>Do not auto-sync the repository prior to opening even</dt>
+if the autosync setting is on.
+</dd><dt> <tt>--proxy</tt> <i>PROXY</i>   </dt><dd>Use PROXY as http proxy during sync operation</dt>
+</dd><dt> <tt>--repodir</tt> <i>DIR</i>   </dt><dd>If REPOSITORY is a URI that will be cloned, store</dt>
+the clone in DIR rather than in "."
+</dd><dt> <tt>--setmtime</tt>      </dt><dd>Set timestamps of all files to match their SCM-side</dt>
+times (the timestamp of the last check-in which modified
+them).
+</dd><dt> <tt>--verbose</tt>       </dt><dd>If passed a URI then this flag is passed on to the clone</dt>
+operation, otherwise it has no effect
+</dd><dt> <tt>--workdir</tt> <i>DIR</i>   </dt><dd>Use DIR as the working directory instead of ".". The DIR</dt>
+directory is created if it does not exist.
+
+</dd></dl></blockquote><p> See also: <a href='help%3Fcmd=close.html'>close</a>, <a href='help%3Fcmd=clone.html'>clone</a>
+</div>
+</div>
+<footer>
+This page was generated in about
+0.006s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="5871cb3d5572eebfb8466ad3fcc630df1a7cb0eafa653f84">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+<script nonce='5871cb3d5572eebfb8466ad3fcc630df1a7cb0eafa653f84'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+</script>
+</body>
+</html>

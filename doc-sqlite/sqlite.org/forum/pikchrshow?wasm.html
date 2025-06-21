@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'nonce-bf96c40694b75404b1def5a38de1dde59111fecee58b0bf2'; style-src 'self' 'unsafe-inline'; img-src * data:">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQLite User Forum: PikchrShow</title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed"  href="timeline.rss">
+<link rel="stylesheet" href="style.css/pikchrshow%3Fid=587432de.css" type="text/css">
+</head>
+<body class="pikchrshow rpage-pikchrshow cpage-pikchrshow">
+<header>
+  <div class="title"><h1>SQLite User Forum</h1>PikchrShow</div>
+  <div class="status">
+    <a href='login.html'>Login</a>
+
+  </div>
+</header>
+<nav class="mainmenu" title="Main Menu">
+  <a id='hbbtn' href='sitemap.html' aria-label='Site Map'>&#9776;</a><a href='about.html' class='desktoponly'>About</a>
+<a href='../forum.html' class=''>Threads</a>
+<a href='forumnew.html' class=''>Post</a>
+<a href='register.html' class='desktoponly'>Subscribe</a>
+<a href='https://sqlite.org/' class=''>SQLite</a>
+
+</nav>
+<nav id="hbdrop" class='hbdrop' title="sitemap"></nav>
+<div class="content"><span id="debugMsg"></span>
+<noscript><div class='error'>This page requires JavaScript (ES2015, a.k.a. ES6, or newer).</div></noscript><div class='emscripten'><figure id='module-spinner'><div class='spinner'></div><div class='center'><strong>Initializing app...</strong></div><div class='center'>On a slow internet connection this may take a moment.  If this message displays for "a long time", initialization may have failed and the JavaScript console may contain clues as to why. </div><div><a href='pikchrshow%3Flegacy.html'>Switch to legacy mode</a></div></figure><div class='emscripten' id='module-status'>Downloading...</div><progress value='0' max='100' id='module-progress' hidden='1'></progress></div><!-- .emscripten --><div id='view-split' class='app-view initially-hidden'><fieldset class='options collapsible'><legend><button class='fieldset-toggle'>Options</button></legend><div><span class='labeled-input'><input type='checkbox' id='opt-cb-sbs' data-csstgt='#main-wrapper' data-cssclass='side-by-side' data-config='sideBySide'><label for='opt-cb-sbs'>Side-by-side</label></span><span class='labeled-input'><input type='checkbox' id='opt-cb-swapio' data-csstgt='#main-wrapper' data-cssclass='swapio' data-config='swapInOut'><label for='opt-cb-swapio'>Swap in/out</label></span><span class='labeled-input'><input type='checkbox' id='opt-cb-autofit' data-config='renderAutofit'><label for='opt-cb-autofit' title='Attempt to scale SVG to fit viewport. Whether it will work depends in part on the size and shape of the image and the viewport.'>Auto-fit SVG</label></span><span class='labeled-input'><input type='checkbox' id='opt-cb-autorender' data-csstgt='#main-wrapper' data-cssclass='auto-render' data-config='renderWhileTyping'><label for='opt-cb-autorender'>Render while typing</label></span><span class='labeled-input'><a href='pikchrshow%3Flegacy.html'>Legacy mode</a></span></div><!-- options wrapper --></fieldset><div id='main-wrapper' class=''><fieldset class='zone-wrapper input'><legend><div class='button-bar'><button id='btn-render' title='Ctrl-Enter/Shift-Enter'>Render</button><button id='btn-clear'>Clear Input</button></div></legend><div><textarea id='input'placeholder='Pikchr input. Ctrl-enter/shift-enter runs it.'>/**
+  Use ctrl-enter or shift-enter to execute
+  pikchr code. If only a subset is currently
+  selected, only that part is evaluated.
+*/
+arrow right 200% "Markdown" "Source"
+box rad 10px "Markdown" "Formatter" "(markdown.c)" fit
+arrow right 200% "HTML+SVG" "Output"
+arrow <-> down from last box.s
+box same "Pikchr" "Formatter" "(pikchr.c)" fit
+</textarea></div></fieldset><!-- .zone-wrapper.input --><fieldset class='zone-wrapper output'><legend><div class='button-bar'><button id='btn-render-mode'>Render Mode</button> <span style='white-space:nowrap'><span id='preview-copy-button' title='Tap to copy to clipboard.'></span><label for='preview-copy-button' title='Tap to copy to clipboard.'></label></span></div></legend><div id='pikchr-output-wrapper'><div id='pikchr-output'></div><textarea class='hidden' id='pikchr-output-text'></textarea></div></fieldset> <!-- .zone-wrapper.output --></div><!-- #main-wrapper --></div><!-- #view-split --><script nonce='bf96c40694b75404b1def5a38de1dde59111fecee58b0bf2'>/* builtin.c:637 */
+(function(){
+if(window.NodeList && !NodeList.prototype.forEach){NodeList.prototype.forEach = Array.prototype.forEach;}
+if(!window.fossil) window.fossil={};
+window.fossil.version = "2.27 [c953e01c9e] 2025-06-05 13:07:01 UTC";
+window.fossil.rootPath = "/forum"+'/';
+window.fossil.config = {projectName: "SQLite User Forum",
+shortProjectName: "sqlite-forum",
+projectCode: "f9ddc3a2d2f7cf9bed55631b3e5be65ef79a7dea",
+/* Length of UUID hashes for display purposes. */hashDigits: 10, hashDigitsUrl: 16,
+diffContextLines: 5,
+editStateMarkers: {/*Symbolic markers to denote certain edit states.*/isNew:'[+]', isModified:'[*]', isDeleted:'[-]'},
+confirmerButtonTicks: 3 /*default fossil.confirmer tick count.*/,
+skin:{isDark: false/*true if the current skin has the 'white-foreground' detail*/}
+};
+window.fossil.user = {name: "guest",isAdmin: false};
+if(fossil.config.skin.isDark) document.body.classList.add('fossil-dark-style');
+window.fossil.page = {name:"pikchrshow"};
+})();
+</script>
+<script nonce='bf96c40694b75404b1def5a38de1dde59111fecee58b0bf2'>
+/* hbmenu.js *************************************************************/
+(function() {
+var hbButton = document.getElementById("hbbtn");
+if (!hbButton) return;
+if (!document.addEventListener) return;
+var panel = document.getElementById("hbdrop");
+if (!panel) return;
+if (!panel.style) return;
+var panelBorder = panel.style.border;
+var panelInitialized = false;
+var panelResetBorderTimerID = 0;
+var animate = panel.style.transition !== null && (typeof(panel.style.transition) == "string");
+var animMS = panel.getAttribute("data-anim-ms");
+if (animMS) {
+animMS = parseInt(animMS);
+if (isNaN(animMS) || animMS == 0)
+animate = false;
+else if (animMS < 0)
+animMS = 400;
+}
+else
+animMS = 400;
+var panelHeight;
+function calculatePanelHeight() {
+panel.style.maxHeight = '';
+var es   = window.getComputedStyle(panel),
+edis = es.display,
+epos = es.position,
+evis = es.visibility;
+panel.style.visibility = 'hidden';
+panel.style.position   = 'absolute';
+panel.style.display    = 'block';
+panelHeight = panel.offsetHeight + 'px';
+panel.style.display    = edis;
+panel.style.position   = epos;
+panel.style.visibility = evis;
+}
+function showPanel() {
+if (panelResetBorderTimerID) {
+clearTimeout(panelResetBorderTimerID);
+panelResetBorderTimerID = 0;
+}
+if (animate) {
+if (!panelInitialized) {
+panelInitialized = true;
+calculatePanelHeight();
+panel.style.transition = 'max-height ' + animMS +
+'ms ease-in-out';
+panel.style.overflowY  = 'hidden';
+panel.style.maxHeight  = '0';
+}
+setTimeout(function() {
+panel.style.maxHeight = panelHeight;
+panel.style.border    = panelBorder;
+}, 40);
+}
+panel.style.display = 'block';
+document.addEventListener('keydown',panelKeydown,true);
+document.addEventListener('click',panelClick,false);
+}
+var panelKeydown = function(event) {
+var key = event.which || event.keyCode;
+if (key == 27) {
+event.stopPropagation();
+panelToggle(true);
+}
+};
+var panelClick = function(event) {
+if (!panel.contains(event.target)) {
+panelToggle(true);
+}
+};
+function panelShowing() {
+if (animate) {
+return panel.style.maxHeight == panelHeight;
+}
+else {
+return panel.style.display == 'block';
+}
+}
+function hasChildren(element) {
+var childElement = element.firstChild;
+while (childElement) {
+if (childElement.nodeType == 1)
+return true;
+childElement = childElement.nextSibling;
+}
+return false;
+}
+window.addEventListener('resize',function(event) {
+panelInitialized = false;
+},false);
+hbButton.addEventListener('click',function(event) {
+event.stopPropagation();
+event.preventDefault();
+panelToggle(false);
+},false);
+function panelToggle(suppressAnimation) {
+if (panelShowing()) {
+document.removeEventListener('keydown',panelKeydown,true);
+document.removeEventListener('click',panelClick,false);
+if (animate) {
+if (suppressAnimation) {
+var transition = panel.style.transition;
+panel.style.transition = '';
+panel.style.maxHeight = '0';
+panel.style.border = 'none';
+setTimeout(function() {
+panel.style.transition = transition;
+}, 40);
+}
+else {
+panel.style.maxHeight = '0';
+panelResetBorderTimerID = setTimeout(function() {
+panel.style.border = 'none';
+panelResetBorderTimerID = 0;
+}, animMS);
+}
+}
+else {
+panel.style.display = 'none';
+}
+}
+else {
+if (!hasChildren(panel)) {
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+var doc = xhr.responseXML;
+if (doc) {
+var sm = doc.querySelector("ul#sitemap");
+if (sm && xhr.status == 200) {
+panel.innerHTML = sm.outerHTML;
+showPanel();
+}
+}
+}
+var url = hbButton.href + (hbButton.href.includes("?")?"&popup":"?popup")
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+}
+else {
+showPanel();
+}
+}
+}
+})();
+/* fossil.bootstrap.js *************************************************************/
+"use strict";
+(function () {
+if(typeof window.CustomEvent === "function") return false;
+window.CustomEvent = function(event, params) {
+if(!params) params = {bubbles: false, cancelable: false, detail: null};
+const evt = document.createEvent('CustomEvent');
+evt.initCustomEvent( event, !!params.bubbles, !!params.cancelable, params.detail );
+return evt;
+};
+})();
+(function(global){
+const F = global.fossil;
+const timestring = function f(){
+if(!f.rx1){
+f.rx1 = /\.\d+Z$/;
+}
+const d = new Date();
+return d.toISOString().replace(f.rx1,'').split('T').join(' ');
+};
+const localTimeString = function ff(d){
+if(!ff.pad){
+ff.pad = (x)=>(''+x).length>1 ? x : '0'+x;
+}
+d || (d = new Date());
+return [
+d.getFullYear(),'-',ff.pad(d.getMonth()+1),
+'-',ff.pad(d.getDate()),
+' ',ff.pad(d.getHours()),':',ff.pad(d.getMinutes()),
+':',ff.pad(d.getSeconds())
+].join('');
+};
+F.message = function f(msg){
+const args = Array.prototype.slice.call(arguments,0);
+const tgt = f.targetElement;
+if(args.length) args.unshift(
+localTimeString()+':'
+);
+if(tgt){
+tgt.classList.remove('error');
+tgt.innerText = args.join(' ');
+}
+else{
+if(args.length){
+args.unshift('Fossil status:');
+console.debug.apply(console,args);
+}
+}
+return this;
+};
+F.message.targetElement =
+document.querySelector('#fossil-status-bar');
+if(F.message.targetElement){
+F.message.targetElement.addEventListener(
+'dblclick', ()=>F.message(), false
+);
+}
+F.error = function f(msg){
+const args = Array.prototype.slice.call(arguments,0);
+const tgt = F.message.targetElement;
+args.unshift(timestring(),'UTC:');
+if(tgt){
+tgt.classList.add('error');
+tgt.innerText = args.join(' ');
+}
+else{
+args.unshift('Fossil error:');
+console.error.apply(console,args);
+}
+return this;
+};
+F.encodeUrlArgs = function(obj,tgtArray,fakeEncode){
+if(!obj) return '';
+const a = (tgtArray instanceof Array) ? tgtArray : [],
+enc = fakeEncode ? (x)=>x : encodeURIComponent;
+let k, i = 0;
+for( k in obj ){
+if(i++) a.push('&');
+a.push(enc(k),'=',enc(obj[k]));
+}
+return a===tgtArray ? a : a.join('');
+};
+F.repoUrl = function(path,urlParams){
+if(!urlParams) return this.rootPath+path;
+const url=[this.rootPath,path];
+url.push('?');
+if('string'===typeof urlParams) url.push(urlParams);
+else if(urlParams && 'object'===typeof urlParams){
+this.encodeUrlArgs(urlParams, url);
+}
+return url.join('');
+};
+F.isObject = function(v){
+return v &&
+(v instanceof Object) &&
+('[object Object]' === Object.prototype.toString.apply(v) );
+};
+F.mergeLastWins = function(){
+var k, o, i;
+const n = arguments.length, rc={};
+for(i = 0; i < n; ++i){
+if(!F.isObject(o = arguments[i])) continue;
+for( k in o ){
+if(o.hasOwnProperty(k)) rc[k] = o[k];
+}
+}
+return rc;
+};
+F.hashDigits = function(hash,forUrl){
+const n = ('number'===typeof forUrl)
+? forUrl : F.config[forUrl ? 'hashDigitsUrl' : 'hashDigits'];
+return ('string'==typeof hash ? hash.substr(
+0, n
+) : hash);
+};
+F.onPageLoad = function(callback){
+window.addEventListener('load', callback, false);
+return this;
+};
+F.onDOMContentLoaded = function(callback){
+window.addEventListener('DOMContentLoaded', callback, false);
+return this;
+};
+F.shortenFilename = function(name){
+const a = name.split('/');
+if(a.length<=2) return name;
+while(a.length>2) a.shift();
+return '.../'+a.join('/');
+};
+F.page.addEventListener = function f(eventName, callback){
+if(!f.proxy){
+f.proxy = document.createElement('span');
+}
+f.proxy.addEventListener(eventName, callback, false);
+return this;
+};
+F.page.dispatchEvent = function(eventName, eventDetail){
+if(this.addEventListener.proxy){
+try{
+this.addEventListener.proxy.dispatchEvent(
+new CustomEvent(eventName,{detail: eventDetail})
+);
+}catch(e){
+console.error(eventName,"event listener threw:",e);
+}
+}
+return this;
+};
+F.page.setPageTitle = function(title){
+const t = document.querySelector('title');
+if(t) t.innerText = title;
+return this;
+};
+F.debounce = function f(func, waitMs, immediate) {
+var timeoutId;
+if(!waitMs) waitMs = f.$defaultDelay;
+return function() {
+const context = this, args = Array.prototype.slice.call(arguments);
+const later = function() {
+timeoutId = undefined;
+if(!immediate) func.apply(context, args);
+};
+const callNow = immediate && !timeoutId;
+clearTimeout(timeoutId);
+timeoutId = setTimeout(later, waitMs);
+if(callNow) func.apply(context, args);
+};
+};
+F.debounce.$defaultDelay = 500;
+})(window);
+/* fossil.dom.js *************************************************************/
+"use strict";
+(function(F){
+const argsToArray = (a)=>Array.prototype.slice.call(a,0);
+const isArray = (v)=>v instanceof Array;
+const dom = {
+create: function(elemType){
+return document.createElement(elemType);
+},
+createElemFactory: function(eType){
+return function(){
+return document.createElement(eType);
+};
+},
+remove: function(e){
+if(e?.forEach){
+e.forEach(
+(x)=>x?.parentNode?.removeChild(x)
+);
+}else{
+e?.parentNode?.removeChild(e);
+}
+return e;
+},
+clearElement: function f(e){
+if(!f.each){
+f.each = function(e){
+if(e.forEach){
+e.forEach((x)=>f(x));
+return e;
+}
+while(e.firstChild) e.removeChild(e.firstChild);
+};
+}
+argsToArray(arguments).forEach(f.each);
+return arguments[0];
+},
+};
+dom.splitClassList = function f(str){
+if(!f.rx){
+f.rx = /(\s+|\s*,\s*)/;
+}
+return str ? str.split(f.rx) : [str];
+};
+dom.div = dom.createElemFactory('div');
+dom.p = dom.createElemFactory('p');
+dom.code = dom.createElemFactory('code');
+dom.pre = dom.createElemFactory('pre');
+dom.header = dom.createElemFactory('header');
+dom.footer = dom.createElemFactory('footer');
+dom.section = dom.createElemFactory('section');
+dom.span = dom.createElemFactory('span');
+dom.strong = dom.createElemFactory('strong');
+dom.em = dom.createElemFactory('em');
+dom.ins = dom.createElemFactory('ins');
+dom.del = dom.createElemFactory('del');
+dom.label = function(forElem, text){
+const rc = document.createElement('label');
+if(forElem){
+if(forElem instanceof HTMLElement){
+forElem = this.attr(forElem, 'id');
+}
+if(forElem){
+dom.attr(rc, 'for', forElem);
+}
+}
+if(text) this.append(rc, text);
+return rc;
+};
+dom.img = function(src){
+const e = this.create('img');
+if(src) e.setAttribute('src',src);
+return e;
+};
+dom.a = function(href,label){
+const e = this.create('a');
+if(href) e.setAttribute('href',href);
+if(label) e.appendChild(dom.text(true===label ? href : label));
+return e;
+};
+dom.hr = dom.createElemFactory('hr');
+dom.br = dom.createElemFactory('br');
+dom.text = function(){
+return document.createTextNode(argsToArray(arguments).join(''));
+};
+dom.button = function(label,callback){
+const b = this.create('button');
+if(label) b.appendChild(this.text(label));
+if('function' === typeof callback){
+b.addEventListener('click', callback, false);
+}
+return b;
+};
+dom.textarea = function(){
+const rc = this.create('textarea');
+let rows, cols, readonly;
+if(1===arguments.length){
+if('boolean'===typeof arguments[0]){
+readonly = !!arguments[0];
+}else{
+rows = arguments[0];
+}
+}else if(arguments.length){
+rows = arguments[0];
+cols = arguments[1];
+readonly = arguments[2];
+}
+if(rows) rc.setAttribute('rows',rows);
+if(cols) rc.setAttribute('cols', cols);
+if(readonly) rc.setAttribute('readonly', true);
+return rc;
+};
+dom.select = dom.createElemFactory('select');
+dom.option = function(value,label){
+const a = arguments;
+var sel;
+if(1==a.length){
+if(a[0] instanceof HTMLElement){
+sel = a[0];
+}else{
+value = a[0];
+}
+}else if(2==a.length){
+if(a[0] instanceof HTMLElement){
+sel = a[0];
+value = a[1];
+}else{
+value = a[0];
+label = a[1];
+}
+}
+else if(3===a.length){
+sel = a[0];
+value = a[1];
+label = a[2];
+}
+const o = this.create('option');
+if(undefined !== value){
+o.value = value;
+this.append(o, this.text(label || value));
+}else if(undefined !== label){
+this.append(o, label);
+}
+if(sel) this.append(sel, o);
+return o;
+};
+dom.h = function(level){
+return this.create('h'+level);
+};
+dom.ul = dom.createElemFactory('ul');
+dom.li = function(parent){
+const li = this.create('li');
+if(parent) parent.appendChild(li);
+return li;
+};
+dom.createElemFactoryWithOptionalParent = function(childType){
+return function(parent){
+const e = this.create(childType);
+if(parent) parent.appendChild(e);
+return e;
+};
+};
+dom.table = dom.createElemFactory('table');
+dom.thead = dom.createElemFactoryWithOptionalParent('thead');
+dom.tbody = dom.createElemFactoryWithOptionalParent('tbody');
+dom.tfoot = dom.createElemFactoryWithOptionalParent('tfoot');
+dom.tr = dom.createElemFactoryWithOptionalParent('tr');
+dom.td = dom.createElemFactoryWithOptionalParent('td');
+dom.th = dom.createElemFactoryWithOptionalParent('th');
+dom.fieldset = function(legendText){
+const fs = this.create('fieldset');
+if(legendText){
+this.append(
+fs,
+(legendText instanceof HTMLElement)
+? legendText
+: this.append(this.legend(legendText))
+);
+}
+return fs;
+};
+dom.legend = function(legendText){
+const rc = this.create('legend');
+if(legendText) this.append(rc, legendText);
+return rc;
+};
+dom.append = function f(parent){
+const a = argsToArray(arguments);
+a.shift();
+for(let i in a) {
+var e = a[i];
+if(isArray(e) || e.forEach){
+e.forEach((x)=>f.call(this, parent,x));
+continue;
+}
+if('string'===typeof e
+|| 'number'===typeof e
+|| 'boolean'===typeof e
+|| e instanceof Error) e = this.text(e);
+parent.appendChild(e);
+}
+return parent;
+};
+dom.input = function(type){
+return this.attr(this.create('input'), 'type', type);
+};
+dom.checkbox = function(value, checked){
+const rc = this.input('checkbox');
+if(1===arguments.length && 'boolean'===typeof value){
+checked = !!value;
+value = undefined;
+}
+if(undefined !== value) rc.value = value;
+if(!!checked) rc.checked = true;
+return rc;
+};
+dom.radio = function(){
+const rc = this.input('radio');
+let name, value, checked;
+if(1===arguments.length && 'boolean'===typeof name){
+checked = arguments[0];
+name = value = undefined;
+}else if(2===arguments.length){
+name = arguments[0];
+if('boolean'===typeof arguments[1]){
+checked = arguments[1];
+}else{
+value = arguments[1];
+checked = undefined;
+}
+}else if(arguments.length){
+name = arguments[0];
+value = arguments[1];
+checked = arguments[2];
+}
+if(name) this.attr(rc, 'name', name);
+if(undefined!==value) rc.value = value;
+if(!!checked) rc.checked = true;
+return rc;
+};
+const domAddRemoveClass = function f(action,e){
+if(!f.rxSPlus){
+f.rxSPlus = /\s+/;
+f.applyAction = function(e,a,v){
+if(!e || !v
+) return;
+else if(e.forEach){
+e.forEach((E)=>E.classList[a](v));
+}else{
+e.classList[a](v);
+}
+};
+}
+var i = 2, n = arguments.length;
+for( ; i < n; ++i ){
+let c = arguments[i];
+if(!c) continue;
+else if(isArray(c) ||
+('string'===typeof c
+&& c.indexOf(' ')>=0
+&& (c = c.split(f.rxSPlus)))
+|| c.forEach
+){
+c.forEach((k)=>k ? f.applyAction(e, action, k) : false);
+}else if(c){
+f.applyAction(e, action, c);
+}
+}
+return e;
+};
+dom.addClass = function(e,c){
+const a = argsToArray(arguments);
+a.unshift('add');
+return domAddRemoveClass.apply(this, a);
+};
+dom.removeClass = function(e,c){
+const a = argsToArray(arguments);
+a.unshift('remove');
+return domAddRemoveClass.apply(this, a);
+};
+dom.toggleClass = function f(e,c){
+if(e.forEach){
+e.forEach((x)=>x.classList.toggle(c));
+}else{
+e.classList.toggle(c);
+}
+return e;
+};
+dom.hasClass = function(e,c){
+return (e && e.classList) ? e.classList.contains(c) : false;
+};
+dom.moveTo = function(dest,e){
+const n = arguments.length;
+var i = 1;
+const self = this;
+for( ; i < n; ++i ){
+e = arguments[i];
+this.append(dest, e);
+}
+return dest;
+};
+dom.moveChildrenTo = function f(dest,e){
+if(!f.mv){
+f.mv = function(d,v){
+if(d instanceof Array){
+d.push(v);
+if(v.parentNode) v.parentNode.removeChild(v);
+}
+else d.appendChild(v);
+};
+}
+const n = arguments.length;
+var i = 1;
+for( ; i < n; ++i ){
+e = arguments[i];
+if(!e){
+console.warn("Achtung: dom.moveChildrenTo() passed a falsy value at argument",i,"of",
+arguments,arguments[i]);
+continue;
+}
+if(e.forEach){
+e.forEach((x)=>f.mv(dest, x));
+}else{
+while(e.firstChild){
+f.mv(dest, e.firstChild);
+}
+}
+}
+return dest;
+};
+dom.replaceNode = function f(old,nu){
+var i = 1, n = arguments.length;
+++f.counter;
+try {
+for( ; i < n; ++i ){
+const e = arguments[i];
+if(e.forEach){
+e.forEach((x)=>f.call(this,old,e));
+continue;
+}
+old.parentNode.insertBefore(e, old);
+}
+}
+finally{
+--f.counter;
+}
+if(!f.counter){
+old.parentNode.removeChild(old);
+}
+};
+dom.replaceNode.counter = 0;
+dom.attr = function f(e){
+if(2===arguments.length) return e.getAttribute(arguments[1]);
+const a = argsToArray(arguments);
+if(e.forEach){
+e.forEach(function(x){
+a[0] = x;
+f.apply(f,a);
+});
+return e;
+}
+a.shift();
+while(a.length){
+const key = a.shift(), val = a.shift();
+if(null===val || undefined===val){
+e.removeAttribute(key);
+}else{
+e.setAttribute(key,val);
+}
+}
+return e;
+};
+const enableDisable = function f(enable){
+var i = 1, n = arguments.length;
+for( ; i < n; ++i ){
+let e = arguments[i];
+if(e.forEach){
+e.forEach((x)=>f(enable,x));
+}else{
+e.disabled = !enable;
+}
+}
+return arguments[1];
+};
+dom.enable = function(e){
+const args = argsToArray(arguments);
+args.unshift(true);
+return enableDisable.apply(this,args);
+};
+dom.disable = function(e){
+const args = argsToArray(arguments);
+args.unshift(false);
+return enableDisable.apply(this,args);
+};
+dom.selectOne = function(x,origin){
+var src = origin || document,
+e = src.querySelector(x);
+if(!e){
+e = new Error("Cannot find DOM element: "+x);
+console.error(e, src);
+throw e;
+}
+return e;
+};
+dom.flashOnce = function f(e,howLongMs,afterFlashCallback){
+if(e.dataset.isBlinking){
+return;
+}
+if(2===arguments.length && 'function' ===typeof howLongMs){
+afterFlashCallback = howLongMs;
+howLongMs = f.defaultTimeMs;
+}
+if(!howLongMs || 'number'!==typeof howLongMs){
+howLongMs = f.defaultTimeMs;
+}
+e.dataset.isBlinking = true;
+const transition = e.style.transition;
+e.style.transition = "opacity "+howLongMs+"ms ease-in-out";
+const opacity = e.style.opacity;
+e.style.opacity = 0;
+setTimeout(function(){
+e.style.transition = transition;
+e.style.opacity = opacity;
+delete e.dataset.isBlinking;
+if(afterFlashCallback) afterFlashCallback();
+}, howLongMs);
+return e;
+};
+dom.flashOnce.defaultTimeMs = 400;
+dom.flashOnce.eventHandler = (event)=>dom.flashOnce(event.target)
+dom.flashNTimes = function(e,n,howLongMs,afterFlashCallback){
+const args = argsToArray(arguments);
+args.splice(1,1);
+if(arguments.length===3 && 'function'===typeof howLongMs){
+afterFlashCallback = howLongMs;
+howLongMs = args[1] = this.flashOnce.defaultTimeMs;
+}else if(arguments.length<3){
+args[1] = this.flashOnce.defaultTimeMs;
+}
+n = +n;
+const self = this;
+const cb = args[2] = function f(){
+if(--n){
+setTimeout(()=>self.flashOnce(e, howLongMs, f),
+howLongMs+(howLongMs*0.1));
+}else if(afterFlashCallback){
+afterFlashCallback();
+}
+};
+this.flashOnce.apply(this, args);
+return this;
+};
+dom.addClassBriefly = function f(e, className, howLongMs, afterCallback){
+if(arguments.length<4 && 'function'===typeof howLongMs){
+afterCallback = howLongMs;
+howLongMs = f.defaultTimeMs;
+}else if(arguments.length<3 || !+howLongMs){
+howLongMs = f.defaultTimeMs;
+}
+this.addClass(e, className);
+setTimeout(function(){
+dom.removeClass(e, className);
+if(afterCallback) afterCallback();
+}, howLongMs);
+return this;
+};
+dom.addClassBriefly.defaultTimeMs = 1000;
+dom.copyTextToClipboard = function(text){
+if( window.clipboardData && window.clipboardData.setData ){
+window.clipboardData.setData('Text',text);
+return true;
+}else{
+const x = document.createElement("textarea");
+x.style.position = 'fixed';
+x.value = text;
+document.body.appendChild(x);
+x.select();
+var rc;
+try{
+document.execCommand('copy');
+rc = true;
+}catch(err){
+rc = false;
+}finally{
+document.body.removeChild(x);
+}
+return rc;
+}
+};
+dom.copyStyle = function f(e, style){
+if(e.forEach){
+e.forEach((x)=>f(x, style));
+return e;
+}
+if(style){
+let k;
+for(k in style){
+if(style.hasOwnProperty(k)) e.style[k] = style[k];
+}
+}
+return e;
+};
+dom.effectiveHeight = function f(e){
+if(!e) return 0;
+if(!f.measure){
+f.measure = function callee(e, depth){
+if(!e) return;
+const m = e.getBoundingClientRect();
+if(0===depth){
+callee.top = m.top;
+callee.bottom = m.bottom;
+}else{
+callee.top = m.top ? Math.min(callee.top, m.top) : callee.top;
+callee.bottom = Math.max(callee.bottom, m.bottom);
+}
+Array.prototype.forEach.call(e.children,(e)=>callee(e,depth+1));
+if(0===depth){
+f.extra += callee.bottom - callee.top;
+}
+return f.extra;
+};
+}
+f.extra = 0;
+f.measure(e,0);
+return f.extra;
+};
+dom.parseHtml = function(){
+let childs, string, tgt;
+if(1===arguments.length){
+string = arguments[0];
+}else if(2==arguments.length){
+tgt = arguments[0];
+string  = arguments[1];
+}
+if(string){
+const newNode = new DOMParser().parseFromString(string, 'text/html');
+childs = newNode.documentElement.querySelector('body');
+childs = childs ? Array.prototype.slice.call(childs.childNodes, 0) : [];
+}else{
+childs = [];
+}
+return tgt ? this.moveTo(tgt, childs) : childs;
+};
+F.connectPagePreviewers = function f(selector,methodNamespace){
+if('string'===typeof selector){
+selector = document.querySelectorAll(selector);
+}else if(!selector.forEach){
+selector = [selector];
+}
+if(!methodNamespace){
+methodNamespace = F.page;
+}
+selector.forEach(function(e){
+e.addEventListener(
+'click', function(r){
+const eTo = '#'===e.dataset.fPreviewTo[0]
+? document.querySelector(e.dataset.fPreviewTo)
+: methodNamespace[e.dataset.fPreviewTo],
+eFrom = '#'===e.dataset.fPreviewFrom[0]
+? document.querySelector(e.dataset.fPreviewFrom)
+: methodNamespace[e.dataset.fPreviewFrom],
+asText = +(e.dataset.fPreviewAsText || 0);
+eTo.textContent = "Fetching preview...";
+methodNamespace[e.dataset.fPreviewVia](
+(eFrom instanceof Function ? eFrom.call(methodNamespace) : eFrom.value),
+function(r){
+if(eTo instanceof Function) eTo.call(methodNamespace, r||'');
+else if(!r){
+dom.clearElement(eTo);
+}else if(asText){
+eTo.textContent = r;
+}else{
+dom.parseHtml(dom.clearElement(eTo), r);
+}
+}
+);
+}, false
+);
+});
+return this;
+};
+return F.dom = dom;
+})(window.fossil);
+/* fossil.storage.js *************************************************************/
+(function(F){
+const tryStorage = function f(obj){
+if(!f.key) f.key = 'fossil.access.check';
+try{
+obj.setItem(f.key, 'f');
+const x = obj.getItem(f.key);
+obj.removeItem(f.key);
+if(x!=='f') throw new Error(f.key+" failed")
+return obj;
+}catch(e){
+return undefined;
+}
+};
+const $storage =
+tryStorage(window.localStorage)
+|| tryStorage(window.sessionStorage)
+|| tryStorage({
+$$$:{},
+setItem: function(k,v){this.$$$[k]=v},
+getItem: function(k){
+return this.$$$.hasOwnProperty(k) ? this.$$$[k] : undefined;
+},
+removeItem: function(k){delete this.$$$[k]},
+clear: function(){this.$$$={}}
+});
+const $storageHolder = $storage.hasOwnProperty('$$$') ? $storage.$$$ : $storage;
+const storageKeyPrefix = (
+$storageHolder===$storage
+? (
+F.config.projectCode || F.config.projectName
+|| F.config.shortProjectName || window.location.pathname
+)+'::' : (
+''
+)
+);
+F.storage = {
+storageKeyPrefix: storageKeyPrefix,
+set: (k,v)=>$storage.setItem(storageKeyPrefix+k,v),
+setJSON: (k,v)=>$storage.setItem(storageKeyPrefix+k,JSON.stringify(v)),
+get: (k,dflt)=>$storageHolder.hasOwnProperty(
+storageKeyPrefix+k
+) ? $storage.getItem(storageKeyPrefix+k) : dflt,
+getBool: function(k,dflt){
+return 'true'===this.get(k,''+(!!dflt));
+},
+getJSON: function f(k,dflt){
+try {
+const x = this.get(k,f);
+return x===f ? dflt : JSON.parse(x);
+}
+catch(e){return dflt}
+},
+contains: (k)=>$storageHolder.hasOwnProperty(storageKeyPrefix+k),
+remove: function(k){
+$storage.removeItem(storageKeyPrefix+k);
+return this;
+},
+clear: function(){
+this.keys().forEach((k)=>$storage.removeItem(k));
+return this;
+},
+keys: ()=>Object.keys($storageHolder).filter((v)=>(v||'').startsWith(storageKeyPrefix)),
+isTransient: ()=>$storageHolder!==$storage,
+storageImplName: function(){
+if($storage===window.localStorage) return 'localStorage';
+else if($storage===window.sessionStorage) return 'sessionStorage';
+else return 'transient';
+},
+storageHelpDescription: function(){
+return {
+localStorage: "Browser-local persistent storage with an "+
+"unspecified long-term lifetime (survives closing the browser, "+
+"but maybe not a browser upgrade).",
+sessionStorage: "Storage local to this browser tab, "+
+"lost if this tab is closed.",
+"transient": "Transient storage local to this invocation of this page."
+}[this.storageImplName()];
+}
+};
+})(window.fossil);
+/* fossil.copybutton.js *************************************************************/
+(function(F){
+const D = F.dom;
+F.copyButton = function f(e, opt){
+if('string'===typeof e){
+e = document.querySelector(e);
+}
+opt = F.mergeLastWins(f.defaultOptions, opt);
+if(opt.cssClass){
+D.addClass(e, opt.cssClass);
+}
+var srcId, srcElem;
+if(opt.copyFromElement){
+srcElem = opt.copyFromElement;
+}else if((srcId = opt.copyFromId || e.dataset.copyFromId)){
+srcElem = document.querySelector('#'+srcId);
+}
+const extract = opt.extractText || (
+undefined===srcElem.value ? ()=>srcElem.innerText : ()=>srcElem.value
+);
+D.copyStyle(e, opt.style);
+e.addEventListener(
+'click',
+function(ev){
+ev.preventDefault();
+ev.stopPropagation();
+if(e.classList.contains('disabled')) return;
+const txt = extract.call(opt);
+if(txt && D.copyTextToClipboard(txt)){
+e.dispatchEvent(new CustomEvent('text-copied',{
+detail: {text: txt}
+}));
+}
+},
+false
+);
+if('function' === typeof opt.oncopy){
+e.addEventListener('text-copied', opt.oncopy, false);
+}
+return e;
+};
+F.copyButton.defaultOptions = {
+cssClass: 'copy-button',
+oncopy: D.flashOnce.eventHandler,
+style: {}
+};
+})(window.fossil);
+/* fossil.page.pikchrshowasm.js *************************************************************/
+(function(F){
+'use strict';
+const D = F.dom;
+const configStorageKey = 'pikchrshow-config';
+const EAll = function(){
+return (arguments.length>1 ? arguments[0] : document)
+.querySelectorAll(arguments[arguments.length-1]);
+};
+const E = function(){
+return (arguments.length>1 ? arguments[0] : document)
+.querySelector(arguments[arguments.length-1]);
+};
+const PS = {
+config: {
+sideBySide: true,
+swapInOut: false,
+renderAutofit: false,
+renderWhileTyping: false
+},
+e: {
+previewCopyButton: E('#preview-copy-button'),
+previewModeLabel: E('label[for=preview-copy-button]'),
+zoneInputButtons: E('.zone-wrapper.input > legend > .button-bar'),
+zoneOutputButtons: E('.zone-wrapper.output > legend > .button-bar'),
+outText: E('#pikchr-output-text'),
+pikOutWrapper: E('#pikchr-output-wrapper'),
+pikOut: E('#pikchr-output'),
+btnRender: E('#btn-render')
+},
+renderModes: ['svg','markdown', 'wiki', 'text'],
+renderModeLabels: {
+svg: 'SVG', markdown: 'Markdown', wiki: 'Fossil Wiki', text: 'Text'
+},
+_msgMap: {},
+addMsgHandler: function f(type,callback){
+if(Array.isArray(type)){
+type.forEach((t)=>this.addMsgHandler(t, callback));
+return this;
+}
+(this._msgMap.hasOwnProperty(type)
+? this._msgMap[type]
+: (this._msgMap[type] = [])).push(callback);
+return this;
+},
+runMsgHandlers: function(msg){
+const list = (this._msgMap.hasOwnProperty(msg.type)
+? this._msgMap[msg.type] : false);
+if(!list){
+console.warn("No handlers found for message type:",msg);
+return false;
+}
+list.forEach((f)=>f(msg));
+return true;
+},
+clearMsgHandlers: function(type){
+delete this._msgMap[type];
+return this;
+},
+wMsg: function(type,data){
+this.worker.postMessage({type, data});
+return this;
+},
+storeConfig: function(){
+F.storage.setJSON(configStorageKey,this.config);
+}
+};
+PS.renderModes.selectedIndex = 0;
+PS._config = F.storage.getJSON(configStorageKey);
+if(PS._config){
+Object.keys(PS.config).forEach(function(k){
+if(PS._config.hasOwnProperty(k)){
+PS.config[k] = PS._config[k];
+}
+});
+delete PS._config;
+}
+PS.worker = new Worker('builtin/extsrc/pikchr-worker-v'+
+(Math.floor(Math.random()*10000000000) + 1000000000)+
+'.js');
+PS.worker.onmessage = (ev)=>PS.runMsgHandlers(ev.data);
+PS.addMsgHandler('stdout', console.log.bind(console));
+PS.addMsgHandler('stderr', console.error.bind(console));
+PS.addMsgHandler('module', function f(ev){
+ev = ev.data;
+if('status'!==ev.type){
+console.warn("Unexpected module-type message:",ev);
+return;
+}
+if(!f.ui){
+f.ui = {
+status: E('#module-status'),
+progress: E('#module-progress'),
+spinner: E('#module-spinner')
+};
+}
+const msg = ev.data;
+if(f.ui.progres){
+progress.value = msg.step;
+progress.max = msg.step + 1;
+}
+if(1==msg.step){
+f.ui.progress.classList.remove('hidden');
+f.ui.spinner.classList.remove('hidden');
+}
+if(msg.text){
+f.ui.status.classList.remove('hidden');
+f.ui.status.innerText = msg.text;
+}else{
+if(f.ui.progress){
+f.ui.progress.remove();
+f.ui.spinner.remove();
+delete f.ui.progress;
+delete f.ui.spinner;
+}
+f.ui.status.classList.add('hidden');
+}
+});
+PS.e.previewModeLabel.innerText =
+PS.renderModeLabels[PS.renderModes[PS.renderModes.selectedIndex]];
+PS.addMsgHandler('pikchr-ready', function(event){
+PS.clearMsgHandlers('pikchr-ready');
+F.page.onPikchrshowLoaded(event.data);
+});
+F.page.onPikchrshowLoaded = function(pikchrVersion){
+delete this.onPikchrshowLoaded;
+EAll('.initially-hidden').forEach((e)=>e.classList.remove('initially-hidden'));
+const taInput = E('#input');
+const btnClearIn = E('#btn-clear');
+btnClearIn.addEventListener('click',function(){
+taInput.value = '';
+},false);
+const getCurrentText = function(){
+let text;
+if(taInput.selectionStart<taInput.selectionEnd){
+text = taInput.value.substring(taInput.selectionStart,taInput.selectionEnd).trim();
+}else{
+text = taInput.value.trim();
+}
+return text;;
+};
+const renderCurrentText = function(){
+const text = getCurrentText();
+if(text) PS.render(text);
+};
+const setCurrentText = function(txt){
+taInput.value = txt;
+renderCurrentText();
+};
+PS.e.btnRender.addEventListener('click',function(ev){
+ev.preventDefault();
+renderCurrentText();
+},false);
+const preStartWork = function f(){
+if(!f._){
+const title = E('title');
+f._ = {
+pageTitle: title,
+pageTitleOrig: title.innerText
+};
+}
+PS.e.btnRender.setAttribute('disabled','disabled');
+};
+PS.render = function f(txt){
+preStartWork();
+this.wMsg('pikchr',{
+pikchr: txt,
+darkMode: !!window.fossil.config.skin.isDark
+});
+};
+PS.addMsgHandler('pikchr', function(ev){
+const m = ev.data, pikOut = this.e.pikOut;
+pikOut.classList[m.isError ? 'add' : 'remove']('error');
+pikOut.dataset.pikchr = m.pikchr;
+const mode = this.renderModes[this.renderModes.selectedIndex];
+switch(mode){
+case 'text': case 'markdown': case 'wiki': {
+let body;
+switch(mode){
+case 'markdown':
+body = ['```pikchr', m.pikchr, '```'].join('\n');
+break;
+case 'wiki':
+body = ['<verbatim type="pikchr">', m.pikchr, '</verbatim>'].join('');
+break;
+default:
+body = m.result;
+}
+this.e.outText.value = body;
+this.e.outText.classList.remove('hidden');
+pikOut.classList.add('hidden');
+this.e.pikOutWrapper.classList.add('text');
+break;
+}
+case 'svg':
+this.e.outText.classList.add('hidden');
+pikOut.classList.remove('hidden');
+this.e.pikOutWrapper.classList.remove('text');
+pikOut.innerHTML = m.result;
+this.e.outText.value = m.result;
+break;
+default: throw new Error("Unhandled render mode: "+mode);
+}
+let vw = null, vh = null;
+if('svg'===mode){
+if(m.isError){
+vw = vh = '100%';
+}else if(this.config.renderAutofit){
+vw = vh = '98%';
+}else{
+vw = m.width+1+'px'; vh = m.height+1+'px';
+}
+pikOut.style.width = vw;
+pikOut.style.height = vh;
+}
+}.bind(PS));
+E('#btn-render-mode').addEventListener('click',function(){
+const modes = this.renderModes;
+modes.selectedIndex = (modes.selectedIndex + 1) % modes.length;
+this.e.previewModeLabel.innerText = this.renderModeLabels[modes[modes.selectedIndex]];
+if(this.e.pikOut.dataset.pikchr){
+this.render(this.e.pikOut.dataset.pikchr);
+}
+}.bind(PS));
+F.copyButton(PS.e.previewCopyButton, {copyFromElement: PS.e.outText});
+PS.e.previewModeLabel.addEventListener('click', ()=>PS.e.previewCopyButton.click(), false);
+PS.addMsgHandler('working',function f(ev){
+switch(ev.data){
+case 'start':; return;
+case 'end':
+this.e.btnRender.removeAttribute('disabled');
+this.e.pikOutWrapper.classList[this.config.renderAutofit ? 'add' : 'remove']('autofit');
+return;
+}
+console.warn("Unhandled 'working' event:",ev.data);
+}.bind(PS));
+EAll('input[type=checkbox][data-csstgt]')
+.forEach(function(e){
+const tgt = E(e.dataset.csstgt);
+const cssClass = e.dataset.cssclass || 'error';
+e.checked = tgt.classList.contains(cssClass);
+e.addEventListener('change', function(){
+tgt.classList[
+this.checked ? 'add' : 'remove'
+](cssClass)
+}, false);
+});
+EAll('input[type=checkbox][data-config]')
+.forEach(function(e){
+const confVal = !!PS.config[e.dataset.config];
+if(e.checked !== confVal){
+e.checked = confVal;
+e.dispatchEvent(new Event('change'));
+}
+e.addEventListener('change', function(){
+PS.config[this.dataset.config] = this.checked;
+PS.storeConfig();
+}, false);
+});
+E('#opt-cb-autofit').addEventListener('change',function(){
+if(0==PS.renderModes.selectedIndex && PS.e.pikOut.dataset.pikchr){
+PS.render(PS.e.pikOut.dataset.pikchr);
+}
+});
+const cmdClick = function(){PS.render(this.dataset.cmd);};
+EAll('button[data-cmd]').forEach(
+e => e.addEventListener('click', cmdClick, false)
+);
+if(true){
+const selectScript = PS.e.selectScript = D.select();
+D.append(PS.e.zoneInputButtons, selectScript);
+PS.predefinedPiks.forEach(function(script,ndx){
+const opt = D.option(script.code ? script.code.trim() :'', script.name);
+D.append(selectScript, opt);
+if(!ndx) selectScript.selectedIndex = 0;
+if(ndx && !script.code){
+D.disable(opt);
+}
+});
+delete PS.predefinedPiks;
+selectScript.addEventListener('change', function(ev){
+const val = ev.target.value;
+if(!val) return;
+setCurrentText(val);
+}, false);
+}
+if(0) E('#load-pikchr').addEventListener('change',function(){
+const f = this.files[0];
+const r = new FileReader();
+const status = {loaded: 0, total: 0};
+this.setAttribute('disabled','disabled');
+const that = this;
+r.addEventListener('load', function(){
+that.removeAttribute('disabled');
+stdout("Loaded",f.name+". Opening pikchr...");
+PS.wMsg('open',{
+filename: f.name,
+buffer: this.result
+});
+});
+r.addEventListener('error',function(){
+that.removeAttribute('disabled');
+stderr("Loading",f.name,"failed for unknown reasons.");
+});
+r.addEventListener('abort',function(){
+that.removeAttribute('disabled');
+stdout("Cancelled loading of",f.name+".");
+});
+r.readAsArrayBuffer(f);
+});
+EAll('fieldset.collapsible').forEach(function(fs){
+const btnToggle = E(fs,'legend > .fieldset-toggle'),
+content = EAll(fs,':scope > div');
+btnToggle.addEventListener('click', function(){
+fs.classList.toggle('collapsed');
+content.forEach((d)=>d.classList.toggle('hidden'));
+}, false);
+});
+if(window.sessionStorage){
+const src = window.sessionStorage.getItem('pikchr-xfer');
+if( src && (new URL(self.location.href).searchParams).has('fromSession') ){
+taInput.value =  src;
+window.sessionStorage.removeItem('pikchr-xfer');
+}
+}
+D.append(E('fieldset.options > div'),
+D.append(D.addClass(D.span(), 'labeled-input'),
+'pikchr v. '+pikchrVersion));
+PS.e.btnRender.click();
+const debounceAutoRender = F.debounce(function f(){
+if(!PS._isDirty) return;
+const text = getCurrentText();
+if(f._ === text){
+PS._isDirty = false;
+return;
+}
+f._ = text;
+PS._isDirty = false;
+PS.render(text || '');
+}, 800, false);
+taInput.addEventListener('keydown',function f(ev){
+if((ev.ctrlKey || ev.shiftKey) && 13 === ev.keyCode){
+PS._isDirty = false;
+ev.preventDefault();
+ev.stopPropagation();
+renderCurrentText();
+return;
+}
+if(!PS.config.renderWhileTyping) return;
+switch(ev.keyCode){
+case (ev.keyCode<32):
+case 33: case 34:
+case 35: case 36:
+case 37: case 38: case 39: case 40:
+return;
+}
+PS._isDirty = true;
+debounceAutoRender();
+}, false);
+const ForceResizeKludge = (function(){
+const appViews = EAll('.app-view');
+const elemsToCount = [
+E('body > header'),
+E('body > nav.mainmenu'),
+E('body > footer')
+];
+const resized = function f(){
+if(f.$disabled) return;
+const wh = window.innerHeight;
+var ht;
+var extra = 0;
+elemsToCount.forEach((e)=>e ? extra += F.dom.effectiveHeight(e) : false);
+ht = wh - extra;
+appViews.forEach(function(e){
+e.style.height =
+e.style.maxHeight = [
+"calc(", (ht>=100 ? ht : 100), "px",
+" - 2em",")"
+].join('');
+});
+};
+resized.$disabled = true;
+window.addEventListener('resize', F.debounce(resized, 250), false);
+return resized;
+})();
+delete ForceResizeKludge.$disabled;
+ForceResizeKludge();
+};
+PS.predefinedPiks = [
+{name: "-- Example Scripts --", code: false},
+{name:"Cardinal headings",code:`   linerad = 5px
+C: circle "Center" rad 150%
+circle "N"  at 1.0 n  of C; arrow from C to last chop ->
+circle "NE" at 1.0 ne of C; arrow from C to last chop <-
+circle "E"  at 1.0 e  of C; arrow from C to last chop <->
+circle "SE" at 1.0 se of C; arrow from C to last chop ->
+circle "S"  at 1.0 s  of C; arrow from C to last chop <-
+circle "SW" at 1.0 sw of C; arrow from C to last chop <->
+circle "W"  at 1.0 w  of C; arrow from C to last chop ->
+circle "NW" at 1.0 nw of C; arrow from C to last chop <-
+arrow from 2nd circle to 3rd circle chop
+arrow from 4th circle to 3rd circle chop
+arrow from SW to S chop <->
+circle "ESE" at 2.0 heading 112.5 from Center \
+thickness 150% fill lightblue radius 75%
+arrow from Center to ESE thickness 150% <-> chop
+arrow from ESE up 1.35 then to NE chop
+line dashed <- from E.e to (ESE.x,E.y)
+line dotted <-> thickness 50% from N to NW chop
+`},{name:"Core object types",code:`AllObjects: [
+# First row of objects
+box "box"
+box rad 10px "box (with" "rounded" "corners)" at 1in right of previous
+circle "circle" at 1in right of previous
+ellipse "ellipse" at 1in right of previous
+# second row of objects
+OVAL1: oval "oval" at 1in below first box
+oval "(tall &" "thin)" "oval" width OVAL1.height height OVAL1.width \
+at 1in right of previous
+cylinder "cylinder" at 1in right of previous
+file "file" at 1in right of previous
+# third row shows line-type objects
+dot "dot" above at 1in below first oval
+line right from 1.8cm right of previous "lines" above
+arrow right from 1.8cm right of previous "arrows" above
+spline from 1.8cm right of previous \
+go right .15 then .3 heading 30 then .5 heading 160 then .4 heading 20 \
+then right .15
+"splines" at 3rd vertex of previous
+# The third vertex of the spline is not actually on the drawn
+# curve.  The third vertex is a control point.  To see its actual
+# position, uncomment the following line:
+#dot color red at 3rd vertex of previous spline
+# Draw various lines below the first line
+line dashed right from 0.3cm below start of previous line
+line dotted right from 0.3cm below start of previous
+line thin   right from 0.3cm below start of previous
+line thick  right from 0.3cm below start of previous
+# Draw arrows with different arrowhead configurations below
+# the first arrow
+arrow <-  right from 0.4cm below start of previous arrow
+arrow <-> right from 0.4cm below start of previous
+# Draw splines with different arrowhead configurations below
+# the first spline
+spline same from .4cm below start of first spline ->
+spline same from .4cm below start of previous <-
+spline same from .4cm below start of previous <->
+] # end of AllObjects
+# Label the whole diagram
+text "Examples Of Pikchr Objects" big bold  at .8cm above north of AllObjects
+`},{name:"Swimlanes",code:`    $laneh = 0.75
+# Draw the lanes
+down
+box width 3.5in height $laneh fill 0xacc9e3
+box same fill 0xc5d8ef
+box same as first box
+box same as 2nd box
+line from 1st box.sw+(0.2,0) up until even with 1st box.n \
+"Alan" above aligned
+line from 2nd box.sw+(0.2,0) up until even with 2nd box.n \
+"Betty" above aligned
+line from 3rd box.sw+(0.2,0) up until even with 3rd box.n \
+"Charlie" above aligned
+line from 4th box.sw+(0.2,0) up until even with 4th box.n \
+"Darlene" above aligned
+# fill in content for the Alice lane
+right
+A1: circle rad 0.1in at end of first line + (0.2,-0.2) \
+fill white thickness 1.5px "1"
+arrow right 50%
+circle same "2"
+arrow right until even with first box.e - (0.65,0.0)
+ellipse "future" fit fill white height 0.2 width 0.5 thickness 1.5px
+A3: circle same at A1+(0.8,-0.3) "3" fill 0xc0c0c0
+arrow from A1 to last circle chop "fork!" below aligned
+# content for the Betty lane
+B1: circle same as A1 at A1-(0,$laneh) "1"
+arrow right 50%
+circle same "2"
+arrow right until even with first ellipse.w
+ellipse same "future"
+B3: circle same at A3-(0,$laneh) "3"
+arrow right 50%
+circle same as A3 "4"
+arrow from B1 to 2nd last circle chop
+# content for the Charlie lane
+C1: circle same as A1 at B1-(0,$laneh) "1"
+arrow 50%
+circle same "2"
+arrow right 0.8in "goes" "offline"
+C5: circle same as A3 "5"
+arrow right until even with first ellipse.w \
+"back online" above "pushes 5" below "pulls 3 & 4" below
+ellipse same "future"
+# content for the Darlene lane
+D1: circle same as A1 at C1-(0,$laneh) "1"
+arrow 50%
+circle same "2"
+arrow right until even with C5.w
+circle same "5"
+arrow 50%
+circle same as A3 "6"
+arrow right until even with first ellipse.w
+ellipse same "future"
+D3: circle same as B3 at B3-(0,2*$laneh) "3"
+arrow 50%
+circle same "4"
+arrow from D1 to D3 chop
+`},{
+name: "The Stuff of Dreams",
+code:`
+O: text "DREAMS" color grey
+circle rad 0.9 at 0.6 above O thick color red
+text "INEXPENSIVE" big bold at 0.9 above O color red
+circle rad 0.9   at 0.6 heading  120 from O thick color green
+text "FAST" big bold at 0.9 heading  120 from O  color green
+circle rad 0.9 at 0.6 heading -120 from O thick color blue
+text "HIGH" big bold "QUALITY" big bold at 0.9 heading  -120 from O  color blue
+text "EXPENSIVE" at 0.55 below O  color cyan
+text "SLOW" at 0.55 heading  -60 from O  color magenta
+text "POOR" "QUALITY" at 0.55 heading   60 from O  color gold
+`},{name:"Precision Arrows",code:`
+# Source: https://pikchr.org/home/forumpost/7f2f9a03eb
+define quiver {
+dot invis at 0.5 < $1.ne , $1.e >
+dot invis at 0.5 < $1.nw , $1.w >
+dot invis at 0.5 < $1.se , $1.e >
+dot invis at 0.5 < $1.sw , $1.w >
+dot at $2 right of 4th previous dot
+dot at $3 right of 4th previous dot
+dot at $4 right of 4th previous dot
+dot at $5 right of 4th previous dot
+arrow <- from previous dot to 2nd previous dot
+arrow -> from 3rd previous dot to 4th previous dot
+}
+define show_compass_l {
+dot color red  at $1.e " .e" ljust
+dot same at $1.ne " .ne" ljust above
+line thick color green from previous to 2nd last dot
+}
+define show_compass_r {
+dot color red  at $1.w " .w" ljust
+dot same at $1.nw " .nw" ljust above
+line thick color green from previous to 2nd last dot
+}
+PROGRAM: file "Program" rad 45px
+show_compass_l(PROGRAM)
+QUIVER: box invis ht 0.75
+DATABASE: oval "Database" ht 0.75 wid 1.1
+show_compass_r(DATABASE)
+quiver(QUIVER, 5px, -5px, 5px, 0px)
+text "Query" with .c at 0.1in above last arrow
+text "Records" with .c at 0.1in below 2nd last arrow
+`}
+];
+})(window.fossil);
+</script>
+</div>
+<footer>
+This page was generated in about
+0.006s by
+Fossil 2.27 [c953e01c9e] 2025-06-05 13:07:01
+</footer>
+<script nonce="bf96c40694b75404b1def5a38de1dde59111fecee58b0bf2">/* style.c:899 */
+function debugMsg(msg){
+var n = document.getElementById("debugMsg");
+if(n){n.textContent=msg;}
+}
+</script>
+</body>
+</html>
