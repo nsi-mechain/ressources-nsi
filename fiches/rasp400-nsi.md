@@ -1,3 +1,5 @@
+![Static Badge](https://img.shields.io/badge/install-red?style=flat&logo=raspberrypi&logoColor=red&label=Raspberry%20Pi&labelColor=white&color=green)
+
 # Installation Raspberry 400 en NSI
 
 1. Raspberry Pi OS 64 bits (Legacy) with desktop
