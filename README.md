@@ -3,5 +3,3 @@
 ![SQL](https://img.shields.io/badge/SQL-SQLite-1f72b6?logo=sqlite&logoColor=white)
 
 ## Cours, exemples, exercices, TP, outils, etc.
-
-![GitHub repo size](https://img.shields.io/github/repo-size/nsi-mechain/ressources-nsi)
