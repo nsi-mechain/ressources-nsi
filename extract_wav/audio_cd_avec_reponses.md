@@ -13,7 +13,7 @@ Le flux audio d’un CD est de `2x16 bits / 44,1 kHz`, ce qui détermine la vite
 > 44 100 échantillons/s × 32 bits = 1 411 200 bits/s = **1,4112 Mb/s**
 
 **3. À quelle vitesse (en mètres par seconde) la bande doit-elle défiler pour illustrer le flux d’un CD audio en temps réel ?**
-> **44 100 échantillons/s × 1 mm = 44 100 mm/s = **44,1 m/s**.
+> 44 100 échantillons/s × 1 mm = 44 100 mm/s = **44,1 m/s**.
 
 **4. À quelle vitesse en kilomètres par heure cela correspond-il ?**
 > 44,1 m/s × 3,6 ≈ **159 km/h**.
