@@ -1,6 +1,6 @@
 # Fiche de rentrée
 
-À éditer en langage Markdown puis à enregistrer sur votre dépôt *GitHub* comme `README.md`
+À éditer en langage Markdown puis à enregistrer sur votre dépôt *GitHub* en remplacement du `README.md`
 
 >  Attention à l’orthographe et à la grammaire !
 
