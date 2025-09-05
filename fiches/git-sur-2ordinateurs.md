@@ -4,7 +4,7 @@
 
 ## Objectif
 
-Travailler sur un même dépôt GitHub depuis la Raspberry 400 du lycée **et** votre ordinateur personnel, sans jamais perdre de modifications.
+Travailler sur un même dépôt GitHub depuis le PC du lycée **et** votre ordinateur personnel, sans jamais perdre de modifications.
 
 ---
 
