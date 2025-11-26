@@ -41,7 +41,7 @@
 
 ### ▶ Le contenu de toutes les tables (après les avoir remplies avec l'outil de votre choix)
 
-- Utilisez des requêtes `SELECT ...` et la commande `.mode markdown` ) pour obtenir un formatage sous forme de table *Markdown* :
+- Utilisez des requêtes `SELECT ...` et la commande `.mode markdown` pour obtenir un formatage sous forme de table *Markdown* :
 
 	| id |   nom    |    prenom    | ann_naissance | langue_ecriture |
 	|----|----------|--------------|---------------|-----------------|
