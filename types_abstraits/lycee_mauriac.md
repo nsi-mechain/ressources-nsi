@@ -1,4 +1,4 @@
-# Structures de données
+# Types abstraits
 
 ## Cours et exercices
 
