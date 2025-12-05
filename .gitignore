@@ -1,0 +1,42 @@
+# Fichiers Python compilés
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Dossiers de virtualenv
+venv/
+ENV/
+env/
+.venv/
+.ipynb_checkpoints/
+
+# Fichiers de log et cache
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+.cache/
+*.mypy_cache/
+*.pytest_cache/
+.coverage
+htmlcov/
+
+# Notebooks checkpoints
+.ipynb_checkpoints/
+
+# Jupyter runtime
+*.nbconvert.ipynb
+
+# Fichiers système/IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Configurations personnelles Jupyter
+.jupyter/
+.directory
