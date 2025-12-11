@@ -1,0 +1,96 @@
+Question 2 :
+┌─────────────────────────────┐
+│            titre            │
+├─────────────────────────────┤
+│ Astérix chez les Pictes     │
+│ Astérix et Cléopâtre        │
+│ Le Tour de Gaule d'Astérix  │
+│ Astérix et les Normands     │
+│ Astérix en Corse            │
+│ Astérix légionnaire         │
+│ Astérix et la Transitalique │
+│ L'Odyssée d'Astérix         │
+│ Astérix chez les Bretons    │
+│ Astérix chez les Belges     │
+└─────────────────────────────┘
+Question 3 :
+┌──────────────────────────┬───────┐
+│          titre           │ année │
+├──────────────────────────┼───────┤
+│ Astérix et Cléopâtre     │ 1999  │
+│ Astérix et les Normands  │ 2005  │
+│ Astérix en Corse         │ 2005  │
+│ Astérix chez les Bretons │ 2002  │
+│ Astérix chez les Belges  │ 1979  │
+└──────────────────────────┴───────┘
+Question 4 :
+┌──────────────────────────┬───────┐
+│          titre           │ année │
+├──────────────────────────┼───────┤
+│ Astérix chez les Belges  │ 1979  │
+│ Astérix et Cléopâtre     │ 1999  │
+│ Astérix chez les Bretons │ 2002  │
+│ Astérix et les Normands  │ 2005  │
+│ Astérix en Corse         │ 2005  │
+└──────────────────────────┴───────┘
+Question 5 :
+┌─────────────────────────────┐
+│            titre            │
+├─────────────────────────────┤
+│ Les Monades urbaines        │
+│ Le Château de Lord Valentin │
+└─────────────────────────────┘
+Question 6 :
+┌────────┐
+│ nombre │
+├────────┤
+│ 12     │
+└────────┘
+Question 7 :
+┌─────────────────────────┬────────────────┬───────┐
+│          titre          │      isbn      │ année │
+├─────────────────────────┼────────────────┼───────┤
+│ Astérix chez les Belges │ 978-2012101562 │ 1979  │
+└─────────────────────────┴────────────────┴───────┘
+Question 8 :
+┌───────────────────────────────┐
+│            éditeur            │
+├───────────────────────────────┤
+│ adsaa                         │
+│ Dargaud                       │
+│ Editions Gallimard            │
+│ Editions Présence Africaine   │
+│ FeniXX                        │
+│ Gallimard Education           │
+│ Les Éditions de l'Ebook malin │
+│ New York : Grove Press        │
+│ Presses Pocket                │
+└───────────────────────────────┘
+Question 9 :
+┌────────────────┬─────────────┐
+│      ISBN      │ chez Hatier │
+├────────────────┼─────────────┤
+│ 978-2218972324 │ oui         │
+└────────────────┴─────────────┘
+┌────────────────┬─────────────┐
+│      ISBN      │ chez Hatier │
+├────────────────┼─────────────┤
+│ 978-2218972325 │ non         │
+└────────────────┴─────────────┘
+Question 10 :
+┌─────────────────────────────┬────────┐
+│           éditeur           │ nombre │
+├─────────────────────────────┼────────┤
+│ Editions Albert René        │ 3      │
+│ FeniXX                      │ 3      │
+│ Primento                    │ 3      │
+│ Addison-Wesley Professional │ 4      │
+│ Flammarion                  │ 4      │
+│ Contemporary French Fiction │ 5      │
+│ Dargaud                     │ 5      │
+│ Gallimard Education         │ 5      │
+│ Robert Laffont              │ 5      │
+│ J'ai Lu                     │ 6      │
+│ Educa Books                 │ 7      │
+│ Editions Gallimard          │ 10     │
+└─────────────────────────────┴────────┘
