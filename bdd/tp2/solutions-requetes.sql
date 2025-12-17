@@ -1,0 +1,10 @@
+SELECT titre FROM LIVRES INNER JOIN AUTEURS ON LIVRES.id_auteur = AUTEURS.id WHERE nom="Barjavel";
+SELECT nom, prenom, ann_publi FROM AUTEURS INNER JOIN LIVRES ON LIVRES.id_auteur = AUTEURS.id WHERE titre="1984";
+SELECT count(*) FROM LIVRES INNER JOIN AUTEURS ON LIVRES.id_auteur = AUTEURS.id  WHERE nom="Bradbury";
+SELECT count(*) FROM LIVRES INNER JOIN AUTEURS ON LIVRES.id_auteur = AUTEURS.id  WHERE ann_naissance>1900;
+SELECT avg(note) FROM LIVRES INNER JOIN AUTEURS ON LIVRES.id_auteur = AUTEURS.id WHERE nom="Barjavel";
+SELECT titre,note FROM LIVRES INNER JOIN AUTEURS ON LIVRES.id_auteur = AUTEURS.id WHERE langue_ecriture="français";
+SELECT nom FROM LIVRES INNER JOIN AUTEURS ON LIVRES.id_auteur = AUTEURS.id GROUP BY nom HAVING count(*)>=2;
+SELECT count(*),langue_ecriture FROM AUTEURS GROUP BY langue_ecriture;
+SELECT nom,avg(note) FROM LIVRES INNER JOIN AUTEURS ON LIVRES.id_auteur = AUTEURS.id GROUP BY nom ORDER BY avg(note);
+SELECT titre,nom,note FROM LIVRES INNER JOIN AUTEURS ON LIVRES.id_auteur = AUTEURS.id WHERE note>=8 ORDER BY note DESC;
