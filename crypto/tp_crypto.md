@@ -4,6 +4,9 @@
 
 > Voir la page web [Pixees](https://informatique-lycee.forge.apps.education.fr/terminale_nsi/cours-terminale/c12c/)
 
+> Voir la page web [Lycée Saint-Aspais](https://mcoilhac.forge.apps.education.fr/term/cryptographie/1_securite_comm/#decouverte)
+
+
 ## Synthèse
 
 1. Donnez les différences entre chiffrement **symétrique** et **asymétrique**
