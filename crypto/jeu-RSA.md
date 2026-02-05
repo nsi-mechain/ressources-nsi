@@ -17,9 +17,9 @@ Le message à transmettre est un **entier strictement inférieur à 100**.
 Alice choisit **deux nombres premiers distincts**, notés p et q.
 
 **Contraintes :**
-- p ≠ q
+- p différent de q
 - p et q doivent être premiers
-- ils doivent être choisis **uniquement dans la liste suivante**
+- pour le jeu, ils doivent être choisis **uniquement dans la liste suivante**
 
 **Liste complète des valeurs possibles :**
 11, 13, 17, 19, 23, 29
