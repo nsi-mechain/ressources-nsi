@@ -1,0 +1,14 @@
+Classe
+Objet
+Instance
+Attribut
+Méthode
+self
+__init__
+Constructeur
+Instanciation
+Propriété
+Fonction membre
+Méthode spéciale
+__repr__
+__str__
