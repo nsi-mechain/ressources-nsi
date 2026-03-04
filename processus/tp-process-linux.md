@@ -51,7 +51,7 @@ Nous allons maintenant créer nos propres processus pour observer la relation P�
 
 ### 📝 Le Script `famille.py`
 
-Copiez le code suivant dans un fichier nommé `famille.py` :
+Utilisez le script [`famille.py`](famille.py) :
 
 ```python
 import os
