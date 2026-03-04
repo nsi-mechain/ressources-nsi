@@ -1,2 +1,2 @@
 - Cours et exercices : https://mcoilhac.forge.apps.education.fr/term/processus/1_processus/
-- TP à rendre sur GitHub en markdown : [tp-process-linux.md](tp-process.md)
+- TP à rendre sur GitHub en markdown : [tp-process-linux.md](tp-process-linux.md)
