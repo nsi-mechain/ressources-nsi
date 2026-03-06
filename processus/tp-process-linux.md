@@ -56,7 +56,7 @@ Utilisez le script [`famille.py`](famille.py) :
 ### 🔍 Manipulation
 
 1. Lancez le script dans un terminal : `python3 famille.py`.
-2. **Laissez-le tourner** et ouvrez un **deuxième terminal**.
+2. **Laissez-le tourner** et ouvrez un **deuxième terminal** (ou scindez Konsole).
 3. Tapez la commande de filtrage : `ps -ef | grep python3`.
 * Combien de processus `python3` voyez-vous (excluez la ligne du `grep` lui-même) ?
 * Vérifiez que le **PPID** du deuxième processus correspond bien au **PID** du premier.
