@@ -61,6 +61,7 @@ Utilisez le script [`famille.py`](famille.py) :
 * Combien de processus `python3` voyez-vous (excluez la ligne du `grep` lui-même) ?
 * Vérifiez que le **PPID** du deuxième processus correspond bien au **PID** du premier.
 * Expliquez le rôle du caractère "pipe" (`|`) dans cette commande.
+* Recommencez en utilisant `htop`
 
 
 
